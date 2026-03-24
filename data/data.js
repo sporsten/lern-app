@@ -1261,18 +1261,9 @@ G\u00fcnstigerpr\u00fcfung: Wenn pers\u00f6nlicher Steuersatz unter 25%, kann ma
           aufgabe: `Ordne die drei T\u00e4tigkeiten den Einkunftsarten zu und gib die jeweiligen Paragraphen an.`,
           hinweis: `Steuerberater = freier Beruf. Vermietung hat eine eigene Einkunftsart. Zinsen geh\u00f6ren zu Kapitalverm\u00f6gen.`,
           loesung: [
-            {
-              schritt: "Steuerberaterin (selbst\u00e4ndig)",
-              erklaerung: `Steuerberater ist ein <strong>freier Beruf</strong> \u2192 Eink\u00fcnfte aus <strong>selbst\u00e4ndiger Arbeit</strong> \u00a7 18 EStG (KEINE Eink\u00fcnfte aus Gewerbebetrieb!)`
-            },
-            {
-              schritt: "Vermietung der Eigentumswohnung",
-              erklaerung: `Vermietung einer Immobilie \u2192 Eink\u00fcnfte aus <strong>Vermietung und Verpachtung</strong> \u00a7 21 EStG`
-            },
-            {
-              schritt: "Zinsen auf Tagesgeldkonto",
-              erklaerung: `Zinsertr\u00e4ge = Eink\u00fcnfte aus <strong>Kapitalverm\u00f6gen</strong> \u00a7 20 EStG \u2192 Abgeltungsteuer 25%`
-            }
+            `<strong>Steuerberaterin (selbständig):</strong><br>Steuerberater ist ein <strong>freier Beruf</strong> → Einkünfte aus <strong>selbständiger Arbeit</strong> § 18 EStG (KEINE Einkünfte aus Gewerbebetrieb!)`,
+            `<strong>Vermietung der Eigentumswohnung:</strong><br>Vermietung einer Immobilie → Einkünfte aus <strong>Vermietung und Verpachtung</strong> § 21 EStG`,
+            `<strong>Zinsen auf Tagesgeldkonto:</strong><br>Zinserträge = Einkünfte aus <strong>Kapitalvermögen</strong> § 20 EStG → Abgeltungsteuer 25%`
           ],
           ergebnis: `Petra hat Eink\u00fcnfte aus drei verschiedenen Einkunftsarten: \u00a718 (selbst\u00e4ndig), \u00a721 (V&V), \u00a720 (Kapital). Alle werden separat ermittelt und dann zusammengez\u00e4hlt.`
         },
@@ -1282,18 +1273,9 @@ G\u00fcnstigerpr\u00fcfung: Wenn pers\u00f6nlicher Steuersatz unter 25%, kann ma
           aufgabe: `Welche Einkunftsart erzielt Max? Welche Tom? Warum ist das relevant?`,
           hinweis: `Softwareentwicklung kann Gewerbe oder freier Beruf sein \u2013 die Abgrenzung ist gar nicht so einfach!`,
           loesung: [
-            {
-              schritt: "Max (Gewerbeschein)",
-              erklaerung: `Max hat Gewerbeschein \u2192 <strong>Eink\u00fcnfte aus Gewerbebetrieb \u00a7 15</strong>. Er zahlt zus\u00e4tzlich <strong>Gewerbesteuer</strong> (wird aber auf ESt angerechnet).`
-            },
-            {
-              schritt: "Tom (freiberuflich)",
-              erklaerung: `IT-Berater/Programmierer k\u00f6nnen unter \u00a718 fallen, wenn ihre T\u00e4tigkeit \u00fcberwiegend <strong>sch\u00f6pferisch-intellektuell</strong> ist. Tom \u2192 <strong>selbst\u00e4ndige Arbeit \u00a7 18</strong> \u2013 keine GewSt!`
-            },
-            {
-              schritt: "Relevanz des Unterschieds",
-              erklaerung: `Tom spart die Gewerbesteuer! Bei \u00a718: nur ESt. Bei \u00a715: ESt + GewSt (auch wenn GewSt angerechnet wird, bleibt manchmal Mehrbelastung).`
-            }
+            `<strong>Max (Gewerbeschein):</strong><br>Max hat Gewerbeschein → <strong>Einkünfte aus Gewerbebetrieb § 15</strong>. Er zahlt zusätzlich <strong>Gewerbesteuer</strong> (wird aber auf ESt angerechnet).`,
+            `<strong>Tom (freiberuflich):</strong><br>IT-Berater/Programmierer können unter §18 fallen, wenn ihre Tätigkeit überwiegend <strong>schöpferisch-intellektuell</strong> ist. Tom → <strong>selbständige Arbeit § 18</strong> – keine GewSt!`,
+            `<strong>Relevanz des Unterschieds:</strong><br>Tom spart die Gewerbesteuer! Bei §18: nur ESt. Bei §15: ESt + GewSt (auch wenn GewSt angerechnet wird, bleibt manchmal Mehrbelastung).`
           ],
           ergebnis: `Die Einordnung als Freiberufler (\u00a718) statt Gewerbebetrieb (\u00a715) spart die Gewerbesteuer und vereinfacht die Buchf\u00fchrung erheblich.`
         }
@@ -1425,18 +1407,9 @@ Kapitalverluste = "gefangen" im Topf Kapitalverm\u00f6gen. Kein Ausgleich mit an
           aufgabe: `Wie kann Sandra ihre Verluste ausgleichen? Wie hoch ist ihr zu versteuerndes Einkommen?`,
           hinweis: `Mieteinnahmen - Werbungskosten = Verlust V&V. Aktienverkaufsverlust hat eine Sonderregel.`,
           loesung: [
-            {
-              schritt: "Einkunftsermittlung",
-              erklaerung: `V&V: 15.000 - 20.000 = <strong>-5.000 \u20ac</strong> (Verlust!)<br>Nichtselbst\u00e4ndig: <strong>+50.000 \u20ac</strong><br>Aktienverkauf: <strong>-3.000 \u20ac</strong>`
-            },
-            {
-              schritt: "Vertikaler Verlustausgleich",
-              erklaerung: `V&V-Verlust (-5.000 \u20ac) kann mit Gehalt (50.000 \u20ac) verrechnet werden \u2192 vertikaler Ausgleich erlaubt!<br>Ergebnis: 50.000 - 5.000 = <strong>45.000 \u20ac</strong>`
-            },
-            {
-              schritt: "Aktienverkaufsverlust",
-              erklaerung: `<strong>Achtung:</strong> Aktienverkaufsverluste k\u00f6nnen <strong>nicht</strong> mit anderen Einkunftsarten verrechnet werden! Der Verlust von 3.000 \u20ac wird vorgetragen und kann nur mit k\u00fcnftigen Aktiengewinnen verrechnet werden.`
-            }
+            `<strong>Einkunftsermittlung:</strong><br>V&V: 15.000 - 20.000 = <strong>-5.000 €</strong> (Verlust!)<br>Nichtselbständig: <strong>+50.000 €</strong><br>Aktienverkauf: <strong>-3.000 €</strong>`,
+            `<strong>Vertikaler Verlustausgleich:</strong><br>V&V-Verlust (-5.000 €) kann mit Gehalt (50.000 €) verrechnet werden → vertikaler Ausgleich erlaubt!<br>Ergebnis: 50.000 - 5.000 = <strong>45.000 €</strong>`,
+            `<strong>Aktienverkaufsverlust:</strong><br><strong>Achtung:</strong> Aktienverkaufsverluste können <strong>nicht</strong> mit anderen Einkunftsarten verrechnet werden! Der Verlust von 3.000 € wird vorgetragen und kann nur mit künftigen Aktiengewinnen verrechnet werden.`
           ],
           ergebnis: `Sandras zvE = 45.000 \u20ac (nach V&V-Verlustausgleich). Aktienverkaufsverlust = 3.000 \u20ac Verlustvortrag f\u00fcr zuk\u00fcnftige Aktiengewinne.`
         }
@@ -1632,10 +1605,10 @@ D: Arbeitet in Kufstein, hat Mietwohnung in Rosenheim</p>`,
           aufgabe: `Wende das 3-Stufen-Pr\u00fcfschema an. Welche Steuerpflicht liegt jeweils vor?`,
           hinweis: `Starte immer mit \u00a71 Abs. 1, dann \u00a71 Abs. 3, dann \u00a71 Abs. 4. Notiere jeden Pr\u00fcfschritt!`,
           loesung: [
-            { schritt: "A: Wohnsitz Rosenheim + Florenz", erklaerung: `\u00a71 Abs. 1: nat. Person \u2713 | \u00a78 AO Wohnsitz DE \u2713 \u2192 <strong>normale unbeschr\u00e4nkte Steuerpflicht</strong>` },
-            { schritt: "B: Wohnsitz Florenz, Hotel 8 Monate", erklaerung: `\u00a71 Abs. 1: nat. Person \u2713 | \u00a78 AO kein Wohnsitz \u2715 | \u00a79 AO gew. Aufenthalt >6 Monate \u2713 \u2192 <strong>normale unbeschr\u00e4nkte Steuerpflicht</strong>` },
-            { schritt: "C: Kufstein, Grenzpendler", erklaerung: `\u00a71 Abs. 1: kein DE-Wohnsitz/-Aufenthalt \u2715 | \u00a71 Abs. 3: alle Voraussetzungen \u2713 \u2192 <strong>fiktiv unbeschr\u00e4nkte Steuerpflicht</strong>` },
-            { schritt: "D: Kufstein, Mietwohnung Rosenheim", erklaerung: `\u00a71 Abs. 1: kein Wohnsitz \u2715 | \u00a71 Abs. 3: 90%-Grenze nicht erf\u00fcllt \u2715 | \u00a71 Abs. 4: inl. Eink. (\u00a749 Abs. 1 Nr. 6) \u2713 \u2192 <strong>beschr\u00e4nkte Steuerpflicht</strong>` }
+            `<strong>A: Wohnsitz Rosenheim + Florenz:</strong><br>§1 Abs. 1: nat. Person ✓ | §8 AO Wohnsitz DE ✓ → <strong>normale unbeschränkte Steuerpflicht</strong>`,
+            `<strong>B: Wohnsitz Florenz, Hotel 8 Monate:</strong><br>§1 Abs. 1: nat. Person ✓ | §8 AO kein Wohnsitz ✗ | §9 AO gew. Aufenthalt >6 Monate ✓ → <strong>normale unbeschränkte Steuerpflicht</strong>`,
+            `<strong>C: Kufstein, Grenzpendler:</strong><br>§1 Abs. 1: kein DE-Wohnsitz/-Aufenthalt ✗ | §1 Abs. 3: alle Voraussetzungen ✓ → <strong>fiktiv unbeschränkte Steuerpflicht</strong>`,
+            `<strong>D: Kufstein, Mietwohnung Rosenheim:</strong><br>§1 Abs. 1: kein Wohnsitz ✗ | §1 Abs. 3: 90%-Grenze nicht erfüllt ✗ | §1 Abs. 4: inl. Eink. (§49 Abs. 1 Nr. 6) ✓ → <strong>beschränkte Steuerpflicht</strong>`
           ],
           ergebnis: `Merke: Immer in Reihenfolge pr\u00fcfen! Sobald eine Stufe erf\u00fcllt ist, ben\u00f6tigt man die n\u00e4chste nicht mehr zu pr\u00fcfen.`
         }
@@ -2107,18 +2080,9 @@ Dokumentation, Kommunikation, Optimierung, IT-Implementierung. Ohne Modell kein 
           aufgabe: `Analysiere den Prozess nach dem WI-Framework: Was sind Schwachstellen? Wie kann IT den Prozess verbessern?`,
           hinweis: `Suche nach manuellen Schritten, Medienbrüchen und fehlenden Automatisierungen.`,
           loesung: [
-            {
-              schritt: "Schwachstellen identifizieren",
-              erklaerung: `Medienbruch 1: Bestellung \u2192 manuelles Eintippen<br>Medienbruch 2: DHL-Buchung manuell<br>Medienbruch 3: Kundeninfo per Brief<br>Fehlende Integration: Shop, Lager, Versand in verschiedenen Systemen`
-            },
-            {
-              schritt: "IT-Optimierung",
-              erklaerung: `ERP-System: Bestellung l\u00e4uft automatisch ins Lagersystem<br>Schnittstelle DHL-API: Versandetikett automatisch generiert<br>E-Mail-Automatisierung: Kunde erh\u00e4lt sofort Trackingnummer`
-            },
-            {
-              schritt: "Ergebnis der IT-Unterst\u00fctzung",
-              erklaerung: `Manueller Eingriff eliminiert. Lieferzeit reduziert auf 1-2 Tage. Mitarbeiter frei f\u00fcr wertsch\u00f6pfende Aufgaben.`
-            }
+            `<strong>Schwachstellen identifizieren:</strong><br>Medienbruch 1: Bestellung → manuelles Eintippen<br>Medienbruch 2: DHL-Buchung manuell<br>Medienbruch 3: Kundeninfo per Brief<br>Fehlende Integration: Shop, Lager, Versand in verschiedenen Systemen`,
+            `<strong>IT-Optimierung:</strong><br>ERP-System: Bestellung l\u00e4uft automatisch ins Lagersystem<br>Schnittstelle DHL-API: Versandetikett automatisch generiert<br>E-Mail-Automatisierung: Kunde erh\u00e4lt sofort Trackingnummer`,
+            `<strong>Ergebnis der IT-Unterst\u00fctzung:</strong><br>Manueller Eingriff eliminiert. Lieferzeit reduziert auf 1-2 Tage. Mitarbeiter frei f\u00fcr wertsch\u00f6pfende Aufgaben.`
           ],
           ergebnis: `IT-Unterst\u00fctzung beseitigt Medienbrüche und automatisiert den Kernprozess "Auftragsabwicklung". Wettbewerbsvorteil durch IT!`
         },
