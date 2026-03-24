@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lern-App</title>
+  <script src="data/data.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --text: #1E293B;
+      --text-light: #64748B;
+      --border: #E2E8F0;
+      --success: #10B981;
+      --error: #EF4444;
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.06);
+      --shadow-hover: 0 8px 32px rgba(0,0,0,0.12);
+      --accent: #667EEA;
+      --accent2: #764BA2;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      color: white;
+      padding: 32px 24px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      transition: background 0.5s ease;
+    }
+    .header h1 { font-size: 28px; font-weight: 700; }
+    .header p { opacity: 0.9; margin-top: 4px; font-size: 14px; }
+    .header .back-btn {
+      position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.2); border: none; color: white;
+      width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+      font-size: 20px; display: none; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .header .back-btn:hover { background: rgba(255,255,255,0.3); }
+    .header .back-btn.visible { display: flex; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
+
+    .fach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px; margin-top: 8px;
+    }
+    .fach-card {
+      background: var(--card); border-radius: var(--radius);
+      padding: 28px 24px; cursor: pointer; transition: all 0.3s ease;
+      box-shadow: var(--shadow); border-left: 5px solid var(--fach-color);
+      position: relative; overflow: hidden;
+    }
+    .fach-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .fach-card .icon { font-size: 36px; margin-bottom: 12px; }
+    .fach-card h2 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .fach-card .themen-count { color: var(--text-light); font-size: 14px; }
+    .fach-card .progress-bar { height: 6px; background: #E2E8F0; border-radius: 3px; margin-top: 16px; overflow: hidden; }
+    .fach-card .progress-fill { height: 100%; border-radius: 3px; transition: width 0.5s ease; }
+    .fach-card .progress-text { font-size: 12px; color: var(--text-light); margin-top: 6px; text-align: right; }
+
+    .themen-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 24px; padding: 20px; background: var(--card);
+      border-radius: var(--radius); box-shadow: var(--shadow);
+    }
+    .themen-header .fach-icon { font-size: 40px; }
+    .themen-header h2 { font-size: 22px; }
+    .themen-header .stats { color: var(--text-light); font-size: 14px; }
+
+    .thema-card {
+      background: var(--card); border-radius: var(--radius);
+      margin-bottom: 12px; box-shadow: var(--shadow);
+      overflow: hidden; transition: all 0.2s;
+    }
+    .thema-card:hover { box-shadow: var(--shadow-hover); }
+    .thema-title {
+      padding: 20px 24px; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      font-weight: 600; font-size: 16px;
+    }
+    .thema-title .arrow { transition: transform 0.3s; color: var(--text-light); }
+    .thema-title.open .arrow { transform: rotate(90deg); }
+    .thema-modes { display: none; padding: 0 24px 20px; gap: 10px; flex-wrap: wrap; }
+    .thema-modes.open { display: flex; }
+    .mode-btn {
+      padding: 10px 20px; border-radius: 12px; border: 2px solid var(--border);
+      background: white; cursor: pointer; font-size: 14px; font-weight: 500;
+      transition: all 0.2s; display: flex; align-items: center; gap: 8px;
+    }
+    .mode-btn:hover { border-color: var(--accent); background: #F0F0FF; }
+    .mode-btn .mode-icon { font-size: 18px; }
+
+    .lern-area {
+      background: var(--card); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 32px 28px; margin-top: 20px;
+    }
+    .lern-area h3 {
+      font-size: 20px; margin-bottom: 20px;
+      padding-bottom: 12px; border-bottom: 2px solid var(--border);
+    }
+
+    /* ===== Erklaerungen ===== */
+    .erk-kapitel {
+      margin-bottom: 20px; border-radius: 14px;
+      border: 1px solid var(--border); overflow: hidden; background: white;
+    }
+    .erk-kapitel-header {
+      padding: 18px 22px; cursor: pointer; font-weight: 700; font-size: 16px;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: background 0.2s; border-left: 5px solid var(--accent); background: #FAFBFE;
+    }
+    .erk-kapitel-header:hover { background: #F1F3FB; }
+    .erk-kapitel-header .erk-arrow { transition: transform 0.3s; font-size: 12px; color: var(--text-light); }
+    .erk-kapitel-header.open .erk-arrow { transform: rotate(90deg); }
+    .erk-kapitel-body { display: none; }
+    .erk-kapitel-body.open { display: block; }
+    .erk-content { padding: 20px 22px; font-size: 15px; line-height: 1.7; }
+    .erk-content p { margin-bottom: 12px; }
+    .erk-content ul, .erk-content ol { margin: 10px 0 10px 20px; }
+    .erk-content li { margin-bottom: 6px; }
+
+    .def-box {
+      background: linear-gradient(135deg, #EEF2FF, #E0E7FF);
+      border-left: 4px solid #6366F1; padding: 14px 18px;
+      border-radius: 0 10px 10px 0; margin: 12px 0; font-size: 14px;
+    }
+    .def-box .def-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: #6366F1; margin-bottom: 4px;
+    }
+    .merk-box {
+      background: linear-gradient(135deg, #FFF7ED, #FFEDD5);
+      border-left: 4px solid #F97316; padding: 14px 18px;
+      border-radius: 0 10px 10px 0; margin: 12px 0; font-size: 14px;
+    }
+    .merk-box .merk-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: #F97316; margin-bottom: 4px;
+    }
+    .beispiel-box {
+      background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
+      border-left: 4px solid #10B981; padding: 14px 18px;
+      border-radius: 0 10px 10px 0; margin: 12px 0; font-size: 14px;
+    }
+    .beispiel-box .bsp-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: #10B981; margin-bottom: 4px;
+    }
+    .tipp-box {
+      background: linear-gradient(135deg, #F5F3FF, #EDE9FE);
+      border-left: 4px solid #8B5CF6; padding: 14px 18px;
+      border-radius: 0 10px 10px 0; margin: 12px 0; font-size: 14px;
+    }
+    .tipp-box .tipp-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: #8B5CF6; margin-bottom: 4px;
+    }
+
+    .erk-table {
+      width: 100%; border-collapse: collapse; margin: 14px 0;
+      font-size: 14px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border);
+    }
+    .erk-table th {
+      background: #F1F5F9; padding: 10px 14px; text-align: left;
+      font-weight: 600; font-size: 13px; border-bottom: 2px solid var(--border);
+    }
+    .erk-table td { padding: 10px 14px; border-bottom: 1px solid #F1F5F9; }
+    .erk-table tr:last-child td { border-bottom: none; }
+    .erk-table tr:hover td { background: #FAFBFE; }
+
+    .erk-tree {
+      margin: 14px 0; padding: 16px; background: #FAFBFE;
+      border-radius: 12px; border: 1px solid #E2E8F0;
+    }
+    .erk-tree .tree-root {
+      text-align: center; font-weight: 700; padding: 10px 20px;
+      background: var(--accent); color: white; border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    .erk-tree .tree-branches { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .erk-tree .tree-branch {
+      flex: 1; min-width: 100px; max-width: 200px;
+      background: white; border: 2px solid var(--accent);
+      border-radius: 8px; padding: 10px 12px; text-align: center;
+      font-size: 13px; font-weight: 500;
+    }
+
+    .detail-box {
+      margin: 12px 0; border-radius: 10px; border: 1px solid #E2E8F0; overflow: hidden;
+    }
+    .detail-box-header {
+      padding: 10px 16px; cursor: pointer; display: flex; align-items: center;
+      justify-content: space-between; background: #F8FAFC; font-size: 14px; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .detail-box-header:hover { background: #F1F5F9; }
+    .detail-box-header .detail-icon {
+      width: 22px; height: 22px; border-radius: 50%; background: var(--accent);
+      color: white; display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; transition: transform 0.3s; flex-shrink: 0;
+    }
+    .detail-box-header.open .detail-icon { transform: rotate(45deg); }
+    .detail-box-body {
+      display: none; padding: 12px 16px; font-size: 13px; line-height: 1.6;
+      background: white; border-top: 1px solid #E2E8F0;
+    }
+    .detail-box-body.open { display: block; animation: fadeIn 0.2s ease; }
+
+    .flip-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+    .flip-card {
+      flex: 1; min-width: 140px; max-width: 220px; height: 140px;
+      perspective: 600px; cursor: pointer;
+    }
+    .flip-card-inner {
+      width: 100%; height: 100%; position: relative;
+      transition: transform 0.5s; transform-style: preserve-3d;
+    }
+    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+    .flip-card-front, .flip-card-back {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      backface-visibility: hidden; border-radius: 10px; padding: 12px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; font-size: 13px; line-height: 1.4;
+      overflow: hidden; word-break: break-word;
+    }
+    .flip-card-front {
+      background: linear-gradient(135deg, #EEF2FF, #E0E7FF);
+      border: 2px solid #C7D2FE; font-weight: 700; color: #4338CA;
+    }
+    .flip-card-back {
+      background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
+      border: 2px solid #6EE7B7; color: #065F46;
+      transform: rotateY(180deg); font-size: 12px;
+    }
+    .flip-hint { font-size: 11px; color: var(--text-light); margin-bottom: 6px; font-style: italic; }
+
+    /* ===== Schritt-für-Schritt-Karten ===== */
+    .schritte-container {
+      margin: 14px 0; padding: 0 22px 16px;
+    }
+    .schritte-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: #0EA5E9; margin-bottom: 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .schritte-dots {
+      display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap;
+    }
+    .schritt-dot {
+      width: 28px; height: 28px; border-radius: 50%; border: 2px solid #BAE6FD;
+      background: white; font-size: 11px; font-weight: 700; color: #0EA5E9;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .schritt-dot.active { background: #0EA5E9; color: white; border-color: #0EA5E9; transform: scale(1.1); }
+    .schritt-dot.done { background: #ECFDF5; border-color: #6EE7B7; color: #059669; }
+    .schritt-card {
+      background: linear-gradient(135deg, #F0F9FF, #E0F2FE);
+      border: 2px solid #BAE6FD; border-radius: 14px;
+      padding: 20px 22px; position: relative; animation: fadeIn 0.3s ease;
+    }
+    .schritt-card-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+    }
+    .schritt-num {
+      width: 32px; height: 32px; border-radius: 50%; background: #0EA5E9;
+      color: white; font-weight: 700; font-size: 14px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .schritt-titel {
+      font-weight: 700; font-size: 15px; color: #0C4A6E;
+    }
+    .schritt-inhalt {
+      font-size: 14px; line-height: 1.7; color: var(--text);
+    }
+    .schritt-inhalt p { margin-bottom: 10px; }
+    .schritt-nav {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 16px;
+    }
+    .schritt-counter { font-size: 12px; color: #0369A1; font-weight: 600; }
+    .schritt-btn {
+      padding: 8px 20px; border-radius: 10px; border: none;
+      font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+    }
+    .schritt-btn-next { background: #0EA5E9; color: white; }
+    .schritt-btn-next:hover { background: #0284C7; transform: translateY(-1px); }
+    .schritt-btn-prev { background: #F1F5F9; color: var(--text); }
+    .schritt-btn-prev:hover { background: #E2E8F0; }
+    .schritt-done-badge {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
+      background: #ECFDF5; border: 1px solid #6EE7B7; border-radius: 20px;
+      padding: 6px 14px; font-size: 12px; font-weight: 600; color: #059669;
+    }
+
+    .erk-kapitel-progress {
+      height: 4px; background: #E2E8F0; border-radius: 2px; margin: 0;
+      overflow: hidden;
+    }
+    .erk-kapitel-progress-fill {
+      height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px; transition: width 0.5s ease;
+    }
+
+    .mini-quiz {
+      margin-top: 16px; padding: 18px;
+      background: linear-gradient(135deg, #FFF7ED, #FEF3C7);
+      border-radius: 12px; border: 2px solid #FCD34D;
+    }
+    .mini-quiz .mq-header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;
+    }
+    .mini-quiz .mq-label {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: #D97706;
+    }
+    .mini-quiz .mq-progress {
+      font-size: 12px; color: #D97706; font-weight: 600;
+    }
+    .mini-quiz .mq-dots {
+      display: flex; gap: 6px; margin-bottom: 14px;
+    }
+    .mini-quiz .mq-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: #E5E7EB; transition: all 0.3s;
+    }
+    .mini-quiz .mq-dot.active { background: #D97706; transform: scale(1.2); }
+    .mini-quiz .mq-dot.done-right { background: var(--success); }
+    .mini-quiz .mq-dot.done-wrong { background: var(--error); }
+    .mini-quiz .mq-frage { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+    .mini-quiz .mq-optionen { display: flex; flex-direction: column; gap: 8px; }
+    .mini-quiz .mq-option {
+      padding: 10px 16px; border: 2px solid #E5E7EB; border-radius: 10px;
+      cursor: pointer; font-size: 14px; background: white; transition: all 0.2s;
+    }
+    .mini-quiz .mq-option:hover:not(.mq-disabled) { border-color: #D97706; background: #FFFBEB; }
+    .mini-quiz .mq-option.mq-richtig { border-color: var(--success); background: #ECFDF5; }
+    .mini-quiz .mq-option.mq-falsch { border-color: var(--error); background: #FEF2F2; }
+    .mini-quiz .mq-option.mq-disabled { cursor: default; opacity: 0.7; }
+    .mini-quiz .mq-erklaerung {
+      margin-top: 10px; padding: 10px 14px; font-size: 13px;
+      background: rgba(255,255,255,0.7); border-radius: 8px; display: none;
+    }
+    .mini-quiz .mq-erklaerung.visible { display: block; }
+    .mini-quiz .mq-nav {
+      margin-top: 12px; display: flex; justify-content: flex-end;
+    }
+    .mini-quiz .mq-next {
+      padding: 8px 20px; border-radius: 8px; border: none; font-size: 13px;
+      font-weight: 600; cursor: pointer; background: #D97706; color: white;
+      transition: all 0.2s; display: none;
+    }
+    .mini-quiz .mq-next:hover { background: #B45309; }
+    .mini-quiz .mq-result {
+      text-align: center; padding: 16px; display: none;
+    }
+    .mini-quiz .mq-result .mq-score { font-size: 28px; font-weight: 700; color: #D97706; }
+    .mini-quiz .mq-result .mq-msg { font-size: 14px; margin-top: 4px; color: var(--text-light); }
+
+    /* Quiz */
+    .quiz-progress {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 24px; font-size: 14px; color: var(--text-light);
+    }
+    .quiz-progress-bar { flex: 1; height: 8px; background: #E2E8F0; border-radius: 4px; }
+    .quiz-progress-fill {
+      height: 100%; border-radius: 4px; transition: width 0.3s;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+    .quiz-frage { font-size: 18px; font-weight: 600; margin-bottom: 20px; line-height: 1.5; }
+    .quiz-optionen { display: flex; flex-direction: column; gap: 10px; }
+    .quiz-option {
+      padding: 14px 20px; border: 2px solid var(--border); border-radius: 12px;
+      cursor: pointer; transition: all 0.2s; font-size: 15px; background: white;
+    }
+    .quiz-option:hover:not(.disabled) { border-color: var(--accent); background: #F0F0FF; }
+    .quiz-option.richtig { border-color: var(--success); background: #ECFDF5; }
+    .quiz-option.falsch { border-color: var(--error); background: #FEF2F2; }
+    .quiz-option.disabled { cursor: default; opacity: 0.7; }
+    .quiz-option.highlight { border-color: var(--success); }
+    .quiz-erklaerung {
+      margin-top: 16px; padding: 16px 20px; background: #F0FDF4;
+      border-radius: 12px; border: 1px solid #BBF7D0; display: none;
+    }
+    .quiz-erklaerung.visible { display: block; }
+    .quiz-erklaerung.wrong { background: #FEF2F2; border-color: #FECACA; }
+    .quiz-nav { margin-top: 20px; display: flex; justify-content: flex-end; }
+    .quiz-info {
+      background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 10px;
+      padding: 12px 16px; margin-bottom: 20px; font-size: 13px; color: #0369A1;
+    }
+
+    /* Lueckentext */
+    .luecken-text { font-size: 17px; line-height: 2; margin-bottom: 20px; }
+    .luecke-input {
+      border: none; border-bottom: 2px solid var(--accent);
+      background: transparent; font-size: 16px; padding: 2px 8px;
+      min-width: 120px; outline: none; font-family: inherit; text-align: center;
+      transition: border-color 0.2s;
+    }
+    .luecke-input:focus { border-color: var(--accent2); }
+    .luecke-input.richtig { border-color: var(--success); color: var(--success); }
+    .luecke-input.falsch { border-color: var(--error); color: var(--error); }
+
+    /* Drag & Drop */
+    .zuordnung-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .zuordnung-spalte h4 {
+      font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--text-light); margin-bottom: 12px;
+    }
+    .drag-item {
+      padding: 12px 16px; background: #F0F0FF; border: 2px solid #C7D2FE;
+      border-radius: 10px; margin-bottom: 8px; cursor: grab; font-size: 14px;
+      transition: all 0.2s; user-select: none;
+    }
+    .drag-item:active { cursor: grabbing; transform: scale(1.02); }
+    .drag-item.matched { background: #ECFDF5; border-color: #6EE7B7; opacity: 0.7; cursor: default; }
+    .drop-zone {
+      padding: 14px 16px; background: #FAFAFA; border: 2px dashed #D1D5DB;
+      border-radius: 10px; margin-bottom: 8px; min-height: 46px;
+      transition: all 0.2s; font-size: 14px;
+    }
+    .drop-zone.over { border-color: var(--accent); background: #F0F0FF; }
+    .drop-zone.matched { border-style: solid; border-color: #6EE7B7; background: #ECFDF5; }
+    .drop-zone.wrong { border-color: var(--error); background: #FEF2F2; animation: shake 0.3s; }
+
+    .ergebnis-box {
+      text-align: center; padding: 32px;
+      background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+      border-radius: var(--radius); margin-top: 20px;
+    }
+    .ergebnis-box .score { font-size: 48px; font-weight: 700; }
+    .ergebnis-box .label { color: var(--text-light); margin-top: 4px; }
+    .ergebnis-box .message { font-size: 18px; font-weight: 600; margin-top: 16px; }
+
+    .btn {
+      padding: 12px 28px; border-radius: 12px; border: none;
+      font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(102,126,234,0.4); }
+    .btn-secondary { background: #F1F5F9; color: var(--text); }
+    .btn-secondary:hover { background: #E2E8F0; }
+
+    .empty-state { text-align: center; padding: 60px 20px; color: var(--text-light); }
+    .empty-state .empty-icon { font-size: 64px; margin-bottom: 16px; }
+    .empty-state h3 { color: var(--text); margin-bottom: 8px; }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeIn 0.3s ease; }
+
+    @media (max-width: 600px) {
+      .fach-grid { grid-template-columns: 1fr; }
+      .zuordnung-container { grid-template-columns: 1fr; }
+      .header h1 { font-size: 22px; }
+      .lern-area { padding: 20px 16px; }
+      .erk-content { padding: 16px; }
+      .erk-tree .tree-branches { flex-direction: column; }
+      .erk-tree .tree-branch { max-width: 100%; }
+    }
+
+    .overall-progress {
+      background: var(--card); border-radius: var(--radius);
+      padding: 20px 24px; margin-bottom: 24px; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: 16px;
+    }
+    .overall-progress .ring { width: 60px; height: 60px; position: relative; }
+    .overall-progress .ring svg { transform: rotate(-90deg); }
+    .overall-progress .ring-text {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%); font-size: 14px; font-weight: 700;
+    }
+    .overall-progress .info h3 { font-size: 16px; }
+    .overall-progress .info p { font-size: 13px; color: var(--text-light); }
+
+    .rang-card {
+      background: var(--card); border-radius: var(--radius);
+      padding: 20px 24px; margin-bottom: 24px; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: 16px;
+      border-left: 5px solid #F59E0B;
+    }
+    .rang-icon { font-size: 42px; }
+    .rang-info { flex: 1; }
+    .rang-info .rang-name { font-size: 18px; font-weight: 700; color: var(--text); }
+    .rang-info .rang-punkte { font-size: 13px; color: var(--text-light); margin-top: 2px; }
+    .rang-bar { height: 8px; background: #E2E8F0; border-radius: 4px; margin-top: 8px; overflow: hidden; }
+    .rang-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #F59E0B, #EF4444); transition: width 0.5s ease; }
+    .rang-info .rang-next { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+
+    .rankup-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6); z-index: 999;
+      display: flex; align-items: center; justify-content: center;
+      animation: fadeIn 0.3s ease;
+    }
+    .rankup-box {
+      background: white; border-radius: 20px; padding: 40px 48px;
+      text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: rankPop 0.5s ease;
+    }
+    .rankup-box .rankup-icon { font-size: 64px; margin-bottom: 12px; }
+    .rankup-box .rankup-title { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: #F59E0B; font-weight: 700; }
+    .rankup-box .rankup-name { font-size: 26px; font-weight: 700; margin: 8px 0; }
+    .rankup-box .rankup-sub { font-size: 14px; color: var(--text-light); }
+    .rankup-box .rankup-close {
+      margin-top: 20px; padding: 10px 32px; border-radius: 10px; border: none;
+      background: linear-gradient(135deg, #F59E0B, #EF4444); color: white;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+    }
+    @keyframes rankPop {
+      0% { transform: scale(0.5); opacity: 0; }
+      70% { transform: scale(1.05); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .review-card {
+      background: linear-gradient(135deg, #FEF3C7, #FDE68A); border-radius: var(--radius);
+      padding: 20px 24px; margin-bottom: 16px; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: 16px; cursor: pointer;
+      transition: all 0.2s; border-left: 5px solid #F59E0B;
+    }
+    .review-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .review-card .review-icon { font-size: 36px; }
+    .review-card .review-info { flex: 1; }
+    .review-card .review-info h3 { font-size: 16px; font-weight: 700; }
+    .review-card .review-info p { font-size: 13px; color: #92400E; margin-top: 2px; }
+    .review-card .review-count {
+      background: #F59E0B; color: white; font-size: 18px; font-weight: 700;
+      width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .klausur-card {
+      background: linear-gradient(135deg, #EEF2FF, #C7D2FE); border-radius: var(--radius);
+      padding: 20px 24px; margin-bottom: 16px; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: 16px; cursor: pointer;
+      transition: all 0.2s; border-left: 5px solid #6366F1;
+    }
+    .klausur-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .klausur-card .klausur-icon { font-size: 36px; }
+    .klausur-card .klausur-info h3 { font-size: 16px; font-weight: 700; }
+    .klausur-card .klausur-info p { font-size: 13px; color: #4338CA; margin-top: 2px; }
+
+    .klausur-timer {
+      text-align: center; font-size: 32px; font-weight: 700; color: var(--accent);
+      margin-bottom: 20px; font-variant-numeric: tabular-nums;
+    }
+    .klausur-timer.warning { color: #F59E0B; }
+    .klausur-timer.danger { color: var(--error); animation: pulse 1s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+    .klausur-auswertung { margin-top: 20px; }
+    .klausur-thema-row {
+      display: flex; align-items: center; gap: 12px; padding: 10px 0;
+      border-bottom: 1px solid var(--border); font-size: 14px;
+    }
+    .klausur-thema-row:last-child { border-bottom: none; }
+    .klausur-thema-bar { flex: 1; height: 8px; background: #E2E8F0; border-radius: 4px; overflow: hidden; }
+    .klausur-thema-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s; }
+    .klausur-note {
+      font-size: 56px; font-weight: 700; margin: 8px 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .offen-input {
+      width: 100%; padding: 14px 20px; border: 2px solid var(--border); border-radius: 12px;
+      font-size: 16px; font-family: inherit; outline: none; transition: border-color 0.2s;
+      background: white;
+    }
+    .offen-input:focus { border-color: var(--accent); }
+    .offen-input.richtig { border-color: var(--success); background: #ECFDF5; }
+    .offen-input.falsch { border-color: var(--error); background: #FEF2F2; }
+    .offen-input:disabled { opacity: 0.8; }
+    .offen-muster {
+      margin-top: 10px; padding: 12px 16px; border-radius: 10px; font-size: 14px;
+      display: none;
+    }
+    .offen-muster.visible { display: block; }
+    .offen-muster.right { background: #F0FDF4; border: 1px solid #BBF7D0; }
+    .offen-muster.wrong { background: #FEF2F2; border: 1px solid #FECACA; }
+    .offen-tag {
+      display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 11px;
+      font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .offen-tag.mc { background: #EEF2FF; color: #4338CA; }
+    .offen-tag.offen { background: #FEF3C7; color: #92400E; }
+
+    .zusammenfassung-section { margin-bottom: 20px; }
+    .zusammenfassung-section h4 {
+      font-size: 15px; font-weight: 700; margin-bottom: 10px;
+      padding-bottom: 6px; border-bottom: 2px solid var(--border);
+    }
+    /* ===== Tooltip-Definitionen ===== */
+    .term {
+      border-bottom: 2px dotted var(--accent); cursor: pointer;
+      color: var(--accent); font-weight: 600; position: relative;
+      transition: color 0.15s;
+    }
+    .term:hover { color: var(--accent2); }
+    .tooltip-popup {
+      position: fixed; z-index: 500; max-width: 300px;
+      background: #1E293B; color: white; border-radius: 12px;
+      padding: 12px 16px; font-size: 13px; line-height: 1.5;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      pointer-events: none; animation: fadeIn 0.15s ease;
+    }
+    .tooltip-popup .tp-label {
+      font-size: 10px; text-transform: uppercase; letter-spacing: 1px;
+      color: #94A3B8; margin-bottom: 4px; font-weight: 700;
+    }
+    .tooltip-popup .tp-text { color: #F1F5F9; }
+
+    /* ===== Fallbeispiel-Modus ===== */
+    .fall-container { margin: 0 22px 20px; }
+    .fall-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: #D97706; margin-bottom: 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .fall-card {
+      background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+      border: 2px solid #FCD34D; border-radius: 14px; overflow: hidden;
+    }
+    .fall-situation {
+      padding: 18px 20px; border-bottom: 1px solid #FDE68A;
+    }
+    .fall-situation-label {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: #92400E; margin-bottom: 6px;
+    }
+    .fall-situation-text { font-size: 14px; line-height: 1.6; color: #1E293B; }
+    .fall-aufgabe {
+      padding: 14px 20px; background: rgba(245,158,11,0.1);
+      border-bottom: 1px solid #FDE68A;
+      font-size: 14px; font-weight: 600; color: #92400E;
+    }
+    .fall-actions { padding: 14px 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .fall-btn {
+      padding: 8px 18px; border-radius: 10px; border: none;
+      font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+    }
+    .fall-btn-hint { background: #FEF3C7; color: #92400E; border: 2px solid #FCD34D; }
+    .fall-btn-hint:hover { background: #FDE68A; }
+    .fall-btn-loesung { background: #D97706; color: white; }
+    .fall-btn-loesung:hover { background: #B45309; transform: translateY(-1px); }
+    .fall-hint {
+      padding: 12px 20px; background: #FFF7ED; border-top: 1px solid #FDE68A;
+      font-size: 13px; color: #92400E; display: none; animation: fadeIn 0.2s ease;
+    }
+    .fall-hint.visible { display: block; }
+    .fall-loesung {
+      padding: 0; display: none; animation: fadeIn 0.3s ease;
+    }
+    .fall-loesung.visible { display: block; }
+    .fall-schritt {
+      padding: 12px 20px; border-top: 1px solid #FDE68A; font-size: 14px;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .fall-schritt-num {
+      width: 24px; height: 24px; border-radius: 50%; background: #D97706;
+      color: white; font-size: 11px; font-weight: 700; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+    .fall-schritt-text { flex: 1; line-height: 1.6; }
+    .fall-ergebnis {
+      padding: 14px 20px; background: #ECFDF5; border-top: 2px solid #6EE7B7;
+      font-weight: 700; color: #065F46; font-size: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .fall-tabs {
+      display: flex; border-bottom: 1px solid #FDE68A; overflow: hidden;
+    }
+    .fall-tab {
+      padding: 10px 16px; font-size: 13px; font-weight: 600; cursor: pointer;
+      border: none; background: transparent; color: #92400E; transition: all 0.2s;
+      border-bottom: 2px solid transparent; margin-bottom: -1px;
+    }
+    .fall-tab.active { border-bottom-color: #D97706; background: rgba(217,119,6,0.05); }
+    .fall-tab:hover:not(.active) { background: rgba(217,119,6,0.05); }
+  </style>
+</head>
+<body>
+<div id="tooltip-popup" class="tooltip-popup" style="display:none">
+  <div class="tp-label" id="tooltip-label"></div>
+  <div class="tp-text" id="tooltip-text"></div>
+</div>
+
+<div class="header" id="appHeader">
+  <button class="back-btn" id="backBtn" onclick="goBack()">&larr;</button>
+  <h1 id="headerTitle">Meine Lern-App</h1>
+  <p id="headerSub">Klicke auf ein Fach um loszulegen</p>
+</div>
+
+<div class="container" id="content"></div>
+
+<script>
+  let currentView = 'home';
+  let currentFach = null;
+  let currentThema = null;
+  let currentMode = null;
+  let progress = JSON.parse(localStorage.getItem('lernapp-progress') || '{}');
+
+  const RAENGE = [
+    { punkte: 0,    name: 'Erstie',              icon: '\uD83C\uDF31' },
+    { punkte: 25,   name: 'Fleißige Studentin',   icon: '\uD83D\uDCDA' },
+    { punkte: 75,   name: 'Klausur-Kämpferin',    icon: '\u2694\uFE0F' },
+    { punkte: 150,  name: 'Übungsheldin',          icon: '\uD83E\uDDB8' },
+    { punkte: 300,  name: 'Durchblickerin',        icon: '\uD83D\uDD0D' },
+    { punkte: 500,  name: 'Wissensmaschine',       icon: '\u2699\uFE0F' },
+    { punkte: 800,  name: 'Prüfungskönigin',       icon: '\uD83D\uDC51' },
+    { punkte: 1200, name: 'Professorin',            icon: '\uD83C\uDF93' }
+  ];
+
+  function getPoints() { return parseInt(localStorage.getItem('lernapp-punkte') || '0'); }
+  function setPoints(p) { localStorage.setItem('lernapp-punkte', p.toString()); }
+
+  function getRang(p) {
+    for (let i = RAENGE.length - 1; i >= 0; i--) { if (p >= RAENGE[i].punkte) return RAENGE[i]; }
+    return RAENGE[0];
+  }
+  function getNextRang(p) {
+    for (let i = 0; i < RAENGE.length; i++) { if (RAENGE[i].punkte > p) return RAENGE[i]; }
+    return null;
+  }
+
+  function addPoint() {
+    const oldP = getPoints();
+    const oldRang = getRang(oldP);
+    const newP = oldP + 1;
+    setPoints(newP);
+    const newRang = getRang(newP);
+    if (newRang.punkte > oldRang.punkte) showRankUp(newRang);
+  }
+
+  function showRankUp(rang) {
+    const div = document.createElement('div');
+    div.className = 'rankup-overlay';
+    div.innerHTML = `<div class="rankup-box">
+      <div class="rankup-icon">${rang.icon}</div>
+      <div class="rankup-title">Neuer Rang!</div>
+      <div class="rankup-name">${rang.name}</div>
+      <div class="rankup-sub">Weiter so, du schaffst das!</div>
+      <button class="rankup-close" onclick="this.closest('.rankup-overlay').remove()">Super!</button>
+    </div>`;
+    document.body.appendChild(div);
+    div.addEventListener('click', e => { if (e.target === div) div.remove(); });
+  }
+
+  // ===== SPACED REPETITION =====
+  const SR_INTERVALS = [1, 3, 7, 14, 30];
+  function getSRData() { return JSON.parse(localStorage.getItem('lernapp-sr') || '[]'); }
+  function saveSRData(d) { localStorage.setItem('lernapp-sr', JSON.stringify(d)); }
+
+  function addToSR(frage, optionen, richtig, erklaerung, quelle) {
+    const data = getSRData();
+    const key = frage.substring(0, 60);
+    if (data.some(d => d.key === key)) return;
+    data.push({ key, frage, optionen, richtig, erklaerung, quelle, stufe: 0, naechste: Date.now() + SR_INTERVALS[0]*86400000 });
+    saveSRData(data);
+  }
+
+  function getSRDue() {
+    return getSRData().filter(d => d.naechste <= Date.now());
+  }
+
+  function updateSR(key, correct) {
+    const data = getSRData();
+    const item = data.find(d => d.key === key);
+    if (!item) return;
+    if (correct) {
+      item.stufe = Math.min(item.stufe + 1, SR_INTERVALS.length - 1);
+      if (item.stufe >= SR_INTERVALS.length - 1) { data.splice(data.indexOf(item), 1); }
+      else { item.naechste = Date.now() + SR_INTERVALS[item.stufe] * 86400000; }
+    } else {
+      item.stufe = 0;
+      item.naechste = Date.now() + SR_INTERVALS[0] * 86400000;
+    }
+    saveSRData(data);
+  }
+
+  const FACH_GRADIENTS = {
+    'steuerrecht':     { from: '#3B82F6', to: '#1D4ED8' },
+    'rechnungslegung': { from: '#10B981', to: '#047857' },
+    'winf-seidlmeier': { from: '#8B5CF6', to: '#6D28D9' },
+    'winf-kuehn':      { from: '#F59E0B', to: '#D97706' }
+  };
+  const DEFAULT_GRADIENT = { from: '#667EEA', to: '#764BA2' };
+
+  function setHeaderColor(fachId) {
+    const g = fachId ? FACH_GRADIENTS[fachId] || DEFAULT_GRADIENT : DEFAULT_GRADIENT;
+    document.getElementById('appHeader').style.background = `linear-gradient(135deg, ${g.from} 0%, ${g.to} 100%)`;
+    document.documentElement.style.setProperty('--accent', g.from);
+    document.documentElement.style.setProperty('--accent2', g.to);
+  }
+
+  function saveProgress() { localStorage.setItem('lernapp-progress', JSON.stringify(progress)); }
+  function getProgress(f, t, m) { return progress[`${f}__${t}__${m}`] || 0; }
+  function setProgressVal(f, t, m, v) { progress[`${f}__${t}__${m}`] = v; saveProgress(); }
+
+  function getFachProgress(fachId) {
+    const fach = FAECHER[fachId];
+    const keys = Object.keys(fach.themen);
+    if (!keys.length) return 0;
+    let total = 0, done = 0;
+    keys.forEach(t => {
+      ['quiz','lueckentext','zuordnung'].forEach(m => {
+        if (fach.themen[t][m] && fach.themen[t][m].length > 0) {
+          total++;
+          if (getProgress(fachId, t, m) >= 80) done++;
+        }
+      });
+    });
+    return total === 0 ? 0 : Math.round(done / total * 100);
+  }
+
+  function getOverallProgress() {
+    let sum = 0, count = 0;
+    Object.keys(FAECHER).forEach(f => {
+      if (Object.keys(FAECHER[f].themen).length > 0) { sum += getFachProgress(f); count++; }
+    });
+    return count === 0 ? 0 : Math.round(sum / count);
+  }
+
+  function shuffle(arr) {
+    let a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function shuffleQuiz(quizData, max) {
+    let s = shuffle(quizData);
+    if (max && s.length > max) s = s.slice(0, max);
+    return s.map(q => {
+      let idx = q.optionen.map((_, i) => i);
+      idx = shuffle(idx);
+      return { frage: q.frage, optionen: idx.map(i => q.optionen[i]), richtig: idx.indexOf(q.richtig), erklaerung: q.erklaerung };
+    });
+  }
+
+  function goBack() {
+    if (window._klausurTimer) { clearInterval(window._klausurTimer); window._klausurTimer = null; }
+    if (currentMode === 'review') { showHome(); return; }
+    if (currentMode === 'klausur') { if (currentFach) showThemen(currentFach); else showHome(); return; }
+    if (currentMode) showThemen(currentFach);
+    else if (currentFach) showHome();
+  }
+
+  function showHome() {
+    currentView = 'home'; currentFach = null; currentThema = null; currentMode = null;
+    document.getElementById('backBtn').classList.remove('visible');
+    document.getElementById('headerTitle').textContent = 'Meine Lern-App';
+    document.getElementById('headerSub').textContent = 'Klicke auf ein Fach um loszulegen';
+    setHeaderColor(null);
+    renderHome();
+  }
+
+  function showThemen(fachId) {
+    currentView = 'themen'; currentFach = fachId; currentThema = null; currentMode = null;
+    const fach = FAECHER[fachId];
+    document.getElementById('backBtn').classList.add('visible');
+    document.getElementById('headerTitle').textContent = fach.name;
+    document.getElementById('headerSub').textContent = Object.keys(fach.themen).length + ' Themen';
+    setHeaderColor(fachId);
+    renderThemen(fachId);
+  }
+
+  function startMode(fachId, themaId, mode) {
+    currentMode = mode; currentThema = themaId;
+    document.getElementById('headerSub').textContent = FAECHER[fachId].themen[themaId].name;
+    if (mode === 'quiz') renderQuiz(fachId, themaId);
+    else if (mode === 'erklaerungen') renderErklaerungen(fachId, themaId);
+    else if (mode === 'lueckentext') renderLueckentext(fachId, themaId);
+    else if (mode === 'zuordnung') renderZuordnung(fachId, themaId);
+    else if (mode === 'zusammenfassung') renderZusammenfassung(fachId, themaId);
+  }
+
+  function renderHome() {
+    const c = document.getElementById('content');
+    const overall = getOverallProgress();
+    const has = Object.values(FAECHER).some(f => Object.keys(f.themen).length > 0);
+    let html = '';
+    const pts = getPoints();
+    const rang = getRang(pts);
+    const nxt = getNextRang(pts);
+    const pct2 = nxt ? Math.round((pts - rang.punkte) / (nxt.punkte - rang.punkte) * 100) : 100;
+    html += `<div class="rang-card fade-in">
+      <div class="rang-icon">${rang.icon}</div>
+      <div class="rang-info">
+        <div class="rang-name">${rang.name}</div>
+        <div class="rang-punkte">${pts} Punkte</div>
+        <div class="rang-bar"><div class="rang-bar-fill" style="width:${pct2}%"></div></div>
+        <div class="rang-next">${nxt ? `Noch ${nxt.punkte - pts} Punkte bis „${nxt.name}" ${nxt.icon}` : 'Höchster Rang erreicht!'}</div>
+      </div>
+    </div>`;
+    if (has) {
+      html += `<div class="overall-progress fade-in">
+        <div class="ring">
+          <svg width="60" height="60" viewBox="0 0 60 60">
+            <circle cx="30" cy="30" r="26" fill="none" stroke="#E2E8F0" stroke-width="6"/>
+            <circle cx="30" cy="30" r="26" fill="none" stroke="url(#grad)" stroke-width="6"
+              stroke-dasharray="${2*Math.PI*26}" stroke-dashoffset="${2*Math.PI*26*(1-overall/100)}" stroke-linecap="round"/>
+            <defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#667EEA"/><stop offset="100%" stop-color="#764BA2"/>
+            </linearGradient></defs>
+          </svg>
+          <span class="ring-text">${overall}%</span>
+        </div>
+        <div class="info">
+          <h3>Gesamtfortschritt</h3>
+          <p>${overall===0?'Starte mit deinem ersten Thema!':overall<50?'Weiter so!':overall<100?'Du bist gut dabei!':'Alles geschafft!'}</p>
+        </div>
+      </div>`;
+    }
+    // Spaced Repetition Review
+    const due = getSRDue();
+    if (due.length > 0) {
+      html += `<div class="review-card fade-in" onclick="startReview()">
+        <div class="review-icon">\u{1F504}</div>
+        <div class="review-info"><h3>Heute wiederholen</h3><p>Fragen die du nochmal \u00fcben solltest</p></div>
+        <div class="review-count">${due.length}</div>
+      </div>`;
+    }
+    html += '<div class="fach-grid">';
+    Object.entries(FAECHER).forEach(([id, fach]) => {
+      const tc = Object.keys(fach.themen).length;
+      const p = getFachProgress(id);
+      html += `<div class="fach-card fade-in" style="--fach-color:${fach.color}" onclick="showThemen('${id}')">
+        <div class="icon">${fach.icon}</div>
+        <h2>${fach.name}</h2>
+        <div class="themen-count">${tc===0?'Noch keine Themen':tc+' Themen'}</div>
+        ${tc>0?`<div class="progress-bar"><div class="progress-fill" style="width:${p}%;background:${fach.color}"></div></div><div class="progress-text">${p}%</div>`:''}
+      </div>`;
+    });
+    html += '</div>';
+    c.innerHTML = html;
+  }
+
+  function renderThemen(fachId) {
+    const c = document.getElementById('content');
+    const fach = FAECHER[fachId];
+    const keys = Object.keys(fach.themen);
+    let html = `<div class="themen-header fade-in">
+      <div class="fach-icon">${fach.icon}</div>
+      <div><h2>${fach.name}</h2><div class="stats">${keys.length} Themen &middot; Fortschritt: ${getFachProgress(fachId)}%</div></div>
+    </div>`;
+    // Klausur pro Fach
+    const totalQuiz = keys.reduce((s,t) => s + (fach.themen[t].quiz?.length||0), 0);
+    if (totalQuiz >= 5) {
+      html += `<div class="klausur-card fade-in" onclick="startKlausur('${fachId}')">
+        <div class="klausur-icon">\u{1F4DD}</div>
+        <div class="klausur-info"><h3>Klausur-Simulation</h3><p>${Math.min(20,totalQuiz)} Fragen, 15 Minuten, MC + offene Fragen</p></div>
+      </div>`;
+    }
+    if (!keys.length) {
+      html += `<div class="empty-state fade-in"><div class="empty-icon">\u{1F4DA}</div><h3>Noch keine Inhalte</h3><p>Lege deine Unterlagen in den Ordner und lass sie von Klaus importieren.</p></div>`;
+    } else {
+      keys.forEach(tId => {
+        const th = fach.themen[tId];
+        const hQ = th.quiz&&th.quiz.length>0, hL = th.lueckentext&&th.lueckentext.length>0;
+        const hZ = th.zuordnung&&th.zuordnung.length>0, hE = th.erklaerungen&&th.erklaerungen.length>0;
+        html += `<div class="thema-card fade-in">
+          <div class="thema-title" onclick="toggleThema(this)"><span>${th.name}</span><span class="arrow">&#9654;</span></div>
+          <div class="thema-modes">
+            ${hE?`<button class="mode-btn" onclick="startMode('${fachId}','${tId}','erklaerungen')"><span class="mode-icon">\u{1F4D6}</span> Erkl\u00e4rungen</button>`:''}
+            ${hQ?`<button class="mode-btn" onclick="startMode('${fachId}','${tId}','quiz')"><span class="mode-icon">\u2753</span> Quiz ${getProgress(fachId,tId,'quiz')?`(${getProgress(fachId,tId,'quiz')}%)`:''}</button>`:''}
+            ${hL?`<button class="mode-btn" onclick="startMode('${fachId}','${tId}','lueckentext')"><span class="mode-icon">\u270F\uFE0F</span> L\u00fcckentext ${getProgress(fachId,tId,'lueckentext')?`(${getProgress(fachId,tId,'lueckentext')}%)`:''}</button>`:''}
+            ${hZ?`<button class="mode-btn" onclick="startMode('${fachId}','${tId}','zuordnung')"><span class="mode-icon">\u{1F500}</span> Zuordnung ${getProgress(fachId,tId,'zuordnung')?`(${getProgress(fachId,tId,'zuordnung')}%)`:''}</button>`:''}
+            ${hE?`<button class="mode-btn" onclick="startMode('${fachId}','${tId}','zusammenfassung')"><span class="mode-icon">\u{1F4CB}</span> Zusammenfassung</button>`:''}
+          </div>
+        </div>`;
+      });
+    }
+    c.innerHTML = html;
+  }
+
+  function toggleThema(el) { el.classList.toggle('open'); el.nextElementSibling.classList.toggle('open'); }
+
+  // ===== ERKLAERUNGEN =====
+  function getErkProgress(fachId, themaId, idx) {
+    return JSON.parse(localStorage.getItem(`erkprog_${fachId}_${themaId}_${idx}`) || '{}');
+  }
+  function setErkProgress(fachId, themaId, idx, key) {
+    const p = getErkProgress(fachId, themaId, idx);
+    p[key] = true;
+    localStorage.setItem(`erkprog_${fachId}_${themaId}_${idx}`, JSON.stringify(p));
+    updateErkBar(fachId, themaId, idx);
+  }
+  function calcErkPct(fachId, themaId, idx) {
+    const e = FAECHER[fachId].themen[themaId].erklaerungen[idx];
+    const p = getErkProgress(fachId, themaId, idx);
+    let total = 1, done = p.gelesen ? 1 : 0; // gelesen
+    if (e.merke) { total++; if (p.merke) done++; }
+    if (e.beispiel) { total++; if (p.beispiel) done++; }
+    if (e.interaktion && e.interaktion.length > 0) { total++; if (p.quiz) done++; }
+    if (e.schritte && e.schritte.length > 0) { total++; if (p.schritte) done++; }
+    if (e.fallbeispiele && e.fallbeispiele.length > 0) { total++; if (p.fall) done++; }
+    if (e.details && e.details.length > 0) { total += e.details.length; e.details.forEach((_,di) => { if (p['detail_'+di]) done++; }); }
+    return Math.round(done / total * 100);
+  }
+  function updateErkBar(fachId, themaId, idx) {
+    const bar = document.getElementById(`erkbar_${idx}`);
+    if (bar) bar.style.width = calcErkPct(fachId, themaId, idx) + '%';
+  }
+
+  function renderErklaerungen(fachId, themaId) {
+    const c = document.getElementById('content');
+    const thema = FAECHER[fachId].themen[themaId];
+    let html = `<div class="lern-area fade-in"><h3>\u{1F4D6} ${thema.name}</h3>`;
+    if (thema.zusammenfassung) html += `<p style="margin-bottom:24px;color:var(--text-light);font-size:15px;">${thema.zusammenfassung}</p>`;
+
+    thema.erklaerungen.forEach((e, i) => {
+      const bId = `eb_${i}`, hId = `eh_${i}`;
+      const pct = calcErkPct(fachId, themaId, i);
+      html += `<div class="erk-kapitel">
+        <div class="erk-kapitel-header${i===0?' open':''}" id="${hId}" onclick="toggleErk('${bId}','${hId}','${fachId}','${themaId}',${i})">
+          <span>${e.titel}</span><span class="erk-arrow">&#9654;</span>
+        </div>
+        <div class="erk-kapitel-progress"><div class="erk-kapitel-progress-fill" id="erkbar_${i}" style="width:${pct}%"></div></div>
+        <div class="erk-kapitel-body${i===0?' open':''}" id="${bId}">
+          <div class="erk-content">${e.inhalt}</div>`;
+
+      // Detail-Boxes
+      if (e.details && e.details.length > 0) {
+        html += `<div style="padding:0 22px 12px;">`;
+        e.details.forEach((d, di) => {
+          const dId = `detail_${i}_${di}`;
+          html += `<div class="detail-box"><div class="detail-box-header" onclick="toggleDetail('${dId}','${fachId}','${themaId}',${i},${di})"><span>${d.titel}</span><div class="detail-icon">+</div></div><div class="detail-box-body" id="${dId}">${d.inhalt}</div></div>`;
+        });
+        html += `</div>`;
+      }
+
+      // Schritt-für-Schritt-Karten
+      if (e.schritte && e.schritte.length > 0) {
+        const sId = `schritte_${i}`;
+        html += `<div class="schritte-container">
+          <div class="schritte-label">👣 Schritt für Schritt</div>
+          <div class="schritte-dots" id="${sId}_dots">${e.schritte.map((_,si) => `<div class="schritt-dot${si===0?' active':''}" onclick="goToSchritt('${sId}',${si},${e.schritte.length},'${fachId}','${themaId}',${i})">${si+1}</div>`).join('')}</div>
+          <div id="${sId}_card"></div>
+        </div>`;
+        if (!window._schritteInits) window._schritteInits = [];
+        window._schritteInits.push({ id: sId, schritte: e.schritte, fachId, themaId, erkIdx: i });
+      }
+
+      // Flip-Cards
+      if (e.flipcards && e.flipcards.length > 0) {
+        html += `<div style="padding:0 22px 12px;"><div class="flip-hint">Klicke zum Umdrehen</div><div class="flip-grid">`;
+        e.flipcards.forEach((fc, fi) => {
+          html += `<div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front">${fc.vorne}</div><div class="flip-card-back">${fc.hinten}</div></div></div>`;
+        });
+        html += `</div></div>`;
+      }
+
+      if (e.merke) html += `<div style="padding:0 22px 16px;"><div class="merk-box" onclick="setErkProgress('${fachId}','${themaId}',${i},'merke')"><div class="merk-label">\u{1F4CC} Merke</div>${e.merke}</div></div>`;
+      if (e.beispiel) html += `<div style="padding:0 22px 16px;"><div class="beispiel-box" onclick="setErkProgress('${fachId}','${themaId}',${i},'beispiel')"><div class="bsp-label">\u{1F4A1} Beispiel</div>${e.beispiel}</div></div>`;
+
+      // Fallbeispiele
+      if (e.fallbeispiele && e.fallbeispiele.length > 0) {
+        e.fallbeispiele.forEach((f, fi) => {
+          const fId = `fall_${i}_${fi}`;
+          const tabs = e.fallbeispiele.length > 1
+            ? `<div class="fall-tabs">${e.fallbeispiele.map((_,ti) => `<button class="fall-tab${ti===fi?' active':''}" onclick="switchFall('fall_${i}',${ti},${e.fallbeispiele.length},'${fachId}','${themaId}',${i})">${ti+1}. Fall</button>`).join('')}</div>`
+            : '';
+          html += `<div class="fall-container"${fi>0?' style="display:none"':''} id="${fId}">
+            <div class="fall-label">⚖️ Fallbeispiel</div>
+            <div class="fall-card">
+              ${tabs}
+              <div class="fall-situation"><div class="fall-situation-label">📋 Sachverhalt</div><div class="fall-situation-text">${f.situation}</div></div>
+              <div class="fall-aufgabe">❓ ${f.aufgabe}</div>
+              <div class="fall-actions">
+                ${f.hinweis ? `<button class="fall-btn fall-btn-hint" onclick="toggleFallHint('${fId}_hint')">💡 Hinweis</button>` : ''}
+                <button class="fall-btn fall-btn-loesung" onclick="toggleFallLoesung('${fId}_loes','${fachId}','${themaId}',${i})">Lösung aufdecken ▼</button>
+              </div>
+              ${f.hinweis ? `<div class="fall-hint" id="${fId}_hint">${f.hinweis}</div>` : ''}
+              <div class="fall-loesung" id="${fId}_loes">
+                ${f.loesung.map((s,si) => `<div class="fall-schritt"><div class="fall-schritt-num">${si+1}</div><div class="fall-schritt-text">${s}</div></div>`).join('')}
+                ${f.ergebnis ? `<div class="fall-ergebnis">✅ Ergebnis: ${f.ergebnis}</div>` : ''}
+              </div>
+            </div>
+          </div>`;
+        });
+      }
+
+      if (e.interaktion && e.interaktion.length > 0) {
+        const mqId = `mq_${i}`;
+        html += `<div style="padding:0 22px 20px;"><div class="mini-quiz" id="${mqId}">
+          <div class="mq-header"><div class="mq-label">\u{1F9E0} Kurz testen</div><div class="mq-progress" id="${mqId}_prog">1/${e.interaktion.length}</div></div>
+          <div class="mq-dots" id="${mqId}_dots">${e.interaktion.map((_,di) => `<div class="mq-dot${di===0?' active':''}"></div>`).join('')}</div>
+          <div id="${mqId}_content"></div>
+          <div class="mq-result" id="${mqId}_result"><div class="mq-score"></div><div class="mq-msg"></div></div>
+        </div></div>`;
+        if (!window._mqInits) window._mqInits = [];
+        window._mqInits.push({ id: mqId, fragen: e.interaktion, fachId, themaId, erkIdx: i });
+      }
+      html += `</div></div>`;
+    });
+
+    html += `<div style="margin-top:20px;"><button class="btn btn-secondary" onclick="showThemen('${currentFach}')">Zur\u00fcck</button></div></div>`;
+    c.innerHTML = html;
+    // Mark first chapter as read
+    setErkProgress(fachId, themaId, 0, 'gelesen');
+    initMiniQuizSliders();
+    initSchritteCards();
+  }
+
+  function toggleErk(bId, hId, fachId, themaId, idx) {
+    document.getElementById(bId).classList.toggle('open');
+    document.getElementById(hId).classList.toggle('open');
+    if (document.getElementById(bId).classList.contains('open')) {
+      setErkProgress(fachId, themaId, idx, 'gelesen');
+    }
+  }
+
+  function toggleDetail(dId, fachId, themaId, erkIdx, detailIdx) {
+    const body = document.getElementById(dId);
+    const header = body.previousElementSibling || body.parentElement.querySelector('.detail-box-header');
+    body.classList.toggle('open');
+    body.previousElementSibling.classList.toggle('open');
+    if (body.classList.contains('open')) {
+      setErkProgress(fachId, themaId, erkIdx, 'detail_'+detailIdx);
+    }
+  }
+
+  // Mini-Quiz Slider Logic
+  function initMiniQuizSliders() {
+    if (!window._mqInits) return;
+    window._mqInits.forEach(({id, fragen, fachId, themaId, erkIdx}) => {
+      let cur = 0, score = 0;
+      function showMQSlide() {
+        if (cur >= fragen.length) {
+          // Show result
+          if (fachId && themaId !== undefined && erkIdx !== undefined) setErkProgress(fachId, themaId, erkIdx, 'quiz');
+          document.getElementById(id+'_content').style.display = 'none';
+          document.getElementById(id+'_prog').textContent = 'Fertig!';
+          const res = document.getElementById(id+'_result');
+          res.style.display = 'block';
+          const pct = Math.round(score/fragen.length*100);
+          res.querySelector('.mq-score').textContent = score + '/' + fragen.length + ' richtig';
+          res.querySelector('.mq-msg').textContent = pct>=80?'Super!':pct>=40?'Ganz okay!':'Nochmal lesen!';
+          return;
+        }
+        const q = fragen[cur];
+        document.getElementById(id+'_prog').textContent = (cur+1)+'/'+fragen.length;
+        const dots = document.getElementById(id+'_dots').children;
+        for(let d=0;d<dots.length;d++) { dots[d].classList.remove('active'); if(d===cur) dots[d].classList.add('active'); }
+        const cont = document.getElementById(id+'_content');
+        cont.innerHTML = `<div class="mq-frage">${q.frage}</div>
+          <div class="mq-optionen">${q.optionen.map((o,oi) => `<div class="mq-option" data-oi="${oi}">${o}</div>`).join('')}</div>
+          <div class="mq-erklaerung" id="${id}_erk_${cur}">${q.erklaerung||''}</div>
+          <div class="mq-nav"><button class="mq-next" id="${id}_next">Weiter &rarr;</button></div>`;
+        const opts = cont.querySelectorAll('.mq-option');
+        opts.forEach(opt => {
+          opt.addEventListener('click', function() {
+            if (this.classList.contains('mq-disabled')) return;
+            const oi = parseInt(this.dataset.oi);
+            opts.forEach((o,i) => { o.classList.add('mq-disabled'); if(i===q.richtig) o.classList.add('mq-richtig'); });
+            const correct = oi===q.richtig;
+            if (!correct) { this.classList.add('mq-falsch'); addToSR(q.frage, q.optionen, q.richtig, q.erklaerung||'', 'Mini-Quiz'); }
+            else { score++; addPoint(); }
+            dots[cur].classList.remove('active');
+            dots[cur].classList.add(correct?'done-right':'done-wrong');
+            const erk = document.getElementById(id+'_erk_'+cur);
+            if (erk && erk.textContent) erk.classList.add('visible');
+            document.getElementById(id+'_next').style.display = 'inline-block';
+          });
+        });
+        document.getElementById(id+'_next').addEventListener('click', () => { cur++; showMQSlide(); });
+      }
+      showMQSlide();
+    });
+    window._mqInits = [];
+  }
+
+  // ===== SCHRITT-FÜR-SCHRITT =====
+  function renderSchritt(id, schritte, cur, fachId, themaId, erkIdx) {
+    const card = document.getElementById(id + '_card');
+    if (!card) return;
+    const s = schritte[cur];
+    const isLast = cur === schritte.length - 1;
+    card.innerHTML = `
+      <div class="schritt-card">
+        <div class="schritt-card-header">
+          <div class="schritt-num">${cur + 1}</div>
+          <div class="schritt-titel">${s.titel}</div>
+        </div>
+        <div class="schritt-inhalt">${s.inhalt}</div>
+        ${isLast ? `<div class="schritt-done-badge">✅ Alle Schritte abgeschlossen!</div>` : ''}
+        <div class="schritt-nav">
+          <span class="schritt-counter">${cur + 1} / ${schritte.length}</span>
+          <div style="display:flex;gap:8px;">
+            ${cur > 0 ? `<button class="schritt-btn schritt-btn-prev" onclick="goToSchritt('${id}',${cur-1},${schritte.length},'${fachId}','${themaId}',${erkIdx})">← Zurück</button>` : ''}
+            ${!isLast ? `<button class="schritt-btn schritt-btn-next" onclick="goToSchritt('${id}',${cur+1},${schritte.length},'${fachId}','${themaId}',${erkIdx})">Weiter →</button>` : ''}
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function goToSchritt(id, idx, total, fachId, themaId, erkIdx) {
+    const schritte = FAECHER[fachId].themen[themaId].erklaerungen[erkIdx].schritte;
+    // Dots aktualisieren
+    const dots = document.getElementById(id + '_dots');
+    if (dots) {
+      Array.from(dots.children).forEach((d, di) => {
+        d.classList.remove('active');
+        if (di < idx) d.classList.add('done');
+        else d.classList.remove('done');
+        if (di === idx) d.classList.add('active');
+      });
+      // Letzten Schritt: alle als done markieren
+      if (idx === total - 1) {
+        setTimeout(() => {
+          Array.from(dots.children).forEach(d => { d.classList.remove('active'); d.classList.add('done'); });
+        }, 300);
+      }
+    }
+    renderSchritt(id, schritte, idx, fachId, themaId, erkIdx);
+    // Fortschritt speichern wenn letzter Schritt erreicht
+    if (idx === total - 1) setErkProgress(fachId, themaId, erkIdx, 'schritte');
+  }
+
+  function initSchritteCards() {
+    if (!window._schritteInits) return;
+    window._schritteInits.forEach(({ id, schritte, fachId, themaId, erkIdx }) => {
+      renderSchritt(id, schritte, 0, fachId, themaId, erkIdx);
+    });
+    window._schritteInits = [];
+  }
+
+  // ===== TOOLTIP =====
+  (function() {
+    const popup = document.getElementById('tooltip-popup');
+    document.addEventListener('click', function(e) {
+      const term = e.target.closest('.term');
+      if (term) {
+        const def = term.dataset.def || '';
+        const label = term.dataset.label || 'Definition';
+        document.getElementById('tooltip-label').textContent = label;
+        document.getElementById('tooltip-text').innerHTML = def;
+        const rect = term.getBoundingClientRect();
+        let top = rect.bottom + 8;
+        let left = rect.left;
+        popup.style.display = 'block';
+        // Rand-Korrektur
+        const pw = popup.offsetWidth || 300;
+        if (left + pw > window.innerWidth - 16) left = window.innerWidth - pw - 16;
+        if (top + popup.offsetHeight > window.innerHeight - 16) top = rect.top - popup.offsetHeight - 8;
+        popup.style.top = top + 'px';
+        popup.style.left = left + 'px';
+        e.stopPropagation();
+      } else {
+        popup.style.display = 'none';
+      }
+    });
+  })();
+
+  // ===== FALLBEISPIEL =====
+  function toggleFallHint(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('visible');
+  }
+  function toggleFallLoesung(id, fachId, themaId, erkIdx) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.toggle('visible');
+      if (el.classList.contains('visible')) {
+        setErkProgress(fachId, themaId, erkIdx, 'fall');
+      }
+    }
+  }
+  function switchFall(baseId, idx, total, fachId, themaId, erkIdx) {
+    for (let ti = 0; ti < total; ti++) {
+      const el = document.getElementById(`${baseId}_${ti}_0`) || document.getElementById(`fall_${erkIdx}_${ti}`);
+      if (el) el.style.display = ti === idx ? 'block' : 'none';
+    }
+  }
+
+  // ===== QUIZ =====
+  function renderQuiz(fachId, themaId) {
+    const c = document.getElementById('content');
+    const raw = FAECHER[fachId].themen[themaId].quiz;
+    const quizData = shuffleQuiz(raw, 10);
+    let cur = 0, score = 0;
+
+    function show() {
+      if (cur >= quizData.length) {
+        const pct = Math.round(score/quizData.length*100);
+        setProgressVal(fachId, themaId, 'quiz', pct);
+        const msg = pct>=80?'Super gemacht!':pct>=50?'Ganz okay, aber da geht noch mehr!':'Noch etwas \u00dcbung n\u00f6tig';
+        c.innerHTML = `<div class="lern-area fade-in"><div class="ergebnis-box">
+          <div class="score">${pct}%</div><div class="label">${score} von ${quizData.length} richtig</div>
+          <div class="message">${msg}</div></div>
+          <div style="text-align:center;margin-top:20px;display:flex;gap:12px;justify-content:center;">
+            <button class="btn btn-secondary" onclick="showThemen('${fachId}')">Zur\u00fcck</button>
+            <button class="btn btn-primary" onclick="startMode('${fachId}','${themaId}','quiz')">Nochmal</button>
+          </div></div>`;
+        return;
+      }
+      const q = quizData[cur];
+      c.innerHTML = `<div class="lern-area fade-in">
+        <div class="quiz-info">\u{1F500} Fragen und Antworten werden jedes Mal neu gemischt.</div>
+        <div class="quiz-progress"><span>Frage ${cur+1}/${quizData.length}</span>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${(cur/quizData.length)*100}%"></div></div></div>
+        <div class="quiz-frage">${q.frage}</div>
+        <div class="quiz-optionen" id="optionen">
+          ${q.optionen.map((o, i) => `<div class="quiz-option" data-idx="${i}" onclick="checkQ(this,${i},${q.richtig})">${o}</div>`).join('')}
+        </div>
+        <div class="quiz-erklaerung" id="erklaerung">${q.erklaerung||''}</div>
+        <div class="quiz-nav"><button class="btn btn-primary" id="nextBtn" style="display:none" onclick="qNext()">Weiter &rarr;</button></div>
+      </div>`;
+      window.qNext = () => { cur++; show(); };
+      window.checkQ = (el, idx, r) => {
+        const opts = document.querySelectorAll('.quiz-option');
+        if (el.classList.contains('disabled')) return;
+        opts.forEach(o => { o.classList.add('disabled'); if (parseInt(o.dataset.idx)===r) o.classList.add('richtig'); });
+        if (idx===r) { el.classList.add('richtig'); score++; addPoint(); }
+        else { el.classList.add('falsch'); const q=quizData[cur]; addToSR(q.frage, q.optionen, q.richtig, q.erklaerung||'', 'Quiz'); }
+        const erk = document.getElementById('erklaerung');
+        if (erk.textContent) { erk.classList.add('visible'); if (idx!==r) erk.classList.add('wrong'); }
+        document.getElementById('nextBtn').style.display = 'inline-block';
+      };
+    }
+    show();
+  }
+
+  // ===== LUECKENTEXT =====
+  function renderLueckentext(fachId, themaId) {
+    const c = document.getElementById('content');
+    const data = FAECHER[fachId].themen[themaId].lueckentext;
+    let idx = 0; window._ls = 0;
+
+    function show() {
+      if (idx >= data.length) {
+        const pct = Math.round(window._ls/data.length*100);
+        setProgressVal(fachId, themaId, 'lueckentext', pct);
+        const msg = pct>=80?'Sehr gut!':pct>=50?'Ganz ordentlich!':'\u00dcbung macht den Meister';
+        c.innerHTML = `<div class="lern-area fade-in"><div class="ergebnis-box">
+          <div class="score">${pct}%</div><div class="label">${window._ls} von ${data.length} richtig</div>
+          <div class="message">${msg}</div></div>
+          <div style="text-align:center;margin-top:20px;display:flex;gap:12px;justify-content:center;">
+            <button class="btn btn-secondary" onclick="showThemen('${fachId}')">Zur\u00fcck</button>
+            <button class="btn btn-primary" onclick="startMode('${fachId}','${themaId}','lueckentext')">Nochmal</button>
+          </div></div>`;
+        return;
+      }
+      const item = data[idx];
+      let parts = item.text.split('___'), textH = '';
+      item.luecken.forEach((l, i) => {
+        textH += parts[i] + `<input type="text" class="luecke-input" data-answer="${l}" id="luecke${i}" autocomplete="off" spellcheck="false">`;
+      });
+      if (parts.length > item.luecken.length) textH += parts[parts.length-1];
+      c.innerHTML = `<div class="lern-area fade-in">
+        <div class="quiz-progress"><span>Aufgabe ${idx+1}/${data.length}</span>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${(idx/data.length)*100}%"></div></div></div>
+        <div class="luecken-text">${textH}</div>
+        ${item.erklaerung?`<div class="quiz-erklaerung" id="lueckenErk">${item.erklaerung}</div>`:''}
+        <div style="display:flex;gap:12px;justify-content:flex-end;">
+          <button class="btn btn-primary" id="checkL" onclick="checkLuecken()">Pr\u00fcfen</button>
+          <button class="btn btn-primary" id="nextL" style="display:none" onclick="nextL()">Weiter &rarr;</button>
+        </div></div>`;
+      document.getElementById('luecke0')?.focus();
+    }
+    window.checkLuecken = () => {
+      let ok = true;
+      document.querySelectorAll('.luecke-input').forEach(inp => {
+        const a = inp.dataset.answer.toLowerCase().trim(), g = inp.value.toLowerCase().trim();
+        if (g===a) inp.classList.add('richtig');
+        else { inp.classList.add('falsch'); ok=false; inp.value=inp.dataset.answer; }
+        inp.disabled = true;
+      });
+      if (ok) { window._ls++; addPoint(); }
+      const erk = document.getElementById('lueckenErk');
+      if (erk) { erk.classList.add('visible'); if (!ok) erk.classList.add('wrong'); }
+      document.getElementById('checkL').style.display='none';
+      document.getElementById('nextL').style.display='inline-block';
+    };
+    window.nextL = () => { idx++; show(); };
+    show();
+  }
+
+  // ===== ZUORDNUNG =====
+  function renderZuordnung(fachId, themaId) {
+    const c = document.getElementById('content');
+    const data = FAECHER[fachId].themen[themaId].zuordnung;
+    let aIdx = 0;
+
+    function show() {
+      if (aIdx >= data.length) {
+        const pct = Math.round(window._zs/window._zt*100);
+        setProgressVal(fachId, themaId, 'zuordnung', pct);
+        const msg = pct>=80?'Top!':pct>=50?'Solide!':'Nochmal versuchen';
+        c.innerHTML = `<div class="lern-area fade-in"><div class="ergebnis-box">
+          <div class="score">${pct}%</div><div class="message">${msg}</div></div>
+          <div style="text-align:center;margin-top:20px;display:flex;gap:12px;justify-content:center;">
+            <button class="btn btn-secondary" onclick="showThemen('${fachId}')">Zur\u00fcck</button>
+            <button class="btn btn-primary" onclick="startMode('${fachId}','${themaId}','zuordnung')">Nochmal</button>
+          </div></div>`;
+        return;
+      }
+      const auf = data[aIdx];
+      const sh = shuffle(auf.paare);
+      let html = `<div class="lern-area fade-in"><h3>\u{1F500} ${auf.titel}</h3>
+        <p style="color:var(--text-light);margin-bottom:20px;font-size:14px;">Ziehe die Begriffe links auf die passende Beschreibung rechts.</p>
+        <div class="zuordnung-container">
+          <div class="zuordnung-spalte"><h4>Begriffe</h4><div id="dragItems">
+            ${sh.map((p,i) => `<div class="drag-item" draggable="true" data-pair="${auf.paare.indexOf(p)}" id="drag${i}">${p.links}</div>`).join('')}
+          </div></div>
+          <div class="zuordnung-spalte"><h4>Zuordnung</h4>
+            ${auf.paare.map((p,i) => `<div class="drop-zone" data-pair="${i}">${p.rechts}</div>`).join('')}
+          </div>
+        </div>
+        <div style="margin-top:20px;"><button class="btn btn-primary" id="nextZ" style="display:none" onclick="nextZ()">Weiter &rarr;</button></div></div>`;
+      c.innerHTML = html;
+
+      let matched = 0, draggedEl = null;
+      document.querySelectorAll('.drag-item').forEach(item => {
+        item.addEventListener('dragstart', e => { draggedEl=item; e.dataTransfer.effectAllowed='move'; });
+      });
+      document.querySelectorAll('.drop-zone').forEach(zone => {
+        zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('over'); });
+        zone.addEventListener('dragleave', () => zone.classList.remove('over'));
+        zone.addEventListener('drop', e => {
+          e.preventDefault(); zone.classList.remove('over');
+          if (!draggedEl || draggedEl.classList.contains('matched')) return;
+          if (draggedEl.dataset.pair===zone.dataset.pair) {
+            draggedEl.classList.add('matched'); zone.classList.add('matched');
+            window._zs++; matched++; addPoint();
+            if (matched===auf.paare.length) document.getElementById('nextZ').style.display='inline-block';
+          } else { zone.classList.add('wrong'); setTimeout(()=>zone.classList.remove('wrong'),500); }
+        });
+      });
+      document.querySelectorAll('.drag-item').forEach(item => {
+        item.addEventListener('touchstart', e => { draggedEl=item; }, {passive:true});
+        item.addEventListener('touchend', e => {
+          if (!draggedEl) return;
+          const t = e.changedTouches[0];
+          const tgt = document.elementFromPoint(t.clientX, t.clientY);
+          if (tgt && tgt.classList.contains('drop-zone')) tgt.dispatchEvent(new Event('drop'));
+          draggedEl = null;
+        });
+      });
+    }
+    window._zs = 0;
+    window._zt = data.reduce((s,a) => s+a.paare.length, 0);
+    window.nextZ = () => { aIdx++; show(); };
+    show();
+  }
+
+  // ===== SPACED REPETITION REVIEW =====
+  function startReview() {
+    currentMode = 'review'; currentFach = null; currentThema = null;
+    document.getElementById('backBtn').classList.add('visible');
+    document.getElementById('headerTitle').textContent = 'Wiederholen';
+    document.getElementById('headerSub').textContent = 'Fragen die du nochmal \u00fcben solltest';
+    setHeaderColor(null);
+    const due = getSRDue();
+    const quizData = shuffle(due);
+    let cur = 0, score = 0;
+    const c = document.getElementById('content');
+    function show() {
+      if (cur >= quizData.length) {
+        const pct = Math.round(score/quizData.length*100);
+        c.innerHTML = `<div class="lern-area fade-in"><div class="ergebnis-box">
+          <div class="score">${pct}%</div><div class="label">${score} von ${quizData.length} richtig</div>
+          <div class="message">${pct>=80?'Super, du hast gut wiederholt!':pct>=50?'Wird besser!':'Dranbleiben, die kommen wieder!'}</div></div>
+          <div style="text-align:center;margin-top:20px;">
+            <button class="btn btn-primary" onclick="showHome()">Zur\u00fcck</button>
+          </div></div>`;
+        return;
+      }
+      const q = quizData[cur];
+      const shuffled = shuffleQuiz([{frage:q.frage,optionen:q.optionen,richtig:q.richtig,erklaerung:q.erklaerung}], 1)[0];
+      c.innerHTML = `<div class="lern-area fade-in">
+        <div class="quiz-info">\u{1F504} Wiederholung: ${q.quelle || 'Quiz'}</div>
+        <div class="quiz-progress"><span>Frage ${cur+1}/${quizData.length}</span>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${(cur/quizData.length)*100}%"></div></div></div>
+        <div class="quiz-frage">${shuffled.frage}</div>
+        <div class="quiz-optionen">
+          ${shuffled.optionen.map((o,i) => `<div class="quiz-option" data-idx="${i}">${o}</div>`).join('')}
+        </div>
+        <div class="quiz-erklaerung" id="erklaerung">${shuffled.erklaerung||''}</div>
+        <div class="quiz-nav"><button class="btn btn-primary" id="nextBtn" style="display:none" onclick="window._rnext()">Weiter &rarr;</button></div>
+      </div>`;
+      document.querySelectorAll('.quiz-option').forEach(el => {
+        el.addEventListener('click', function() {
+          if (this.classList.contains('disabled')) return;
+          const idx = parseInt(this.dataset.idx);
+          document.querySelectorAll('.quiz-option').forEach(o => { o.classList.add('disabled'); if(parseInt(o.dataset.idx)===shuffled.richtig) o.classList.add('richtig'); });
+          const correct = idx===shuffled.richtig;
+          if (correct) { this.classList.add('richtig'); score++; addPoint(); updateSR(q.key, true); }
+          else { this.classList.add('falsch'); updateSR(q.key, false); }
+          const erk = document.getElementById('erklaerung');
+          if (erk && erk.textContent) { erk.classList.add('visible'); if(!correct) erk.classList.add('wrong'); }
+          document.getElementById('nextBtn').style.display = 'inline-block';
+        });
+      });
+      window._rnext = () => { cur++; show(); };
+    }
+    show();
+  }
+
+  // ===== KLAUSUR-SIMULATION =====
+  function fuzzyMatch(input, answer) {
+    const a = input.toLowerCase().trim(), b = answer.toLowerCase().trim();
+    if (a === b) return true;
+    if (a.length < 2 || b.length < 2) return a === b;
+    // Allow 1-2 char difference (Levenshtein)
+    let d = Array.from({length:a.length+1},(_,i)=>Array.from({length:b.length+1},(_,j)=>i||j));
+    for(let i=1;i<=a.length;i++) for(let j=1;j<=b.length;j++)
+      d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]!==b[j-1]?1:0));
+    const dist = d[a.length][b.length];
+    return dist <= (b.length <= 5 ? 1 : 2);
+  }
+
+  function startKlausur(fachId) {
+    currentMode = 'klausur'; currentFach = fachId; currentThema = null;
+    const fach = FAECHER[fachId];
+    document.getElementById('backBtn').classList.add('visible');
+    document.getElementById('headerTitle').textContent = 'Klausur: ' + fach.name;
+    document.getElementById('headerSub').textContent = '15 Minuten \u2022 MC + offene Fragen';
+    setHeaderColor(fachId);
+
+    // Collect quiz questions from this subject
+    let allQ = [];
+    Object.entries(fach.themen).forEach(([tId, thema]) => {
+      if (thema.quiz && thema.quiz.length > 0) {
+        thema.quiz.forEach(q => allQ.push({...q, themaName: thema.name, fachId}));
+      }
+    });
+
+    // Build mixed question set: ~60% MC, ~40% open
+    const shuffled = shuffle(allQ);
+    const maxQ = Math.min(20, shuffled.length);
+    const openCount = Math.round(maxQ * 0.4);
+    const mcCount = maxQ - openCount;
+
+    // Pick questions for open (prefer short correct answers)
+    const forOpen = shuffled.filter(q => q.optionen[q.richtig].length <= 30).slice(0, openCount);
+    const forMC = shuffled.filter(q => !forOpen.includes(q)).slice(0, mcCount);
+    // If not enough open, fill with MC
+    while (forOpen.length + forMC.length < maxQ && shuffled.length > forOpen.length + forMC.length) {
+      const remaining = shuffled.find(q => !forOpen.includes(q) && !forMC.includes(q));
+      if (remaining) forMC.push(remaining); else break;
+    }
+
+    // Combine and shuffle, mark types
+    const quizData = shuffle([
+      ...forMC.map(q => ({...q, typ: 'mc'})),
+      ...forOpen.map(q => ({...q, typ: 'offen', antwort: q.optionen[q.richtig]}))
+    ]);
+    // Shuffle MC options
+    quizData.forEach(q => {
+      if (q.typ === 'mc') {
+        let idx = q.optionen.map((_,i)=>i);
+        idx = shuffle(idx);
+        q.optionen = idx.map(i => q.optionen[i]);
+        q.richtig = idx.indexOf(q.richtig);
+      }
+    });
+
+    let cur = 0, score = 0, answers = [];
+    let timeLeft = 15 * 60;
+    const c = document.getElementById('content');
+
+    function fmtTime(s) { return `${Math.floor(s/60).toString().padStart(2,'0')}:${(s%60).toString().padStart(2,'0')}`; }
+
+    function show() {
+      if (cur >= quizData.length || timeLeft <= 0) {
+        if (window._klausurTimer) { clearInterval(window._klausurTimer); window._klausurTimer = null; }
+        const pct = quizData.length > 0 ? Math.round(score/quizData.length*100) : 0;
+        let note;
+        if (pct >= 92) note = '1,0'; else if (pct >= 81) note = '1,7';
+        else if (pct >= 67) note = '2,3'; else if (pct >= 56) note = '3,0';
+        else if (pct >= 46) note = '3,7'; else if (pct >= 30) note = '4,0';
+        else note = '5,0';
+        const themen = {};
+        answers.forEach(a => {
+          const key = a.themaName;
+          if (!themen[key]) themen[key] = { total: 0, correct: 0, color: FACH_GRADIENTS[fachId]?.from || '#667EEA' };
+          themen[key].total++;
+          if (a.correct) themen[key].correct++;
+        });
+        let auswertung = '';
+        Object.entries(themen).forEach(([name, d]) => {
+          const p = Math.round(d.correct/d.total*100);
+          auswertung += `<div class="klausur-thema-row"><span style="min-width:180px">${name}</span><div class="klausur-thema-bar"><div class="klausur-thema-bar-fill" style="width:${p}%;background:${d.color}"></div></div><span style="min-width:50px;text-align:right;font-weight:600;">${p}%</span></div>`;
+        });
+        c.innerHTML = `<div class="lern-area fade-in"><div class="ergebnis-box">
+          <div class="label">Deine Note</div><div class="klausur-note">${note}</div>
+          <div class="score" style="font-size:24px">${score}/${quizData.length} richtig (${pct}%)</div>
+          <div class="message">${parseFloat(note)<=2?'Bestanden mit Bravour!':parseFloat(note)<=4?'Bestanden!':'Leider durchgefallen \u2013 weiter \u00fcben!'}</div></div>
+          <div class="klausur-auswertung" style="margin-top:24px;"><h4 style="font-size:15px;margin-bottom:12px;">Auswertung nach Themen</h4>${auswertung}</div>
+          <div style="text-align:center;margin-top:20px;display:flex;gap:12px;justify-content:center;">
+            <button class="btn btn-secondary" onclick="showThemen('${fachId}')">Zur\u00fcck</button>
+            <button class="btn btn-primary" onclick="startKlausur('${fachId}')">Neue Klausur</button>
+          </div></div>`;
+        return;
+      }
+      const q = quizData[cur];
+      const tag = q.typ==='mc' ? '<span class="offen-tag mc">Multiple Choice</span>' : '<span class="offen-tag offen">Offene Frage</span>';
+      if (q.typ === 'mc') {
+        c.innerHTML = `<div class="lern-area fade-in">
+          <div class="klausur-timer" id="ktimer">${fmtTime(timeLeft)}</div>
+          ${tag}
+          <div class="quiz-progress"><span>Frage ${cur+1}/${quizData.length}</span>
+            <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${(cur/quizData.length)*100}%"></div></div></div>
+          <div class="quiz-frage">${q.frage}</div>
+          <div class="quiz-optionen">
+            ${q.optionen.map((o,i) => `<div class="quiz-option" data-idx="${i}">${o}</div>`).join('')}
+          </div>
+          <div class="quiz-erklaerung" id="erklaerung">${q.erklaerung||''}</div>
+          <div class="quiz-nav"><button class="btn btn-primary" id="nextBtn" style="display:none" onclick="window._knext()">Weiter &rarr;</button></div>
+        </div>`;
+        document.querySelectorAll('.quiz-option').forEach(el => {
+          el.addEventListener('click', function() {
+            if (this.classList.contains('disabled')) return;
+            const idx = parseInt(this.dataset.idx);
+            document.querySelectorAll('.quiz-option').forEach(o => { o.classList.add('disabled'); if(parseInt(o.dataset.idx)===q.richtig) o.classList.add('richtig'); });
+            const correct = idx===q.richtig;
+            if (correct) { this.classList.add('richtig'); score++; addPoint(); }
+            else { this.classList.add('falsch'); addToSR(q.frage, q.optionen, q.richtig, q.erklaerung||'', 'Klausur'); }
+            answers.push({ correct, themaName: q.themaName });
+            const erk = document.getElementById('erklaerung');
+            if (erk && erk.textContent) { erk.classList.add('visible'); if(!correct) erk.classList.add('wrong'); }
+            document.getElementById('nextBtn').style.display = 'inline-block';
+          });
+        });
+      } else {
+        // Offene Frage
+        c.innerHTML = `<div class="lern-area fade-in">
+          <div class="klausur-timer" id="ktimer">${fmtTime(timeLeft)}</div>
+          ${tag}
+          <div class="quiz-progress"><span>Frage ${cur+1}/${quizData.length}</span>
+            <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${(cur/quizData.length)*100}%"></div></div></div>
+          <div class="quiz-frage">${q.frage}</div>
+          <div style="margin-top:16px;">
+            <input type="text" class="offen-input" id="offenInput" placeholder="Deine Antwort..." autocomplete="off" spellcheck="false">
+          </div>
+          <div class="offen-muster" id="offenMuster"></div>
+          <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:16px;">
+            <button class="btn btn-primary" id="offenCheck" onclick="window._kcheck()">Pr\u00fcfen</button>
+            <button class="btn btn-primary" id="nextBtn" style="display:none" onclick="window._knext()">Weiter &rarr;</button>
+          </div>
+        </div>`;
+        document.getElementById('offenInput').addEventListener('keydown', e => { if(e.key==='Enter') window._kcheck(); });
+        document.getElementById('offenInput').focus();
+        window._kcheck = () => {
+          const inp = document.getElementById('offenInput');
+          const muster = document.getElementById('offenMuster');
+          if (!inp.value.trim()) return;
+          inp.disabled = true;
+          document.getElementById('offenCheck').style.display = 'none';
+          const correct = fuzzyMatch(inp.value, q.antwort);
+          if (correct) {
+            inp.classList.add('richtig'); score++; addPoint();
+            muster.className = 'offen-muster visible right';
+            muster.innerHTML = '\u2705 Richtig!' + (q.erklaerung ? '<br><small>'+q.erklaerung+'</small>' : '');
+          } else {
+            inp.classList.add('falsch');
+            addToSR(q.frage, q.optionen, q.richtig, q.erklaerung||'', 'Klausur');
+            muster.className = 'offen-muster visible wrong';
+            muster.innerHTML = '\u274C Richtige Antwort: <strong>'+q.antwort+'</strong>' + (q.erklaerung ? '<br><small>'+q.erklaerung+'</small>' : '');
+          }
+          answers.push({ correct, themaName: q.themaName });
+          document.getElementById('nextBtn').style.display = 'inline-block';
+        };
+      }
+      window._knext = () => { cur++; show(); };
+    }
+    // Timer
+    if (window._klausurTimer) clearInterval(window._klausurTimer);
+    window._klausurTimer = setInterval(() => {
+      timeLeft--;
+      const el = document.getElementById('ktimer');
+      if (el) {
+        el.textContent = fmtTime(timeLeft);
+        if (timeLeft <= 60) el.className = 'klausur-timer danger';
+        else if (timeLeft <= 180) el.className = 'klausur-timer warning';
+      }
+      if (timeLeft <= 0) { clearInterval(window._klausurTimer); window._klausurTimer = null; show(); }
+    }, 1000);
+    show();
+  }
+
+  // ===== ZUSAMMENFASSUNG =====
+  function renderZusammenfassung(fachId, themaId) {
+    const c = document.getElementById('content');
+    const thema = FAECHER[fachId].themen[themaId];
+    let html = `<div class="lern-area fade-in"><h3>\u{1F4CB} ${thema.name} \u2013 Zusammenfassung</h3>`;
+    if (thema.zusammenfassung) html += `<p style="margin-bottom:20px;color:var(--text-light);font-size:15px;">${thema.zusammenfassung}</p>`;
+
+    thema.erklaerungen.forEach((e, i) => {
+      html += `<div class="zusammenfassung-section"><h4>${e.titel}</h4>`;
+      // Definitionen
+      const tmp = document.createElement('div');
+      tmp.innerHTML = e.inhalt;
+      const defs = tmp.querySelectorAll('.def-box');
+      defs.forEach(d => { html += d.outerHTML; });
+      // Merke
+      if (e.merke) html += `<div class="merk-box"><div class="merk-label">\u{1F4CC} Merke</div>${e.merke}</div>`;
+      // Flip-Cards
+      if (e.flipcards && e.flipcards.length > 0) {
+        html += `<div class="flip-grid" style="margin-top:10px;">`;
+        e.flipcards.forEach(fc => {
+          html += `<div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front">${fc.vorne}</div><div class="flip-card-back">${fc.hinten}</div></div></div>`;
+        });
+        html += `</div>`;
+      }
+      html += `</div>`;
+    });
+
+    html += `<div style="margin-top:20px;"><button class="btn btn-secondary" onclick="showThemen('${currentFach}')">Zur\u00fcck</button></div></div>`;
+    c.innerHTML = html;
+  }
+
+  // ===== TASTATUR-NAVIGATION =====
+  document.addEventListener('keydown', function(e) {
+    // Nicht in Inputs/Textareas
+    if (['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+
+    // Pfeiltasten für Schritt-Karten
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      const nextBtn = document.querySelector('.schritt-btn-next');
+      const prevBtn = document.querySelector('.schritt-btn-prev');
+      if (e.key === 'ArrowRight' && nextBtn) { nextBtn.click(); e.preventDefault(); }
+      if (e.key === 'ArrowLeft' && prevBtn) { prevBtn.click(); e.preventDefault(); }
+    }
+
+    // Enter = Weiter im Mini-Quiz oder Schritt-Quiz
+    if (e.key === 'Enter') {
+      const mqNext = document.querySelector('.mq-next[style*="inline-block"]');
+      if (mqNext) { mqNext.click(); e.preventDefault(); return; }
+      const nextBtn = document.querySelector('.schritt-btn-next');
+      if (nextBtn) { nextBtn.click(); e.preventDefault(); }
+    }
+
+    // 1-4 = Antwort-Optionen im Quiz auswählen
+    if (['1','2','3','4'].includes(e.key)) {
+      const idx = parseInt(e.key) - 1;
+      // Mini-Quiz Optionen
+      const mqOpts = document.querySelectorAll('.mq-option:not(.mq-disabled)');
+      if (mqOpts.length > idx) { mqOpts[idx].click(); e.preventDefault(); return; }
+      // Großes Quiz
+      const qOpts = document.querySelectorAll('.quiz-option:not(.disabled)');
+      if (qOpts.length > idx) { qOpts[idx].click(); e.preventDefault(); }
+    }
+  });
+
+  showHome();
+</script>
+
+</body>
+</html>

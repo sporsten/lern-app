@@ -1,0 +1,2751 @@
+// Lern-App Datenbank
+
+const FAECHER = {
+  "steuerrecht": {
+    name: "Steuerrecht",
+    icon: "\u2696\uFE0F",
+    color: "#3B82F6",
+    colorLight: "#DBEAFE",
+    themen: {}
+  },
+  "rechnungslegung": {
+    name: "Rechnungslegung",
+    icon: "\uD83D\uDCCA",
+    color: "#10B981",
+    colorLight: "#D1FAE5",
+    themen: {}
+  },
+  "winf-seidlmeier": {
+    name: "Wirtschaftsinformatik \u2013 Seidlmeier",
+    icon: "\uD83D\uDCBB",
+    color: "#8B5CF6",
+    colorLight: "#EDE9FE",
+    themen: {}
+  },
+  "winf-kuehn": {
+    name: "Wirtschaftsinformatik \u2013 K\u00FChn",
+    icon: "\uD83D\uDD27",
+    color: "#F59E0B",
+    colorLight: "#FEF3C7",
+    themen: {}
+  }
+};
+
+// ============================================================
+// STEUERRECHT - Kapitel 1: Steuerrechtsordnung
+// ============================================================
+FAECHER["steuerrecht"].themen["steuerrechtsordnung"] = {
+  name: "1. Steuerrechtsordnung",
+  zusammenfassung: "Grundlagen des deutschen Steuerrechts: Abgabenarten, Rechtsquellen, Einteilung der Steuern, Steueraufkommen und Besteuerungsprinzipien.",
+  erklaerungen: [
+    {
+      titel: "\uD83D\uDCB0 Arten der \u00f6ffentlichen Einnahmen",
+      inhalt: `<p>Der Staat finanziert sich durch <strong>4 Einnahmequellen</strong>:</p>
+<div class="erk-tree">
+  <div class="tree-root">\u00D6ffentliche Einnahmen</div>
+  <div class="tree-branches">
+    <div class="tree-branch"><strong>Abgaben</strong><br><small>Steuern, Beitr\u00e4ge, Geb\u00fchren</small></div>
+    <div class="tree-branch"><strong>Ertr\u00e4ge</strong><br><small>aus staatlichen Betrieben</small></div>
+    <div class="tree-branch"><strong>Ver\u00e4u\u00dferung</strong><br><small>von Staatsverm\u00f6gen</small></div>
+    <div class="tree-branch"><strong>Verschuldung</strong><br><small>Staatsanleihen etc.</small></div>
+  </div>
+</div>
+<p>Die <strong><span class="term" data-label="Abgaben" data-def="Oberbegriff f\u00fcr alle staatlichen Zahlungsverpflichtungen: Steuern, Beitr\u00e4ge und Geb\u00fchren">Abgaben</span></strong> unterteilen sich in:</p>
+<div class="def-box"><div class="def-label"><span class="term" data-label="\u00a73 AO" data-def="Abgabenordnung \u00a73: Steuern sind Geldleistungen ohne Gegenleistung, die zur Einnahmeerzielung erhoben werden.">Steuern (\u00a73 Abs. 1 AO)</span></div>
+Geldleistungen, die <strong>keine Gegenleistung</strong> f\u00fcr eine besondere Leistung darstellen.</div>
+<div class="def-box"><div class="def-label">Steuerliche Nebenleistungen (\u00a73 Abs. 4 AO)</div>
+Versp\u00e4tungszuschl\u00e4ge, S\u00e4umniszuschl\u00e4ge, Zinsen, Zwangsgelder.</div>
+<div class="def-box"><div class="def-label">Beitr\u00e4ge</div>
+<strong>M\u00f6glichkeit</strong> der Gegenleistung reicht aus.</div>
+<div class="def-box"><div class="def-label">Geb\u00fchren</div>
+<strong>Tats\u00e4chliche</strong> Gegenleistung.</div>`,
+      beispiel: `Einkommensteuer = <strong>Steuer</strong> (keine Gegenleistung)<br>
+Rundfunkbeitrag = <strong>Beitrag</strong> (Nutzung m\u00f6glich, auch ohne zu schauen)<br>
+Personalausweis = <strong>Geb\u00fchr</strong> (du bekommst den Ausweis)`,
+      merke: `Steuer = keine Gegenleistung \u2022 Beitrag = m\u00f6gliche Gegenleistung \u2022 Geb\u00fchr = tats\u00e4chliche Gegenleistung`,
+      flipcards: [
+        { vorne: "Steuer", hinten: "<strong>Keine</strong><br>Gegenleistung" },
+        { vorne: "Beitrag", hinten: "<strong>M\u00f6gliche</strong><br>Gegenleistung" },
+        { vorne: "Geb\u00fchr", hinten: "<strong>Tats\u00e4chliche</strong><br>Gegenleistung" },
+        { vorne: "Nebenleistung", hinten: "Zuschlag, S\u00e4umnis,<br>Zinsen (\u00a73 IV AO)" }
+      ],
+      schritte: [
+        {
+          titel: "Schritt 1: Öffentliche Einnahmen im Überblick",
+          inhalt: `<p>Der Staat hat <strong>4 Wege</strong> um sich zu finanzieren:</p>
+<p>1️⃣ <strong>Abgaben</strong> – Steuern, Beiträge, Gebühren (der wichtigste!)<br>
+2️⃣ <strong>Erträge</strong> – aus staatlichen Betrieben (z.B. Bundesbahn-Dividende)<br>
+3️⃣ <strong>Veräußerung</strong> – Verkauf von Staatsvermögen<br>
+4️⃣ <strong>Verschuldung</strong> – Staatsanleihen, Kredite</p>
+<p>Für das Steuerrecht interessieren uns <strong>nur die Abgaben</strong>.</p>`
+        },
+        {
+          titel: "Schritt 2: Abgaben – die 4 Unterarten",
+          inhalt: `<p>Abgaben sind <strong>Pflichtleistungen</strong> an den Staat. Merke den Unterschied:</p>
+<table class="erk-table">
+  <tr><th>Art</th><th>Gegenleistung?</th><th>Beispiel</th></tr>
+  <tr><td><strong>Steuer</strong></td><td>❌ Keine</td><td>Einkommensteuer</td></tr>
+  <tr><td><strong>Beitrag</strong></td><td>🔄 Mögliche</td><td>Rundfunkbeitrag, GKV</td></tr>
+  <tr><td><strong>Gebühr</strong></td><td>✅ Tatsächliche</td><td>Personalausweis</td></tr>
+  <tr><td><strong>Nebenleistung</strong></td><td>⚠️ Strafcharakter</td><td>Verspätungszuschlag</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Steuerdefinition § 3 Abs. 1 AO",
+          inhalt: `<p>Die Legaldefinition der Steuer lautet:</p>
+<div class="def-box"><div class="def-label">§ 3 Abs. 1 AO</div>
+„Steuern sind <strong>Geldleistungen</strong>, die nicht eine Gegenleistung für eine besondere Leistung darstellen und von einem öffentlich-rechtlichen Gemeinwesen zur <strong>Erzielung von Einnahmen</strong> allen auferlegt werden, bei denen der Tatbestand zutrifft, an den das Gesetz die Leistungspflicht knüpft."</div>
+<p>Schlüsselwort: <strong>„keine Gegenleistung"</strong> – du zahlst, weil der Tatbestand erfüllt ist, nicht weil du etwas bekommst.</p>`
+        },
+        {
+          titel: "Schritt 4: Abgrenzung im Praxisfall",
+          inhalt: `<p>Immer wenn eine Abgabe zu qualifizieren ist, stelle diese Fragen:</p>
+<p>❓ <strong>Bekommt man etwas dafür?</strong><br>
+→ Nein → <strong>Steuer</strong><br>
+→ Könnte man theoretisch → <strong>Beitrag</strong><br>
+→ Man bekommt definitiv etwas → <strong>Gebühr</strong><br>
+→ Es ist eine Sanktion → <strong>Nebenleistung</strong></p>
+<p>💡 Der <strong>Rundfunkbeitrag</strong> ist kein Beitrag im traditionellen Sinn – das BVerfG hat ihn 2018 aber als verfassungskonformen Sonderbeitrag eingestuft.</p>`
+        }
+      ],
+      fallbeispiele: [
+        {
+          situation: "Anna zahlt jeden Monat ihren GKV-Beitrag an die Krankenkasse. Sie ist jung und gesund – sie war in den letzten 3 Jahren nie beim Arzt.",
+          aufgabe: "Um welche Art von Abgabe handelt es sich beim GKV-Beitrag?",
+          hinweis: "Stell dir die Frage: Muss Anna eine konkrete Gegenleistung bekommen – oder reicht die Möglichkeit?",
+          loesung: [
+            "Prüfe: Bekommt Anna eine <strong>tatsächliche</strong> Gegenleistung? → Nein, sie nutzt die Kasse gerade nicht.",
+            "Prüfe: Könnte sie eine Gegenleistung bekommen? → <strong>Ja</strong>, sie könnte jederzeit Leistungen in Anspruch nehmen.",
+            "Möglichkeit der Gegenleistung reicht aus → das ist ein <strong>Beitrag</strong>."
+          ],
+          ergebnis: "GKV-Beitrag = Beitrag (§ 3 Abs. 1 AO analog), weil die Möglichkeit der Inanspruchnahme genügt."
+        },
+        {
+          situation: "Max gibt seine Steuererklärung 3 Monate zu spät ab. Das Finanzamt erhebt einen Verspätungszuschlag von 150 €.",
+          aufgabe: "Wie ist der Verspätungszuschlag abgabenrechtlich einzuordnen?",
+          hinweis: "Der Zuschlag wird nicht wegen einer Leistung erhoben – er hat eher einen Sanktionscharakter.",
+          loesung: [
+            "Steuer? → Nein, es gibt keinen eigentlichen Steuertatbestand.",
+            "Gebühr oder Beitrag? → Nein, Max bekommt keine Gegenleistung.",
+            "<strong>§ 3 Abs. 4 AO</strong> zählt Verspätungszuschläge ausdrücklich zu den <strong>steuerlichen Nebenleistungen</strong>."
+          ],
+          ergebnis: "Verspätungszuschlag = steuerliche Nebenleistung (§ 3 Abs. 4 AO) – Strafcharakter."
+        }
+      ],
+      details: [
+        { titel: "\u{1F4D6} \u00a73 AO im Wortlaut", inhalt: "<em>\"Steuern sind Geldleistungen, die nicht eine Gegenleistung f\u00fcr eine besondere Leistung darstellen und von einem \u00f6ffentlich-rechtlichen Gemeinwesen zur Erzielung von Einnahmen allen auferlegt werden, bei denen der Tatbestand zutrifft, an den das Gesetz die Leistungspflicht kn\u00fcpft.\"</em>" },
+        { titel: "\u{1F9E0} Eselsbr\u00fccke", inhalt: "<strong>S</strong>teuer = <strong>S</strong>o-oder-so zahlen (keine Wahl)<br><strong>B</strong>eitrag = <strong>B</strong>enutzung m\u00f6glich<br><strong>G</strong>eb\u00fchr = <strong>G</strong>egenleistung garantiert" }
+      ],
+      interaktion: [
+        { frage: "Der Rundfunkbeitrag ist eine ...", optionen: ["Steuer", "Geb\u00fchr", "Beitrag", "Nebenleistung"], richtig: 2, erklaerung: "M\u00f6glichkeit der Nutzung reicht = Beitrag." },
+        { frage: "Was ist ein Versp\u00e4tungszuschlag?", optionen: ["Eine Steuer", "Eine Geb\u00fchr", "Eine steuerliche Nebenleistung", "Ein Beitrag"], richtig: 2, erklaerung: "Versp\u00e4tungszuschl\u00e4ge sind steuerliche Nebenleistungen (\u00a73 Abs. 4 AO)." },
+        { frage: "Beim Personalausweis zahlt man eine ...", optionen: ["Steuer", "Geb\u00fchr", "Beitrag", "Nebenleistung"], richtig: 1, erklaerung: "Man bekommt den Ausweis als tats\u00e4chliche Gegenleistung = Geb\u00fchr." },
+        { frage: "Was ist das Erkennungsmerkmal einer Steuer?", optionen: ["Man bekommt etwas daf\u00fcr", "Kein Anspruch auf individuelle Gegenleistung", "Sie ist freiwillig", "Sie wird nur von Firmen gezahlt"], richtig: 1, erklaerung: "\u00a73 Abs. 1 AO: Kein Anspruch auf individuelle Gegenleistung." },
+        { frage: "Die GKV-Beitr\u00e4ge sind ein Beispiel f\u00fcr ...", optionen: ["Steuern", "Geb\u00fchren", "Beitr\u00e4ge", "Nebenleistungen"], richtig: 2, erklaerung: "Man zahlt, weil man den Dienst nutzen k\u00f6nnte = Beitrag." }
+      ]
+    },
+    {
+      titel: "\uD83D\uDCDC Rechtsquellen des Steuerrechts",
+      inhalt: `<p>Die Rechtsquellen sind <strong>pyramidenf\u00f6rmig</strong> aufgebaut:</p>
+<div class="erk-tree">
+  <div class="tree-root">Rechtsquellen-Pyramide</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="flex:0 0 100%;max-width:100%;background:#DBEAFE;border-color:#3B82F6;"><strong>1. Grundgesetz (GG)</strong><br><small>Finanzverfassung Art. 104a ff.</small></div>
+    <div class="tree-branch" style="flex:0 0 100%;max-width:100%;"><strong>2. Abgabenordnung (AO)</strong><br><small>Allgemeines Fundament</small></div>
+    <div class="tree-branch"><strong>3. Einzelsteuergesetze</strong><br><small>EStG, KStG, GewStG...</small></div>
+    <div class="tree-branch"><strong>4. FGO</strong><br><small>Rechtsschutz</small></div>
+  </div>
+</div>
+<table class="erk-table">
+  <tr><th>Artikel</th><th>Regelt</th></tr>
+  <tr><td><strong>Art. 105 GG</strong></td><td>Gesetzgebungskompetenz</td></tr>
+  <tr><td><strong>Art. 106 GG</strong></td><td>Verteilung Steueraufkommen</td></tr>
+  <tr><td><strong>Art. 108 GG</strong></td><td>Finanzverwaltung</td></tr>
+</table>`,
+      merke: `Art. 105 = Gesetzgebung \u2022 Art. 106 = Geldverteilung \u2022 Art. 108 = Verwaltung`,
+      schritte: [
+        {
+          titel: "Ebene 1: Das Grundgesetz (GG)",
+          inhalt: `<p>Das GG steht an der <strong>Spitze der Pyramide</strong> – kein Steuergesetz darf dagegen verstoßen.</p>
+<p>Relevant für Steuerrecht:<br>
+• <strong>Art. 105 GG</strong> – Wer darf Steuergesetze machen?<br>
+• <strong>Art. 106 GG</strong> – Wer bekommt welche Steuereinnahmen?<br>
+• <strong>Art. 108 GG</strong> – Wer verwaltet die Steuern (Finanzämter)?</p>
+<p>Außerdem: Die <strong>Grundrechte</strong> wirken als Abwehrrechte gegen übermäßige Besteuerung.</p>`
+        },
+        {
+          titel: "Ebene 2: Die Abgabenordnung (AO)",
+          inhalt: `<p>Die AO ist das <strong>„Grundgesetz des Steuerrechts"</strong> – sie gilt für alle Steuerarten gleich.</p>
+<p>Was regelt die AO?<br>
+• Wer schuldet was? (Steuerschuldverhältnis)<br>
+• Welches Finanzamt ist zuständig?<br>
+• Wie läuft ein Steuerverfahren ab?<br>
+• Fristen, Einspruch, Vollstreckung</p>
+<div class="def-box"><div class="def-label">Wichtig</div>Straf- und Bußgeldvorschriften in der AO gehören zum <strong>Strafrecht</strong>, nicht zum Steuerrecht!</div>`
+        },
+        {
+          titel: "Ebene 3 & 4: Einzelsteuergesetze & FGO",
+          inhalt: `<p><strong>Einzelsteuergesetze</strong> (EStG, KStG, GewStG, UStG...) regeln jede Steuerart im Detail. Sie bauen auf der AO auf.</p>
+<p><strong>FGO (Finanzgerichtsordnung)</strong> regelt das Gerichtsverfahren, wenn du gegen das Finanzamt klagen willst:</p>
+<p>📍 Finanzgericht (FG) → Bundesfinanzhof (BFH) → ggf. BVerfG oder EuGH</p>
+<p>💡 Merke: Je weiter unten in der Pyramide, desto <strong>spezieller</strong> das Gesetz.</p>`
+        }
+      ],
+      flipcards: [
+        { vorne: "Art. 105 GG", hinten: "Gesetzgebungs-<br><strong>kompetenz</strong>" },
+        { vorne: "Art. 106 GG", hinten: "Verteilung des<br><strong>Steueraufkommens</strong>" },
+        { vorne: "Art. 108 GG", hinten: "<strong>Finanzverwaltung</strong>" }
+      ],
+      details: [
+        { titel: "\u{1F4D6} Was ist die AO genau?", inhalt: "Die <strong>Abgabenordnung</strong> ist das \"Grundgesetz des Steuerrechts\". Sie regelt alles, was f\u00fcr alle Steuerarten gleich gilt: Fristen, Erkl\u00e4rungspflichten, Steuerbescheide, Einspruch, Vollstreckung etc." }
+      ],
+      interaktion: [
+        { frage: "Welcher Artikel regelt die Verteilung des Steueraufkommens?", optionen: ["Art. 105 GG", "Art. 106 GG", "Art. 108 GG", "Art. 104a GG"], richtig: 1, erklaerung: "Art. 106 GG = Verteilung des Steueraufkommens." },
+        { frage: "Was steht an der Spitze der Rechtsquellen-Pyramide?", optionen: ["AO", "EStG", "GG", "FGO"], richtig: 2, erklaerung: "Das Grundgesetz steht ganz oben." },
+        { frage: "Was regelt die AO?", optionen: ["Nur die ESt", "Allgemeines Fundament f\u00fcr alle Steuerarten", "Nur das Finanzgericht", "Nur Z\u00f6lle"], richtig: 1, erklaerung: "Die AO ist das allgemeine Steuerrecht \u2013 Fundament f\u00fcr alles." },
+        { frage: "Wof\u00fcr steht FGO?", optionen: ["Finanzgerichtsordnung", "F\u00f6derale Grundordnung", "Fiskalgesetzordnung", "Finanzgrundordnung"], richtig: 0, erklaerung: "FGO = Finanzgerichtsordnung \u2013 regelt den Rechtsschutz gegen das Finanzamt." },
+        { frage: "Wer verwaltet die Steuern laut GG?", optionen: ["Art. 105 regelt das", "Art. 106 regelt das", "Art. 108 regelt das", "Das steht nicht im GG"], richtig: 2, erklaerung: "Art. 108 GG regelt die Finanzverwaltung." }
+      ]
+    },
+    {
+      titel: "\u{1F3DB}\uFE0F Gesetzgebungskompetenz",
+      inhalt: `<table class="erk-table">
+  <tr><th>Kompetenz</th><th>Wer</th><th>Welche Steuern</th></tr>
+  <tr><td><strong>Ausschlie\u00dflich Bund</strong></td><td>Nur der Bund</td><td>Z\u00f6lle, Finanzmonopole</td></tr>
+  <tr><td><strong>Konkurrierend</strong></td><td>Bund + L\u00e4nder</td><td>Alle \u00fcbrigen (au\u00dfer \u00f6rtliche)</td></tr>
+  <tr><td><strong>L\u00e4nder</strong></td><td>Nur die L\u00e4nder</td><td>\u00d6rtliche Steuern, GrSt-Hebesatz, GrESt-Satz</td></tr>
+</table>`,
+      beispiel: `Bund allein: Z\u00f6lle. Bund+L\u00e4nder: ESt. Gemeinden: Hundesteuer.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Warum gibt es Gesetzgebungskompetenz?",
+          inhalt: `<p>Im f\u00f6deralen Deutschland braucht es klare Regeln: <strong>Wer darf Steuergesetze erlassen?</strong></p>
+<p>Das Grundgesetz (Art. 105-108 GG) verteilt die Macht auf Bund, L\u00e4nder und Gemeinden.</p>
+<p>Art. 105 GG = <strong>Gesetzgebungskompetenz</strong><br>
+Art. 106 GG = <strong>Ertragshoheit</strong> (wer bekommt das Geld?)<br>
+Art. 108 GG = <strong>Verwaltungskompetenz</strong></p>`
+        },
+        {
+          titel: "Schritt 2: Die 3 Kompetenzarten",
+          inhalt: `<table class="erk-table">
+  <tr><th>Kompetenz</th><th>Wer?</th><th>Beispiele</th></tr>
+  <tr><td><strong>Ausschlie\u00dflich Bund</strong></td><td>Nur der Bund</td><td>Z\u00f6lle, Finanzmonopole</td></tr>
+  <tr><td><strong>Konkurrierend</strong></td><td>Bund hat Vorrang</td><td>ESt, USt, KSt</td></tr>
+  <tr><td><strong>L\u00e4nder</strong></td><td>Nur die L\u00e4nder</td><td>Hundesteuer, Vergn\u00fcgungssteuer</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Gesetzgebung \u2260 Ertragshoheit!",
+          inhalt: `<p>Wichtiger Unterschied:</p>
+<p>\ud83d\udcd6 <strong>Gesetzgebungskompetenz</strong> = Wer macht das Gesetz?<br>
+\ud83d\udcb0 <strong>Ertragshoheit</strong> = Wer bekommt das Steuergeld?</p>
+<div class="def-box"><div class="def-label">Beispiel Grunderwerbsteuer</div>
+Bund macht das GrESt-Gesetz (Kompetenz) \u2014 aber das Geld flie\u00dft an die <strong>L\u00e4nder</strong> (Ertrag).</div>`
+        },
+        {
+          titel: "Schritt 4: Pr\u00fcfungstipps",
+          inhalt: `<p>H\u00e4ufig abgefragte Zuordnungen:</p>
+<p>\u2753 Wer hat Kompetenz f\u00fcr Hundesteuer? \u2192 <strong>L\u00e4nder/Gemeinden</strong><br>
+\u2753 Was sind Z\u00f6lle? \u2192 <strong>Ausschlie\u00dflich Bund</strong><br>
+\u2753 Was ist konkurrierende Gesetzgebung? \u2192 Bund hat Vorrang, L\u00e4nder d\u00fcrfen, wenn Bund nicht t\u00e4tig</p>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Wer hat die ausschlie\u00dfliche Kompetenz f\u00fcr Z\u00f6lle?", optionen: ["L\u00e4nder", "Gemeinsam", "Nur der Bund", "Gemeinden"], richtig: 2, erklaerung: "Z\u00f6lle = ausschlie\u00dflich Bund." },
+        { frage: "Die Hundesteuer ist Sache der ...", optionen: ["Bundes", "L\u00e4nder", "Gemeinden", "EU"], richtig: 2, erklaerung: "Hundesteuer = \u00f6rtliche Aufwandsteuer der Gemeinden." },
+        { frage: "Was bedeutet 'konkurrierende Gesetzgebung'?", optionen: ["Bund und L\u00e4nder konkurrieren um Steuergelder", "Bund und L\u00e4nder teilen sich die Kompetenz", "Nur L\u00e4nder d\u00fcrfen Gesetze machen", "Es gibt Wettbewerb zwischen Gemeinden"], richtig: 1, erklaerung: "Konkurrierende Gesetzgebung = Bund und L\u00e4nder teilen sich die Kompetenz." },
+        { frage: "Wer bestimmt den Grundsteuer-Hebesatz?", optionen: ["Der Bund", "Die EU", "Die L\u00e4nder/Gemeinden", "Das Finanzamt"], richtig: 2, erklaerung: "Der GrSt-Hebesatz liegt in der Kompetenz der L\u00e4nder/Gemeinden." },
+        { frage: "Die ESt ist welche Art von Gesetzgebung?", optionen: ["Ausschlie\u00dflich Bund", "Konkurrierende Gesetzgebung", "Ausschlie\u00dflich L\u00e4nder", "Keine davon"], richtig: 1, erklaerung: "Die ESt f\u00e4llt unter die konkurrierende Gesetzgebung von Bund und L\u00e4ndern." }
+      ]
+    },
+    {
+      titel: "\u{1F4CA} Juristische Einteilung der Steuern",
+      inhalt: `<table class="erk-table">
+  <tr><th>Steuerart</th><th>Warum besteuert?</th><th>Beispiele</th></tr>
+  <tr><td><strong>Ertragsteuern</strong></td><td>Einkommen erzielt</td><td>ESt, KSt, GewSt</td></tr>
+  <tr><td><strong>Substanzsteuern</strong></td><td>Verm\u00f6gen besitzt</td><td>ErbSt (Erbschaft), GrSt</td></tr>
+  <tr><td><strong>Verkehrsteuern</strong></td><td>Rechtsgesch\u00e4fte t\u00e4tigt</td><td>USt, ErbSt (Schenkung)</td></tr>
+  <tr><td><strong>Verbrauchsteuern</strong></td><td>Waren konsumiert</td><td>Bier-, Tabaksteuer</td></tr>
+</table>`,
+      merke: `<strong>ErbSt taucht 2x auf!</strong> Erbschaft = Substanzsteuer (kein Rechtsgesch\u00e4ft). Schenkung = Verkehrsteuer (Rechtsgesch\u00e4ft).`,
+      schritte: [
+        {
+          titel: "Schritt 1: Was wird besteuert?",
+          inhalt: `<p>Die juristische Einteilung fragt: <strong>Was ist der Besteuerungsanlass?</strong></p>
+<p>\ud83d\udcb0 <strong>Ertrag</strong> \u2192 Ertragsteuern (ESt, KSt, GewSt)<br>
+\ud83c\udfe0 <strong>Substanz/Verm\u00f6gen</strong> \u2192 Substanzsteuern (GrSt)<br>
+\ud83d\udd04 <strong>Rechtsgesch\u00e4ft</strong> \u2192 Verkehrsteuern (USt)<br>
+\ud83d\uded2 <strong>Verbrauch</strong> \u2192 Verbrauchsteuern (Energiesteuer)</p>`
+        },
+        {
+          titel: "Schritt 2: Die 4 Kategorien mit Beispielen",
+          inhalt: `<table class="erk-table">
+  <tr><th>Steuerart</th><th>Anlass</th><th>Wichtigste Steuern</th></tr>
+  <tr><td><strong>Ertragsteuern</strong></td><td>Einkommen erzielt</td><td>ESt, KSt, GewSt</td></tr>
+  <tr><td><strong>Substanzsteuern</strong></td><td>Verm\u00f6gen besitzt</td><td>ErbSt (Erbschaft), GrSt</td></tr>
+  <tr><td><strong>Verkehrsteuern</strong></td><td>Rechtsgesch\u00e4ft t\u00e4tigt</td><td>USt, ErbSt (Schenkung), GrESt</td></tr>
+  <tr><td><strong>Verbrauchsteuern</strong></td><td>Verbrauch</td><td>Energie-, Tabak-, Biersteuer</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Achtung \u2013 ErbSt ist doppelt!",
+          inhalt: `<p>Die Erbschaftsteuer (ErbSt) taucht in zwei Kategorien auf:</p>
+<table class="erk-table">
+  <tr><th>Vorgang</th><th>Kategorie</th><th>Warum?</th></tr>
+  <tr><td>Erbschaft bei Tod</td><td>Substanzsteuer</td><td>Verm\u00f6gen wird \u00fcbertragen</td></tr>
+  <tr><td>Schenkung zu Lebzeiten</td><td>Verkehrsteuer</td><td>Ist ein Rechtsgesch\u00e4ft</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 4: Die 3 Ertragsteuern merken",
+          inhalt: `<p>Die wichtigsten Steuern im BWL-Studium sind die <strong>3 Ertragsteuern</strong>:</p>
+<p>\ud83d\udcb5 <strong>ESt</strong> = Einkommensteuer (nat\u00fcrliche Personen)<br>
+\ud83c\udfe2 <strong>KSt</strong> = K\u00f6rperschaftsteuer (Kapitalgesellschaften)<br>
+\ud83c\udfed <strong>GewSt</strong> = Gewerbesteuer (Gewerbebetriebe)</p>
+<div class="def-box"><div class="def-label">Eselsbrücke</div>
+"<strong>EKG</strong>" merken: Einkommensteuer \u2013 K\u00f6rperschaftsteuer \u2013 Gewerbesteuer</div>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Die USt ist eine ...", optionen: ["Ertragsteuer", "Substanzsteuer", "Verkehrsteuer", "Verbrauchsteuer"], richtig: 2, erklaerung: "USt = Verkehrsteuer (Rechtsgesch\u00e4fte = Ums\u00e4tze)." },
+        { frage: "Warum ist die ErbSt bei Erbschaft eine Substanzsteuer?", optionen: ["Weil der Betrag hoch ist", "Weil kein Rechtsgesch\u00e4ft vorliegt", "Weil das Land sie erhebt", "Weil sie j\u00e4hrlich anf\u00e4llt"], richtig: 1, erklaerung: "Eigent\u00fcmer ist tot \u2192 kein Rechtsgesch\u00e4ft \u2192 Substanzsteuer." },
+        { frage: "Biersteuer geh\u00f6rt zu den ...", optionen: ["Ertragsteuern", "Substanzsteuern", "Verkehrsteuern", "Verbrauchsteuern"], richtig: 3, erklaerung: "Biersteuer = Verbrauchsteuer (besteuert Warenkonsum)." },
+        { frage: "ESt, KSt und GewSt sind ...", optionen: ["Verkehrsteuern", "Ertragsteuern", "Substanzsteuern", "Verbrauchsteuern"], richtig: 1, erklaerung: "Man wird besteuert, weil man Einkommen erzielt = Ertragsteuern." },
+        { frage: "Bei einer Schenkung ist die ErbSt eine ...", optionen: ["Ertragsteuer", "Substanzsteuer", "Verkehrsteuer", "Verbrauchsteuer"], richtig: 2, erklaerung: "Schenkung = 2 Willenserkl\u00e4rungen = Rechtsgesch\u00e4ft = Verkehrsteuer." }
+      ]
+    },
+    {
+      titel: "\u{1F3E0} Politische Einteilung der Steuern",
+      inhalt: `<table class="erk-table">
+  <tr><th>Kategorie</th><th>Empf\u00e4nger</th><th>Beispiele</th></tr>
+  <tr><td><strong>Bundessteuern</strong></td><td>Nur Bund</td><td>Energiesteuer, Tabaksteuer</td></tr>
+  <tr><td><strong>Landessteuern</strong></td><td>Nur L\u00e4nder</td><td>ErbSt, GrESt</td></tr>
+  <tr><td><strong>Gemeindesteuern</strong></td><td>Nur Gemeinden</td><td>GrSt, GewSt</td></tr>
+  <tr><td><strong>Gemeinschaftsteuern</strong></td><td>Bund + L\u00e4nder + Gemeinden</td><td>ESt, KSt, USt</td></tr>
+</table>`,
+      merke: `Gemeinschaftsteuern (ESt + USt) = Gro\u00dfteil der Staatseinnahmen!`,
+      schritte: [
+        {
+          titel: "Schritt 1: Politisch = Wer bekommt das Geld?",
+          inhalt: `<p>Die politische Einteilung fragt: <strong>Wer ist der Empf\u00e4nger der Steuereinnahmen?</strong></p>
+<p>4 Empf\u00e4nger:</p>
+<p>\ud83c\udfe6 <strong>Bund</strong> alleine<br>
+\ud83c\udff0 <strong>L\u00e4nder</strong> alleine<br>
+\ud83c\udfe1 <strong>Gemeinden</strong> alleine<br>
+\ud83e\udd1d <strong>Gemeinschaft</strong> = alle teilen sich das Geld</p>`
+        },
+        {
+          titel: "Schritt 2: Die 4 Kategorien mit Beispielen",
+          inhalt: `<table class="erk-table">
+  <tr><th>Kategorie</th><th>Empf\u00e4nger</th><th>Wichtige Steuern</th></tr>
+  <tr><td><strong>Bundessteuern</strong></td><td>Nur Bund</td><td>Energiesteuer, Tabaksteuer, SolZ</td></tr>
+  <tr><td><strong>Landessteuern</strong></td><td>Nur L\u00e4nder</td><td>ErbSt, GrESt</td></tr>
+  <tr><td><strong>Gemeindesteuern</strong></td><td>Nur Gemeinden</td><td>GrSt, GewSt</td></tr>
+  <tr><td><strong>Gemeinschaftsteuern</strong></td><td>Alle teilen</td><td>ESt, KSt, USt \u2190 die Gr\u00f6\u00dften!</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Gemeinschaftsteuern im Detail",
+          inhalt: `<p>Die gr\u00f6\u00dften Steuern sind Gemeinschaftsteuern:</p>
+<p>\ud83d\udcb0 <strong>Einkommensteuer</strong> \u2192 Bund 42,5% | L\u00e4nder 42,5% | Gemeinden 15%<br>
+\ud83c\udfe2 <strong>K\u00f6rperschaftsteuer</strong> \u2192 Bund 50% | L\u00e4nder 50%<br>
+\ud83d\uded2 <strong>Umsatzsteuer</strong> \u2192 Bund + L\u00e4nder (variabler Schl\u00fcssel)</p>
+<div class="def-box"><div class="def-label">Merke</div>
+ESt, KSt, USt = Gemeinschaftsteuern. Sie machen den Gro\u00dfteil aller Einnahmen aus!</div>`
+        },
+        {
+          titel: "Schritt 4: H\u00e4ufige Pr\u00fcfungsfallen",
+          inhalt: `<p>Oft verwechselt:</p>
+<p>\u274c GewSt = Bundessteuer? NEIN \u2192 <strong>Gemeindesteuer</strong><br>
+\u274c ErbSt = Bundessteuer? NEIN \u2192 <strong>Landessteuer</strong><br>
+\u2705 SolZ = Bundessteuer (ja, geht komplett an den Bund)</p>
+<div class="def-box"><div class="def-label">Verwechslungsgefahr</div>
+Politische Einteilung \u2260 Gesetzgebungskompetenz! Bund macht das GewSt-Gesetz, aber Gemeinden bekommen das Geld.</div>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Welche Steuer bringt am meisten ein?", optionen: ["Bundessteuern", "Landessteuern", "Gemeinschaftsteuern", "Gemeindesteuern"], richtig: 2, erklaerung: "ESt und USt als Gemeinschaftsteuern = Haupteinnahmen." },
+        { frage: "Die Tabaksteuer ist eine ...", optionen: ["Gemeinschaftsteuer", "Bundessteuer", "Landessteuer", "Gemeindesteuer"], richtig: 1, erklaerung: "Tabaksteuer = Bundessteuer (nur der Bund)." },
+        { frage: "Wer bekommt die Grundsteuer?", optionen: ["Der Bund", "Die L\u00e4nder", "Die Gemeinden", "Alle zusammen"], richtig: 2, erklaerung: "GrSt = Gemeindesteuer." },
+        { frage: "Die ErbSt ist eine ...", optionen: ["Bundessteuer", "Landessteuer", "Gemeindesteuer", "Gemeinschaftsteuer"], richtig: 1, erklaerung: "ErbSt = Landessteuer (nur die L\u00e4nder)." },
+        { frage: "ESt und USt geh\u00f6ren zu den ...", optionen: ["Bundessteuern", "Landessteuern", "Gemeindesteuern", "Gemeinschaftsteuern"], richtig: 3, erklaerung: "ESt + USt = Gemeinschaftsteuern (Bund, L\u00e4nder, ggf. Gemeinden)." }
+      ]
+    },
+    {
+      titel: "\u2696\uFE0F Freibetrag vs. Freigrenze",
+      inhalt: `<table class="erk-table">
+  <tr><th></th><th>Freibetrag</th><th>Freigrenze</th></tr>
+  <tr><td><strong>Regel</strong></td><td>Nur <strong>\u00fcbersteigender</strong> Betrag besteuert</td><td><strong>Gesamter</strong> Betrag besteuert</td></tr>
+  <tr><td><strong>Erkennungswort</strong></td><td>\u201Esoweit\u201C</td><td>\u201Ewenn\u201C</td></tr>
+  <tr><td><strong>Beispiel</strong></td><td>1.000\u20ac Freibetrag, 1.500\u20ac Einkommen \u2192 500\u20ac besteuert</td><td>1.000\u20ac Freigrenze, 1.500\u20ac Einkommen \u2192 1.500\u20ac besteuert</td></tr>
+</table>`,
+      merke: `Freibetrag = \u201Esoweit\u201C (nur dar\u00fcber) vs. Freigrenze = \u201Ewenn\u201C (alles besteuert)`,
+      schritte: [
+        {
+          titel: "Schritt 1: Der Grundunterschied",
+          inhalt: `<p>Beide gew\u00e4hren eine Steuerbefreiung, aber <strong>fundamental unterschiedlich</strong>:</p>
+<div class="def-box"><div class="def-label">Freibetrag</div>
+Nur der Betrag <strong>\u00fcber</strong> dem Freibetrag wird besteuert. Das Erkennungswort: <strong>\u201Esoweit\u201C</strong></div>
+<div class="def-box"><div class="def-label">Freigrenze</div>
+Wenn die Grenze \u00fcberschritten wird, wird <strong>alles</strong> besteuert. Das Erkennungswort: <strong>\u201Ewenn\u201C</strong></div>`
+        },
+        {
+          titel: "Schritt 2: Zahlenbeispiel verstehen",
+          inhalt: `<p>Angenommen: 1.000 \u20ac Freibetrag/Freigrenze, du hast <strong>1.500 \u20ac</strong> Einnahmen:</p>
+<table class="erk-table">
+  <tr><th>Variante</th><th>Berechnung</th><th>Zu versteuern</th></tr>
+  <tr><td><strong>Freibetrag</strong></td><td>1.500 \u2212 1.000 = 500</td><td>Nur <strong>500 \u20ac</strong></td></tr>
+  <tr><td><strong>Freigrenze</strong></td><td>Grenze \u00fcberschritten!</td><td><strong>1.500 \u20ac</strong> komplett</td></tr>
+</table>
+<p>Sind die Einnahmen unter 1.000 \u20ac? Dann kein Unterschied \u2013 beide: 0 Steuer.</p>`
+        },
+        {
+          titel: "Schritt 3: Erkennungsw\u00f6rter im Gesetz",
+          inhalt: `<table class="erk-table">
+  <tr><th>Typ</th><th>Erkennungswort</th><th>Formulierungsbeispiel</th></tr>
+  <tr><td><strong>Freibetrag</strong></td><td>\u201Esoweit\u201C</td><td>"...soweit der Betrag 1.000 \u20ac \u00fcbersteigt..."</td></tr>
+  <tr><td><strong>Freigrenze</strong></td><td>\u201Ewenn\u201C</td><td>"...wenn der Betrag 1.000 \u20ac \u00fcbersteigt..."</td></tr>
+</table>
+<p>Im Gesetzestext: suche nach "soweit" \u2192 Freibetrag. Suche "wenn" \u2192 Freigrenze.</p>`
+        },
+        {
+          titel: "Schritt 4: Wichtige Beispiele aus der Praxis",
+          inhalt: `<p>Wichtige Freibetr\u00e4ge:</p>
+<p>\ud83d\udfe2 <strong>Grundfreibetrag ESt</strong>: ca. 12.000 \u20ac \u2192 <strong>Freibetrag</strong><br>
+\ud83d\udfe2 <strong>Arbeitnehmer-Pauschbetrag</strong>: 1.230 \u20ac \u2192 <strong>Freibetrag</strong></p>
+<p>Wichtige Freigrenzen:</p>
+<p>\ud83d\udd34 <strong>Kleinunternehmerregelung USt</strong>: 22.000 \u20ac \u2192 <strong>Freigrenze</strong></p>
+<div class="def-box"><div class="def-label">Pr\u00fcfungstipp</div>
+Bei "soweit" = Freibetrag: nur der \u00fcbersteigende Betrag wird besteuert. Bei "wenn" = Freigrenze: alles oder nichts!</div>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Freibetrag 1.000\u20ac, Einkommen 1.500\u20ac. Was wird besteuert?", optionen: ["Nichts", "500\u20ac", "1.000\u20ac", "1.500\u20ac"], richtig: 1, erklaerung: "Freibetrag: nur der \u00fcbersteigende Betrag = 500\u20ac." },
+        { frage: "Freigrenze 1.000\u20ac, Einkommen 1.500\u20ac. Was wird besteuert?", optionen: ["Nichts", "500\u20ac", "1.000\u20ac", "1.500\u20ac"], richtig: 3, erklaerung: "Freigrenze: bei \u00dcberschreitung der gesamte Betrag = 1.500\u20ac." },
+        { frage: "Welches Erkennungswort geh\u00f6rt zum Freibetrag?", optionen: ["wenn", "soweit", "falls", "sofern"], richtig: 1, erklaerung: "Freibetrag = 'soweit', Freigrenze = 'wenn'." },
+        { frage: "Freibetrag 1.000\u20ac, Einkommen 800\u20ac. Was passiert?", optionen: ["800\u20ac werden besteuert", "Nichts wird besteuert", "200\u20ac werden besteuert", "1.000\u20ac werden besteuert"], richtig: 1, erklaerung: "Unter dem Freibetrag = keine Besteuerung." },
+        { frage: "Freigrenze 1.000\u20ac, Einkommen 999\u20ac. Was passiert?", optionen: ["999\u20ac besteuert", "Nichts besteuert", "1\u20ac besteuert", "1.000\u20ac besteuert"], richtig: 1, erklaerung: "Unter der Freigrenze = keine Besteuerung. Erst bei \u00dcberschreitung greift sie." }
+      ]
+    },
+    {
+      titel: "\u{1F3E2} Unternehmensformen im \u00dcberblick",
+      inhalt: `<table class="erk-table">
+  <tr><th>Form</th><th>Haftung</th><th>Kapital</th><th>Besonderheit</th></tr>
+  <tr><td><strong>Einzelunternehmen</strong></td><td>Unbeschr\u00e4nkt</td><td>\u2013</td><td>Transparenzprinzip</td></tr>
+  <tr><td><strong>GbR</strong></td><td>Unbeschr\u00e4nkt</td><td>\u2013</td><td>Mind. 2 Personen</td></tr>
+  <tr><td><strong>OHG</strong></td><td>Unbeschr\u00e4nkt</td><td>\u2013</td><td>Handelsgewerbe</td></tr>
+  <tr><td><strong>KG</strong></td><td>Komplem. unbeschr., Komm. beschr.</td><td>\u2013</td><td>2 Gesellschaftertypen</td></tr>
+  <tr><td><strong>GmbH</strong></td><td>Nur Gesellschaftsverm\u00f6gen</td><td>25.000\u20ac</td><td>Eigene Rechtspers\u00f6nlichkeit</td></tr>
+  <tr><td><strong>AG</strong></td><td>Nur Gesellschaftsverm\u00f6gen</td><td>50.000\u20ac</td><td>3 Organe: HV, AR, Vorstand</td></tr>
+</table>`,
+      beispiel: `<strong>GmbH & Co. KG</strong>: Komplement\u00e4r ist eine GmbH \u2013 faktisch haftet niemand pers\u00f6nlich.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Zwei Grundtypen",
+          inhalt: `<p>Im Steuerrecht unterscheiden wir zwei grunds\u00e4tzliche Unternehmensformen:</p>
+<div class="def-box"><div class="def-label">Personenunternehmen</div>
+Eine oder mehrere nat\u00fcrliche Personen haften <strong>unbeschr\u00e4nkt</strong> mit ihrem Privatverm\u00f6gen.<br>Beispiele: Einzelunternehmen, GbR, OHG, KG</div>
+<div class="def-box"><div class="def-label">Kapitalgesellschaften</div>
+Haftung <strong>auf das Gesellschaftsverm\u00f6gen beschr\u00e4nkt</strong>. Eigene Rechtsperson.<br>Beispiele: GmbH, AG, UG</div>`
+        },
+        {
+          titel: "Schritt 2: \u00dcberblick alle Formen",
+          inhalt: `<table class="erk-table">
+  <tr><th>Form</th><th>Haftung</th><th>Besteuerung</th></tr>
+  <tr><td><strong>Einzelunternehmen</strong></td><td>Unbeschr\u00e4nkt</td><td>ESt (Transparenzprinzip)</td></tr>
+  <tr><td><strong>GbR</strong></td><td>Unbeschr\u00e4nkt</td><td>ESt bei den Gesellschaftern</td></tr>
+  <tr><td><strong>OHG</strong></td><td>Unbeschr\u00e4nkt</td><td>GewSt + ESt</td></tr>
+  <tr><td><strong>KG</strong></td><td>Kompl. unbeschr., Komm. auf Einlage</td><td>GewSt + ESt</td></tr>
+  <tr><td><strong>GmbH</strong></td><td>Beschr\u00e4nkt (Stammkapital 25.000 \u20ac)</td><td>KSt + GewSt</td></tr>
+  <tr><td><strong>AG</strong></td><td>Beschr\u00e4nkt (Grundkapital 50.000 \u20ac)</td><td>KSt + GewSt</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Transparenzprinzip vs. Trennungsprinzip",
+          inhalt: `<p>Der wichtigste steuerliche Unterschied:</p>
+<div class="def-box"><div class="def-label"><span class="term" data-label="Transparenzprinzip" data-def="Gewinne werden direkt den Gesellschaftern zugerechnet und bei ihnen mit ESt besteuert. Das Unternehmen selbst zahlt keine KSt.">Transparenzprinzip</span> (Personenunternehmen)</div>
+Das Unternehmen selbst zahlt keine Steuer. Stattdessen werden Gewinne den <strong>Gesellschaftern zugerechnet</strong> und bei diesen mit ESt besteuert.</div>
+<div class="def-box"><div class="def-label"><span class="term" data-label="Trennungsprinzip" data-def="Kapitalgesellschaft ist eigenes Steuersubjekt (zahlt KSt 15%). Erst bei Aussch\u00fcttung an Gesellschafter kommt weitere Besteuerung dazu.">Trennungsprinzip</span> (Kapitalgesellschaften)</div>
+Gesellschaft zahlt selbst KSt (15%). Erst bei Aussch\u00fcttung an Gesellschafter kommt weitere Steuer dazu.</div>`
+        },
+        {
+          titel: "Schritt 4: Stille Gesellschaft als Sonderfall",
+          inhalt: `<p>Die <strong>stille Gesellschaft</strong> ist eine Sonderform:</p>
+<p>\ud83d\udd35 <strong>Typisch still</strong>: Nur Kapitalbeteiligung, kein unternehmerisches Risiko \u2192 Gewinnbeteiligung ist Kapitalertrag<br>
+\ud83d\udd34 <strong>Atypisch still</strong>: Mitunternehmerschaft, beteiligt an Wertentwicklung \u2192 Mitunternehmer-Eink\u00fcnfte (Gewerbebetrieb)</p>
+<div class="def-box"><div class="def-label">Merke</div>
+Typisch still = Kapitalertrag. Atypisch still = Gewerbebetrieb.</div>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Mindeststammkapital einer GmbH?", optionen: ["10.000\u20ac", "25.000\u20ac", "50.000\u20ac", "Keins"], richtig: 1, erklaerung: "GmbH: 25.000\u20ac. AG: 50.000\u20ac." },
+        { frage: "Wer haftet bei der KG unbeschr\u00e4nkt?", optionen: ["Kommanditist", "Komplement\u00e4r", "Beide", "Niemand"], richtig: 1, erklaerung: "Komplement\u00e4r = unbeschr\u00e4nkt. Kommanditist = beschr\u00e4nkt." },
+        { frage: "Was ist das Transparenzprinzip?", optionen: ["Alles muss ver\u00f6ffentlicht werden", "Unternehmer und Unternehmen = steuerliche Einheit", "Das Finanzamt sieht alles", "Es gibt keine Geheimhaltung"], richtig: 1, erklaerung: "Beim Einzelunternehmen bilden Unternehmen und Unternehmer eine steuerliche Einheit." },
+        { frage: "Wie viele Organe hat eine AG?", optionen: ["1", "2", "3", "4"], richtig: 2, erklaerung: "AG: 3 Organe \u2013 Hauptversammlung, Aufsichtsrat, Vorstand." },
+        { frage: "Warum ist die GmbH & Co. KG beliebt?", optionen: ["Weil sie g\u00fcnstig ist", "Weil niemand pers\u00f6nlich haftet", "Weil sie keine Steuern zahlt", "Weil sie einfach zu gr\u00fcnden ist"], richtig: 1, erklaerung: "Der Komplement\u00e4r (= GmbH) haftet nur mit Gesellschaftsverm\u00f6gen. Faktisch: keine pers\u00f6nliche Haftung." }
+      ]
+    },
+    {
+      titel: "\u{1F4B8} Besteuerungsprinzip: Personen- vs. Kapitalgesellschaft",
+      inhalt: `<div class="erk-tree">
+  <div class="tree-root">Personenunternehmen</div>
+  <div class="tree-branches">
+    <div class="tree-branch"><strong>Unternehmensebene</strong><br>Gewerbesteuer</div>
+    <div class="tree-branch"><strong>Unternehmerebene</strong><br>ESt + SolZ + KiSt</div>
+  </div>
+</div>
+<div style="height:16px"></div>
+<div class="erk-tree">
+  <div class="tree-root">Kapitalgesellschaft</div>
+  <div class="tree-branches">
+    <div class="tree-branch"><strong>Gesellschaftsebene</strong><br>GewSt + KSt + SolZ</div>
+    <div class="tree-branch"><strong>Gesellschafterebene</strong><br>25% AbgSt oder Teileink\u00fcnfteverfahren (60%)</div>
+  </div>
+</div>`,
+      merke: `Seit 2021: K\u00f6MoG/Optionsmodell \u2013 Personenhandelsgesellschaften k\u00f6nnen wie KapGes besteuert werden.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Zwei Besteuerungsprinzipien",
+          inhalt: `<p>Wie wird ein Unternehmen besteuert? Das h\u00e4ngt von der Rechtsform ab:</p>
+<div class="def-box"><div class="def-label">Personenunternehmen \u2013 Transparenzprinzip</div>
+Gewinne flie\u00dfen direkt durch zum Unternehmer und werden bei <strong>ihm</strong> mit ESt besteuert.</div>
+<div class="def-box"><div class="def-label">Kapitalgesellschaft \u2013 Trennungsprinzip</div>
+Gesellschaft ist selbst Steuersubjekt und zahlt KSt (15%) auf den Gewinn.</div>`
+        },
+        {
+          titel: "Schritt 2: Steuerbelastung Personenunternehmen",
+          inhalt: `<p>Besteuerungsweg f\u00fcr ein Personenunternehmen (z.B. Einzelunternehmen):</p>
+<p>1. <strong>Unternehmensebene</strong>: Gewerbesteuer (GewSt)<br>
+2. <strong>Unternehmerebene</strong>: ESt + Solidarit\u00e4tszuschlag + ggf. Kirchensteuer</p>
+<p>Die GewSt wird auf die pers\u00f6nliche ESt <strong>angerechnet</strong> (Doppelbelastung vermieden).</p>`
+        },
+        {
+          titel: "Schritt 3: Steuerbelastung Kapitalgesellschaft",
+          inhalt: `<p>Besteuerungsweg f\u00fcr eine Kapitalgesellschaft (z.B. GmbH):</p>
+<p>1. <strong>Gesellschaftsebene</strong>: KSt 15% + GewSt + SolZ \u2248 ca. 30% Gesamtlast<br>
+2. <strong>Gesellschafterebene</strong>: Bei Aussch\u00fcttung: Abgeltungsteuer 25% + SolZ</p>
+<div class="def-box"><div class="def-label">Effektive Gesamtbelastung</div>
+Kapitalgesellschaft: ca. 48-50% Gesamtbelastung bei Aussch\u00fcttung (Doppelbelastung!)</div>`
+        },
+        {
+          titel: "Schritt 4: Vergleich auf einen Blick",
+          inhalt: `<table class="erk-table">
+  <tr><th></th><th>Personenunternehmen</th><th>Kapitalgesellschaft</th></tr>
+  <tr><td><strong>Prinzip</strong></td><td>Transparenz</td><td>Trennung</td></tr>
+  <tr><td><strong>Unternehmensebene</strong></td><td>GewSt</td><td>KSt 15% + GewSt</td></tr>
+  <tr><td><strong>Personenebene</strong></td><td>ESt (pers\u00f6nlicher Tarif)</td><td>Abgeltungsteuer 25%</td></tr>
+  <tr><td><strong>GewSt-Anrechnung</strong></td><td>Ja</td><td>Nein</td></tr>
+</table>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Was zahlt eine GmbH auf Gesellschaftsebene?", optionen: ["Nur GewSt", "ESt + SolZ", "GewSt + KSt + SolZ", "Nur KSt"], richtig: 2, erklaerung: "Kapitalgesellschaften: GewSt + KSt + SolZ." },
+        { frage: "Wie hoch ist die Abgeltungssteuer auf Aussch\u00fcttungen (privat)?", optionen: ["15%", "20%", "25%", "30%"], richtig: 2, erklaerung: "Privatpersonen zahlen 25% Abgeltungssteuer auf Aussch\u00fcttungen." },
+        { frage: "Was gilt beim Teileink\u00fcnfteverfahren?", optionen: ["100% besteuert", "60% besteuert", "40% besteuert", "Steuerfrei"], richtig: 1, erklaerung: "Teileink\u00fcnfteverfahren: 60% der Aussch\u00fcttung wird besteuert." },
+        { frage: "Was ist das K\u00f6MoG?", optionen: ["Ein neues Steuergesetz f\u00fcr K\u00f6rper", "Optionsmodell: PersGes wie KapGes besteuern", "K\u00f6lner Modellgesetz", "K\u00f6rperschaftsteuer-Modernisierung"], richtig: 1, erklaerung: "K\u00f6MoG = Optionsmodell seit 2021. Personenhandelsgesellschaften k\u00f6nnen wie KapGes besteuert werden." },
+        { frage: "Ein Einzelunternehmer zahlt auf seinen Gewinn ...", optionen: ["KSt", "ESt", "Nur GewSt", "Nur USt"], richtig: 1, erklaerung: "Personenunternehmen: Unternehmerebene = ESt + SolZ + ggf. KiSt." }
+      ]
+    },
+    {
+      titel: "\u{1F4DC} Rechtsquellen \u2013 Sonstige",
+      inhalt: `<p>Neben den formellen Gesetzen gibt es weitere Rechtsquellen:</p>
+<table class="erk-table">
+  <tr><th>Rechtsquelle</th><th>Erkl\u00e4rung</th><th>Beispiel</th></tr>
+  <tr><td><strong>Rechtsverordnungen</strong></td><td>Brauchen gesetzliche Erm\u00e4chtigung, von der Exekutive erlassen</td><td>EStDV (Einkommensteuer-Durchf\u00fchrungsverordnung)</td></tr>
+  <tr><td><strong>Kommunale Satzungen</strong></td><td>Von Gemeinden erlassen</td><td>GewSt-/GrSt-Hebes\u00e4tze</td></tr>
+  <tr><td><strong>Verwaltungsvorschriften</strong></td><td>Interne Anweisungen der Finanzverwaltung</td><td>Richtlinien (EStR), Einzelerlasse</td></tr>
+  <tr><td><strong>Rechtsprechung</strong></td><td>Urteile der Gerichte</td><td>FG, BFH, BVerfG, EuGH</td></tr>
+  <tr><td><strong>DBA</strong></td><td>Doppelbesteuerungsabkommen</td><td>Besteuerung ausl\u00e4ndischer Eink\u00fcnfte</td></tr>
+  <tr><td><strong>EU-Richtlinien</strong></td><td>\u00dcbergeordnetes EU-Recht</td><td>Harmonisierung der USt</td></tr>
+</table>`,
+      merke: `Gesetze = Legislative (langsam). Verordnungen = Exekutive (schnell, detailliert). Oft gibt es eine Verordnung zum Gesetz.`,
+      details: [
+        { titel: "\u{1F9E0} Merke: Gesetze vs. Verordnungen", inhalt: "<strong>Gesetze</strong> macht der Bundestag (Legislative) \u2013 das dauert.<br><strong>Verordnungen</strong> macht die Verwaltung (Exekutive, z.B. Bundesfinanzministerium) \u2013 schneller und detaillierter.<br>Verwaltungsvorschriften binden nur die Finanz\u00e4mter intern, nicht die Gerichte." }
+      ],
+      schritte: [
+        {
+          titel: "Schritt 1: Formelle vs. materielle Gesetze",
+          inhalt: `<p>Neben den formellen Gesetzen (vom Bundestag verabschiedet) gibt es weitere <strong>Rechtsquellen</strong> im Steuerrecht:</p>
+<p>\ud83d\udcdc <strong>Rechtsverordnungen</strong> \u2013 von der Exekutive erlassen (brauchen gesetzliche Erm\u00e4chtigung)<br>
+\ud83c\udfe1 <strong>Kommunale Satzungen</strong> \u2013 von Gemeinden erlassen (z.B. Hebes\u00e4tze)<br>
+\ud83d\udcde <strong>Verwaltungsvorschriften</strong> \u2013 interne Anweisungen der Finanzverw.<br>
+\u2696\ufe0f <strong>Gerichtsentscheidungen</strong> \u2013 BFH und EuGH als wichtigste Gerichte</p>`
+        },
+        {
+          titel: "Schritt 2: Rechtsverordnungen",
+          inhalt: `<p>Rechtsverordnungen konkretisieren formelle Gesetze:</p>
+<table class="erk-table">
+  <tr><th>Name</th><th>Zu welchem Gesetz?</th><th>Inhalt</th></tr>
+  <tr><td><strong>EStDV</strong></td><td>Einkommensteuergesetz</td><td>Details zur ESt-Durchf\u00fchrung</td></tr>
+  <tr><td><strong>UStDV</strong></td><td>Umsatzsteuergesetz</td><td>Details zur USt-Durchf\u00fchrung</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Wichtig</div>
+Rechtsverordnungen haben dieselbe Bindungswirkung wie Gesetze, aber sie brauchen eine gesetzliche Erm\u00e4chtigung (Art. 80 GG).</div>`
+        },
+        {
+          titel: "Schritt 3: Verwaltungsvorschriften & Richtlinien",
+          inhalt: `<p>Verwaltungsvorschriften sind interne Anweisungen der Finanzverwaltung:</p>
+<p>\ud83d\udccd <strong>Einkommensteuerrichtlinien (EStR)</strong> \u2013 Auslegungshinweise zur ESt<br>
+\ud83d\udccd <strong>Umsatzsteueranwendungserlass (UStAE)</strong> \u2013 USt-Auslegung<br>
+\ud83d\udccd <strong>BMF-Schreiben</strong> \u2013 Einzelfall-Auslegungen des Bundesfinanzministeriums</p>
+<p>\u26a0\ufe0f Verwaltungsvorschriften binden nur die Finanzbeh\u00f6rden, nicht die Gerichte!</p>`
+        },
+        {
+          titel: "Schritt 4: Gerichtsentscheidungen",
+          inhalt: `<p>Im Steuerrecht spielen zwei Gerichte die wichtigste Rolle:</p>
+<table class="erk-table">
+  <tr><th>Gericht</th><th>Aufgabe</th><th>Bindungswirkung</th></tr>
+  <tr><td><strong>BFH</strong><br>(Bundesfinanzhof)</td><td>Oberstes Steuergericht Deutschlands</td><td>Nur im Einzelfall, aber starke Pr\u00e4zedenzwirkung</td></tr>
+  <tr><td><strong>EuGH</strong><br>(Europ. Gerichtshof)</td><td>Europ\u00e4isches Recht</td><td>Vorrang vor nationalem Recht</td></tr>
+</table>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Wer erlässt Rechtsverordnungen?", optionen: ["Der Bundestag", "Die Exekutive (Verwaltung)", "Die Gerichte", "Die Gemeinden"], richtig: 1, erklaerung: "Verordnungen kommen von der Exekutive, z.B. dem Bundesfinanzministerium." },
+        { frage: "Was regelt ein DBA?", optionen: ["Doppelte Buchf\u00fchrung", "Besteuerungsrecht bei ausl\u00e4ndischen Eink\u00fcnften", "Doppelte Abschreibung", "Doppelte Beitr\u00e4ge"], richtig: 1, erklaerung: "DBA = Doppelbesteuerungsabkommen. Regelt, welches Land besteuern darf." },
+        { frage: "Verwaltungsvorschriften binden ...", optionen: ["Alle B\u00fcrger", "Nur die Finanz\u00e4mter (intern)", "Nur Unternehmen", "Nur Gerichte"], richtig: 1, erklaerung: "Verwaltungsvorschriften haben nur Innenwirkung f\u00fcr die Finanzverwaltung." },
+        { frage: "GewSt-Hebes\u00e4tze werden festgelegt durch ...", optionen: ["Den Bund", "Die L\u00e4nder", "Kommunale Satzungen", "EU-Richtlinien"], richtig: 2, erklaerung: "Gemeinden legen GewSt- und GrSt-Hebes\u00e4tze per Satzung fest." },
+        { frage: "Vorteil von Verordnungen gegen\u00fcber Gesetzen?", optionen: ["Sie sind wichtiger", "Sie sind schneller und detaillierter", "Sie gelten l\u00e4nger", "Sie kosten weniger"], richtig: 1, erklaerung: "Verordnungen werden schneller erlassen und k\u00f6nnen Details regeln." }
+      ]
+    },
+    {
+      titel: "\u{1F4B5} BWL-Einteilung: Direkte vs. indirekte Steuern",
+      inhalt: `<table class="erk-table">
+  <tr><th></th><th>Direkte Steuern</th><th>Indirekte Steuern</th></tr>
+  <tr><td><strong>Wer tr\u00e4gt sie?</strong></td><td>Man selbst</td><td>\u00dcberw\u00e4lzung auf andere</td></tr>
+  <tr><td><strong>Kann man sie weitergeben?</strong></td><td>Nein</td><td>Ja</td></tr>
+  <tr><td><strong>Beispiele</strong></td><td>ESt, KSt, GewSt</td><td>USt, Verbrauchsteuern</td></tr>
+  <tr><td><strong>In der Kalkulation</strong></td><td>Kosten- oder Gewinnsteuer</td><td>\u00dcberw\u00e4lzung auf den Kunden</td></tr>
+</table>`,
+      beispiel: `Du kaufst Schuhe f\u00fcr 119\u20ac \u2013 davon sind 19\u20ac USt. Der H\u00e4ndler w\u00e4lzt die Steuer auf dich ab = <strong>indirekte Steuer</strong>.<br>Dein Arbeitgeber zahlt GewSt auf seinen Gewinn \u2013 die kann er nicht an dich weitergeben = <strong>direkte Steuer</strong>.`,
+      merke: `Direkt = eigene Belastung. Indirekt = wird weitergewälzt (v.a. Verbrauchsteuern).`,
+      schritte: [
+        {
+          titel: "Schritt 1: Das entscheidende Kriterium",
+          inhalt: `<p>Die BWL-Einteilung (auch: wirtschaftliche Einteilung) fragt: <strong>Kann die Steuerlast weiter\u00fcbertragen werden?</strong></p>
+<div class="def-box"><div class="def-label">Direkte Steuer</div>
+Steuerschuldner = Steuertrag\u00e4ger. Man zahlt selbst und kann die Last <strong>nicht weitergeben</strong>.</div>
+<div class="def-box"><div class="def-label">Indirekte Steuer</div>
+Steuerschuldner \u2260 Steuertrag\u00e4ger. Die Steuerlast wird auf den <strong>Endverbraucher \u00fcberw\u00e4lzt</strong>.</div>`
+        },
+        {
+          titel: "Schritt 2: Beispiele und Gegen\u00fcberstellung",
+          inhalt: `<table class="erk-table">
+  <tr><th></th><th>Direkte Steuern</th><th>Indirekte Steuern</th></tr>
+  <tr><td><strong>Beispiele</strong></td><td>ESt, KSt, GrSt, ErbSt</td><td>USt/MwSt, Energiesteuer, Tabaksteuer</td></tr>
+  <tr><td><strong>Wer tr\u00e4gt sie?</strong></td><td>Man selbst</td><td>\u00dcberw\u00e4lzung auf Kunden</td></tr>
+  <tr><td><strong>Sichtbar?</strong></td><td>Klar erkennbar</td><td>Im Preis versteckt</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Die Umsatzsteuer als Musterbeispiel",
+          inhalt: `<p>Wie funktioniert eine indirekte Steuer in der Praxis?</p>
+<p>\ud83c\udfed <strong>Unternehmer</strong> zahlt USt ans Finanzamt (Steuerschuldner)<br>
+\ud83d\udecf\ufe0f <strong>Kunde</strong> zahlt den Bruttopreis inkl. USt (Steuertrag\u00e4ger)</p>
+<p>\u2192 Das Unternehmen "sammelt" die Steuer nur ein \u2013 es tr\u00e4gt sie wirtschaftlich <strong>nicht selbst</strong>.</p>
+<div class="def-box"><div class="def-label">Merke</div>
+USt = indirekt, weil Unternehmer sammelt, Kunde zahlt. ESt = direkt, weil du selbst zahlst und behältst.</div>`
+        },
+        {
+          titel: "Schritt 4: Politische Dimension",
+          inhalt: `<p>Warum ist die Unterscheidung politisch relevant?</p>
+<p>\ud83d\udfe2 Direkte Steuern sind <strong>progressiv</strong> m\u00f6glich (wer mehr hat, zahlt mehr %)<br>
+\ud83d\udd34 Indirekte Steuern sind <strong>regressiv</strong> (trifft Geringverdiener h\u00e4rter, da gr\u00f6\u00dferer Anteil vom Einkommen)</p>
+<p>Deutschland: Mix aus beiden Systemen \u2013 ESt (progressiv) + USt (indirekt, regressiv).</p>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Die USt ist eine ...", optionen: ["Direkte Steuer", "Indirekte Steuer", "Weder noch", "Beides"], richtig: 1, erklaerung: "USt wird auf den Kunden \u00fcberw\u00e4lzt = indirekte Steuer." },
+        { frage: "Was bedeutet 'direkte Steuer'?", optionen: ["Wird direkt an den Staat \u00fcberwiesen", "Man tr\u00e4gt die Belastung selbst", "Wird vom Gehalt abgezogen", "Wird monatlich gezahlt"], richtig: 1, erklaerung: "Direkt = man tr\u00e4gt sie selbst, keine \u00dcberw\u00e4lzung m\u00f6glich." },
+        { frage: "Die GewSt ist eine ...", optionen: ["Indirekte Steuer", "Direkte Steuer", "\u00dcberw\u00e4lzungssteuer", "Verbrauchsteuer"], richtig: 1, erklaerung: "GewSt trifft den Gewerbebetrieb direkt." },
+        { frage: "Indirekte Steuern sind vor allem ...", optionen: ["Ertragsteuern", "Substanzsteuern", "Verbrauchsteuern", "Kirchensteuern"], richtig: 2, erklaerung: "Verbrauchsteuern werden typischerweise auf den Konsumenten \u00fcberw\u00e4lzt." },
+        { frage: "Biersteuer ist eine ...", optionen: ["Direkte Steuer", "Indirekte Steuer", "Gemeindesteuer", "Ertragsteuer"], richtig: 1, erklaerung: "Biersteuer = Verbrauchsteuer = wird \u00fcberw\u00e4lzt = indirekt." }
+      ]
+    },
+    {
+      titel: "\u{1F3E6} Steuertechnische Einteilung",
+      inhalt: `<p>Wie wird die Steuer erhoben?</p>
+<table class="erk-table">
+  <tr><th>Methode</th><th>Erkl\u00e4rung</th><th>Beispiele</th></tr>
+  <tr><td><strong><span class="term" data-label="Quellenabzug" data-def="Steuererhebungsmethode: Die Steuer wird direkt an der Einkommensquelle einbehalten, bevor der Steuerpflichtige das Geld erh\u00e4lt. Beispiel: Lohnsteuer.">Quellenabzug</span></strong></td><td>Steuer wird <strong>direkt an der Quelle</strong> einbehalten, bevor man das Geld sieht</td><td>Lohnsteuer, Kapitalertragsteuer</td></tr>
+  <tr><td><strong>Veranlagung</strong></td><td>Man gibt eine <strong>Steuererkl\u00e4rung</strong> ab, das Finanzamt setzt die Steuer fest</td><td>J\u00e4hrliche ESt-Erkl\u00e4rung</td></tr>
+  <tr><td><strong>Selbstveranlagung</strong></td><td>Man <strong>berechnet die Steuer selbst</strong> und meldet sie an</td><td>USt-Voranmeldung</td></tr>
+</table>`,
+      beispiel: `Dein Arbeitgeber zieht die Lohnsteuer direkt vom Gehalt ab = <strong>Quellenabzug</strong>. Du siehst das Geld nie.<br>Am Jahresende gibst du eine Steuererkl\u00e4rung ab = <strong>Veranlagung</strong>. Das Finanzamt rechnet nach.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Wie wird die Steuer erhoben?",
+          inhalt: `<p>Die steuertechnische Einteilung fragt: <strong>Auf welche Art wird die Steuer eingetrieben?</strong></p>
+<p>3 technische Erhebungsmethoden:</p>
+<p>\ud83d\udccc <strong>Quellenabzug</strong> \u2013 direkt an der Quelle einbehalten, bevor man das Geld sieht<br>
+\ud83d\udcdd <strong>Veranlagung</strong> \u2013 Steuerpflichtiger erkl\u00e4rt selbst, Finanzamt setzt Bescheid<br>
+\ud83d\udcb0 <strong>Steueranmeldung</strong> \u2013 Steuerpflichtiger berechnet und meldet selbst</p>`
+        },
+        {
+          titel: "Schritt 2: Die 3 Methoden im Detail",
+          inhalt: `<table class="erk-table">
+  <tr><th>Methode</th><th>Ablauf</th><th>Beispiele</th></tr>
+  <tr><td><strong>Quellenabzug</strong></td><td>Steuer automatisch abgezogen</td><td>Lohnsteuer, Abgeltungsteuer (Kapitalertr\u00e4ge)</td></tr>
+  <tr><td><strong>Veranlagung</strong></td><td>Steuerpflichtiger erkl\u00e4rt, FA setzt Bescheid</td><td>ESt-Erkl\u00e4rung</td></tr>
+  <tr><td><strong>Steueranmeldung</strong></td><td>Steuerpflichtiger berechnet + zahlt selbst</td><td>USt-Voranmeldung</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Quellenabzug genauer betrachtet",
+          inhalt: `<p>Beim Quellenabzug wird die Steuer <strong>automatisch einbehalten</strong>:</p>
+<p>\ud83d\udcbc <strong>Lohnsteuer</strong>: Arbeitgeber z\u00e4hlt Lohn brutto, beh\u00e4lt LSt ein, \u00fcberweist Rest an Mitarbeiter<br>
+\ud83d\udcb9 <strong>Abgeltungsteuer</strong>: Bank beh\u00e4lt 25% auf Zinsen/Dividenden ein, \u00fcberweist Rest</p>
+<div class="def-box"><div class="def-label">Vorteil</div>
+Der Staat erh\u00e4lt die Steuer sofort, ohne auf Erkl\u00e4rung warten zu m\u00fcssen.</div>`
+        },
+        {
+          titel: "Schritt 4: Veranlagung vs. Selbstveranlagung",
+          inhalt: `<p>Bei Veranlagung: Steuerpflichtiger liefert Erkl\u00e4rung, <strong>Finanzamt</strong> setzt den Bescheid.</p>
+<p>Bei Steueranmeldung (Selbstveranlagung): Steuerpflichtiger <strong>berechnet und zahlt selbst</strong> (z.B. USt-Voranmeldung monatlich).</p>
+<div class="def-box"><div class="def-label">Praxisbeispiel USt</div>
+Unternehmer rechnet jeden Monat selbst aus: Umsatzsteuer minus Vorsteuer = Zahllast \u2192 zahlt ans Finanzamt.</div>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Die Lohnsteuer wird erhoben durch ...", optionen: ["Veranlagung", "Quellenabzug", "Selbstveranlagung", "Sch\u00e4tzung"], richtig: 1, erklaerung: "Arbeitgeber zieht die Lohnsteuer direkt ab = Quellenabzug." },
+        { frage: "Bei der Veranlagung ...", optionen: ["Zieht der Arbeitgeber Steuern ab", "Gibt man eine Steuererkl\u00e4rung ab", "Berechnet man die Steuer selbst", "Zahlt man keine Steuern"], richtig: 1, erklaerung: "Veranlagung = Steuererkl\u00e4rung abgeben, FA setzt fest." },
+        { frage: "Die USt-Voranmeldung ist ein Beispiel f\u00fcr ...", optionen: ["Quellenabzug", "Veranlagung", "Selbstveranlagung", "Sch\u00e4tzung"], richtig: 2, erklaerung: "Man berechnet die USt selbst und meldet sie an." },
+        { frage: "Was bedeutet Quellenabzug?", optionen: ["Wasser wird besteuert", "Steuer wird einbehalten bevor man das Geld bekommt", "Man zahlt an der Quelle", "Steuer auf Wasserquellen"], richtig: 1, erklaerung: "Direkt an der Quelle einbehalten \u2013 man sieht das Geld nie." },
+        { frage: "Die Kapitalertragsteuer wird erhoben durch ...", optionen: ["Veranlagung", "Selbstveranlagung", "Quellenabzug", "Sch\u00e4tzung"], richtig: 2, erklaerung: "Die Bank beh\u00e4lt die KapESt direkt ein = Quellenabzug." }
+      ]
+    },
+    {
+      titel: "\u{1F4C5} Zeitliche Einteilung der Steuern",
+      inhalt: `<table class="erk-table">
+  <tr><th></th><th>Periodische Steuern</th><th>Aperiodische Steuern</th></tr>
+  <tr><td><strong>Wann?</strong></td><td>Regelm\u00e4\u00dfig, jedes Jahr</td><td>Einmalig bei bestimmtem Ereignis</td></tr>
+  <tr><td><strong>Beispiele</strong></td><td>ESt, GewSt, KSt, GrSt</td><td>ErbSt, GrESt</td></tr>
+</table>`,
+      beispiel: `Einkommensteuer zahlst du <strong>jedes Jahr</strong> = periodisch.<br>Erbschaftsteuer zahlst du nur <strong>einmal</strong>, wenn jemand stirbt = aperiodisch.`,
+      merke: `Periodisch = j\u00e4hrlich wiederkehrend. Aperiodisch = einmalig bei Ereignis.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Periodisch oder aperiodisch?",
+          inhalt: `<p>Die zeitliche Einteilung fragt: <strong>Wann entsteht die Steuerpflicht?</strong></p>
+<div class="def-box"><div class="def-label">Periodische Steuern</div>
+Entstehen <strong>regelm\u00e4\u00dfig</strong>, in der Regel j\u00e4hrlich (pro Periode).</div>
+<div class="def-box"><div class="def-label">Aperiodische Steuern</div>
+Entstehen <strong>einmalig</strong> bei einem bestimmten Ereignis (keine regelm\u00e4\u00dfige Wiederkehr).</div>`
+        },
+        {
+          titel: "Schritt 2: Beispiele zuordnen",
+          inhalt: `<table class="erk-table">
+  <tr><th>Steuer</th><th>Typ</th><th>Warum?</th></tr>
+  <tr><td>Einkommensteuer (ESt)</td><td>Periodisch</td><td>Jedes Jahr neu berechnet</td></tr>
+  <tr><td>K\u00f6rperschaftsteuer (KSt)</td><td>Periodisch</td><td>J\u00e4hrlich auf Gewinn</td></tr>
+  <tr><td>Gewerbesteuer (GewSt)</td><td>Periodisch</td><td>J\u00e4hrlich auf Gewerbeertrag</td></tr>
+  <tr><td>Grundsteuer (GrSt)</td><td>Periodisch</td><td>J\u00e4hrlich auf Grundbesitz</td></tr>
+  <tr><td>Erbschaftsteuer (ErbSt)</td><td>Aperiodisch</td><td>Nur beim Todesfall/Schenkung</td></tr>
+  <tr><td>Grunderwerbsteuer (GrESt)</td><td>Aperiodisch</td><td>Nur beim Kauf von Immobilien</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Praxisrelevanz",
+          inhalt: `<p>Warum ist diese Unterscheidung wichtig?</p>
+<p>\ud83d\udcc5 Periodische Steuern: <strong>Vorauszahlungen</strong> sind typisch (z.B. ESt-Vorauszahlungen quartalsweise)<br>
+\u26a1 Aperiodische Steuern: Steuerpflicht entsteht <strong>spontan</strong> beim Ereignis</p>
+<div class="def-box"><div class="def-label">Beispiel</div>
+Du erbst ein Haus (ErbSt = aperiodisch, einmalig) und vermietest es dann (Mieteinnahmen = ESt, periodisch jedes Jahr).</div>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Die ESt ist eine ... Steuer.", optionen: ["Aperiodische", "Periodische", "Einmalige", "Saisonale"], richtig: 1, erklaerung: "ESt f\u00e4llt jedes Jahr an = periodisch." },
+        { frage: "Die ErbSt f\u00e4llt an ...", optionen: ["Jedes Jahr", "Einmalig bei Erbschaft", "Monatlich", "Alle 5 Jahre"], richtig: 1, erklaerung: "ErbSt = aperiodisch, nur beim Erbfall." },
+        { frage: "Die Grunderwerbsteuer ist ...", optionen: ["Periodisch", "Aperiodisch", "Monatlich", "Halbjährlich"], richtig: 1, erklaerung: "GrESt f\u00e4llt nur einmal beim Grundst\u00fcckskauf an." },
+        { frage: "Was ist KEINE periodische Steuer?", optionen: ["ESt", "GewSt", "ErbSt", "KSt"], richtig: 2, erklaerung: "ErbSt = aperiodisch (nur bei Erbfall/Schenkung)." },
+        { frage: "Periodisch bedeutet ...", optionen: ["Einmalig", "Regelm\u00e4\u00dfig wiederkehrend", "Selten", "Freiwillig"], richtig: 1, erklaerung: "Periodisch = regelm\u00e4\u00dfig, jedes Jahr." }
+      ]
+    },
+    {
+      titel: "\u{1F910} Stille Gesellschaft",
+      inhalt: `<p>Ein <strong>stiller Gesellschafter</strong> beteiligt sich nur mit Geld, bleibt nach au\u00dfen unsichtbar:</p>
+<table class="erk-table">
+  <tr><th></th><th>Typisch stille Gesellschaft</th><th>Atypisch stille Gesellschaft</th></tr>
+  <tr><td><strong>Regelung</strong></td><td>Nach HGB-Standard</td><td>Abweichung durch Vertrag</td></tr>
+  <tr><td><strong>Risiko</strong></td><td>Kein unternehmerisches Risiko</td><td>Beteiligung an Wertentwicklung</td></tr>
+  <tr><td><strong>Gewinn</strong></td><td>Feste Gewinnbeteiligung</td><td>Einlage passt sich an (+ und \u2013)</td></tr>
+  <tr><td><strong>Steuerlich</strong></td><td>Eink\u00fcnfte aus <strong>Kapitalverm\u00f6gen</strong></td><td>Eink\u00fcnfte aus <strong>Gewerbebetrieb</strong></td></tr>
+</table>`,
+      merke: `Reine Innengesellschaft \u2013 von au\u00dfen nicht sichtbar. Ohne Gewinnbeteiligung = Darlehen! Typisch = Kapitalverm\u00f6gen. Atypisch = Gewerbebetrieb.`,
+      details: [
+        { titel: "\u{1F4A1} Warum ist das wichtig?", inhalt: "Die steuerliche Einordnung ist entscheidend: <strong>Typisch stille</strong> Eink\u00fcnfte aus Kapitalverm\u00f6gen k\u00f6nnen <strong>nicht</strong> mit anderen Einkunftsarten verrechnet werden. <strong>Atypisch stille</strong> Gesellschafter sind wie Mitunternehmer \u2013 volle Verlustverrechnung m\u00f6glich." }
+      ],
+      schritte: [
+        {
+          titel: "Schritt 1: Was ist eine stille Gesellschaft?",
+          inhalt: `<p>Ein stiller Gesellschafter beteiligt sich mit Kapital an einem Unternehmen, bleibt aber <strong>nach au\u00dfen unsichtbar</strong>.</p>
+<p>\ud83d\udc64 <strong>Inhaber</strong>: F\u00fchrt das Unternehmen, tritt nach au\u00dfen auf<br>
+\ud83e\udd35 <strong>Stiller Gesellschafter</strong>: Gibt Geld, bleibt im Hintergrund</p>
+<div class="def-box"><div class="def-label">Abgrenzung GbR</div>
+GbR: beide treten nach au\u00dfen auf. Stille Gesellschaft: nur Inhaber sichtbar.</div>`
+        },
+        {
+          titel: "Schritt 2: Typisch vs. atypisch still",
+          inhalt: `<table class="erk-table">
+  <tr><th></th><th>Typisch still</th><th>Atypisch still</th></tr>
+  <tr><td><strong>Risiko</strong></td><td>Kein unternehmerisches Risiko</td><td>Beteiligung an Wertentwicklung + Risiko</td></tr>
+  <tr><td><strong>Beteiligung</strong></td><td>Nur Gewinnbeteiligung</td><td>Einlage partizipiert an stillen Reserven</td></tr>
+  <tr><td><strong>Steuerpflicht</strong></td><td>Kapitalertr\u00e4ge (\u00a720 EStG)</td><td>Mitunternehmer-Eink\u00fcnfte (\u00a715 EStG)</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Steuerliche Behandlung",
+          inhalt: `<p>Entscheidend: Welche Einkunftsart liegt vor?</p>
+<p>\ud83d\udd35 <strong>Typisch still</strong>:<br>
+Gewinnanteil = Kapitalertrag nach \u00a720 EStG \u2192 Abgeltungsteuer 25%</p>
+<p>\ud83d\udd34 <strong>Atypisch still</strong>:<br>
+Mitunternehmerschaft nach \u00a715 EStG \u2192 Eink\u00fcnfte aus Gewerbebetrieb \u2192 pers\u00f6nlicher ESt-Tarif</p>
+<div class="def-box"><div class="def-label">Merke</div>
+Typisch = Kapital. Atypisch = Gewerbebetrieb.</div>`
+        },
+        {
+          titel: "Schritt 4: Pr\u00fcfungstipp",
+          inhalt: `<p>Wie erkennst du typisch vs. atypisch in der Pr\u00fcfung?</p>
+<p>\ud83d\udd0d <strong>Typisch still</strong>: Nur Gewinnbeteiligung erw\u00e4hnt, kein Verlustrisiko<br>
+\ud83d\udd0d <strong>Atypisch still</strong>: Beteiligung an "stillen Reserven", Verlustbeteiligung, oder "Mitunternehmer" erw\u00e4hnt</p>
+<p>Wenn atypisch: Stiller Gesellschafter ist <strong>Mitunternehmer</strong> \u2192 Eink\u00fcnfte aus Gewerbebetrieb!</p>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Eine stille Gesellschaft ist ...", optionen: ["Eine \u00f6ffentliche B\u00f6rsengesellschaft", "Eine reine Innengesellschaft", "Eine GmbH ohne Gesch\u00e4ftsf\u00fchrer", "Eine AG ohne Vorstand"], richtig: 1, erklaerung: "Stille Gesellschaft = von au\u00dfen nicht sichtbar, reine Innengesellschaft." },
+        { frage: "Ohne Gewinnbeteiligung ist es ein ...", optionen: ["Geschenk", "Darlehen", "Beitrag", "Bußgeld"], richtig: 1, erklaerung: "Ohne Gewinnbeteiligung = rechtlich ein Darlehen, keine stille Gesellschaft." },
+        { frage: "Typisch stille Eink\u00fcnfte sind ...", optionen: ["Gewerbeeink\u00fcnfte", "Eink\u00fcnfte aus Kapitalverm\u00f6gen", "Eink\u00fcnfte aus V&V", "Sonstige Eink\u00fcnfte"], richtig: 1, erklaerung: "Typisch stille Gesellschaft = Eink\u00fcnfte aus Kapitalverm\u00f6gen." },
+        { frage: "Atypisch stille Gesellschafter haben ...", optionen: ["Kein Risiko", "Beteiligung an der Wertentwicklung", "Leitungsbefugnis", "Keine Gewinnbeteiligung"], richtig: 1, erklaerung: "Atypisch = Beteiligung an Wertentwicklung, unternehmerisches Risiko." },
+        { frage: "Hat der stille Gesellschafter Leitungsbefugnis?", optionen: ["Ja, immer", "Nur bei atypischer Beteiligung", "Nein, nie", "Nur bei GmbH"], richtig: 2, erklaerung: "Stille Gesellschafter haben grunds\u00e4tzlich keine Leitungsbefugnis." }
+      ]
+    },
+    {
+      titel: "\u{1F4B0} Steueraufkommen \u2013 \u00dcberblick",
+      inhalt: `<p>Gesamtsteuereinnahmen Deutschlands: ca. <strong>948 Mrd. \u20ac</strong> (2024).</p>
+<p>Die <strong>gr\u00f6\u00dften Steuern</strong> sind Gemeinschaftsteuern:</p>
+<div class="erk-tree">
+  <div class="tree-root">Top-Steuereinnahmen</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background:#DBEAFE;border-color:#3B82F6;"><strong>USt/MwSt</strong><br>Gr\u00f6\u00dfte Einzelsteuer</div>
+    <div class="tree-branch" style="background:#DBEAFE;border-color:#3B82F6;"><strong>Lohnsteuer</strong><br>Zweitgr\u00f6\u00dfte</div>
+    <div class="tree-branch"><strong>GewSt</strong><br>Gemeinden</div>
+    <div class="tree-branch"><strong>ESt</strong><br>Gemeinschaft</div>
+  </div>
+</div>
+<p><strong>Merke:</strong> Rund die H\u00e4lfte der Steuereinnahmen kommt von Privatpersonen (Lohn- und Einkommensteuer).</p>`,
+      merke: `Gemeinschaftsteuern (USt + ESt) = Gro\u00dfteil der Einnahmen. Ca. 50% kommen von Privatpersonen.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Was ist das Steueraufkommen?",
+          inhalt: `<p>Das <strong>Steueraufkommen</strong> = die gesamten Steuereinnahmen des Staates pro Jahr.</p>
+<p>Deutschland 2024: ca. <strong>948 Mrd. \u20ac</strong></p>
+<p>Diese Einnahmen finanzieren:</p>
+<p>\ud83c\udfeb Bildung und Schulen<br>
+\ud83c\udfde\ufe0f Infrastruktur (Stra\u00dfen, Schienen)<br>
+\ud83d\udc6e Polizei und Justiz<br>
+\ud83c\udfe5 Gesundheitssystem<br>
+\ud83d\udee1\ufe0f Soziale Sicherung</p>`
+        },
+        {
+          titel: "Schritt 2: Die gr\u00f6\u00dften Steuerarten",
+          inhalt: `<p>Die wichtigsten Steuern nach Aufkommen:</p>
+<div class="erk-tree">
+  <div class="tree-root">Top-Steuereinnahmen</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background:#DBEAFE;border-color:#3B82F6;"><strong>USt/MwSt</strong><br>Gr\u00f6\u00dfte Einzelsteuer</div>
+    <div class="tree-branch" style="background:#DBEAFE;border-color:#3B82F6;"><strong>Lohnsteuer</strong><br>Zweitgr\u00f6\u00dfte</div>
+    <div class="tree-branch" style="background:#DBEAFE;border-color:#3B82F6;"><strong>ESt-Vorauszahlungen</strong><br>Selbst\u00e4ndige, Vermieter</div>
+    <div class="tree-branch" style="background:#DBEAFE;border-color:#3B82F6;"><strong>KSt</strong><br>Kapitalgesellschaften</div>
+  </div>
+</div>`
+        },
+        {
+          titel: "Schritt 3: Verteilung auf Bund, L\u00e4nder, Gemeinden",
+          inhalt: `<p>Das Steueraufkommen wird verteilt (ungef\u00e4hre Anteile):</p>
+<table class="erk-table">
+  <tr><th>Empf\u00e4nger</th><th>Anteil</th><th>Gr\u00f6\u00dfte Quelle</th></tr>
+  <tr><td><strong>Bund</strong></td><td>ca. 45%</td><td>USt-Anteil, Bundessteuern</td></tr>
+  <tr><td><strong>L\u00e4nder</strong></td><td>ca. 41%</td><td>ESt-Anteil, Landessteuern</td></tr>
+  <tr><td><strong>Gemeinden</strong></td><td>ca. 14%</td><td>GewSt, ESt-Gemeindeanteil</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 4: Steuern im internationalen Vergleich",
+          inhalt: `<p>Die Steuerquote = Steuereinnahmen / BIP:</p>
+<p>\ud83c\udde9\ud83c\uddea Deutschland: ca. <strong>23%</strong> (Steuern) + Sozialabgaben \u2192 Gesamtabgabenquote ca. 40%</p>
+<p>Gemeinschaftsteuern machen den <strong>Gro\u00dfteil</strong> aus:</p>
+<p>ESt + LSt + KSt + USt = \u00fcber 75% aller Steuereinnahmen</p>
+<div class="def-box"><div class="def-label">Pr\u00fcfungstipp</div>
+Die gr\u00f6\u00dften Steuern sind Gemeinschaftsteuern (USt, ESt/LSt, KSt). Merke die Reihenfolge nach Aufkommen.</div>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Welche Steuer bringt am meisten ein?", optionen: ["Gewerbesteuer", "Einkommensteuer", "Umsatzsteuer", "K\u00f6rperschaftsteuer"], richtig: 2, erklaerung: "Die USt/MwSt ist die gr\u00f6\u00dfte Einzelsteuer Deutschlands." },
+        { frage: "Woher kommt ca. die H\u00e4lfte der Steuereinnahmen?", optionen: ["Von Unternehmen", "Von Privatpersonen", "Aus dem Ausland", "Von Gemeinden"], richtig: 1, erklaerung: "Lohn- und Einkommensteuer von Privatpersonen = ca. 50%." },
+        { frage: "Die gr\u00f6\u00dften Steuern sind ...", optionen: ["Bundessteuern", "Landessteuern", "Gemeinschaftsteuern", "Gemeindesteuern"], richtig: 2, erklaerung: "USt, LohnSt, ESt, KSt = Gemeinschaftsteuern = gr\u00f6\u00dfter Anteil." }
+      ]
+    },
+    {
+      titel: "\u{1F9EE} Ermittlung der Steuerschuld",
+      inhalt: `<div class="def-box"><div class="def-label">Grundformel</div>
+<strong>Steuerbemessungsgrundlage (BMG) \u00d7 Steuertarif = Steuerschuld</strong></div>
+<table class="erk-table">
+  <tr><th>BMG-Art</th><th>Erkl\u00e4rung</th><th>Beispiel</th></tr>
+  <tr><td><strong>Wertgr\u00f6\u00dfe</strong></td><td>Betrag in \u20ac</td><td>Einkommen bei ESt</td></tr>
+  <tr><td><strong>Mengengr\u00f6\u00dfe</strong></td><td>Menge in Einheiten</td><td>Liter Bier, kg Kaffee</td></tr>
+</table>
+<p>Beispiel KSt: <strong>T = 0,15 \u00d7 BMG</strong> (15% K\u00f6rperschaftsteuersatz)</p>
+<table class="erk-table">
+  <tr><th>Begriff</th><th>Bedeutung</th></tr>
+  <tr><td><strong>Grenzsteuersatz</strong></td><td>Steuersatz auf den <strong>letzten</strong> (zus\u00e4tzlichen) Euro</td></tr>
+  <tr><td><strong>Durchschnittssteuersatz</strong></td><td>Gesamte Steuer \u00f7 gesamtes Einkommen (immer < Grenzsteuersatz bei Progression)</td></tr>
+  <tr><td><strong>Eingangssteuersatz</strong></td><td>Steuersatz, mit dem eine neue Tarifzone <strong>beginnt</strong></td></tr>
+  <tr><td><strong>Spitzensteuersatz</strong></td><td>H\u00f6chster Grenzsteuersatz: <strong>42%</strong></td></tr>
+  <tr><td><strong>Reichensteuersatz</strong></td><td>Sonderzone: <strong>45%</strong></td></tr>
+</table>`,
+      merke: `BMG \u00d7 Tarif = Steuerschuld. Grenzsteuersatz = auf den letzten Euro. Durchschnitt = Gesamtsteuer \u00f7 Gesamteinkommen.`,
+      flipcards: [
+        { vorne: "Grenzsteuersatz", hinten: "Steuersatz auf den<br><strong>letzten Euro</strong>" },
+        { vorne: "Durchschnittssteuersatz", hinten: "Gesamtsteuer \u00f7<br><strong>Gesamteinkommen</strong>" },
+        { vorne: "Spitzensteuersatz", hinten: "<strong>42%</strong>" },
+        { vorne: "Reichensteuersatz", hinten: "<strong>45%</strong>" }
+      ],
+      schritte: [
+        {
+          titel: "Schritt 1: Die Grundformel",
+          inhalt: `<p>Jede Steuer berechnet sich nach derselben Grundformel:</p>
+<div class="def-box"><div class="def-label">Grundformel</div>
+<strong>Steuerbemessungsgrundlage (BMG) \u00d7 Steuertarif = Steuerschuld</strong></div>
+<p>\ud83d\udccc <strong>BMG</strong> = worauf wird besteuert (z.B. Einkommensbetrag, Liter Bier)<br>
+\ud83d\udccc <strong>Tarif</strong> = wie viel Prozent (oder Betrag pro Einheit)<br>
+\ud83d\udccc <strong>Steuerschuld</strong> = der zu zahlende Betrag</p>`
+        },
+        {
+          titel: "Schritt 2: Wertgr\u00f6\u00dfe vs. Mengengr\u00f6\u00dfe",
+          inhalt: `<p>Die BMG kann unterschiedlich gemessen werden:</p>
+<table class="erk-table">
+  <tr><th>BMG-Typ</th><th>Einheit</th><th>Beispiel</th></tr>
+  <tr><td><strong>Wertgr\u00f6\u00dfe</strong></td><td>Euro-Betrag</td><td>Einkommen bei ESt, Verm\u00f6gen bei GrSt</td></tr>
+  <tr><td><strong>Mengengr\u00f6\u00dfe</strong></td><td>Einheiten (Liter, kg)</td><td>Liter Benzin, kg Kaffee, Stufe der Energie</td></tr>
+</table>
+<p>Bei Wertgr\u00f6\u00dfen: <strong>Prozentsatz</strong> als Tarif<br>
+Bei Mengengr\u00f6\u00dfen: <strong>Betrag je Einheit</strong> als Tarif</p>`
+        },
+        {
+          titel: "Schritt 3: Berechnungsbeispiele",
+          inhalt: `<p>Konkrete Berechnungsbeispiele:</p>
+<p>\ud83d\udcb0 <strong>K\u00f6rperschaftsteuer</strong>:<br>
+BMG = 100.000 \u20ac Gewinn | Tarif = 15%<br>
+Steuerschuld = 100.000 \u00d7 15% = <strong>15.000 \u20ac</strong></p>
+<p>\u26fd <strong>Energiesteuer auf Benzin</strong>:<br>
+BMG = 1.000 Liter | Tarif = 0,6545 \u20ac/Liter<br>
+Steuerschuld = 1.000 \u00d7 0,6545 = <strong>654,50 \u20ac</strong></p>`
+        },
+        {
+          titel: "Schritt 4: Tarif-Arten",
+          inhalt: `<p>Verschiedene Tarif-Formen:</p>
+<table class="erk-table">
+  <tr><th>Tarif-Art</th><th>Bedeutung</th><th>Beispiel</th></tr>
+  <tr><td><strong>Proportional</strong></td><td>Fester Prozentsatz</td><td>KSt 15%</td></tr>
+  <tr><td><strong>Progressiv</strong></td><td>Satz steigt mit Einkommen</td><td>ESt 0-45%</td></tr>
+  <tr><td><strong>Degressiv</strong></td><td>Satz sinkt (kaum noch)</td><td>Historisch</td></tr>
+  <tr><td><strong>Spezifisch</strong></td><td>Betrag pro Einheit</td><td>Tabaksteuer</td></tr>
+</table>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Wie berechnet man die Steuerschuld?", optionen: ["Einkommen \u2013 Freibetrag", "BMG \u00d7 Steuertarif", "Umsatz \u00f7 Steuersatz", "Gewinn + Verlust"], richtig: 1, erklaerung: "BMG \u00d7 Tarif = Steuerschuld." },
+        { frage: "Der Grenzsteuersatz bezieht sich auf ...", optionen: ["Das gesamte Einkommen", "Den letzten zus\u00e4tzlichen Euro", "Den Durchschnitt", "Den ersten Euro"], richtig: 1, erklaerung: "Grenzsteuersatz = Steuer auf den letzten Euro." },
+        { frage: "Der Durchschnittssteuersatz ist bei Progression ...", optionen: ["H\u00f6her als der Grenzsteuersatz", "Gleich dem Grenzsteuersatz", "Niedriger als der Grenzsteuersatz", "Immer 42%"], richtig: 2, erklaerung: "Bei progressivem Tarif ist der Durchschnitt immer kleiner als der Grenzsteuersatz." },
+        { frage: "Die Biersteuer wird nach ... bemessen.", optionen: ["Wertgr\u00f6\u00dfe (\u20ac)", "Mengengr\u00f6\u00dfe (Liter)", "Gewinn", "Umsatz"], richtig: 1, erklaerung: "Biersteuer = Mengengr\u00f6\u00dfe (Liter)." },
+        { frage: "Der KSt-Satz betr\u00e4gt ...", optionen: ["10%", "15%", "25%", "42%"], richtig: 1, erklaerung: "K\u00f6rperschaftsteuer = 15% (T = 0,15 \u00d7 BMG)." }
+      ]
+    },
+    {
+      titel: "\u{1F4C8} Einkommensteuertarif \u2013 Die 5 Zonen",
+      inhalt: `<table class="erk-table">
+  <tr><th>Zone</th><th>Einkommensbereich</th><th>Steuersatz</th><th>Bezeichnung</th></tr>
+  <tr><td><strong>1</strong></td><td>0 \u2013 ca. 12.000\u20ac</td><td>0%</td><td><span class="term" data-label="Grundfreibetrag" data-def="Einkommensanteil ohne Besteuerung (ca. 12.000\u20ac). Sichert das Existenzminimum. Gesetzlich in \u00a732a EStG geregelt.">Grundfreibetrag</span></td></tr>
+  <tr><td><strong>2</strong></td><td>ca. 12.000 \u2013 18.000\u20ac</td><td>14% \u2013 24%</td><td>Eingangssteuersatz</td></tr>
+  <tr><td><strong>3</strong></td><td>ca. 18.000 \u2013 70.000\u20ac</td><td>24% \u2013 42%</td><td>Progressionszone</td></tr>
+  <tr><td><strong>4</strong></td><td>ca. 70.000 \u2013 278.000\u20ac</td><td>42%</td><td>Spitzensteuersatz</td></tr>
+  <tr><td><strong>5</strong></td><td>ab ca. 278.000\u20ac</td><td>45%</td><td>Reichensteuersatz</td></tr>
+</table>
+<p><strong>Hinweis:</strong> Bei <strong>Zusammenveranlagung</strong> (Ehepaar) verdoppeln sich alle Grenzwerte.</p>
+<p>Die Progression bedeutet: Je mehr man verdient, desto h\u00f6her ist der Grenzsteuersatz auf den letzten Euro.</p>`,
+      merke: `5 Zonen: 0% \u2192 14% \u2192 progressiv bis 42% \u2192 42% (Spitze) \u2192 45% (Reiche). Zusammenveranlagung = alle Grenzen \u00d72.`,
+      details: [
+        { titel: "\u{1F4A1} Warum Progression?", inhalt: "Das Prinzip der <strong>Leistungsf\u00e4higkeit</strong>: Wer mehr verdient, kann einen h\u00f6heren Anteil an den Staat abgeben. Deshalb steigt der Steuersatz mit dem Einkommen \u2013 aber nur f\u00fcr den <strong>letzten Euro</strong> (Grenzsteuersatz), nicht f\u00fcr das gesamte Einkommen." }
+      ],
+      schritte: [
+        {
+          titel: "Schritt 1: Warum Progressionstarif?",
+          inhalt: `<p>Die Einkommensteuer ist <strong>progressiv</strong>: Wer mehr verdient, zahlt einen h\u00f6heren Steuersatz.</p>
+<p>Das Prinzip der <strong>steuerlichen Leistungsf\u00e4higkeit</strong>:</p>
+<p>100 \u20ac sind f\u00fcr einen Geringverdiener viel wichtiger als f\u00fcr einen Millionär. Daher werden hohe Einkommen st\u00e4rker belastet.</p>
+<div class="def-box"><div class="def-label">Wichtig: Grenzsteuersatz \u2260 Durchschnittssteuersatz</div>
+Der h\u00f6chste Satz gilt immer nur f\u00fcr den <strong>letzten Euro</strong>, nicht f\u00fcr das ganze Einkommen!</div>`
+        },
+        {
+          titel: "Schritt 2: Die 5 Zonen im \u00dcberblick",
+          inhalt: `<table class="erk-table">
+  <tr><th>Zone</th><th>Einkommensbereich</th><th>Steuersatz</th><th>Bezeichnung</th></tr>
+  <tr><td><strong>1</strong></td><td>0 \u2013 ca. 12.000\u20ac</td><td>0%</td><td>Grundfreibetrag</td></tr>
+  <tr><td><strong>2</strong></td><td>ca. 12.000 \u2013 18.000\u20ac</td><td>14% \u2013 24%</td><td>Eingangssteuersatz</td></tr>
+  <tr><td><strong>3</strong></td><td>ca. 18.000 \u2013 70.000\u20ac</td><td>24% \u2013 42%</td><td>Progressionszone</td></tr>
+  <tr><td><strong>4</strong></td><td>ab ca. 70.000\u20ac</td><td>42%</td><td>Spitzensteuersatz</td></tr>
+  <tr><td><strong>5</strong></td><td>ab ca. 280.000\u20ac</td><td>45%</td><td>Reichensteuer</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Grenzsteuersatz vs. Durchschnittssteuersatz",
+          inhalt: `<p>Der wichtigste Unterschied:</p>
+<div class="def-box"><div class="def-label">Grenzsteuersatz</div>
+Der Steuersatz f\u00fcr den <strong>letzten zus\u00e4tzlichen Euro</strong> Einkommen.<br>Beispiel: Bei 50.000\u20ac Einkommen liegt der Grenzsteuersatz bei ca. 35%.</div>
+<div class="def-box"><div class="def-label">Durchschnittssteuersatz</div>
+Tats\u00e4chlich gezahlte Steuer geteilt durch Gesamteinkommen.<br>Liegt immer <strong>unter</strong> dem Grenzsteuersatz!</div>`
+        },
+        {
+          titel: "Schritt 4: Berechnungsbeispiel",
+          inhalt: `<p>Beispiel: Person verdient 60.000\u20ac zu versteuerndes Einkommen</p>
+<p>\ud83d\udfe2 Zone 1 (0-12.000\u20ac): <strong>0% = 0\u20ac</strong><br>
+\ud83d\udd35 Zone 2 (12.000-18.000\u20ac): ~14-24% \u2248 <strong>800\u20ac</strong><br>
+\ud83d\udd35 Zone 3 (18.000-60.000\u20ac): 24-42% \u2248 <strong>12.000\u20ac</strong></p>
+<p>Gesamtsteuer: ca. 12.800\u20ac<br>
+Durchschnittssteuersatz: 12.800/60.000 \u2248 <strong>21%</strong><br>
+Grenzsteuersatz: ca. <strong>38%</strong></p>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "In Zone 1 zahlt man ...", optionen: ["14%", "0%", "42%", "25%"], richtig: 1, erklaerung: "Zone 1 = Grundfreibetrag = 0% Steuern." },
+        { frage: "Ab welcher Zone gilt der Spitzensteuersatz?", optionen: ["Zone 2", "Zone 3", "Zone 4", "Zone 5"], richtig: 2, erklaerung: "Zone 4 = Spitzensteuersatz 42%." },
+        { frage: "Der Reichensteuersatz betr\u00e4gt ...", optionen: ["42%", "45%", "50%", "47%"], richtig: 1, erklaerung: "Zone 5 = Reichensteuersatz = 45%." },
+        { frage: "Bei Zusammenveranlagung ...", optionen: ["Halbieren sich die Grenzen", "Verdoppeln sich die Grenzen", "\u00c4ndern sich die Grenzen nicht", "Gibt es keine Zonen"], richtig: 1, erklaerung: "Bei Ehepaaren (Splittingtarif) verdoppeln sich alle Grenzwerte." },
+        { frage: "Der Eingangssteuersatz startet bei ...", optionen: ["0%", "14%", "24%", "42%"], richtig: 1, erklaerung: "Zone 2 beginnt mit 14% Eingangssteuersatz." }
+      ]
+    }
+  ],
+  quiz: [
+    { frage: "Was unterscheidet Steuern von Geb\u00fchren?", optionen: ["Steuern sind freiwillig", "Bei Steuern gibt es keine individuelle Gegenleistung", "Geb\u00fchren sind h\u00f6her", "Geb\u00fchren zahlt nur der Staat"], richtig: 1, erklaerung: "Steuern (\u00a73 AO): Keine Gegenleistung. Geb\u00fchren: tats\u00e4chliche Gegenleistung." },
+    { frage: "Welches Gesetz steht an der Spitze?", optionen: ["AO", "EStG", "GG", "FGO"], richtig: 2, erklaerung: "GG ganz oben, dann AO, dann Einzelgesetze." },
+    { frage: "Welcher Artikel regelt die Verteilung des Steueraufkommens?", optionen: ["Art. 105 GG", "Art. 106 GG", "Art. 108 GG", "Art. 104a GG"], richtig: 1, erklaerung: "Art. 106 = Verteilung." },
+    { frage: "Warum taucht die ErbSt juristisch zweimal auf?", optionen: ["Weil sie hoch ist", "Weil Erbschaft kein Rechtsgesch\u00e4ft ist, Schenkung aber schon", "Weil Bund und L\u00e4nder teilen", "Weil periodisch und aperiodisch"], richtig: 1, erklaerung: "Erbschaft = Substanzsteuer. Schenkung = Verkehrsteuer." },
+    { frage: "Freibetrag vs. Freigrenze?", optionen: ["Freibetrag ist h\u00f6her", "Freibetrag: nur \u00dcbersteigendes besteuert. Freigrenze: gesamter Betrag", "Kein Unterschied", "Freigrenze nur f\u00fcr Firmen"], richtig: 1, erklaerung: "Freibetrag='soweit', Freigrenze='wenn'." },
+    { frage: "Welche sind Gemeinschaftsteuern?", optionen: ["GrSt und GewSt", "ESt und USt", "ErbSt und GrESt", "Tabak und Energie"], richtig: 1, erklaerung: "ESt + USt = Gemeinschaftsteuern." },
+    { frage: "Was bedeutet 'direkte Steuer'?", optionen: ["Direkt an Staat gezahlt", "Man tr\u00e4gt sie selbst", "An der Quelle einbehalten", "Vom Arbeitgeber abgezogen"], richtig: 1, erklaerung: "Direkt = eigene Belastung." },
+    { frage: "Mindeststammkapital GmbH?", optionen: ["10.000\u20ac", "25.000\u20ac", "50.000\u20ac", "Keins"], richtig: 1, erklaerung: "GmbH: 25.000\u20ac. AG: 50.000\u20ac." },
+    { frage: "Transparenzprinzip?", optionen: ["FA sieht alles", "Unternehmen+Unternehmer=Einheit", "Alles ver\u00f6ffentlichen", "Steuern transparent"], richtig: 1, erklaerung: "Einzelunternehmen: steuerliche Einheit." },
+    { frage: "Was ist eine Quellenabzugsteuer?", optionen: ["Steuer auf Wasserquellen", "Direkt an der Quelle einbehalten", "Selbst berechnen", "Nur nat\u00fcrliche Quellen"], richtig: 1, erklaerung: "Z.B. Lohnsteuer \u2013 Arbeitgeber zieht sie direkt ab." },
+    { frage: "Was regelt die AO?", optionen: ["Nur ESt", "Allgemeines Fundament f\u00fcr alle Steuerarten", "Nur Finanzgericht", "Verteilung Bund/L\u00e4nder"], richtig: 1, erklaerung: "AO = Fundament f\u00fcr alle Steuerarten." },
+    { frage: "USt ist eine ...", optionen: ["Ertragsteuer", "Grundsteuer", "Verkehrsteuer", "GewSt"], richtig: 2, erklaerung: "USt = Verkehrsteuer (Rechtsgesch\u00e4fte)." },
+    { frage: "Hundesteuer wird erhoben von ...", optionen: ["Bund", "Land", "Gemeinde", "Bund+L\u00e4nder"], richtig: 2, erklaerung: "\u00d6rtliche Aufwandsteuer = Gemeinde." },
+    { frage: "Freigrenze 1.000\u20ac, Einkommen 1.500\u20ac?", optionen: ["500\u20ac besteuert", "1.000\u20ac besteuert", "1.500\u20ac voll besteuert", "Nichts"], richtig: 2, erklaerung: "Freigrenze: bei \u00dcberschreitung gesamter Betrag." },
+    { frage: "Wer haftet bei KG unbeschr\u00e4nkt?", optionen: ["Alle", "Kommanditist", "Komplement\u00e4r", "Niemand"], richtig: 2, erklaerung: "Komplement\u00e4r = unbeschr\u00e4nkt." },
+    { frage: "KapGes auf Gesellschaftsebene?", optionen: ["ESt+SolZ+KiSt", "GewSt+KSt+SolZ", "Nur GewSt", "Nur KSt"], richtig: 1, erklaerung: "GewSt + KSt + SolZ." },
+    { frage: "Rechtsverordnungen werden erlassen von ...", optionen: ["Dem Bundestag", "Der Exekutive", "Den Gerichten", "Der EU"], richtig: 1, erklaerung: "Exekutive (z.B. Bundesfinanzministerium)." },
+    { frage: "Was ist ein DBA?", optionen: ["Doppelte Buchf\u00fchrungsanordnung", "Doppelbesteuerungsabkommen", "Durchf\u00fchrungsbestimmung Abgaben", "Digitaler Bescheid-Automat"], richtig: 1, erklaerung: "DBA = Doppelbesteuerungsabkommen." },
+    { frage: "Indirekte Steuern kann man ...", optionen: ["Nicht zahlen", "Auf andere \u00fcberw\u00e4lzen", "Beim FA anfechten", "Nur bar zahlen"], richtig: 1, erklaerung: "Indirekt = \u00dcberw\u00e4lzung, z.B. USt auf Kunden." },
+    { frage: "Lohnsteuer wird erhoben durch ...", optionen: ["Veranlagung", "Quellenabzug", "Selbstveranlagung", "Sch\u00e4tzung"], richtig: 1, erklaerung: "Arbeitgeber beh\u00e4lt Lohnsteuer direkt ein." },
+    { frage: "Periodische Steuer?", optionen: ["ErbSt", "GrESt", "ESt", "Schenkungsteuer"], richtig: 2, erklaerung: "ESt f\u00e4llt jedes Jahr an." },
+    { frage: "Typisch stille Eink\u00fcnfte = ...", optionen: ["Gewerbeeink\u00fcnfte", "Kapitalverm\u00f6gen", "V&V", "Sonstige"], richtig: 1, erklaerung: "Typisch still = Eink\u00fcnfte aus Kapitalverm\u00f6gen." },
+    { frage: "Ohne Gewinnbeteiligung ist eine stille Beteiligung ein ...", optionen: ["Geschenk", "Darlehen", "Beitrag", "Gewerbebetrieb"], richtig: 1, erklaerung: "Ohne Gewinnbeteiligung = Darlehen." },
+    { frage: "Grundformel der Steuerschuld?", optionen: ["Einkommen \u2013 Freibetrag", "BMG \u00d7 Steuertarif", "Umsatz \u00f7 Steuer", "Gewinn + Verlust"], richtig: 1, erklaerung: "BMG \u00d7 Tarif = Steuerschuld." },
+    { frage: "Grenzsteuersatz bezieht sich auf ...", optionen: ["Gesamtes Einkommen", "Den letzten Euro", "Den Durchschnitt", "Den ersten Euro"], richtig: 1, erklaerung: "Grenzsteuersatz = Steuer auf den letzten zusätzlichen Euro." },
+    { frage: "Wie viele Tarifzonen hat die ESt?", optionen: ["3", "4", "5", "6"], richtig: 2, erklaerung: "5 Zonen: Grundfreibetrag, Eingang, Progression, Spitze, Reiche." },
+    { frage: "Was ist die gr\u00f6\u00dfte Einzelsteuer?", optionen: ["ESt", "GewSt", "USt", "KSt"], richtig: 2, erklaerung: "Die Umsatzsteuer bringt am meisten ein." },
+    { frage: "Der KSt-Satz betr\u00e4gt ...", optionen: ["10%", "15%", "25%", "42%"], richtig: 1, erklaerung: "KSt = 15%." }
+  ],
+  lueckentext: [
+    { text: "Steuern sind in \u00a73 Abs. 1 ___ definiert und es besteht kein Anspruch auf eine individuelle ___.", luecken: ["AO", "Gegenleistung"], erklaerung: "Steuern: AO, keine Gegenleistung." },
+    { text: "Art. 105 GG regelt die ___, Art. 106 GG die Verteilung des ___ und Art. 108 GG die ___.", luecken: ["Gesetzgebungskompetenz", "Steueraufkommens", "Finanzverwaltung"], erklaerung: "Die drei GG-Artikel." },
+    { text: "Beim ___ wird nur der \u00fcbersteigende Betrag besteuert ('___'), bei der ___ der gesamte Betrag ('___').", luecken: ["Freibetrag", "soweit", "Freigrenze", "wenn"], erklaerung: "Freibetrag='soweit', Freigrenze='wenn'." },
+    { text: "Die GmbH ben\u00f6tigt ein Stammkapital von mindestens ___ \u20ac und hat eine eigene ___.", luecken: ["25.000", "Rechtspers\u00f6nlichkeit"], erklaerung: "GmbH = Kapitalgesellschaft." },
+    { text: "Bei Personenunternehmen f\u00e4llt auf Unternehmensebene ___ an, bei KapGes zus\u00e4tzlich ___ und ___.", luecken: ["Gewerbesteuer", "K\u00f6rperschaftsteuer", "Solidarit\u00e4tszuschlag"], erklaerung: "KapGes: GewSt + KSt + SolZ." },
+    { text: "___ Steuern tr\u00e4gt man selbst, ___ Steuern werden auf andere \u00fcberw\u00e4lzt (z.B. ___).", luecken: ["Direkte", "indirekte", "USt"], erklaerung: "Direkt = selbst tragen. Indirekt = \u00fcberw\u00e4lzen." },
+    { text: "Beim ___ wird die Steuer direkt einbehalten (z.B. ___), bei der ___ gibt man eine Steuererkl\u00e4rung ab.", luecken: ["Quellenabzug", "Lohnsteuer", "Veranlagung"], erklaerung: "Quellenabzug vs. Veranlagung." },
+    { text: "___ Steuern fallen jedes Jahr an, ___ Steuern nur einmalig bei einem Ereignis (z.B. ___).", luecken: ["Periodische", "aperiodische", "Erbschaft"], erklaerung: "Periodisch = j\u00e4hrlich. Aperiodisch = einmalig." },
+    { text: "Die stille Gesellschaft ist eine reine ___. Bei der ___ stillen Gesellschaft sind die Eink\u00fcnfte aus Kapitalverm\u00f6gen.", luecken: ["Innengesellschaft", "typisch"], erklaerung: "Stille Gesellschaft = Innengesellschaft. Typisch = Kapitalverm\u00f6gen." },
+    { text: "Die Steuerschuld ergibt sich aus: ___ \u00d7 ___ = Steuerschuld.", luecken: ["Bemessungsgrundlage", "Steuertarif"], erklaerung: "BMG \u00d7 Tarif = Steuerschuld." },
+    { text: "Der ___ ist der Steuersatz auf den letzten Euro. Der ___ ist Gesamtsteuer geteilt durch Gesamteinkommen.", luecken: ["Grenzsteuersatz", "Durchschnittssteuersatz"], erklaerung: "Grenz = letzter Euro. Durchschnitt = Gesamt/Gesamt." },
+    { text: "Der ESt-Tarif hat ___ Zonen. Zone 1 ist der ___ (0%), Zone 4 der ___ (42%).", luecken: ["5", "Grundfreibetrag", "Spitzensteuersatz"], erklaerung: "5 Zonen von 0% bis 45%." }
+  ],
+  zuordnung: [
+    { titel: "Abgabenarten zuordnen", paare: [
+      { links: "Einkommensteuer", rechts: "Steuer (keine Gegenleistung)" },
+      { links: "Personalausweis", rechts: "Geb\u00fchr (tats\u00e4chliche Gegenleistung)" },
+      { links: "Rundfunkbeitrag", rechts: "Beitrag (m\u00f6gliche Gegenleistung)" },
+      { links: "Versp\u00e4tungszuschlag", rechts: "Steuerliche Nebenleistung" }
+    ]},
+    { titel: "Juristische Steuerarten zuordnen", paare: [
+      { links: "ESt, KSt, GewSt", rechts: "Ertragsteuern" },
+      { links: "ErbSt bei Erbschaft", rechts: "Substanzsteuern" },
+      { links: "USt, ErbSt bei Schenkung", rechts: "Verkehrsteuern" },
+      { links: "Bier-, Tabaksteuer", rechts: "Verbrauchsteuern" }
+    ]},
+    { titel: "Politische Einteilung zuordnen", paare: [
+      { links: "Tabak-, Energiesteuer", rechts: "Bundessteuern" },
+      { links: "Erbschaftssteuer", rechts: "Landessteuern" },
+      { links: "Grund-, Gewerbesteuer", rechts: "Gemeindesteuern" },
+      { links: "ESt, USt", rechts: "Gemeinschaftsteuern" }
+    ]},
+    { titel: "Unternehmensformen zuordnen", paare: [
+      { links: "Einzelunternehmen", rechts: "Unbeschr\u00e4nkte Haftung, Transparenzprinzip" },
+      { links: "GmbH", rechts: "25.000\u20ac Stammkapital" },
+      { links: "AG", rechts: "50.000\u20ac Grundkapital, 3 Organe" },
+      { links: "KG", rechts: "Komplement\u00e4r unbeschr\u00e4nkt, Kommanditist beschr\u00e4nkt" }
+    ]},
+    { titel: "Direkte vs. indirekte Steuern", paare: [
+      { links: "ESt, KSt, GewSt", rechts: "Direkte Steuern" },
+      { links: "USt, Biersteuer, Tabaksteuer", rechts: "Indirekte Steuern" },
+      { links: "Man tr\u00e4gt sie selbst", rechts: "Direkte Steuer" },
+      { links: "\u00dcberw\u00e4lzung auf Kunden", rechts: "Indirekte Steuer" }
+    ]},
+    { titel: "Steuererhebung zuordnen", paare: [
+      { links: "Lohnsteuer", rechts: "Quellenabzug" },
+      { links: "Kapitalertragsteuer", rechts: "Quellenabzug" },
+      { links: "J\u00e4hrliche ESt-Erkl\u00e4rung", rechts: "Veranlagung" },
+      { links: "USt-Voranmeldung", rechts: "Selbstveranlagung" }
+    ]},
+    { titel: "Stille Gesellschaft zuordnen", paare: [
+      { links: "Typisch still", rechts: "Eink\u00fcnfte aus Kapitalverm\u00f6gen" },
+      { links: "Atypisch still", rechts: "Eink\u00fcnfte aus Gewerbebetrieb" },
+      { links: "Kein unternehmerisches Risiko", rechts: "Typisch still" },
+      { links: "Beteiligung an Wertentwicklung", rechts: "Atypisch still" }
+    ]},
+    { titel: "Steuertarif-Begriffe zuordnen", paare: [
+      { links: "Steuer auf den letzten Euro", rechts: "Grenzsteuersatz" },
+      { links: "Gesamtsteuer \u00f7 Gesamteinkommen", rechts: "Durchschnittssteuersatz" },
+      { links: "42%", rechts: "Spitzensteuersatz" },
+      { links: "45%", rechts: "Reichensteuersatz" }
+    ]},
+    { titel: "Tarifzonen zuordnen", paare: [
+      { links: "0% Steuern", rechts: "Zone 1 \u2013 Grundfreibetrag" },
+      { links: "14% \u2013 24%", rechts: "Zone 2 \u2013 Eingangssteuersatz" },
+      { links: "42% fest", rechts: "Zone 4 \u2013 Spitzensteuersatz" },
+      { links: "45% fest", rechts: "Zone 5 \u2013 Reichensteuersatz" }
+    ]}
+  ]
+};
+
+// ============================================================
+// STEUERRECHT - Kapitel 2: Einkommensteuer
+// ============================================================
+FAECHER["steuerrecht"].themen["einkommensteuer"] = {
+  name: "2. Einkommensteuer",
+  zusammenfassung: "Steuerpflicht, 7 Einkunftsarten, Gewinnermittlung, Verlustverrechnung und Veranlagung.",
+  erklaerungen: [
+    {
+      titel: "\u{1F464} Pers\u00f6nliche Steuerpflicht",
+      inhalt: `<table class="erk-table">
+  <tr><th></th><th><span class="term" data-label="Unbeschr. Steuerpflicht" data-def="Alle weltweiten Eink\u00fcnfte besteuert (\u00a71 EStG). Voraussetzung: Wohnsitz oder gew. Aufenthalt in DE.">Unbeschr\u00e4nkt (\u00a71 EStG)</span></th><th><span class="term" data-label="Beschr. Steuerpflicht" data-def="Nur inl\u00e4ndische Eink\u00fcnfte besteuert (\u00a71 Abs. 4 EStG). Keine Bindung an DE.">Beschr\u00e4nkt (\u00a71 Abs. 4 EStG)</span></th></tr>
+  <tr><td><strong>Wer?</strong></td><td>Wohnsitz/gew. Aufenthalt in DE</td><td>Kein Wohnsitz, kein gew. Aufenthalt</td></tr>
+  <tr><td><strong>Was?</strong></td><td><strong>Welteinkommen</strong></td><td>Nur <strong>inl\u00e4ndische</strong> Eink\u00fcnfte</td></tr>
+</table>
+<div class="def-box"><div class="def-label"><span class="term" data-label="\u00a78 AO \u2013 Wohnsitz" data-def="Wohnsitz = Wohnung, die jemand inne hat und die auf dauerhaften Aufenthalt schlie\u00dfen l\u00e4sst. Geregelt in \u00a78 AO.">Wohnsitz (\u00a78 AO)</span></div>Innegehaltene Wohnung, auf dauerhaften Aufenthalt ausgerichtet.</div>
+<div class="def-box"><div class="def-label"><span class="term" data-label="\u00a79 AO \u2013 Gew. Aufenthalt" data-def="Gew\u00f6hnlicher Aufenthalt = mehr als 6 Monate ununterbrochen in Deutschland. Geregelt in \u00a79 AO.">Gew\u00f6hnlicher Aufenthalt (\u00a79 AO)</span></div>Mehr als 6 Monate zusammenh\u00e4ngend.</div>`,
+      merke: `Unbeschr\u00e4nkt = Welteinkommen. Beschr\u00e4nkt = nur inl\u00e4ndisch.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Ist die Person natürlich?",
+          inhalt: `<p>Die ESt betrifft nur <strong>natürliche Personen</strong> – also Menschen, keine Kapitalgesellschaften (GmbH, AG zahlen stattdessen KSt).</p>
+<p>👉 Prüffrage: Handelt es sich um einen <strong>Menschen</strong> (nicht um eine Firma)?</p>`
+        },
+        {
+          titel: "Schritt 2: Wohnsitz oder gewöhnlicher Aufenthalt in DE?",
+          inhalt: `<p>Hat die Person einen <strong>Wohnsitz (§ 8 AO)</strong> in Deutschland?<br>→ Dauerhaft genutzte Wohnung im Inland = <strong>Ja</strong></p>
+<p>Oder hat sie ihren <strong>gewöhnlichen Aufenthalt (§ 9 AO)</strong> in DE?<br>→ Ununterbrochener Aufenthalt von <strong>mehr als 6 Monaten</strong> = <strong>Ja</strong></p>
+<div class="def-box"><div class="def-label">Merke</div>Hotelzimmer ≠ Wohnsitz. Aber 7 Monate im Hotel = gew. Aufenthalt!</div>`
+        },
+        {
+          titel: "Schritt 3: Unbeschränkt oder beschränkt?",
+          inhalt: `<p><strong>Wohnsitz oder gew. Aufenthalt in DE?</strong></p>
+<table class="erk-table">
+  <tr><th>Ergebnis</th><th>Steuerpflicht</th><th>Besteuerung</th></tr>
+  <tr><td>✅ Ja</td><td><strong>Unbeschränkt</strong> (§ 1 Abs. 1 EStG)</td><td>Welteinkommensprinzip</td></tr>
+  <tr><td>❌ Nein</td><td><strong>Beschränkt</strong> (§ 1 Abs. 4 EStG)</td><td>Nur inländ. Einkünfte (§ 49 EStG)</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 4: Fallbeispiele lösen",
+          inhalt: `<p><strong>Fall 1:</strong> Prof. Tax hat Wohnsitz in Rosenheim + Florenz.<br>
+→ Wohnsitz in DE ✅ → <strong>unbeschränkt steuerpflichtig</strong>, Welteinkommen</p>
+<p><strong>Fall 2:</strong> Prof. Tax wohnt in Florenz, ist aber 8 Monate im Hotel in Rosenheim.<br>
+→ Kein Wohnsitz, aber gew. Aufenthalt (>6 Monate) ✅ → <strong>unbeschränkt steuerpflichtig</strong></p>
+<p><strong>Fall 3:</strong> Prof. Tax wohnt in Kufstein (Österreich), pendelt täglich.<br>
+→ Kein Wohnsitz, kein gew. Aufenthalt ❌ → <strong>Antrag auf fiktive Steuerpflicht</strong> (§ 1 Abs. 3 EStG) möglich</p>`
+        }
+      ],
+      interaktion: [
+        { frage: "Franzose arbeitet 8 Monate in DE, kein Wohnsitz. Wie besteuert?", optionen: ["Gar nicht", "Beschr\u00e4nkt", "Unbeschr\u00e4nkt", "Nur in Frankreich"], richtig: 2, erklaerung: ">6 Monate = gew. Aufenthalt \u2192 unbeschr\u00e4nkt." },
+        { frage: "Was wird bei unbeschr\u00e4nkter Steuerpflicht besteuert?", optionen: ["Nur dt. Einkommen", "Welteinkommen", "Nur Gehalt", "Nichts"], richtig: 1, erklaerung: "Unbeschr\u00e4nkt = gesamtes Welteinkommen." },
+        { frage: "Ab wann liegt ein gew\u00f6hnlicher Aufenthalt vor?", optionen: ["Ab 1 Monat", "Ab 3 Monaten", "Ab 6 Monaten", "Ab 12 Monaten"], richtig: 2, erklaerung: "\u00a79 AO: >6 Monate zusammenh\u00e4ngend." },
+        { frage: "Beschr\u00e4nkt steuerpflichtig hei\u00dft ...", optionen: ["Man zahlt weniger", "Nur inl\u00e4ndische Eink\u00fcnfte besteuert", "Man ist von Steuern befreit", "Nur Kapitalertr\u00e4ge besteuert"], richtig: 1, erklaerung: "Beschr\u00e4nkt = nur inl\u00e4ndische Eink\u00fcnfte." },
+        { frage: "Was definiert einen Wohnsitz (\u00a78 AO)?", optionen: ["Hotelzimmer reicht", "Innegehaltene Wohnung f\u00fcr dauerhaften Aufenthalt", "Briefkastenadresse", "Nur Eigentum z\u00e4hlt"], richtig: 1, erklaerung: "Wohnung, die auf dauerhaften Aufenthalt schlie\u00dfen l\u00e4sst." }
+      ]
+    },
+    {
+      titel: "\u{1F4CB} Die 7 Einkunftsarten",
+      inhalt: `<div class="erk-tree">
+  <div class="tree-root">7 Einkunftsarten (\u00a72 Abs. 1 EStG)</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background:#DBEAFE;border-color:#3B82F6;"><strong>Gewinn</strong><br>1. Land/Forst<br>2. Gewerbe<br>3. Selbst\u00e4ndig</div>
+    <div class="tree-branch" style="background:#FEF3C7;border-color:#F59E0B;"><strong>\u00dcberschuss</strong><br>4. Angestellt<br>5. Kapital<br>6. V&V<br>7. Sonstige</div>
+  </div>
+</div>
+<p><strong>Gewinn</strong> = Betriebseinnahmen \u2013 Betriebsausgaben</p>
+<p><strong>\u00dcberschuss</strong> = Einnahmen \u2013 Werbungskosten</p>`,
+      merke: `1-3 = Gewinn. 4-7 = \u00dcberschuss. Was nicht in die 7 passt, ist <strong>nicht steuerbar</strong>!`,
+      schritte: [
+        {
+          titel: "Schritt 1: Zwei Gruppen \u2013 Gewinn vs. \u00dcberschuss",
+          inhalt: `<p>Die 7 Einkunftsarten teilen sich in zwei Ermittlungsgruppen:</p>
+<div class="def-box"><div class="def-label">Gewinneinkunftsarten (Nr. 1-3)</div>
+Gewinn = Betriebseinnahmen \u2212 Betriebsausgaben<br>
+\u2192 Bilanzierung oder EAR-Rechnung</div>
+<div class="def-box"><div class="def-label">\u00dcberschusseinkunftsarten (Nr. 4-7)</div>
+\u00dcberschuss = Einnahmen \u2212 Werbungskosten<br>
+\u2192 Keine Bilanz erforderlich</div>`
+        },
+        {
+          titel: "Schritt 2: Alle 7 Einkunftsarten",
+          inhalt: `<table class="erk-table">
+  <tr><th>Nr.</th><th>Einkunftsart</th><th>Gruppe</th><th>\u00a7 EStG</th></tr>
+  <tr><td>1</td><td>Land- und Forstwirtschaft</td><td>Gewinn</td><td>\u00a713</td></tr>
+  <tr><td>2</td><td>Gewerbebetrieb</td><td>Gewinn</td><td>\u00a715</td></tr>
+  <tr><td>3</td><td>Selbst\u00e4ndige Arbeit</td><td>Gewinn</td><td>\u00a718</td></tr>
+  <tr><td>4</td><td>Nichtselbst\u00e4ndige Arbeit</td><td>\u00dcberschuss</td><td>\u00a719</td></tr>
+  <tr><td>5</td><td>Kapitalverm\u00f6gen</td><td>\u00dcberschuss</td><td>\u00a720</td></tr>
+  <tr><td>6</td><td>Vermietung & Verpachtung</td><td>\u00dcberschuss</td><td>\u00a721</td></tr>
+  <tr><td>7</td><td>Sonstige Eink\u00fcnfte</td><td>\u00dcberschuss</td><td>\u00a722</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Sonderregeln f\u00fcr Kapitalverm\u00f6gen",
+          inhalt: `<p>Einkunftsart 5 (Kapitalverm\u00f6gen) hat eine <strong>Sonderbehandlung</strong>:</p>
+<p>\ud83d\udcb9 Abgeltungsteuer: <strong>pauschal 25%</strong> (+ SolZ + ggf. KiSt)<br>
+\ud83d\udd12 "Abgeltend": diese Eink\u00fcnfte m\u00fcssen <strong>nicht mehr</strong> in der ESt-Erkl\u00e4rung angegeben werden<br>
+\ud83c\udfe6 Bank zieht die Steuer automatisch ab (Quellenabzug)</p>
+<div class="def-box"><div class="def-label">Ausnahme</div>
+G\u00fcnstigerpr\u00fcfung: Wenn pers\u00f6nlicher Steuersatz unter 25%, kann man die Kapitalertr\u00e4ge doch in die Erkl\u00e4rung einbeziehen.</div>`
+        },
+        {
+          titel: "Schritt 4: Reihenfolge der Berechnung",
+          inhalt: `<p>Wie kommt man vom Einkommen zur Steuerschuld?</p>
+<p>1. Alle Einkunftsarten einzeln ermitteln<br>
+2. Verlustausgleich (horizontal + vertikal)<br>
+3. Summe der Eink\u00fcnfte<br>
+4. \u2212 Sonderausgaben, au\u00dfergew\u00f6hnliche Belastungen<br>
+5. = <strong>Zu versteuerndes Einkommen (zvE)</strong><br>
+6. \u00d7 ESt-Tarif = <strong>Steuerschuld</strong></p>`
+        }
+      ],
+
+      fallbeispiele: [
+        {
+          titel: "Fall 1: Welche Einkunftsart liegt vor?",
+          situation: `<p>Petra ist Steuerberaterin (selbstst\u00e4ndig t\u00e4tig, hat eigene Kanzlei) und vermietet nebenbei eine Eigentumswohnung. Zus\u00e4tzlich hat sie 500 \u20ac Zinsen auf ihrem Tagesgeldkonto erhalten.</p>`,
+          aufgabe: `Ordne die drei T\u00e4tigkeiten den Einkunftsarten zu und gib die jeweiligen Paragraphen an.`,
+          hinweis: `Steuerberater = freier Beruf. Vermietung hat eine eigene Einkunftsart. Zinsen geh\u00f6ren zu Kapitalverm\u00f6gen.`,
+          loesung: [
+            {
+              schritt: "Steuerberaterin (selbst\u00e4ndig)",
+              erklaerung: `Steuerberater ist ein <strong>freier Beruf</strong> \u2192 Eink\u00fcnfte aus <strong>selbst\u00e4ndiger Arbeit</strong> \u00a7 18 EStG (KEINE Eink\u00fcnfte aus Gewerbebetrieb!)`
+            },
+            {
+              schritt: "Vermietung der Eigentumswohnung",
+              erklaerung: `Vermietung einer Immobilie \u2192 Eink\u00fcnfte aus <strong>Vermietung und Verpachtung</strong> \u00a7 21 EStG`
+            },
+            {
+              schritt: "Zinsen auf Tagesgeldkonto",
+              erklaerung: `Zinsertr\u00e4ge = Eink\u00fcnfte aus <strong>Kapitalverm\u00f6gen</strong> \u00a7 20 EStG \u2192 Abgeltungsteuer 25%`
+            }
+          ],
+          ergebnis: `Petra hat Eink\u00fcnfte aus drei verschiedenen Einkunftsarten: \u00a718 (selbst\u00e4ndig), \u00a721 (V&V), \u00a720 (Kapital). Alle werden separat ermittelt und dann zusammengez\u00e4hlt.`
+        },
+        {
+          titel: "Fall 2: Gewerbebetrieb oder nicht?",
+          situation: `<p>Max ist Softwareentwickler und arbeitet als Freelancer f\u00fcr verschiedene Unternehmen. Er hat einen Gewerbeschein angemeldet. Sein Kumpel Tom ist ebenfalls Softwareentwickler, hat sich aber als "IT-Berater" freiberuflich niedergelassen.</p>`,
+          aufgabe: `Welche Einkunftsart erzielt Max? Welche Tom? Warum ist das relevant?`,
+          hinweis: `Softwareentwicklung kann Gewerbe oder freier Beruf sein \u2013 die Abgrenzung ist gar nicht so einfach!`,
+          loesung: [
+            {
+              schritt: "Max (Gewerbeschein)",
+              erklaerung: `Max hat Gewerbeschein \u2192 <strong>Eink\u00fcnfte aus Gewerbebetrieb \u00a7 15</strong>. Er zahlt zus\u00e4tzlich <strong>Gewerbesteuer</strong> (wird aber auf ESt angerechnet).`
+            },
+            {
+              schritt: "Tom (freiberuflich)",
+              erklaerung: `IT-Berater/Programmierer k\u00f6nnen unter \u00a718 fallen, wenn ihre T\u00e4tigkeit \u00fcberwiegend <strong>sch\u00f6pferisch-intellektuell</strong> ist. Tom \u2192 <strong>selbst\u00e4ndige Arbeit \u00a7 18</strong> \u2013 keine GewSt!`
+            },
+            {
+              schritt: "Relevanz des Unterschieds",
+              erklaerung: `Tom spart die Gewerbesteuer! Bei \u00a718: nur ESt. Bei \u00a715: ESt + GewSt (auch wenn GewSt angerechnet wird, bleibt manchmal Mehrbelastung).`
+            }
+          ],
+          ergebnis: `Die Einordnung als Freiberufler (\u00a718) statt Gewerbebetrieb (\u00a715) spart die Gewerbesteuer und vereinfacht die Buchf\u00fchrung erheblich.`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Nichtselbst\u00e4ndige Arbeit ist eine ...", optionen: ["Gewinneinkunftsart", "\u00dcberschusseinkunftsart", "Keine Einkunftsart", "Sondereinkunft"], richtig: 1, erklaerung: "Nr. 4 = \u00dcberschusseinkunftsart." },
+        { frage: "Wie viele Einkunftsarten gibt es?", optionen: ["5", "6", "7", "8"], richtig: 2, erklaerung: "Genau 7 (\u00a72 Abs. 1 EStG)." },
+        { frage: "Was sind die ersten 3 Einkunftsarten?", optionen: ["Angestellt, Kapital, V&V", "Land/Forst, Gewerbe, Selbst\u00e4ndig", "Gewerbe, Angestellt, V&V", "Kapital, Sonstige, V&V"], richtig: 1, erklaerung: "1. Land/Forst, 2. Gewerbe, 3. Selbst\u00e4ndig = Gewinneinkunftsarten." },
+        { frage: "Gewinn berechnet man durch ...", optionen: ["Einnahmen \u2013 Werbungskosten", "Betriebseinnahmen \u2013 Betriebsausgaben", "Umsatz \u2013 Steuern", "Einnahmen \u2013 Ausgaben \u2013 Steuern"], richtig: 1, erklaerung: "Gewinn = Betriebseinnahmen \u2013 Betriebsausgaben." },
+        { frage: "Was passiert wenn Einkommen in keine der 7 Arten passt?", optionen: ["Es wird trotzdem besteuert", "Es ist nicht steuerbar", "Es wird gesch\u00e4tzt", "Es z\u00e4hlt als Sonstige"], richtig: 1, erklaerung: "Nicht steuerbar! Nur was in die 7 Arten f\u00e4llt, wird besteuert." }
+      ]
+    },
+    {
+      titel: "\u{1F3ED} Eink\u00fcnfte aus Gewerbebetrieb (\u00a715 EStG)",
+      inhalt: `<p><strong>4 Voraussetzungen</strong> (alle gleichzeitig!):</p>
+<ol>
+  <li><strong>Selbst\u00e4ndigkeit</strong> \u2013 eigene Rechnung und Gefahr</li>
+  <li><strong>Nachhaltigkeit</strong> \u2013 wiederholte T\u00e4tigkeit</li>
+  <li><strong><span class="term" data-label="Gewinnerzielungsabsicht" data-def="Subjektive Absicht, auf Dauer Gewinne zu erzielen. Fehlt sie, liegt steuerlich irrelevante Liebhaberei vor.">Gewinnerzielungsabsicht</span></strong> \u2013 keine Liebhaberei</li>
+  <li><strong>Beteiligung am wirtschaftlichen Verkehr</strong></li>
+</ol>
+<p>Dazu: <strong>Kein</strong> Land/Forst und <strong>keine</strong> freiberufliche T\u00e4tigkeit.</p>`,
+      beispiel: `Hobby-Maler verkauft regelm\u00e4\u00dfig Bilder = Gewerbe. Malt nur f\u00fcr sich = kein Gewerbe.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Die 4 Voraussetzungen",
+          inhalt: `<p>Ein Gewerbebetrieb liegt vor, wenn <strong>alle 4 Merkmale gleichzeitig</strong> erf\u00fcllt sind:</p>
+<p>1\ufe0f\u20e3 <strong>Selbst\u00e4ndigkeit</strong> \u2013 eigene Rechnung und Gefahr (kein Angestellter!)<br>
+2\ufe0f\u20e3 <strong>Nachhaltigkeit</strong> \u2013 wiederholte T\u00e4tigkeit (kein einmaliger Verkauf)<br>
+3\ufe0f\u20e3 <strong>Gewinnerzielungsabsicht</strong> \u2013 kein Hobby/Liebhaberei<br>
+4\ufe0f\u20e3 <strong>Beteiligung am wirtschaftlichen Verkehr</strong> \u2013 \u00f6ffentliches Angebot</p>`
+        },
+        {
+          titel: "Schritt 2: Negativabgrenzung",
+          inhalt: `<p>Zus\u00e4tzlich darf es sich NICHT um folgende T\u00e4tigkeiten handeln:</p>
+<p>\u274c <strong>Land- und Forstwirtschaft</strong> (\u00a713 EStG)<br>
+\u274c <strong>Selbst\u00e4ndige Arbeit</strong> (\u00a718 EStG) = Freie Berufe (Arzt, Anwalt, Steuerberater, Lehrer, K\u00fcnstler)</p>
+<div class="def-box"><div class="def-label">Abgrenzung Selbst\u00e4ndige Arbeit</div>
+Freie Berufe = \u00fcberwiegend pers\u00f6nliche Leistung + besondere Qualifikation \u2192 kein Gewerbe, keine GewSt!</div>`
+        },
+        {
+          titel: "Schritt 3: Liebhaberei abgrenzen",
+          inhalt: `<p>Liebhaberei = fehlendes Merkmal "Gewinnerzielungsabsicht"</p>
+<table class="erk-table">
+  <tr><th></th><th>Gewerbebetrieb</th><th>Liebhaberei</th></tr>
+  <tr><td><strong>Ziel</strong></td><td>Gewinn erzielen</td><td>Spa\u00df haben</td></tr>
+  <tr><td><strong>Verluste</strong></td><td>Steuerlich abzugsf\u00e4hig</td><td>Nicht abzugsf\u00e4hig</td></tr>
+  <tr><td><strong>Beispiel</strong></td><td>Professioneller Kunsth\u00e4ndler</td><td>Hobby-Maler der gelegentlich Bilder verkauft</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 4: Steuerliche Folgen",
+          inhalt: `<p>Wenn Gewerbebetrieb: <strong>Doppelbelastung</strong> mit Ertragsteuern:</p>
+<p>\ud83d\udccd <strong>Gewerbesteuer</strong> (GewSt): direkt auf den Gewerbeertrag<br>
+\ud83d\udccd <strong>Einkommensteuer</strong> (ESt): auf den Gewinn beim Unternehmer</p>
+<p>Entlastung: Die GewSt wird auf die ESt <strong>angerechnet</strong> (Gewerbesteuermessbetrag \u00d7 3,8 = Anrechnungsbetrag).</p>
+<div class="def-box"><div class="def-label">Merkformel</div>
+Gewerbebetrieb = 4 positive Merkmale + keine Land/Forst + kein Freiberuf</div>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Was fehlt bei Liebhaberei?", optionen: ["Selbst\u00e4ndigkeit", "Nachhaltigkeit", "Gewinnerzielungsabsicht", "Beteiligung am Verkehr"], richtig: 2, erklaerung: "Liebhaberei = keine Gewinnerzielungsabsicht." },
+        { frage: "Wie viele Voraussetzungen f\u00fcr Gewerbebetrieb?", optionen: ["2", "3", "4", "5"], richtig: 2, erklaerung: "4 Voraussetzungen m\u00fcssen gleichzeitig erf\u00fcllt sein." },
+        { frage: "Ein Arzt mit eigener Praxis ist ...", optionen: ["Gewerbetreibender", "Freiberufler", "Angestellter", "Landwirt"], richtig: 1, erklaerung: "\u00c4rzte = freiberufliche T\u00e4tigkeit (\u00a718 EStG), nicht Gewerbe." },
+        { frage: "Ist Handelsregistereintrag eine Voraussetzung?", optionen: ["Ja, immer", "Nein", "Nur bei GmbH", "Nur bei OHG"], richtig: 1, erklaerung: "Nein! Die 4 Merkmale z\u00e4hlen, nicht die formale Registrierung." },
+        { frage: "'Nachhaltigkeit' bedeutet ...", optionen: ["Umweltschutz", "Wiederholte T\u00e4tigkeit mit Wiederholungsabsicht", "Langfristige Planung", "Dauerhafte Anstellung"], richtig: 1, erklaerung: "Nachhaltig = wiederholte T\u00e4tigkeit (nicht im \u00f6kologischen Sinne!)." }
+      ]
+    },
+    {
+      titel: "\u{1F4C9} Verlustverrechnung",
+      inhalt: `<table class="erk-table">
+  <tr><th>Art</th><th>Was</th><th>Beispiel</th></tr>
+  <tr><td><strong>Horizontal</strong></td><td>Gleiche Einkunftsart</td><td>Verlust Gewerbe A + Gewinn Gewerbe B</td></tr>
+  <tr><td><strong>Vertikal</strong></td><td>Andere Einkunftsart</td><td>Verlust V&V + Gewinn Gehalt</td></tr>
+</table>
+<p>Falls nicht verrechenbar: <strong><span class="term" data-label="Verlustr\u00fccktrag" data-def="Verluste k\u00f6nnen ins Vorjahr zur\u00fcckgetragen werden (max. 1 Jahr, max. 10 Mio. \u20ac).">R\u00fccktrag</span></strong> (1 Jahr) oder <strong><span class="term" data-label="Verlustvortrag" data-def="Nicht verrechenbare Verluste werden auf k\u00fcnftige Jahre vorgetragen (unbegrenzt, aber Mindestbesteuerung).">Vortrag</span></strong> (unbegrenzt, bis 1 Mio. voll, dar\u00fcber 60%).</p>`,
+      merke: `Horizontal = gleiche Art. Vertikal = andere Art. R\u00fccktrag: 1 Jahr. Vortrag: unbegrenzt.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Warum Verlustverrechnung?",
+          inhalt: `<p>Ein Unternehmer macht manchmal Verluste. Das Steuerrecht erlaubt, diese Verluste gegen Gewinne zu verrechnen.</p>
+<p>Zwei Arten der Verrechnung:</p>
+<div class="def-box"><div class="def-label">Horizontaler Ausgleich</div>
+Verlust und Gewinn in der <strong>gleichen Einkunftsart</strong>.<br>Beispiel: 2 Gewerbebetriebe \u2013 einer macht Verlust, einer Gewinn.</div>
+<div class="def-box"><div class="def-label">Vertikaler Ausgleich</div>
+Verlust aus einer Einkunftsart wird mit Gewinn einer <strong>anderen Einkunftsart</strong> verrechnet.</div>`
+        },
+        {
+          titel: "Schritt 2: Die Reihenfolge der Verlustverrechnung",
+          inhalt: `<p>Verluste werden in dieser Reihenfolge verrechnet:</p>
+<p>1. <strong>Horizontal</strong>: gleiche Einkunftsart (automatisch, immer m\u00f6glich)<br>
+2. <strong>Vertikal</strong>: andere Einkunftsart (mit Einschr\u00e4nkungen!)<br>
+3. <strong>Verlustr\u00fccktrag</strong>: 1 Jahr zur\u00fcck (max. 10 Mio. \u20ac)<br>
+4. <strong>Verlustvortrag</strong>: beliebig viele Jahre vor (max. 60% des Gesamtbetrags)</p>`
+        },
+        {
+          titel: "Schritt 3: Mindestbesteuerung beim Vortrag",
+          inhalt: `<p>Beim Verlustvortrag gibt es eine Begrenzung (Mindestbesteuerung):</p>
+<table class="erk-table">
+  <tr><th>Gewinn</th><th>Maximaler Verlustabzug</th></tr>
+  <tr><td>Bis 1.000.000 \u20ac</td><td>100% des Verlustes</td></tr>
+  <tr><td>\u00dcber 1.000.000 \u20ac</td><td>1.000.000 \u20ac + 60% des \u00fcbersteigenden Betrags</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Beispiel</div>
+Gewinn 3.000.000 \u20ac, Verlustvortrag 2.500.000 \u20ac<br>
+Abzug: 1.000.000 + 60% \u00d7 2.000.000 = 1.000.000 + 1.200.000 = 2.200.000 \u20ac<br>
+Restlich zu versteuern: 3.000.000 - 2.200.000 = 800.000 \u20ac</div>`
+        },
+        {
+          titel: "Schritt 4: Sonderregel Kapitalverm\u00f6gen",
+          inhalt: `<p>Achtung: F\u00fcr Kapitalverm\u00f6gen (\u00a720 EStG) gibt es eine <strong>Verlustverrechnungsbeschr\u00e4nkung</strong>:</p>
+<p>\ud83d\udd34 Verluste aus Kapitalverm\u00f6gen k\u00f6nnen nur mit <strong>Gewinnen aus Kapitalverm\u00f6gen</strong> verrechnet werden (kein vertikaler Ausgleich!).<br>
+\ud83d\udd34 Aktienverkaufsverluste nur mit Aktiengewinnen verrechenbar.</p>
+<div class="def-box"><div class="def-label">Merke</div>
+Kapitalverluste = "gefangen" im Topf Kapitalverm\u00f6gen. Kein Ausgleich mit anderen Einkunftsarten!</div>`
+        }
+      ],
+
+      fallbeispiele: [
+        {
+          titel: "Fall 1: Verlustausgleich verstehen",
+          situation: `<p>Sandra hat folgende Einkommen im Jahr 2024:</p>
+<p>- Gehalt (Angestellte): <strong>50.000 \u20ac</strong><br>
+- Mieteinnahmen: <strong>15.000 \u20ac</strong><br>
+- Werbungskosten Vermietung: <strong>20.000 \u20ac</strong> (Renovierung!)<br>
+- Aktienverkauf: <strong>\u2212 3.000 \u20ac</strong> (Verlust)</p>`,
+          aufgabe: `Wie kann Sandra ihre Verluste ausgleichen? Wie hoch ist ihr zu versteuerndes Einkommen?`,
+          hinweis: `Mieteinnahmen - Werbungskosten = Verlust V&V. Aktienverkaufsverlust hat eine Sonderregel.`,
+          loesung: [
+            {
+              schritt: "Einkunftsermittlung",
+              erklaerung: `V&V: 15.000 - 20.000 = <strong>-5.000 \u20ac</strong> (Verlust!)<br>Nichtselbst\u00e4ndig: <strong>+50.000 \u20ac</strong><br>Aktienverkauf: <strong>-3.000 \u20ac</strong>`
+            },
+            {
+              schritt: "Vertikaler Verlustausgleich",
+              erklaerung: `V&V-Verlust (-5.000 \u20ac) kann mit Gehalt (50.000 \u20ac) verrechnet werden \u2192 vertikaler Ausgleich erlaubt!<br>Ergebnis: 50.000 - 5.000 = <strong>45.000 \u20ac</strong>`
+            },
+            {
+              schritt: "Aktienverkaufsverlust",
+              erklaerung: `<strong>Achtung:</strong> Aktienverkaufsverluste k\u00f6nnen <strong>nicht</strong> mit anderen Einkunftsarten verrechnet werden! Der Verlust von 3.000 \u20ac wird vorgetragen und kann nur mit k\u00fcnftigen Aktiengewinnen verrechnet werden.`
+            }
+          ],
+          ergebnis: `Sandras zvE = 45.000 \u20ac (nach V&V-Verlustausgleich). Aktienverkaufsverlust = 3.000 \u20ac Verlustvortrag f\u00fcr zuk\u00fcnftige Aktiengewinne.`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Was ist horizontale Verlustverrechnung?", optionen: ["Zwischen Ehepartnern", "Gleiche Einkunftsart", "Ins Vorjahr", "Andere Einkunftsart"], richtig: 1, erklaerung: "Horizontal = innerhalb derselben Einkunftsart." },
+        { frage: "Verlustr\u00fccktrag geht wie weit zur\u00fcck?", optionen: ["Gar nicht", "1 Jahr", "2 Jahre", "Unbegrenzt"], richtig: 1, erklaerung: "\u00a710d Abs. 1 EStG: 1 Jahr." },
+        { frage: "Verlustvortrag ist zeitlich ...", optionen: ["Auf 5 Jahre begrenzt", "Auf 10 Jahre begrenzt", "Unbegrenzt", "Nicht m\u00f6glich"], richtig: 2, erklaerung: "Vortrag: unbegrenzt (bis 1 Mio. voll, dar\u00fcber 60%)." },
+        { frage: "Vertikale Verrechnung bedeutet ...", optionen: ["Gleiche Einkunftsart", "Verschiedene Einkunftsarten", "Zwischen Jahren", "Zwischen L\u00e4ndern"], richtig: 1, erklaerung: "Vertikal = verschiedene Einkunftsarten." },
+        { frage: "Verluste aus Kapitalverm\u00f6gen k\u00f6nnen vertikal verrechnet werden?", optionen: ["Ja, immer", "Nein, nur horizontal", "Nur mit Gewerbeeink\u00fcnften", "Nur mit Gehalt"], richtig: 1, erklaerung: "Kapitalverluste k\u00f6nnen grunds\u00e4tzlich nur mit Kapitalgewinnen verrechnet werden." }
+      ]
+    },
+    {
+      titel: "\u{1F4C4} Veranlagungsarten",
+      inhalt: `<table class="erk-table">
+  <tr><th>Art</th><th>Wer</th><th>Tarif</th></tr>
+  <tr><td><strong>Einzelveranlagung</strong></td><td>Ledige / Wahl</td><td>Grundtarif</td></tr>
+  <tr><td><strong>Zusammenveranlagung</strong></td><td>Ehepaare</td><td>Splittingtarif</td></tr>
+</table>
+<p>Grenzsteuersatz: 0% (bis 12.096\u20ac) \u2192 14% \u2192 progressiv \u2192 42% (ab 68.430\u20ac) \u2192 45% (ab 277.826\u20ac)</p>`,
+      merke: `Splittingvorteil = am gr\u00f6\u00dften bei <strong>unterschiedlichen</strong> Einkommen der Partner.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Was ist Veranlagung?",
+          inhalt: `<p><strong>Veranlagung</strong> = das Verfahren, bei dem das Finanzamt die Steuerpflicht einer Person f\u00fcr einen bestimmten Zeitraum feststellt und einen Steuerbescheid erteilt.</p>
+<p>Jede nat\u00fcrliche Person wird <strong>einzeln</strong> veranlagt \u2013 au\u00dfer wenn sie w\u00e4hlt:</p>
+<div class="def-box"><div class="def-label">Ehepaare k\u00f6nnen w\u00e4hlen</div>
+Einzelveranlagung (Grundtarif) oder Zusammenveranlagung (Splittingtarif)</div>`
+        },
+        {
+          titel: "Schritt 2: Grundtarif vs. Splittingtarif",
+          inhalt: `<table class="erk-table">
+  <tr><th></th><th>Einzelveranlagung</th><th>Zusammenveranlagung</th></tr>
+  <tr><td><strong>Wer</strong></td><td>Ledige, Wahl</td><td>Ehepaare/eingetragene Lebenspartner</td></tr>
+  <tr><td><strong>Tarif</strong></td><td>Grundtarif</td><td>Splittingtarif</td></tr>
+  <tr><td><strong>Berechnung</strong></td><td>Pers\u00f6nliches zvE</td><td>Gemeinsames zvE / 2 \u2192 Steuer \u00d7 2</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Wie funktioniert der Splittingtarif?",
+          inhalt: `<p>Beim Splittingverfahren wird das gemeinsame Einkommen "gesplittet":</p>
+<p>1. Gemeinsames zvE berechnen<br>
+2. Durch 2 teilen<br>
+3. ESt f\u00fcr diesen Betrag berechnen<br>
+4. ESt \u00d7 2 = gemeinsame Steuerschuld</p>
+<div class="def-box"><div class="def-label">Beispiel</div>
+Partner A: 80.000 \u20ac, Partner B: 0 \u20ac<br>
+Ohne Splitting: ESt auf 80.000 \u20ac = ca. 24.000 \u20ac<br>
+Mit Splitting: ESt auf 40.000 \u20ac \u00d7 2 = ca. 17.000 \u20ac<br>
+Vorteil: ca. 7.000 \u20ac weniger Steuer!</div>`
+        },
+        {
+          titel: "Schritt 4: Wann lohnt sich Zusammenveranlagung?",
+          inhalt: `<p>Der Splittingvorteil ist umso gr\u00f6\u00dfer, je <strong>unterschiedlicher</strong> die Einkommen der Partner sind:</p>
+<table class="erk-table">
+  <tr><th>Situation</th><th>Splittingvorteil</th></tr>
+  <tr><td>A: 100.000 \u20ac, B: 0 \u20ac</td><td>Maximal (Alleinverdiener)</td></tr>
+  <tr><td>A: 60.000 \u20ac, B: 40.000 \u20ac</td><td>Gering</td></tr>
+  <tr><td>A: 50.000 \u20ac, B: 50.000 \u20ac</td><td>Kein Vorteil (gleiche Einkommen)</td></tr>
+</table>
+<p>\u2192 Zusammenveranlagung ist fast immer sinnvoll, au\u00dfer bei v\u00f6llig gleichen Einkommen.</p>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Wann ist der Splittingvorteil am gr\u00f6\u00dften?", optionen: ["Beide gleich viel", "Beide wenig", "Einer viel, einer wenig", "Beide \u00fcber 277.826\u20ac"], richtig: 2, erklaerung: "Progressiver Tarif \u2192 gr\u00f6\u00dfter Vorteil bei stark unterschiedlichen Einkommen." },
+        { frage: "Grundfreibetrag 2025?", optionen: ["10.000\u20ac", "11.604\u20ac", "12.096\u20ac", "15.000\u20ac"], richtig: 2, erklaerung: "12.096\u20ac \u2013 bis dahin 0% Steuern." },
+        { frage: "Ab wann gilt der Spitzensteuersatz 42%?", optionen: ["12.096\u20ac", "45.000\u20ac", "68.430\u20ac", "277.826\u20ac"], richtig: 2, erklaerung: "42% ab 68.430\u20ac. 45% (Reichensteuer) ab 277.826\u20ac." },
+        { frage: "Zusammenveranlagung nutzt welchen Tarif?", optionen: ["Grundtarif", "Splittingtarif", "Pauschaltarif", "Sondertarif"], richtig: 1, erklaerung: "Zusammenveranlagung = Splittingtarif." },
+        { frage: "Der Eingangssteuersatz betr\u00e4gt ...", optionen: ["0%", "14%", "25%", "42%"], richtig: 1, erklaerung: "Nach dem Grundfreibetrag startet der Tarif bei 14%." }
+      ]
+    },
+    {
+      titel: "\u{1F4CB} Allgemeine Charakterisierung der ESt",
+      inhalt: `<p>Die Einkommensteuer hat <strong>4 wesentliche Merkmale</strong>:</p>
+<table class="erk-table">
+  <tr><th>Merkmal</th><th>Bedeutung</th><th>Rechtsgrundlage</th></tr>
+  <tr><td><strong>Personensteuer</strong></td><td>Pers\u00f6nliche Verh\u00e4ltnisse z\u00e4hlen (Familienstand, Kinder, Leistungsf\u00e4higkeit)</td><td>\u00a72 EStG</td></tr>
+  <tr><td><strong>Ertragsteuer</strong></td><td>Bemessungsgrundlage = zu versteuerndes Einkommen</td><td>\u00a72 Abs. 5 EStG</td></tr>
+  <tr><td><strong>Gemeinschaftsteuer</strong></td><td>Aufkommen geteilt: Bund, L\u00e4nder, Gemeinden</td><td>Art. 106 Abs. 3, 5 GG</td></tr>
+  <tr><td><strong>Jahressteuer</strong></td><td>Veranlagungszeitraum = Kalenderjahr</td><td>\u00a72 Abs. 7, \u00a725 Abs. 1 EStG</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Rechtsgrundlagen der ESt</div>
+Gesetze: <strong>EStG, EStDV, LStDV</strong><br>
+Hinweise/Richtlinien: EStR, EStH, LStR, LStH</div>`,
+      merke: `ESt = Personensteuer + Ertragsteuer + Gemeinschaftsteuer + Jahressteuer`,
+      schritte: [
+        {
+          titel: "Schritt 1: Personensteuer",
+          inhalt: `<p>Die ESt ist eine <strong>Personensteuer</strong>: Die pers\u00f6nlichen Verh\u00e4ltnisse des Steuerpflichtigen bestimmen die H\u00f6he der Steuer.</p>
+<p>Was ber\u00fccksichtigt wird:</p>
+<p>\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67 <strong>Familienstand</strong> (ledig, verheiratet \u2192 Splittingtarif)<br>
+\ud83d\udc76 <strong>Kinder</strong> (Kinderfreibetrag, Kindergeld)<br>
+\ud83d\udcb0 <strong>Leistungsf\u00e4higkeit</strong> (progressiver Tarif \u2013 mehr Einkommen = h\u00f6herer %)<br>
+\ud83c\udfdb\ufe0f <strong>Lenkungsnormen</strong> (z.B. Steuerverg\u00fcnstigungen f\u00fcr Wohnungsbau)</p>`
+        },
+        {
+          titel: "Schritt 2: Ertragsteuer + Gemeinschaftsteuer",
+          inhalt: `<p><strong>Ertragsteuer</strong>: Was besteuert wird = das <strong>zu versteuernde Einkommen (zvE)</strong></p>
+<p>zvE = Einkommen \u2212 Sonderausgaben \u2212 au\u00dfergew\u00f6hnliche Belastungen<br>
+Rechtsgrundlage: \u00a72 Abs. 5 EStG</p>
+<p><strong>Gemeinschaftsteuer</strong>: Das Aufkommen wird geteilt:</p>
+<p>\ud83c\udfe6 Bund: 42,5% | \ud83c\udff0 L\u00e4nder: 42,5% | \ud83c\udfe1 Gemeinden: 15%</p>
+<p>Rechtsgrundlage: Art. 106 Abs. 3, 5 GG</p>`
+        },
+        {
+          titel: "Schritt 3: Jahressteuer + Rechtsgrundlagen",
+          inhalt: `<p><strong>Jahressteuer</strong>: Die ESt wird f\u00fcr das <strong>Kalenderjahr</strong> (= Veranlagungszeitraum) ermittelt.</p>
+<p>Rechtsgrundlage: \u00a72 Abs. 7 EStG i.V.m. \u00a725 Abs. 1 EStG</p>
+<div class="def-box"><div class="def-label">Rechtsquellenhierarchie ESt</div>
+<strong>Gesetze</strong>: EStG (Einkommensteuergesetz), EStDV (Durchf\u00fchrungsverordnung), LStDV<br>
+<strong>Richtlinien/Hinweise</strong>: EStR, EStH (Einkommensteuer-Richtlinien/-Hinweise), LStR, LStH<br>
+\u26a0\ufe0f Richtlinien binden nur Finanzbeh\u00f6rden, nicht Gerichte!</div>`
+        },
+        {
+          titel: "Schritt 4: Pr\u00fcfungsschema",
+          inhalt: `<p>F\u00fcr die Kl\u00e4rung ob ESt anf\u00e4llt, pr\u00fcfe systematisch:</p>
+<p>1\ufe0f\u20e3 <strong>Pers\u00f6nliche Steuerpflicht</strong> (\u00a71 EStG) \u2013 wer?<br>
+2\ufe0f\u20e3 <strong>Sachliche Steuerpflicht</strong> (\u00a72 EStG) \u2013 was?<br>
+3\ufe0f\u20e3 <strong>Steuerbefreiungen</strong> (\u00a73 EStG) \u2013 ausgenommen?<br>
+4\ufe0f\u20e3 <strong>Eink\u00fcnfteermittlung</strong> (\u00a7\u00a74-23 EStG) \u2013 wie viel?<br>
+5\ufe0f\u20e3 <strong>Tarifberechnung</strong> (\u00a732a EStG) \u2013 Steuerschuld?</p>
+<div class="def-box"><div class="def-label">Klausurhinweis (Prof. Mayr)</div>
+\u201EDer Paragraph muss immer durchgegangen werden f\u00fcr die Kontrolle.\u201C \u2192 Jeden Pr\u00fcfungsschritt mit Paragraphen notieren!</div>`
+        }
+      ],
+      interaktion: [
+        { frage: "Was macht die ESt zu einer Personensteuer?", optionen: ["Fester Steuersatz", "Ber\u00fccksichtigung pers\u00f6nlicher Verh\u00e4ltnisse", "Nur Kapitalertr\u00e4ge", "Nur Unternehmen"], richtig: 1, erklaerung: "Personensteuer = pers\u00f6nliche Verh\u00e4ltnisse (Familie, Kinder, Einkommen) beeinflussen die Steuer." },
+        { frage: "Veranlagungszeitraum der ESt?", optionen: ["Monat", "Quartal", "Kalenderjahr", "5 Jahre"], richtig: 2, erklaerung: "ESt ist Jahressteuer: Veranlagungszeitraum = Kalenderjahr." },
+        { frage: "Welcher Anteil der ESt geht an die Gemeinden?", optionen: ["42,5%", "50%", "15%", "25%"], richtig: 2, erklaerung: "Gemeinden erhalten 15% der ESt (Gemeinschaftsteuer)." },
+        { frage: "Bemessungsgrundlage der ESt?", optionen: ["Umsatz", "Zu versteuerndes Einkommen", "Betriebsverm\u00f6gen", "Jahresumsatz"], richtig: 1, erklaerung: "Ertragsteuer: Bemessungsgrundlage = zvE nach \u00a72 Abs. 5 EStG." }
+      ]
+    },
+    {
+      titel: "\u{1F9ED} Pr\u00fcfschema: Pers\u00f6nliche Steuerpflicht",
+      inhalt: `<p><strong>3-Stufen-Pr\u00fcfung</strong> f\u00fcr die pers\u00f6nliche Steuerpflicht:</p>
+<div class="def-box"><div class="def-label">Stufe 1: Normale unbeschr\u00e4nkte Steuerpflicht (\u00a71 Abs. 1 EStG)</div>
+Nat\u00fcrliche Person + Wohnsitz (\u00a78 AO) oder gew. Aufenthalt (\u00a79 AO) in DE \u2192 unbeschr\u00e4nkt</div>
+<div class="def-box"><div class="def-label">Stufe 2: Fiktive unbeschr\u00e4nkte Steuerpflicht (\u00a71 Abs. 3 EStG)</div>
+Grenzpendler: nat. Person + Antrag + kein Wohnsitz in DE + inl\u00e4nd. Eink\u00fcnfte + min. 90% inl. Eink\u00fcnfte \u2192 unbeschr\u00e4nkt</div>
+<div class="def-box"><div class="def-label">Stufe 3: Beschr\u00e4nkte Steuerpflicht (\u00a71 Abs. 4 EStG)</div>
+Nat. Person + kein Wohnsitz/Aufenthalt in DE + inl\u00e4ndische Eink\u00fcnfte (\u00a749 EStG) \u2192 beschr\u00e4nkt</div>`,
+      merke: `Pr\u00fcfung immer in Reihenfolge: \u00a71 Abs. 1 \u2192 \u00a71 Abs. 3 \u2192 \u00a71 Abs. 4 EStG. Rechenweg notieren!`,
+      schritte: [
+        {
+          titel: "Schritt 1: Stufe 1 \u2013 Normale unbeschr\u00e4nkte Steuerpflicht (\u00a71 Abs. 1)",
+          inhalt: `<p>Voraussetzungen <strong>kumulativ</strong>:</p>
+<p>\u2705 Nat\u00fcrliche Person<br>
+\u2705 Wohnsitz (\u00a78 AO) oder gew\u00f6hnlicher Aufenthalt (\u00a79 AO) in Deutschland</p>
+<div class="def-box"><div class="def-label">Fallbeispiel 1 (Prof. Mayr)</div>
+Prof. Tax hat Wohnung in Rosenheim + Zweitwohnsitz in Florenz.<br>
+\u00a71 Abs. 1: nat. Person \u2713 | \u00a78 AO Wohnsitz DE \u2713 \u2192 <strong>unbeschr\u00e4nkt ESt-pflichtig</strong><br>
+F\u00fcr Italien: Doppelbesteuerungsabkommen pr\u00fcfen!</div>`
+        },
+        {
+          titel: "Schritt 2: Fallbeispiel 2 + Grenzpendler",
+          inhalt: `<div class="def-box"><div class="def-label">Fallbeispiel 2</div>
+Prof. Tax Wohnsitz Florenz, 8 Monate Hotel Rosenheim.<br>
+\u00a71 Abs. 1: nat. Person \u2713 | \u00a78 AO kein Wohnsitz DE \u2715 | \u00a79 AO gew. Aufenthalt >6 Monate \u2713<br>
+\u2192 <strong>unbeschr\u00e4nkt ESt-pflichtig</strong></div>
+<p><strong>Fiktive unbeschr\u00e4nkte Steuerpflicht (\u00a71 Abs. 3)</strong> \u2013 Grenzpendlerregelung:</p>
+<p>\u2705 Nat. Person + Antrag stellen + kein Wohnsitz in DE + inl\u00e4ndische Eink\u00fcnfte (\u00a749 EStG) + min. 90% inl\u00e4ndische Eink\u00fcnfte + Nachweis ausl. Beh\u00f6rde</p>`
+        },
+        {
+          titel: "Schritt 3: Fallbeispiel 3 \u2013 Grenzpendler aus \u00d6sterreich",
+          inhalt: `<div class="def-box"><div class="def-label">Fallbeispiel 3</div>
+Prof. Tax Wohnung Kufstein, pendelt t\u00e4glich nach Rosenheim, nur Eink\u00fcnfte aus \u00a749 EStG.<br>
+<strong>\u00a71 Abs. 1 EStG</strong>: nat. Person \u2713 | \u00a78 + 9 AO kein DE-Wohnsitz/-Aufenthalt \u2715<br>
+\u21922. Schritt: <strong>\u00a71 Abs. 3 EStG</strong>: nat. Person \u2713 | Antrag \u2713 | kein DE-Wohnsitz \u2713 | inl. Eink. nach \u00a749 \u2713 | 90% inl. Eink. \u2713 | Nachweis \u2713<br>
+\u2192 <strong>fiktiv unbeschr\u00e4nkt ESt-pflichtig</strong></div>`
+        },
+        {
+          titel: "Schritt 4: Fallbeispiel 4 \u2013 Beschr\u00e4nkte Steuerpflicht",
+          inhalt: `<div class="def-box"><div class="def-label">Fallbeispiel 4</div>
+Prof. Tax arbeitet in Kufstein, hat Eigentumswohnung in Rosenheim (Vermietungseink\u00fcnfte).<br>
+<strong>\u00a71 Abs. 1</strong>: nat. Person \u2713 | kein DE-Wohnsitz \u2715<br>
+<strong>\u00a71 Abs. 3</strong>: Antrag/Nachweis \u2715 | 90%-Grenze \u2715 \u21922 nicht unbeschr\u00e4nkt<br>
+<strong>\u00a71 Abs. 4</strong>: nat. Person \u2713 | kein DE-Wohnsitz \u2713 | inl. Eink. aus V&V (\u00a749 Abs. 1 Nr. 6) \u2713<br>
+\u2192 <strong>beschr\u00e4nkt ESt-pflichtig</strong></div>
+<div class="def-box"><div class="def-label">Klausurhinweis</div>
+Rechenweg z\u00e4hlt! Immer alle Stufen notieren, auch wenn erste Stufe bereits erf\u00fcllt.</div>`
+        }
+      ],
+      fallbeispiele: [
+        {
+          titel: "Fall: Wer ist wie steuerpflichtig?",
+          situation: `<p>Vier F\u00e4lle aus der Vorlesung von Prof. Mayr:</p>
+<p>A: Wohnsitz Rosenheim + Zweitwohnsitz Florenz<br>
+B: Wohnsitz Florenz, 8 Monate Hotel Rosenheim<br>
+C: Wohnsitz Kufstein, pendelt nach Rosenheim, 100% inl\u00e4ndische Eink\u00fcnfte<br>
+D: Arbeitet in Kufstein, hat Mietwohnung in Rosenheim</p>`,
+          aufgabe: `Wende das 3-Stufen-Pr\u00fcfschema an. Welche Steuerpflicht liegt jeweils vor?`,
+          hinweis: `Starte immer mit \u00a71 Abs. 1, dann \u00a71 Abs. 3, dann \u00a71 Abs. 4. Notiere jeden Pr\u00fcfschritt!`,
+          loesung: [
+            { schritt: "A: Wohnsitz Rosenheim + Florenz", erklaerung: `\u00a71 Abs. 1: nat. Person \u2713 | \u00a78 AO Wohnsitz DE \u2713 \u2192 <strong>normale unbeschr\u00e4nkte Steuerpflicht</strong>` },
+            { schritt: "B: Wohnsitz Florenz, Hotel 8 Monate", erklaerung: `\u00a71 Abs. 1: nat. Person \u2713 | \u00a78 AO kein Wohnsitz \u2715 | \u00a79 AO gew. Aufenthalt >6 Monate \u2713 \u2192 <strong>normale unbeschr\u00e4nkte Steuerpflicht</strong>` },
+            { schritt: "C: Kufstein, Grenzpendler", erklaerung: `\u00a71 Abs. 1: kein DE-Wohnsitz/-Aufenthalt \u2715 | \u00a71 Abs. 3: alle Voraussetzungen \u2713 \u2192 <strong>fiktiv unbeschr\u00e4nkte Steuerpflicht</strong>` },
+            { schritt: "D: Kufstein, Mietwohnung Rosenheim", erklaerung: `\u00a71 Abs. 1: kein Wohnsitz \u2715 | \u00a71 Abs. 3: 90%-Grenze nicht erf\u00fcllt \u2715 | \u00a71 Abs. 4: inl. Eink. (\u00a749 Abs. 1 Nr. 6) \u2713 \u2192 <strong>beschr\u00e4nkte Steuerpflicht</strong>` }
+          ],
+          ergebnis: `Merke: Immer in Reihenfolge pr\u00fcfen! Sobald eine Stufe erf\u00fcllt ist, ben\u00f6tigt man die n\u00e4chste nicht mehr zu pr\u00fcfen.`
+        }
+      ],
+      interaktion: [
+        { frage: "Was pr\u00fcft \u00a71 Abs. 1 EStG?", optionen: ["Beschr\u00e4nkte Steuerpflicht", "Grenzpendler", "Normale unbeschr\u00e4nkte Steuerpflicht", "Steuerbefreiung"], richtig: 2, erklaerung: "§1 Abs. 1 = normale (Inl\u00e4nder) unbeschr\u00e4nkte Steuerpflicht." },
+        { frage: "Grenzpendler f\u00e4llt unter ...", optionen: ["\u00a71 Abs. 1 EStG", "\u00a71 Abs. 3 EStG", "\u00a71 Abs. 4 EStG", "\u00a749 EStG"], richtig: 1, erklaerung: "Grenzpendler = fiktive unbeschr\u00e4nkte nach \u00a71 Abs. 3 EStG." },
+        { frage: "Beschr\u00e4nkte Steuerpflicht = ?", optionen: ["Wohnsitz DE, kein Auslandseinkommen", "Kein Wohnsitz DE, inl\u00e4ndische Eink\u00fcnfte", "Alle Welteinkommensteinkommen", "Freiberufler"], richtig: 1, erklaerung: "Beschr\u00e4nkte Steuerpflicht: kein Wohnsitz in DE, aber inl\u00e4ndische Eink\u00fcnfte (\u00a749 EStG)." },
+        { frage: "In welcher Reihenfolge pr\u00fcft man?", optionen: ["Abs. 3 \u2192 1 \u2192 4", "Abs. 1 \u2192 3 \u2192 4", "Abs. 4 \u2192 1 \u2192 3", "Beliebig"], richtig: 1, erklaerung: "Immer: Abs. 1 (normal) \u2192 Abs. 3 (fiktiv) \u2192 Abs. 4 (beschr\u00e4nkt)." }
+      ]
+    },
+    {
+      titel: "\u{1F6AB} Steuerbefreiungen & Progressionsvorbehalt",
+      inhalt: `<p><strong>Steuerbefreiungen (\u00a73 EStG)</strong>: Best. Einnahmen sind von der ESt ausgenommen.</p>
+<table class="erk-table">
+  <tr><th>Norm</th><th>Befreit</th></tr>
+  <tr><td>\u00a73 Nr. 1</td><td>Leistungen Kranken-, Pflege-, gesetzliche Unfallversicherung</td></tr>
+  <tr><td>\u00a73 Nr. 2</td><td>Arbeitslosengeld</td></tr>
+  <tr><td>\u00a73 Nr. 11c</td><td>Inflationsausgleich</td></tr>
+  <tr><td>\u00a73 Nr. 15</td><td>AG-Zusch\u00fcsse zum \u00d6PNV</td></tr>
+  <tr><td>\u00a73 Nr. 26/26a</td><td>\u00dcbungsleiter / Ehrenamt</td></tr>
+  <tr><td>\u00a73 Nr. 45</td><td>Nutzung Dienst-Handy</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Progressionsvorbehalt \u00a732b EStG</div>
+Steuerfreie Lohnersatzleistungen (Arbeitslosengeld, Elterngeld, Kurzarbeitergeld) erh\u00f6hen den <strong>Steuersatz</strong> f\u00fcr das restliche Einkommen!</div>`,
+      merke: `Steuerbefreiung \u2260 steuerfrei insgesamt! Progressionsvorbehalt: die Leistung selbst ist frei, erh\u00f6ht aber den Tarif auf andere Eink\u00fcnfte.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Was sind Steuerbefreiungen?",
+          inhalt: `<p>Bestimmte Einnahmen sind <strong>komplett von der ESt befreit</strong> (\u00a73 EStG mit 73 Nummern!).</p>
+<p>Die wichtigsten Kategorien:</p>
+<p>\ud83c\udfe5 <strong>Sozialleistungen</strong> (Kranken-, Pflegeversicherung, Arbeitslosengeld)<br>
+\ud83c\udfeb <strong>AG-Leistungen</strong> (\u00d6PNV-Zuschuss, Reisekostenerstattung, Dienst-Handy)<br>
+\ud83e\udd1d <strong>Ehrenamt</strong> (\u00dcbungsleiter bis 3.000 \u20ac, Ehrenamt bis 840 \u20ac)<br>
+\ud83d\udcb0 <strong>Inflationsausgleich</strong> (Einmalung bis 3.000 \u20ac)</p>`
+        },
+        {
+          titel: "Schritt 2: Progressionsvorbehalt verstehen",
+          inhalt: `<p>Manche steuerfreien Leistungen unterliegen dem <strong>Progressionsvorbehalt (\u00a732b EStG)</strong>:</p>
+<p>Was das bedeutet:</p>
+<p>1. Die Leistung selbst bleibt <strong>steuerfrei</strong><br>
+2. Sie wird aber zum Einkommen <strong>hinzugerechnet</strong>, um den Steuersatz zu bestimmen<br>
+3. Dieser h\u00f6here Satz gilt dann f\u00fcr das restliche, steuerpflichtige Einkommen</p>
+<div class="def-box"><div class="def-label">Betroffene Leistungen</div>
+Arbeitslosengeld, Krankengeld, Mutterschaftsgeld, Elterngeld, <strong>Kurzarbeitergeld</strong></div>`
+        },
+        {
+          titel: "Schritt 3: Beispiel Progressionsvorbehalt",
+          inhalt: `<p>Beispiel (aus Vorlesungsfolien): 30.000 \u20ac regul\u00e4res Einkommen + 5.000 \u20ac Arbeitslosengeld</p>
+<table class="erk-table">
+  <tr><th></th><th>Ohne Progressionsvorbehalt</th><th>Mit Progressionsvorbehalt</th></tr>
+  <tr><td><strong>Basis f\u00fcr Steuersatz</strong></td><td>30.000 \u20ac</td><td>35.000 \u20ac (30.000 + 5.000)</td></tr>
+  <tr><td><strong>Steuersatz daraus</strong></td><td>niedriger</td><td>h\u00f6her</td></tr>
+  <tr><td><strong>Besteuert wird</strong></td><td>30.000 \u20ac</td><td>30.000 \u20ac (ALG bleibt frei)</td></tr>
+</table>
+<p>\u2192 Ergebnis: Nachzahlung, weil h\u00f6herer Tarif auf 30.000 \u20ac angewendet wird!</p>`
+        },
+        {
+          titel: "Schritt 4: Pflichtveranlagung durch Progressionsvorbehalt",
+          inhalt: `<p>Wichtige Konsequenz:</p>
+<p>Wer mehr als <strong>410 \u20ac</strong> Progressionseink\u00fcnfte hat (\u00a746 Abs. 2 Nr. 1 EStG) \u2192 <strong>Pflichtveranlagung!</strong></p>
+<p>D.h. du musst eine Steuererkl\u00e4rung abgeben, auch wenn du sonst nur Arbeitnehmer w\u00e4rst.</p>
+<div class="def-box"><div class="def-label">Klausurtipp</div>
+Progressionsvorbehalt taucht oft als Fangfrage auf: "Arbeitslosengeld ist steuerfrei, also keine Steuern?" NEIN \u2013 es erh\u00f6ht den Steuersatz auf andere Eink\u00fcnfte!</div>`
+        }
+      ],
+      interaktion: [
+        { frage: "Was macht der Progressionsvorbehalt?", optionen: ["Macht ALG steuerpflichtig", "Erh\u00f6ht den Steuersatz auf andere Eink\u00fcnfte", "Befreit von der Steuer", "Senkt die Steuerlast"], richtig: 1, erklaerung: "Progressionsvorbehalt: steuerfreie Leistungen erh\u00f6hen den Tarif f\u00fcr das restliche Einkommen." },
+        { frage: "Ab wann Pflichtveranlagung bei Progressionseink\u00fcnften?", optionen: ["Ab 1 \u20ac", "Ab 410 \u20ac", "Ab 1.000 \u20ac", "Immer"], richtig: 1, erklaerung: "\u00a746 Abs. 2 Nr. 1 EStG: Progressionseink\u00fcnfte >410 \u20ac \u2192 Pflichtveranlagung." },
+        { frage: "Welche Leistung ist steuerbefreit?", optionen: ["Arbeitslohn", "Kurzarbeitergeld", "Mieteink\u00fcnfte", "Dividenden"], richtig: 1, erklaerung: "Kurzarbeitergeld ist nach \u00a73 EStG steuerfrei (aber unterliegt Progressionsvorbehalt!)." },
+        { frage: "Unterliegt das Ehrenamts-Freibetrag dem Progressionsvorbehalt?", optionen: ["Ja", "Nein", "Nur \u00fcber 840 \u20ac", "Nur bei Selbst\u00e4ndigen"], richtig: 1, erklaerung: "Steuerbefreiungen nach \u00a73 Nr. 26/26a EStG (Ehrenamt) unterliegen NICHT dem Progressionsvorbehalt." }
+      ]
+    },
+    {
+      titel: "\u{1F4DD} Gewinnermittlung: BVV & E\u00dcR",
+      inhalt: `<p>F\u00fcr Gewinneinkunftsarten gibt es zwei Ermittlungsmethoden:</p>
+<table class="erk-table">
+  <tr><th>Methode</th><th>Grundlage</th><th>F\u00fcr wen?</th></tr>
+  <tr><td><strong>Betriebsverm\u00f6gensvergleich (BVV)</strong></td><td>Steuerbilanz (\u00a74 Abs. 1 EStG)</td><td>Buchf\u00fchrungspflichtige</td></tr>
+  <tr><td><strong>E\u00dcR (\u00a74 Abs. 3 EStG)</strong></td><td>Einnahmen \u2212 Ausgaben</td><td>Befreiung Buchf\u00fchrung (\u00a7241a HGB)</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Ma\u00dfgeblichkeitsprinzip</div>
+Die <strong>Handelsbilanz</strong> ist Ausgangspunkt f\u00fcr die Steuerbilanz \u2013 Handelsbilanzan\u00e4tze werden \u00fcbernommen, soweit keine steuerlichen Abweichungen bestehen.</div>`,
+      merke: `BVV = Bilanzmethode. E\u00dcR = vereinfacht: Einnahmen - Ausgaben. Ma\u00dfgeblichkeit: HB \u2192 StB.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Betriebsverm\u00f6gensvergleich (BVV)",
+          inhalt: `<p>Grundformel: <strong>Gewinn = BV Ende \u2212 BV Anfang + Entnahmen \u2212 Einlagen</strong></p>
+<p>Das Betriebsverm\u00f6gen ergibt sich aus der Steuerbilanz, die aus der Handelsbilanz abgeleitet wird.</p>
+<div class="def-box"><div class="def-label">Ma\u00dfgeblichkeitsprinzip</div>
+Handelsbilanzans\u00e4tze \u00fcbernehmen (Grund + H\u00f6he), au\u00dfer wenn steuerliche Vorschriften Abweichungen gebieten oder Wahlrechte bestehen.</div>`
+        },
+        {
+          titel: "Schritt 2: Abweichungen HB / Steuerbilanz",
+          inhalt: `<p>Diese Positionen weichen Handelsbilanz \u2194 Steuerbilanz ab:</p>
+<table class="erk-table">
+  <tr><th>Position</th><th>Handelsbilanz</th><th>Steuerbilanz</th></tr>
+  <tr><td>Reinvestitionsr\u00fccklagen</td><td>Nicht m\u00f6glich</td><td>Steuerlich zul\u00e4ssig</td></tr>
+  <tr><td>Drohverlustr\u00fcckstellungen</td><td>Zul\u00e4ssig</td><td>Steuerlich <strong>nicht</strong> zul\u00e4ssig</td></tr>
+  <tr><td>AfA-Tabellen</td><td>HGB-AfA</td><td>Steuerliche AfA-Tabellen</td></tr>
+  <tr><td>PensionsRSt</td><td>Handelsbilanzberechnung</td><td>Eigene steuerliche Berechnung</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Nicht abziehbare Betriebsausgaben (\u00a74 Abs. 5 EStG)",
+          inhalt: `<p>Bestimmte Betriebsausgaben d\u00fcrfen den Gewinn steuerlich <strong>nicht mindern</strong>:</p>
+<p>\ud83d\uded2 <strong>Geschenke an Gesch\u00e4ftspartner</strong> \u00fcber 50 \u20ac p.a. pro Person<br>
+\ud83c\udfaf <strong>Jagd, Fischerei, Yachten</strong> \u2013 vollst\u00e4ndig nicht abziehbar<br>
+\ud83c\udf7d\ufe0f <strong>Gesch\u00e4ftsessen</strong>: nur 70% abziehbar (wenn angemessen)<br>
+\u26d4 <strong>Geldstrafen/Bu\u00dfgelder</strong> \u2013 nicht abziehbar<br>
+\u274c <strong>Bestechungs- und Schmiergelder</strong> \u2013 nicht abziehbar</p>`
+        },
+        {
+          titel: "Schritt 4: E\u00dcR als Alternative",
+          inhalt: `<p>Die <strong>Einnahmen-\u00dcberschuss-Rechnung (E\u00dcR)</strong> ist eine vereinfachte Methode:</p>
+<p>Grundformel: <strong>Gewinn = Einnahmen \u2212 Ausgaben</strong></p>
+<p>Prinzip: <strong>Zufluss- und Abflussprinzip</strong> (\u00a711 EStG) \u2013 Einnahmen/Ausgaben im Jahr der Zahlung</p>
+<p>Ausnahmen:</p>
+<p>\ud83d\udd01 <strong>10-Tages-Fiktion</strong>: Regelm\u00e4\u00dfig wiederkehrende Zahlung kurz vor/nach Jahreswechsel \u2192 z\u00e4hlt zum Vorjahr<br>
+\ud83d\udcbc <strong>AfA</strong> bei abnutzbarem Anlagegut: nicht Zahlungszeitpunkt, sondern Nutzungsdauer ma\u00dfgeblich</p>`
+        }
+      ],
+      interaktion: [
+        { frage: "Grundlage des Ma\u00dfgeblichkeitsprinzips?", optionen: ["Steuerbilanz f\u00fchrt", "Handelsbilanz ist Ausgangspunkt f\u00fcr Steuerbilanz", "E\u00dcR ist Pflicht", "Beide unabh\u00e4ngig"], richtig: 1, erklaerung: "Ma\u00dfgeblichkeit: HB-Ansatz gilt grunds\u00e4tzlich auch f\u00fcr die Steuerbilanz." },
+        { frage: "Drohverlustr\u00fcckstellungen in der Steuerbilanz?", optionen: ["Immer zul\u00e4ssig", "Nicht zul\u00e4ssig", "Nur \u00fcber 10.000 \u20ac", "Nur bei GmbH"], richtig: 1, erklaerung: "Drohverlustr\u00fcckstellungen = steuerlich nicht zul\u00e4ssig (Abweichung HB/StB)." },
+        { frage: "Gesch\u00e4ftsessen: wie viel abziehbar?", optionen: ["100%", "50%", "70%", "0%"], richtig: 2, erklaerung: "Gesch\u00e4ftsessen: nur 70% abziehbar (\u00a74 Abs. 5 Nr. 2 EStG)." },
+        { frage: "E\u00dcR-Prinzip?", optionen: ["Bilanzierung", "Zufluss- und Abflussprinzip", "Maschinen-Prinzip", "Leistungsprinzip"], richtig: 1, erklaerung: "E\u00dcR: Zufluss- und Abflussprinzip \u2013 Zahlung im Jahr der Buchung." }
+      ]
+    },
+    {
+      titel: "\u{1F4BC} Sonderbetriebseink\u00fcnfte",
+      inhalt: `<div class="def-box"><div class="def-label">Definition</div>
+Einkommen, das ein <strong>Mitunternehmer (Gesellschafter)</strong> von seiner Personengesellschaft zus\u00e4tzlich erh\u00e4lt und das in Zusammenhang mit seiner Beteiligung steht.</div>
+<p>Typische <strong>Sonderbetriebseinnahmen</strong>:</p>
+<p>\ud83d\udcb0 <strong>Gesellschafter-Geh\u00e4lt</strong> (Verg\u00fctung f\u00fcr T\u00e4tigkeit in der Gesellschaft)<br>
+\ud83c\udfe6 <strong>Zinsen auf Gesellschafterdarlehen</strong><br>
+\ud83c\udfe0 <strong>Miete/Pacht</strong> f\u00fcr \u00fcberlassene Wirtschaftsg\u00fcter</p>`,
+      merke: `Sonderbetriebseink\u00fcnfte erh\u00f6hen/vermindern das steuerliche Gesamtergebnis der Gesellschaft und werden dem jeweiligen Gesellschafter zugerechnet.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Warum Sonderbetriebseink\u00fcnfte?",
+          inhalt: `<p>Bei Personengesellschaften (OHG, KG) werden Gewinne auf die Gesellschafter aufgeteilt.</p>
+<p>Aber: Wenn ein Gesellschafter <strong>zus\u00e4tzliche Leistungen</strong> erbringt (Darlehen, Miete, Arbeit), geh\u00f6ren diese Eink\u00fcnfte auch zu seinen <strong>Eink\u00fcnften aus Gewerbebetrieb</strong>.</p>
+<div class="def-box"><div class="def-label">Logik</div>
+Bei Kapitalgesellschaften w\u00e4re das ein Gehalt/Zins aus einer anderen Einkunftsart. Bei Personengesellschaften bleibt alles in \u00a715 EStG!</div>`
+        },
+        {
+          titel: "Schritt 2: Arten von Sonderbetriebseink\u00fcnften",
+          inhalt: `<table class="erk-table">
+  <tr><th>Art</th><th>Beispiel</th><th>Steuerlich</th></tr>
+  <tr><td><strong>Sonder-BA</strong> (Geh\u00e4lt)</td><td>G'schafter erh\u00e4lt 5.000 \u20ac/Monat Geh\u00e4lt</td><td>BA bei Gesellschaft, SBE beim Gesellschafter</td></tr>
+  <tr><td><strong>Sonder-BA</strong> (Zinsen)</td><td>G'schafter leiht 100.000 \u20ac zu 2%</td><td>BA bei Gesellschaft, SBE beim Gesellschafter</td></tr>
+  <tr><td><strong>Sonder-BA</strong> (Miete)</td><td>G'schafter vermietet B\u00fcro an OHG</td><td>BA bei Gesellschaft, SBE beim Gesellschafter</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Fallbeispiel 7 (Prof. Mayr)",
+          inhalt: `<div class="def-box"><div class="def-label">Fallbeispiel 7</div>
+Prof. Tax = 50% OHG-Gesellschafter. Hat der OHG 100.000 \u20ac Darlehen gegeben, Zinsen 2.000 \u20ac (als BA bei OHG gebucht). Handelsrechtl. OHG-Gewinn: 80.000 \u20ac (h\u00e4lftig geteilt).</div>
+<p><strong>Steuerliches Ergebnis:</strong></p>
+<p>OHG-Gewinn: 80.000 + 2.000 (Zinsen r\u00fcckaddieren) = <strong>82.000 \u20ac</strong><br>
+Prof. Tax: 50% \u00d7 82.000 = 41.000 + 2.000 SBE = <strong>43.000 \u20ac</strong><br>
+Herr Anton: 50% \u00d7 82.000 = <strong>41.000 \u20ac</strong></p>`
+        },
+        {
+          titel: "Schritt 4: Pr\u00fcfungsschema Sonderbetriebseink\u00fcnfte",
+          inhalt: `<p>Pr\u00fcfung in der Klausur:</p>
+<p>1. Liegt eine Personengesellschaft vor?<br>
+2. Welche Zusatzleistungen erbringt der Gesellschafter?<br>
+3. Diese als BA bei der Gesellschaft rausrechnen (Hinzurechnung)<br>
+4. Dem Gesellschafter als Sonderbetriebseinnahmen zurechnen</p>
+<div class="def-box"><div class="def-label">Wichtig</div>
+Alles bleibt Eink\u00fcnfte aus Gewerbebetrieb (\u00a715 EStG)! Die Zinsen sind beim Gesellschafter keine Kapitalertr\u00e4ge (\u00a720).</div>`
+        }
+      ],
+      interaktion: [
+        { frage: "Was sind Sonderbetriebseink\u00fcnfte?", optionen: ["Dividenden einer GmbH", "Vergabe von Darlehen an Dritte", "Zus\u00e4tzliche Verg\u00fctungen des Gesellschafters von seiner PersG", "Eink\u00fcnfte aus Kapitalverm\u00f6gen"], richtig: 2, erklaerung: "SBE = Eink\u00fcnfte des Gesellschafters aus Leistungsbeziehungen mit seiner Personengesellschaft." },
+        { frage: "Gesellschafter-Zinsen bei Personengesellschaft = welche Einkunftsart?", optionen: ["\u00a720 Kapitalverm\u00f6gen", "\u00a715 Gewerbebetrieb", "\u00a721 V&V", "\u00a722 Sonstige"], richtig: 1, erklaerung: "Bei Personengesellschaft: Zinsen bleiben bei \u00a715 EStG als Sonderbetriebseinnahmen!" },
+        { frage: "Was passiert mit dem Gesellschafter-Geh\u00e4lt bei der OHG?", optionen: ["Bleibt als BA", "Wird r\u00fcckaddiert + SBE beim G'schafter", "Ist steuerfrei", "Wird bei der GmbH gebucht"], richtig: 1, erklaerung: "Geh\u00e4lt = Betriebsausgabe OHG (rausrechnen) + Sonderbetriebseinnahme beim Gesellschafter." }
+      ]
+    },
+    {
+      titel: "\u{1F4B4} Ver\u00e4u\u00dferung Gewerbebetrieb (\u00a716 EStG)",
+      inhalt: `<div class="def-box"><div class="def-label">Grundformel</div>
+<strong>Ver\u00e4u\u00dferungsgewinn = Ver\u00e4u\u00dferungspreis \u2212 Ver\u00e4u\u00dferungskosten \u2212 Wert Betriebsverm\u00f6gen</strong></div>
+<p>Steuerlich <strong>beg\u00fcnstigt</strong> nach \u00a716 Abs. 4 EStG und \u00a734 EStG!</p>`,
+      merke: `Ver\u00e4u\u00dferungsgewinn \u00a716 EStG = Geh\u00f6rt zu Eink\u00fcnften aus Gewerbebetrieb, aber steuerlich beg\u00fcnstigt.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Was f\u00e4llt unter \u00a716 EStG?",
+          inhalt: `<p>Beginn\u00fcnstigte Vorg\u00e4nge:</p>
+<p>\ud83d\udcc4 Ver\u00e4u\u00dferung des <strong>gesamten Betriebs</strong><br>
+\ud83c\udfed Ver\u00e4u\u00dferung eines <strong>Teilbetriebs</strong><br>
+\ud83e\udd1d Ver\u00e4u\u00dferung eines <strong>Mitunternehmeranteils</strong> (z.B. OHG-Anteil)<br>
+\ud83c\udfe2 Ver\u00e4u\u00dferung einer <strong>100%-Beteiligung an Kapitalgesellschaft</strong><br>
+\ud83d\udd1a <strong>Aufgabe</strong> des Betriebs</p>`
+        },
+        {
+          titel: "Schritt 2: Berechnung des Ver\u00e4u\u00dferungsgewinns",
+          inhalt: `<p>Formel:</p>
+<p>Ver\u00e4u\u00dferungspreis<br>
+<strong>\u2212</strong> Ver\u00e4u\u00dferungskosten<br>
+<strong>\u2212</strong> Wert des Betriebsverm\u00f6gens (nach \u00a74 Abs. 1 EStG)<br>
+<strong>= Ver\u00e4u\u00dferungsgewinn</strong></p>
+<div class="def-box"><div class="def-label">Fallbeispiel 8 (Folie 66)</div>
+Verkaufspreis: 200.000 \u20ac | Kosten: 10.000 \u20ac | BV: 150.000 \u20ac<br>
+Ver\u00e4u\u00dferungsgewinn = 200.000 \u2212 10.000 \u2212 150.000 = <strong>40.000 \u20ac</strong></div>`
+        },
+        {
+          titel: "Schritt 3: Steuerliche Beg\u00fcnstigungen",
+          inhalt: `<p>Zwei Beg\u00fcnstigungen m\u00f6glich:</p>
+<p>\ud83d\udfe2 <strong>Freibetrag (\u00a716 Abs. 4 EStG)</strong>: 45.000 \u20ac, wenn mind. 55 Jahre alt oder dauerhaft berufsunf\u00e4hig<br>
+\ud83d\udd35 <strong>F\u00fcnftelregelung (\u00a734 EStG)</strong>: Au\u00dfergew\u00f6hnliche Einnahme auf 5 Jahre verteilt \u2192 niedrigerer Durchschnittssteuersatz</p>
+<div class="def-box"><div class="def-label">Freibetrag abschmelzen</div>
+Freibetrag 45.000 \u20ac schmilzt ab, wenn Ver\u00e4u\u00dferungsgewinn >136.000 \u20ac. Ab 181.000 \u20ac = kein Freibetrag mehr.</div>`
+        },
+        {
+          titel: "Schritt 4: Szenarien (Fallbeispiel 8)",
+          inhalt: `<p>Prof. Tax (57 Jahre), ver\u00e4u\u00dfert OHG-Anteil:</p>
+<table class="erk-table">
+  <tr><th>Szenario</th><th>Ver\u00e4u\u00dferungsgewinn</th><th>Freibetrag</th></tr>
+  <tr><td>Basis</td><td>40.000 \u20ac</td><td>45.000 \u20ac \u2192 Steuerfrei!</td></tr>
+  <tr><td>2</td><td>90.000 \u20ac</td><td>45.000 \u20ac (voll)</td></tr>
+  <tr><td>3</td><td>160.000 \u20ac</td><td>45.000 \u2212 (160k-136k) = 21.000 \u20ac</td></tr>
+  <tr><td>4</td><td>181.000 \u20ac</td><td>0 \u20ac (abgeschmolzen)</td></tr>
+</table>`
+        }
+      ],
+      interaktion: [
+        { frage: "Ver\u00e4u\u00dferungsgewinn Formel?", optionen: ["Preis \u2212 BV", "Preis \u2212 Kosten \u2212 BV", "Preis + Kosten + BV", "BV \u2212 Preis"], richtig: 1, erklaerung: "Ver\u00e4u\u00dferungsgewinn = Ver\u00e4u\u00dferungspreis \u2212 Ver\u00e4u\u00dferungskosten \u2212 Wert BV." },
+        { frage: "Freibetrag nach \u00a716 Abs. 4 EStG?", optionen: ["10.000 \u20ac", "25.000 \u20ac", "45.000 \u20ac", "100.000 \u20ac"], richtig: 2, erklaerung: "Freibetrag: 45.000 \u20ac (ab 55 Jahre oder dauerhaft berufsunf\u00e4hig)." },
+        { frage: "Freibetrag ab welchem Alter?", optionen: ["45 Jahre", "55 Jahre", "60 Jahre", "65 Jahre"], richtig: 1, erklaerung: "\u00a716 Abs. 4 EStG: Freibetrag gilt ab dem vollendeten 55. Lebensjahr." },
+        { frage: "Ab welchem Ver\u00e4u\u00dferungsgewinn kein Freibetrag mehr?", optionen: ["100.000 \u20ac", "136.000 \u20ac", "181.000 \u20ac", "200.000 \u20ac"], richtig: 2, erklaerung: "Ab 181.000 \u20ac ist der Freibetrag vollst\u00e4ndig abgeschmolzen." }
+      ]
+    },
+    {
+      titel: "\u{1F454} Eink\u00fcnfte aus selbst\u00e4ndiger Arbeit (\u00a718 EStG)",
+      inhalt: `<p>Eink\u00fcnfte aus selbst\u00e4ndiger Arbeit = <strong>freiberufliche T\u00e4tigkeit</strong> (kein Gewerbebetrieb!).</p>
+<table class="erk-table">
+  <tr><th>Norm</th><th>T\u00e4tigkeit</th><th>Beispiele</th></tr>
+  <tr><td><strong>\u00a718 Abs. 1 Nr. 1</strong></td><td>Freie Berufe</td><td>\u00c4rzte, Anw\u00e4lte, Steuerberater, EDV-Berater, Lehrer, Schriftsteller</td></tr>
+  <tr><td><strong>\u00a718 Abs. 1 Nr. 3</strong></td><td>Gelegentliche T\u00e4tigkeit</td><td>Aufsichtsrat, Testamentsvollstrecker, Verm\u00f6gensverwalter</td></tr>
+</table>`,
+      merke: `\u00a718 EStG = freie Berufe. Gleiche Voraussetzungen wie \u00a715, aber: kein Gewerbe \u2192 KEINE Gewerbesteuer!`,
+      schritte: [
+        {
+          titel: "Schritt 1: Was sind freie Berufe?",
+          inhalt: `<p>Freie Berufe nach \u00a718 Abs. 1 Nr. 1 EStG:</p>
+<p>\ud83d\udc8a <strong>Heilberufe</strong>: \u00c4rzte, Zahn\u00e4rzte, Tier\u00e4rzte, Hebammen<br>
+\u2696\ufe0f <strong>Rechtsberatung</strong>: Rechtsanw\u00e4lte, Notare, Steuerberater, Wirtschaftspr\u00fcfer<br>
+\ud83d\udcbb <strong>Technisch/wissenschaftlich</strong>: Ingenieure, Architekten, EDV-Berater<br>
+\ud83c\udfa8 <strong>K\u00fcnstlerisch/lehrend</strong>: K\u00fcnstler, Schriftsteller, Lehrer, Erzieher</p>
+<div class="def-box"><div class="def-label">\u201c\u00c4hnliche Berufe\u201c</div>
+Auch neue Berufe k\u00f6nnen freie Berufe sein, wenn sie einem Katalogberuf \u00e4hnlich sind (z.B. EDV-Berater = \u00e4hnlich Ingenieur).</div>`
+        },
+        {
+          titel: "Schritt 2: Voraussetzungen wie \u00a715 \u2013 aber Abgrenzung",
+          inhalt: `<p>Die gleichen 4 Voraussetzungen wie Gewerbebetrieb:</p>
+<p>\u2705 Selbst\u00e4ndigkeit | \u2705 Nachhaltigkeit | \u2705 Gewinnerzielungsabsicht | \u2705 Beteiligung am wirtschaftl. Verkehr</p>
+<p>Aber: Es darf sich <strong>nicht</strong> um einen Gewerbebetrieb handeln!</p>
+<div class="def-box"><div class="def-label">Abgrenzungsproblem (EStH 15.6)</div>
+Wann ist ein IT-Entwickler Freiberufler und wann Gewerbetreibender? \u2192 H\u00e4ngt davon ab, ob er <strong>\u00fcberwiegend pers\u00f6nlich und qualifiziert</strong> t\u00e4tig ist.</div>`
+        },
+        {
+          titel: "Schritt 3: Steuerliche Konsequenzen",
+          inhalt: `<p>Der entscheidende Unterschied zu \u00a715 EStG:</p>
+<table class="erk-table">
+  <tr><th></th><th>\u00a715 Gewerbebetrieb</th><th>\u00a718 Selbst\u00e4ndige Arbeit</th></tr>
+  <tr><td><strong>Gewerbesteuer</strong></td><td>\u2757 Ja</td><td>\u2705 Nein!</td></tr>
+  <tr><td><strong>IHK-Pflicht</strong></td><td>Ja</td><td>Nein</td></tr>
+  <tr><td><strong>Gewinnermittlung</strong></td><td>BVV oder E\u00dcR</td><td>Freiwillig \u00a74 Abs. 1 oder E\u00dcR</td></tr>
+</table>
+<p>\u2192 Freiberufler sparen die Gewerbesteuer \u2013 erheblicher finanzieller Vorteil!</p>`
+        },
+        {
+          titel: "Schritt 4: \u00a718 Abs. 1 Nr. 3 \u2013 Sonstige selbst\u00e4ndige Arbeit",
+          inhalt: `<p>Neben den freien Berufen gibt es noch <strong>gelegentliche/ausnahmsweise</strong> nachhaltige T\u00e4tigkeiten:</p>
+<p>\ud83d\udcbc <strong>Aufsichtsratsmitglied</strong><br>
+\u2696\ufe0f <strong>Testamentsvollstrecker</strong><br>
+\ud83d\udcb0 <strong>Verm\u00f6gensverwalter</strong> (nicht gewerblich)</p>
+<div class="def-box"><div class="def-label">Klausurtipp</div>
+Nr. 3 taucht in Klausuren oft auf: Aufsichtsrat-Verg\u00fctung = selbst\u00e4ndige Arbeit nach \u00a718 Abs. 1 Nr. 3 EStG, NICHT \u00a715!</div>`
+        }
+      ],
+      interaktion: [
+        { frage: "Freiberufler zahlt ...", optionen: ["ESt + KSt + GewSt", "Nur KSt", "ESt (kein Gewerbe!)", "Nur GewSt"], richtig: 2, erklaerung: "Freiberufler (\u00a718 EStG): nur Einkommensteuer. Keine Gewerbesteuer!" },
+        { frage: "EDV-Berater f\u00e4llt unter \u00a718, weil ...", optionen: ["Immer freiberuflich", "\u00c4hnlichkeit mit Ingenieur (Katalogberuf)", "Alle IT-Berufe sind frei", "Nur wenn zugelassen"], richtig: 1, erklaerung: "EDV-Berater als '\u00e4hnlicher Beruf' zum Ingenieur nach \u00a718 Abs. 1 Nr. 1 EStG." },
+        { frage: "Aufsichtsrat-Verg\u00fctung ist ...", optionen: ["\u00a715 Gewerbebetrieb", "\u00a718 Abs. 1 Nr. 3 selbst\u00e4ndige Arbeit", "\u00a719 Nichtselbst\u00e4ndige Arbeit", "\u00a720 Kapitalverm\u00f6gen"], richtig: 1, erklaerung: "Aufsichtsratsverg\u00fctung = \u00a718 Abs. 1 Nr. 3 EStG." },
+        { frage: "Selbst\u00e4ndig-freiwillig: Gewinnermittlung nach \u00a718?", optionen: ["Immer Bilanz", "Immer E\u00dcR", "Freiwillig \u00a74 Abs. 1 oder E\u00dcR", "Keine Gewinnermittlung"], richtig: 2, erklaerung: "Freiberufler d\u00fcrfen freiwillig bilanzieren oder E\u00dcR verwenden." }
+      ]
+    }
+  ],
+  quiz: [
+    { frage: "Unbeschr\u00e4nkte Steuerpflicht bedeutet ...", optionen: ["100% Steuern", "Welteinkommen besteuert", "Nur dt. Einkommen", "Steuerbefreiung"], richtig: 1, erklaerung: "Welteinkommen wird besteuert." },
+    { frage: "Wie viele Einkunftsarten?", optionen: ["5", "6", "7", "8"], richtig: 2, erklaerung: "7 (\u00a72 Abs. 1 EStG)." },
+    { frage: "Die ersten 3 Einkunftsarten sind ...", optionen: ["Kapital, V&V, Sonstige", "Land/Forst, Gewerbe, Selbst\u00e4ndig", "Angestellt, Kapital, V&V", "Gewerbe, Angestellt, V&V"], richtig: 1, erklaerung: "1. Land/Forst, 2. Gewerbe, 3. Selbst\u00e4ndig." },
+    { frage: "KEINE Voraussetzung f\u00fcr Gewerbebetrieb?", optionen: ["Selbst\u00e4ndigkeit", "Nachhaltigkeit", "Handelsregistereintrag", "Gewinnerzielungsabsicht"], richtig: 2, erklaerung: "HR-Eintrag ist keine Voraussetzung." },
+    { frage: "Verlustvortrag bedeutet ...", optionen: ["Ins Vorjahr", "In k\u00fcnftige Jahre", "Zwischen Ehepartnern", "Wird ignoriert"], richtig: 1, erklaerung: "Vortrag = in die Zukunft." },
+    { frage: "Spitzensteuersatz 42% ab ...", optionen: ["12.096\u20ac", "45.000\u20ac", "68.430\u20ac", "277.826\u20ac"], richtig: 2, erklaerung: "42% ab 68.430\u20ac." },
+    { frage: "Grundfreibetrag 2025?", optionen: ["10.000\u20ac", "11.604\u20ac", "12.096\u20ac", "15.000\u20ac"], richtig: 2, erklaerung: "12.096\u20ac." },
+    { frage: "Betriebsausgaben vs. Werbungskosten?", optionen: ["Kein Unterschied", "BA bei Gewinn, WK bei \u00dcberschuss", "BA h\u00f6her", "WK nur bei Angestellten"], richtig: 1, erklaerung: "BA bei Gewinneink\u00fcnften (1-3), WK bei \u00dcberschuss (4-7)." },
+    { frage: "Kapitalverluste vertikal verrechenbar?", optionen: ["Ja, immer", "Nein, nur horizontal", "Nur mit Gewerbe", "Nur mit Gehalt"], richtig: 1, erklaerung: "Kapitalverluste nur mit Kapitalgewinnen." },
+    { frage: "Was ist Liebhaberei?", optionen: ["Teures Hobby", "T\u00e4tigkeit ohne Gewinnabsicht", "Spende", "Kapitalanlage <1.000\u20ac"], richtig: 1, erklaerung: "Keine Gewinnerzielungsabsicht = steuerlich irrelevant." },
+    { frage: "Verlustr\u00fccktrag: wie weit zur\u00fcck?", optionen: ["Gar nicht", "1 Jahr", "2 Jahre", "Unbegrenzt"], richtig: 1, erklaerung: "1 Jahr (\u00a710d Abs. 1 EStG)." },
+    { frage: "Eingangssteuersatz?", optionen: ["0%", "14%", "25%", "42%"], richtig: 1, erklaerung: "14% nach dem Grundfreibetrag." }
+  ],
+  lueckentext: [
+    { text: "Bei unbeschr\u00e4nkter Steuerpflicht wird das ___ besteuert, bei beschr\u00e4nkter nur ___ Eink\u00fcnfte.", luecken: ["Welteinkommen", "inl\u00e4ndische"], erklaerung: "Unbeschr\u00e4nkt = Welt. Beschr\u00e4nkt = inl\u00e4ndisch." },
+    { text: "Es gibt ___ Gewinneinkunftsarten und ___ \u00dcberschusseinkunftsarten.", luecken: ["3", "4"], erklaerung: "1-3 Gewinn, 4-7 \u00dcberschuss." },
+    { text: "Gewerbebetrieb: Selbst\u00e4ndigkeit, ___, Gewinnerzielungsabsicht und ___.", luecken: ["Nachhaltigkeit", "Beteiligung am wirtschaftlichen Verkehr"], erklaerung: "Die 4 Voraussetzungen." },
+    { text: "Horizontale Verlustverrechnung: ___ Einkunftsart. Vertikale: ___ Einkunftsart.", luecken: ["derselben", "anderer"], erklaerung: "Horizontal = gleich. Vertikal = anders." }
+  ],
+  zuordnung: [
+    { titel: "Einkunftsarten zuordnen", paare: [
+      { links: "Gewerbebetrieb", rechts: "Gewinneinkunftsart" },
+      { links: "Nichtselbst\u00e4ndige Arbeit", rechts: "\u00dcberschusseinkunftsart" },
+      { links: "Land- und Forstwirtschaft", rechts: "Gewinneinkunftsart" },
+      { links: "Vermietung und Verpachtung", rechts: "\u00dcberschusseinkunftsart" }
+    ]},
+    { titel: "Verlustverrechnung zuordnen", paare: [
+      { links: "Verlust Gewerbe A + Gewinn Gewerbe B", rechts: "Horizontal" },
+      { links: "Verlust V&V + Gewinn Gehalt", rechts: "Vertikal" },
+      { links: "Verlust ins Vorjahr", rechts: "Verlustr\u00fccktrag" },
+      { links: "Verlust in k\u00fcnftige Jahre", rechts: "Verlustvortrag" }
+    ]},
+    { titel: "Steuerpflicht zuordnen", paare: [
+      { links: "Wohnsitz in DE", rechts: "Unbeschr\u00e4nkt" },
+      { links: "Kein Wohnsitz, kein Aufenthalt", rechts: "Beschr\u00e4nkt" },
+      { links: "Welteinkommen", rechts: "Unbeschr\u00e4nkt" },
+      { links: "Nur inl\u00e4ndische Eink\u00fcnfte", rechts: "Beschr\u00e4nkt" }
+    ]}
+  ]
+};
+
+// ============================================================
+// WINF-SEIDLMEIER - Kapitel 1
+// ============================================================
+FAECHER["winf-seidlmeier"].themen["was-ist-wi"] = {
+  name: "1. Was ist Wirtschaftsinformatik?",
+  zusammenfassung: "Definition der WI, Informationssysteme, betriebliche Prozesse und Wettbewerbsvorteile durch IT (Porter).",
+  erklaerungen: [
+    {
+      titel: "\u{1F4D6} Definition Wirtschaftsinformatik",
+      inhalt: `<div class="def-box"><div class="def-label">Wirtschaftsinformatik</div>
+Wissenschaft von <strong>Entwurf, Entwicklung und Einsatz</strong> computergest\u00fctzter <strong>IKS</strong> in Wirtschaft und Verwaltung.</div>
+<div class="erk-tree">
+  <div class="tree-root">Wirtschaftsinformatik</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background:#DBEAFE;"><strong>BWL</strong></div>
+    <div class="tree-branch" style="background:#EDE9FE;"><strong>Informatik</strong></div>
+    <div class="tree-branch" style="background:#FEF3C7;"><strong>Systemtheorie</strong></div>
+  </div>
+</div>`,
+      schritte: [
+        {
+          titel: "Schritt 1: Was ist WI überhaupt?",
+          inhalt: `<p>WI ist eine <strong>Schnittmengendisziplin</strong> – sie liegt genau zwischen BWL und Informatik.</p>
+<p>Kernfrage der WI: <em>„Wie können Informationssysteme Geschäftsprozesse unterstützen und Wettbewerbsvorteile schaffen?"</em></p>
+<div class="def-box"><div class="def-label">Gesamtdefinition</div>WI = Wissenschaft von Entwurf, Entwicklung und Einsatz computergestützter <strong>Informations- und Kommunikationssysteme (IKS)</strong> in Wirtschaft und Verwaltung.</div>`
+        },
+        {
+          titel: "Schritt 2: WI als Zusatzmenge – was kommt hinzu?",
+          inhalt: `<p>WI ist mehr als nur „BWL + Informatik". Sie bringt <strong>eigene Methoden</strong> mit:</p>
+<p>• <strong>Systemanalyse</strong> – Prozesse verstehen und modellieren<br>
+• <strong>Softwareentwicklung</strong> für betriebliche Anforderungen<br>
+• <strong>Projektmanagement</strong> für IT-Einführungen<br>
+• <strong>Change Management</strong> – Menschen durch IT-Wandel führen</p>
+<p>👉 Ohne WI würden Informatiker tolle Software schreiben, die niemand braucht – und BWLer würden Prozesse beschreiben, die niemand digitalisiert.</p>`
+        },
+        {
+          titel: "Schritt 3: WI und das Informationssystem (IS)",
+          inhalt: `<p>Zentrales Objekt der WI ist das <strong>Informationssystem (IS)</strong>:</p>
+<div class="def-box"><div class="def-label">Informationssystem</div>Sociotechnisches System zur <strong>Erfassung, Speicherung, Verarbeitung und Bereitstellung</strong> von Informationen in Organisationen.</div>
+<p>Wichtig: IS = <strong>Mensch + Technik</strong>. Der Mensch gehört dazu!</p>
+<p>Beispiele: SAP ERP, Online-Banking, Booking.com, Amazon-Lagerverwaltung.</p>`
+        },
+        {
+          titel: "Schritt 4: IS – Prozess – Strategie",
+          inhalt: `<p>Das Dreieck der WI:</p>
+<p>🏢 <strong>Strategie</strong> (Was will das Unternehmen?)<br>
+→ bestimmt die Prozesse<br>
+⚙️ <strong>Prozesse</strong> (Wie wird es gemacht?)<br>
+→ werden durch IS unterstützt<br>
+💻 <strong>IS</strong> (Womit wird es gemacht?)</p>
+<p>Fehler in der Praxis: Oft wird das IS eingeführt, <em>ohne</em> den Prozess vorher zu optimieren – dann automatisiert man einen schlechten Prozess.</p>`
+        }
+      ],
+      fallbeispiele: [
+        {
+          situation: "Ein Marktforschungsunternehmen erfasst Umfrageergebnisse aktuell auf Papierbögen. Die Interviewer fahren täglich ins Büro, um die Bögen abzugeben. Die Daten werden dann manuell in Excel eingegeben – dauert 3 Tage.",
+          aufgabe: "Wie würde ein WI-Experte dieses Problem analysieren und lösen?",
+          hinweis: "Denk an den IS-Prozess-Strategie-Zusammenhang. Welcher Schritt kommt zuerst?",
+          loesung: [
+            "<strong>Ist-Analyse:</strong> Prozess verstehen – wer macht was, wann, wo? Papier → Abgabe → manuelle Eingabe → 3 Tage Verzögerung.",
+            "<strong>Schwachstellen:</strong> Medienbruch (Papier→Digital), Redundanz (Schreiben + Eintippen), Verzögerung, Fehleranfälligkeit.",
+            "<strong>Soll-Konzept:</strong> Interviewer nutzen Smartphones/Tablets → Daten direkt digital erfassen → automatische Übertragung in die Datenbank.",
+            "<strong>IS-Lösung:</strong> Mobile Datenerfassungs-App + Backend-Datenbank + Auswertungsdashboard."
+          ],
+          ergebnis: "Durch IS-Unterstützung: Auswertung in Echtzeit statt nach 3 Tagen – Wettbewerbsvorteil durch schnellere Marktinformationen."
+        }
+      ],
+      interaktion: [
+        { frage: "Was ist der Kern der WI?", optionen: ["Programmieren", "Entwurf, Entwicklung & Einsatz von IKS", "Nur BWL mit PC", "Datenbanken"], richtig: 1, erklaerung: "WI = IKS in Wirtschaft und Verwaltung." },
+        { frage: "Wof\u00fcr steht IKS?", optionen: ["Internationale Kontrollsysteme", "Informations- und Kommunikationssysteme", "Integrierte Kernsysteme", "Informatik-Koordination"], richtig: 1, erklaerung: "IKS = Informations- und Kommunikationssysteme." },
+        { frage: "WI verbindet welche Disziplinen?", optionen: ["BWL und Mathe", "Informatik und Physik", "BWL und Informatik", "Jura und IT"], richtig: 2, erklaerung: "WI = Interdisziplin aus BWL + Informatik (+ Systemtheorie)." },
+        { frage: "WI ist eine ...", optionen: ["Reine Informatik", "Reine BWL", "Interdisziplin", "Naturwissenschaft"], richtig: 2, erklaerung: "WI verbindet mehrere Disziplinen = Interdisziplin." },
+        { frage: "Was ist ein typisches WI-Thema?", optionen: ["Wie unterst\u00fctzen IS Gesch\u00e4ftsprozesse?", "Wie baut man Br\u00fccken?", "Wie funktioniert Quantenphysik?", "Wie berechnet man Integrale?"], richtig: 0, erklaerung: "Typisch WI: Wie IS Gesch\u00e4ftsprozesse unterst\u00fctzen." }
+      ]
+    },
+    {
+      titel: "\u{1F504} Betriebliche Prozesse",
+      inhalt: `<div class="def-box"><div class="def-label">Gesch\u00e4ftsprozess</div>
+Folge von <strong>zusammenh\u00e4ngenden Aktivit\u00e4ten</strong>, die Input in Output transformieren und <strong>Kundenwert</strong> schaffen.</div>
+<div class="erk-tree">
+  <div class="tree-root">Auftragsabwicklung (Beispiel)</div>
+  <div class="tree-branches">
+    <div class="tree-branch">1. Bestellung</div>
+    <div class="tree-branch">2. Pr\u00fcfung</div>
+    <div class="tree-branch">3. Kommission</div>
+    <div class="tree-branch">4. Versand</div>
+    <div class="tree-branch">5. Rechnung</div>
+  </div>
+</div>
+<p>Prozesse gehen oft \u00fcber <strong>Abteilungsgrenzen</strong> hinweg.</p>`,
+      schritte: [
+        {
+          titel: "Schritt 1: Was ist ein Gesch\u00e4ftsprozess?",
+          inhalt: `<p>Ein <strong>Gesch\u00e4ftsprozess</strong> ist eine Folge von zusammenh\u00e4ngenden Aktivit\u00e4ten, die einen Input in einen Output transformieren und Kundenwert schaffen.</p>
+<div class="def-box"><div class="def-label">3 Kernelemente</div>
+\ud83d\udce5 <strong>Input</strong> \u2013 was reinkommt (z.B. Kundenauftrag)<br>
+\u2699\ufe0f <strong>Transformation</strong> \u2013 was passiert drin (z.B. Bearbeitung, Fertigung)<br>
+\ud83d\udce4 <strong>Output</strong> \u2013 was rauskommt (z.B. geliefertes Produkt)</div>`
+        },
+        {
+          titel: "Schritt 2: Kernprozesse vs. Unterst\u00fctzungsprozesse",
+          inhalt: `<p>Nicht alle Prozesse sind gleich wichtig:</p>
+<div class="def-box"><div class="def-label">Kernprozesse (Prim\u00e4rprozesse)</div>
+Direkt wertsch\u00f6pfend, der Kunde erlebt sie: Auftragsabwicklung, Produktion, Lieferung</div>
+<div class="def-box"><div class="def-label">Unterst\u00fctzungsprozesse (Sekund\u00e4rprozesse)</div>
+Erm\u00f6glichen Kernprozesse: HR, IT, Buchhaltung, Geb\u00e4udemanagement</div>
+<p>IT-Systeme unterst\u00fctzen meistens <strong>beide</strong> Arten!</p>`
+        },
+        {
+          titel: "Schritt 3: Prozess vs. Funktion",
+          inhalt: `<p>Wichtiger Unterschied:</p>
+<table class="erk-table">
+  <tr><th></th><th>Prozessorientierung</th><th>Funktionsorientierung</th></tr>
+  <tr><td><strong>Sicht</strong></td><td>Ablauf \u00fcber Abteilungen</td><td>Aufgaben pro Abteilung</td></tr>
+  <tr><td><strong>Fokus</strong></td><td>Kundenwert</td><td>Effizienz pro Funktion</td></tr>
+  <tr><td><strong>Nachteil</strong></td><td>Schnittstellen komplex</td><td>Silodenken</td></tr>
+</table>
+<p>Moderne Unternehmen: <strong>Prozessorientierung</strong> mit IT-Unterst\u00fctzung (z.B. ERP-Systeme).</p>`
+        },
+        {
+          titel: "Schritt 4: Prozessmodellierung",
+          inhalt: `<p>Prozesse m\u00fcssen modelliert werden, um sie zu verstehen und zu optimieren:</p>
+<p>\ud83d\uddfa\ufe0f <strong>EPK</strong> (Ereignisgesteuerte Prozesskette) \u2013 deutschsprachig, ereignisorientiert<br>
+\ud83d\udcdd <strong>BPMN 2.0</strong> (Business Process Model and Notation) \u2013 international, standardisiert</p>
+<div class="def-box"><div class="def-label">Warum modellieren?</div>
+Dokumentation, Kommunikation, Optimierung, IT-Implementierung. Ohne Modell kein funktionierendes ERP-System!</div>`
+        }
+      ],
+
+      fallbeispiele: [
+        {
+          titel: "Fall 1: Prozessoptimierung im Online-Shop",
+          situation: `<p>Ein mittelst\u00e4ndischer Online-Shop hat folgendes Problem: Kundenbeschwerden h\u00e4ufen sich. Die durchschnittliche Lieferzeit betr\u00e4gt 7 Tage. Konkurrenten liefern in 2 Tagen.</p>
+<p>Aktueller Ablauf: Bestellung eingeht \u2192 Mitarbeiter tippt Bestellung ins Lager-System \u2192 Lager packt \u2192 Versand bucht DHL manuell \u2192 Kunde informiert per Brief.</p>`,
+          aufgabe: `Analysiere den Prozess nach dem WI-Framework: Was sind Schwachstellen? Wie kann IT den Prozess verbessern?`,
+          hinweis: `Suche nach manuellen Schritten, Medienbrüchen und fehlenden Automatisierungen.`,
+          loesung: [
+            {
+              schritt: "Schwachstellen identifizieren",
+              erklaerung: `Medienbruch 1: Bestellung \u2192 manuelles Eintippen<br>Medienbruch 2: DHL-Buchung manuell<br>Medienbruch 3: Kundeninfo per Brief<br>Fehlende Integration: Shop, Lager, Versand in verschiedenen Systemen`
+            },
+            {
+              schritt: "IT-Optimierung",
+              erklaerung: `ERP-System: Bestellung l\u00e4uft automatisch ins Lagersystem<br>Schnittstelle DHL-API: Versandetikett automatisch generiert<br>E-Mail-Automatisierung: Kunde erh\u00e4lt sofort Trackingnummer`
+            },
+            {
+              schritt: "Ergebnis der IT-Unterst\u00fctzung",
+              erklaerung: `Manueller Eingriff eliminiert. Lieferzeit reduziert auf 1-2 Tage. Mitarbeiter frei f\u00fcr wertsch\u00f6pfende Aufgaben.`
+            }
+          ],
+          ergebnis: `IT-Unterst\u00fctzung beseitigt Medienbrüche und automatisiert den Kernprozess "Auftragsabwicklung". Wettbewerbsvorteil durch IT!`
+        },
+        {
+          situation: `<p>Ein <strong>Marktforschungsunternehmen</strong> f\u00fchrt Massenbefragungen mit \u201ePapier und Bleistift\u201c durch. Die GF \u00fcberlegt den Umstieg auf <strong>Smartphones</strong>.</p>
+<p>Der IT-Leiter kann die Wirtschaftlichkeit nicht belegen. Die <strong>BWL-Assistentin (WI-Schwerpunkt)</strong> \u00fcbernimmt die Analyse.</p>`,
+          aufgabe: "Bewerte die Wirtschaftlichkeit des Umstiegs auf Smartphones anhand der Amortisationsdauer.",
+          loesung: [
+            `<strong>Effizienzvergleich:</strong><br><table class="erk-table">
+  <tr><th>Kennzahl</th><th>Mit Fragebogen</th><th>Mit Smartphone</th></tr>
+  <tr><td>Bearbeitungszeit Interview</td><td>6,0 Min.</td><td>5,0 Min.</td></tr>
+  <tr><td>Max. Interviews/Tag (6 Std.)</td><td>60</td><td>72</td></tr>
+  <tr><td>Interviewtage f\u00fcr 1.000 Interviews</td><td>55,6 Tage</td><td>46,3 Tage</td></tr>
+  <tr><td>Datenaufbereitung pro Auftrag</td><td>600 Min.</td><td>231,5 Min.</td></tr>
+</table>`,
+            `<strong>Wirtschaftlichkeitsrechnung:</strong><br><table class="erk-table">
+  <tr><th>Position</th><th>Betrag</th></tr>
+  <tr><td>Kostensenkung pro Auftrag</td><td>925,46 \u20ac</td></tr>
+  <tr><td>Auftr\u00e4ge p.a.</td><td>300</td></tr>
+  <tr><td>Kostensenkung p.a.</td><td>277.639 \u20ac</td></tr>
+  <tr><td>Investitionskosten gesamt</td><td>95.000 \u20ac</td></tr>
+  <tr><td>Laufende Mehrkosten p.a.</td><td>51.000 \u20ac</td></tr>
+  <tr><td><strong>Amortisationsdauer</strong></td><td><strong>0,42 Jahre (\u2248 5 Monate)</strong></td></tr>
+</table>`,
+            `\ud83d\udcc8 <strong>Amortisation</strong> = 95.000 / (277.639 \u2212 51.000) = <strong>0,42 Jahre (\u2248 5 Monate)</strong><br>\u2705 Investition lohnt sich! Die Assistentin verbindet Prozessanalyse + BWL-Bewertung + IT = <em>Wirtschaftsinformatik in der Praxis!</em>`
+          ],
+          ergebnis: "Amortisationsdauer ≈ 5 Monate – die Investition lohnt sich klar."
+        }
+      ],
+
+      interaktion: [
+        { frage: "Was zeichnet einen Gesch\u00e4ftsprozess aus?", optionen: ["Nur in einer Abteilung", "Input \u2192 Output + Kundenwert", "Nur IT-Abl\u00e4ufe", "Kein definierter Anfang"], richtig: 1, erklaerung: "Gesch\u00e4ftsprozess transformiert Input in Output und schafft Kundenwert." },
+        { frage: "Warum gehen Prozesse \u00fcber Abteilungsgrenzen?", optionen: ["Schlecht organisiert", "Wertsch\u00f6pfung braucht mehrere Bereiche", "IT gibt es vor", "Management will es"], richtig: 1, erklaerung: "Wertsch\u00f6pfung erfordert mehrere Bereiche." },
+        { frage: "Was ist Input bei einer Auftragsabwicklung?", optionen: ["Die Rechnung", "Die Kundenbestellung", "Der Versand", "Das Lager"], richtig: 1, erklaerung: "Input = Bestellung, Output = gelieferte Ware + Rechnung." },
+        { frage: "Ein Prozess ohne Kundenwert ist ...", optionen: ["Trotzdem ein Gesch\u00e4ftsprozess", "Kein Gesch\u00e4ftsprozess", "Nur ein IT-Prozess", "Ein Hilfsprozess"], richtig: 1, erklaerung: "Per Definition muss ein Gesch\u00e4ftsprozess Wert f\u00fcr den Kunden schaffen." },
+        { frage: "Welche Abteilungen durchl\u00e4uft eine Auftragsabwicklung?", optionen: ["Nur Vertrieb", "Vertrieb, Lager, Buchhaltung", "Nur IT", "Nur Gesch\u00e4ftsf\u00fchrung"], richtig: 1, erklaerung: "Typisch: Vertrieb \u2192 Lager \u2192 Versand \u2192 Buchhaltung." }
+      ]
+    },
+    {
+      titel: "\u{1F5A5}\uFE0F Arten von Informationssystemen",
+      inhalt: `<table class="erk-table">
+  <tr><th>System</th><th>Ebene</th><th>Aufgabe</th></tr>
+  <tr><td><strong>ERP</strong></td><td>Operativ</td><td>Ressourcenplanung</td></tr>
+  <tr><td><strong>MIS</strong></td><td>Taktisch</td><td>Berichte f\u00fcrs Management</td></tr>
+  <tr><td><strong>DSS</strong></td><td>Strategisch</td><td>Entscheidungsunterst\u00fctzung</td></tr>
+  <tr><td><strong>EIS/F\u00dcIS</strong></td><td>Top-Management</td><td>Dashboards</td></tr>
+</table>`,
+      merke: `ERP=operativ \u2022 MIS=taktisch \u2022 DSS=strategisch \u2022 EIS=Top-Management`,
+      schritte: [
+        {
+          titel: "Schritt 1: Warum verschiedene IS-Typen?",
+          inhalt: `<p>Verschiedene Managementebenen haben verschiedene Informationsbed\u00fcrfnisse:</p>
+<p>\ud83d\udcbc <strong>Operativ</strong>: Tagesgesch\u00e4ft, viele Details, strukturiert<br>
+\ud83d\udcca <strong>Taktisch</strong>: Wochen/Monate, Berichte, Auswertungen<br>
+\ud83c\udfaf <strong>Strategisch</strong>: Jahre, Trends, Entscheidungsunterst\u00fctzung<br>
+\ud83d\udc51 <strong>Top-Management</strong>: Kurzfristiger \u00dcberblick, Dashboards</p>`
+        },
+        {
+          titel: "Schritt 2: Die 4 IS-Typen",
+          inhalt: `<table class="erk-table">
+  <tr><th>System</th><th>Ebene</th><th>Aufgabe</th><th>Beispiel</th></tr>
+  <tr><td><strong><span class="term" data-label="ERP" data-def="Enterprise Resource Planning: Integrierte Software, die alle Unternehmensbereiche (Einkauf, Produktion, Vertrieb, HR, Finanzen) in einem System verbindet. Beispiel: SAP.">ERP</span></strong></td><td>Operativ</td><td>Ressourcenplanung integriert</td><td>SAP, Oracle ERP</td></tr>
+  <tr><td><strong>MIS</strong></td><td>Taktisch</td><td>Management-Berichte</td><td>Monatsreports, BI-Tools</td></tr>
+  <tr><td><strong>DSS</strong></td><td>Strategisch</td><td>Entscheidungsunterst\u00fctzung</td><td>Simulationen, Szenarien</td></tr>
+  <tr><td><strong>EIS/F\u00dcIS</strong></td><td>Top-Management</td><td>Executive Dashboards</td><td>Balanced Scorecard</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: ERP im Fokus",
+          inhalt: `<p><strong>ERP (Enterprise Resource Planning)</strong> ist das wichtigste betriebliche IS:</p>
+<p>\ud83d\udd17 Integriert <strong>alle Gesch\u00e4ftsbereiche</strong> in einem System:<br>
+Produktion, Einkauf, Vertrieb, Finanzen, HR, Logistik</p>
+<p>\ud83d\udcbe <strong>Eine gemeinsame Datenbasis</strong> \u2013 kein Datendurcheinander mehr</p>
+<div class="def-box"><div class="def-label">Wichtigste Anbieter</div>
+SAP (Marktf\u00fchrer), Oracle, Microsoft Dynamics</div>
+<p>ERP-Systeme sind die Infrastruktur f\u00fcr alle anderen IS-Typen.</p>`
+        },
+        {
+          titel: "Schritt 4: Zusammenhang der IS-Typen",
+          inhalt: `<p>Die IS-Typen bauen aufeinander auf:</p>
+<p>\ud83d\udcd0 ERP sammelt Rohdaten (operativ)<br>
+\u2192 MIS verdichtet zu Berichten (taktisch)<br>
+\u2192 DSS analysiert Szenarien (strategisch)<br>
+\u2192 EIS zeigt das Wichtigste (Top-Management)</p>
+<div class="def-box"><div class="def-label">Merke</div>
+ERP=operativ, MIS=taktisch, DSS=strategisch, EIS=Top-Management<br>
+Eselsbrücke: <strong>"Ele Macht Den Erfolg"</strong></div>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "ERP arbeitet auf welcher Ebene?", optionen: ["Strategisch", "Taktisch", "Operativ", "Top-Management"], richtig: 2, erklaerung: "ERP = operative Ebene (Tagesgesch\u00e4ft)." },
+        { frage: "SAP ist ein Beispiel f\u00fcr ...", optionen: ["MIS", "DSS", "ERP", "EIS"], richtig: 2, erklaerung: "SAP = ERP-System." },
+        { frage: "Wer nutzt ein EIS?", optionen: ["Sachbearbeiter", "Mittleres Management", "Top-Management", "Kunden"], richtig: 2, erklaerung: "EIS = Executive IS f\u00fcr die Chefetage." },
+        { frage: "MIS liefert ...", optionen: ["Automatisierte Produktion", "Berichte f\u00fcrs mittlere Management", "Kundendaten", "Programmiercode"], richtig: 1, erklaerung: "MIS = Berichte/Reports f\u00fcr taktische Ebene." },
+        { frage: "DSS steht f\u00fcr ...", optionen: ["Data Storage System", "Decision Support System", "Digital Security System", "Document Sharing Service"], richtig: 1, erklaerung: "DSS = Decision Support System (Entscheidungsunterst\u00fctzung)." }
+      ]
+    },
+    {
+      titel: "\u{1F3AF} Wettbewerbsvorteile durch IT (Porter)",
+      inhalt: `<div class="erk-tree">
+  <div class="tree-root">Porters 5 Kr\u00e4fte</div>
+  <div class="tree-branches">
+    <div class="tree-branch">Rivalit\u00e4t Wettbewerber</div>
+    <div class="tree-branch">Neue Anbieter</div>
+    <div class="tree-branch">Substitute</div>
+    <div class="tree-branch">Macht Lieferanten</div>
+    <div class="tree-branch">Macht Kunden</div>
+  </div>
+</div>
+<p><strong>Wertkette:</strong></p>
+<table class="erk-table">
+  <tr><th>Prim\u00e4r</th><th>Unterst\u00fctzend</th></tr>
+  <tr><td>Eingangslogistik, Produktion, Ausgangslogistik, Marketing, Service</td>
+      <td>Infrastruktur, Personal, Technologie, Beschaffung</td></tr>
+</table>`,
+      schritte: [
+        {
+          titel: "Schritt 1: Porters 5 Wettbewerbskr\u00e4fte",
+          inhalt: `<p>Porter identifiziert <strong>5 Kr\u00e4fte</strong>, die den Wettbewerb einer Branche bestimmen:</p>
+<p>\ud83d\udcd6 <strong>Rivalit\u00e4t</strong> unter bestehenden Wettbewerbern<br>
+\ud83d\udd22 <strong>Bedrohung durch neue Anbieter</strong> (Markteintritt)<br>
+\ud83d\udd04 <strong>Bedrohung durch Substitute</strong> (Ersatzprodukte)<br>
+\ud83d\udce6 <strong>Verhandlungsmacht der Lieferanten</strong><br>
+\ud83d\udc65 <strong>Verhandlungsmacht der Kunden</strong></p>
+<p>IT kann alle 5 Kr\u00e4fte <strong>beeinflussen</strong>!</p>`
+        },
+        {
+          titel: "Schritt 2: IT und die 5 Kr\u00e4fte",
+          inhalt: `<table class="erk-table">
+  <tr><th>Kraft</th><th>IT-Einsatz</th><th>Beispiel</th></tr>
+  <tr><td>Rivalit\u00e4t</td><td>Kostenf\u00fchrung durch Automatisierung</td><td>Amazon vs. traditioneller Handel</td></tr>
+  <tr><td>Neue Anbieter</td><td>Markteintrittsbarrieren durch IT</td><td>Netflix' Algorithmen</td></tr>
+  <tr><td>Substitute</td><td>Eigene Disruption</td><td>Spotify ersetzt CDs</td></tr>
+  <tr><td>Lieferanten</td><td>E-Procurement</td><td>Automatische Bestellsysteme</td></tr>
+  <tr><td>Kunden</td><td>CRM, Kundenbindung</td><td>Treueprogramme</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Porters Wertkette",
+          inhalt: `<p>Die <strong>Wertkette</strong> zeigt, wo im Unternehmen Wert erzeugt wird:</p>
+<p><strong>Prim\u00e4re Aktivit\u00e4ten</strong> (direkt wertsch\u00f6pfend):<br>
+Eingangslogistik \u2192 Produktion \u2192 Ausgangslogistik \u2192 Marketing \u2192 Service</p>
+<p><strong>Unterst\u00fctzende Aktivit\u00e4ten</strong>:<br>
+Infrastruktur | HR | Technologieentwicklung | Beschaffung</p>
+<p>IT kann in <strong>jeder Stufe</strong> Wettbewerbsvorteile schaffen!</p>`
+        },
+        {
+          titel: "Schritt 4: Strategische Wettbewerbsvorteile durch IT",
+          inhalt: `<p>Wie erzielt man nachhaltigen Wettbewerbsvorteil durch IT?</p>
+<p>\ud83d\udcb0 <strong>Kostenf\u00fchrung</strong>: Kosten senken durch IT-Automatisierung<br>
+\ud83d\udcce <strong>Differenzierung</strong>: Einzigartige Leistungen durch IT (z.B. Personalisierung)<br>
+\ud83c\udfaf <strong>Nischenstrategie</strong>: Speziell f\u00fcr eine Nische optimierte IT</p>
+<div class="def-box"><div class="def-label">Wichtig f\u00fcr Pr\u00fcfung</div>
+Wettbewerbsvorteil durch IT ist <strong>nicht nachhaltig</strong> ohne kontinuierliche Innovation \u2013 Konkurrenten kopieren!</div>`
+        }
+      ],
+
+      interaktion: [
+        { frage: "Wie viele Kr\u00e4fte hat Porters Modell?", optionen: ["3", "4", "5", "6"], richtig: 2, erklaerung: "5 Wettbewerbskr\u00e4fte." },
+        { frage: "E-Book statt gedrucktes Buch ist ein Beispiel f\u00fcr ...", optionen: ["Neue Anbieter", "Rivalit\u00e4t", "Substitute", "Kundenmacht"], richtig: 2, erklaerung: "E-Book ersetzt gedrucktes Buch = Substitut." },
+        { frage: "Produktion geh\u00f6rt zu den ... Aktivit\u00e4ten", optionen: ["Prim\u00e4ren", "Unterst\u00fctzenden", "Sekund\u00e4ren", "Externen"], richtig: 0, erklaerung: "Produktion = prim\u00e4re Aktivit\u00e4t der Wertkette." },
+        { frage: "Personalwirtschaft ist eine ... Aktivit\u00e4t", optionen: ["Prim\u00e4re", "Unterst\u00fctzende", "Operative", "Strategische"], richtig: 1, erklaerung: "Personal = unterst\u00fctzende Aktivit\u00e4t." },
+        { frage: "Was ist KEINE der 5 Kr\u00e4fte?", optionen: ["Substitute", "Kundenmacht", "Digitalisierungsdruck", "Rivalit\u00e4t"], richtig: 2, erklaerung: "Digitalisierungsdruck geh\u00f6rt nicht zu Porters 5 Kr\u00e4ften." }
+      ]
+    }
+  ],
+  quiz: [
+    { frage: "IKS steht f\u00fcr?", optionen: ["Internationale Kommunikationsstandards", "Informations- und Kommunikationssysteme", "Integrierte Kontrollsysteme", "Informatik-Kernstrukturen"], richtig: 1, erklaerung: "IKS = Informations- und Kommunikationssysteme." },
+    { frage: "WI verbindet ...", optionen: ["BWL+Mathe", "Informatik+Physik", "BWL+Informatik", "Jura+IT"], richtig: 2, erklaerung: "BWL + Informatik (+ Systemtheorie)." },
+    { frage: "ERP-System ist ...", optionen: ["Betriebssystem", "Ressourcenplanung", "Framework", "Netzwerkprotokoll"], richtig: 1, erklaerung: "ERP = Enterprise Resource Planning." },
+    { frage: "Prim\u00e4re Aktivit\u00e4ten der Wertkette?", optionen: ["Personal+Techno", "Eingangslogistik, Produktion, Ausgangslogistik, Marketing, Service", "Nur Marketing", "Beschaffung+Infra"], richtig: 1, erklaerung: "5 prim\u00e4re Aktivit\u00e4ten." },
+    { frage: "Gesch\u00e4ftsprozess ist ...", optionen: ["Nur IT", "Aktivit\u00e4ten: Input\u2192Output", "Organigramm", "Nur Finanzen"], richtig: 1, erklaerung: "Zusammenh\u00e4ngende Aktivit\u00e4ten, Input\u2192Output." },
+    { frage: "Welches IS f\u00fcrs mittlere Management?", optionen: ["ERP", "MIS", "DSS", "EIS"], richtig: 1, erklaerung: "MIS = taktisch, mittleres Management." },
+    { frage: "KEINE der 5 Porter-Kr\u00e4fte?", optionen: ["Substitute", "Kundenmacht", "Digitalisierungsdruck", "Rivalit\u00e4t"], richtig: 2, erklaerung: "Digitalisierungsdruck ist keine Porter-Kraft." },
+    { frage: "DSS macht ...", optionen: ["Mitarbeiterdaten", "Entscheidungsunterst\u00fctzung", "Produktion", "Kundendaten"], richtig: 1, erklaerung: "DSS = Decision Support System." },
+    { frage: "Prozesse gehen \u00fcber Abteilungsgrenzen weil ...", optionen: ["Schlecht organisiert", "Wertsch\u00f6pfung braucht mehrere Bereiche", "IT gibt es vor", "Management will es"], richtig: 1, erklaerung: "Wertsch\u00f6pfung erfordert mehrere Bereiche." }
+  ],
+  lueckentext: [
+    { text: "WI ist die Wissenschaft von Entwurf, ___ und Einsatz computergest\u00fctzter ___ in Wirtschaft und Verwaltung.", luecken: ["Entwicklung", "Informationssysteme"], erklaerung: "WI-Definition." },
+    { text: "Porters Modell umfasst ___ Wettbewerbskr\u00e4fte, darunter die Verhandlungsmacht der ___ und ___.", luecken: ["5", "Lieferanten", "Kunden"], erklaerung: "5-Kr\u00e4fte-Modell." },
+    { text: "ERP-Systeme dienen der ___ und arbeiten auf der ___ Ebene.", luecken: ["Ressourcenplanung", "operativen"], erklaerung: "ERP = operativ." },
+    { text: "Die prim\u00e4ren Aktivit\u00e4ten sind: Eingangslogistik, ___, Ausgangslogistik, Marketing & Vertrieb und ___.", luecken: ["Produktion", "Service"], erklaerung: "5 prim\u00e4re Aktivit\u00e4ten." }
+  ],
+  zuordnung: [
+    { titel: "IS der Ebene zuordnen", paare: [
+      { links: "ERP", rechts: "Operativ" },
+      { links: "MIS", rechts: "Taktisch" },
+      { links: "DSS", rechts: "Strategisch" },
+      { links: "EIS", rechts: "Top-Management" }
+    ]},
+    { titel: "Porter-Kr\u00e4fte zuordnen", paare: [
+      { links: "Amazon vs. Zalando", rechts: "Rivalit\u00e4t" },
+      { links: "Neues Startup", rechts: "Neue Anbieter" },
+      { links: "E-Book statt Buch", rechts: "Substitute" },
+      { links: "Zulieferer erh\u00f6ht Preise", rechts: "Macht Lieferanten" }
+    ]},
+    { titel: "Wertketten-Aktivit\u00e4ten zuordnen", paare: [
+      { links: "Produktion, Marketing, Service", rechts: "Prim\u00e4r" },
+      { links: "Personal, Technologie, Beschaffung", rechts: "Unterst\u00fctzend" },
+      { links: "Ein-/Ausgangslogistik", rechts: "Prim\u00e4r" },
+      { links: "Unternehmensinfrastruktur", rechts: "Unterst\u00fctzend" }
+,
+    {
+      titel: "\u{1F3AF} Ziele betrieblicher Informationssysteme",
+      inhalt: `<div class="def-box"><div class="def-label">Betriebliches Ziel (Hansen)</div>
+Gew\u00fcnschter, in der Zukunft liegender Zustand. Dient zur Orientierung aller Mitarbeiter. IS-Ziele sind <strong>gleichgerichtete Unterziele</strong> der betrieblichen Oberziele.
+</div>
+<table class="erk-table">
+  <tr><th>Ziel</th><th>Was bedeutet das?</th><th>Beispiel</th></tr>
+  <tr><td><strong>Rationalisierung</strong></td><td>Sichere, straffe, <em>kosteng\u00fcnstige</em> Abwicklung des Alltagsbetriebs</td><td>Lohnabrechnung f\u00fcr Millionen; Konten-bewegungen; Platzbuchungen \u2013 Rechner rund um die Uhr</td></tr>
+  <tr><td><strong>Information &amp; Entscheidungsunterst\u00fctzung</strong></td><td>Aktuelle, umfassende Daten zur besseren Anpassungsf\u00e4higkeit</td><td>Big Data; maschinelles Lernen aus historischen Transaktionsdaten; BI-Dashboards</td></tr>
+  <tr><td><strong>Innovation</strong></td><td>Neue Prozesse &amp; Gesch\u00e4ftsmodelle (enabling technology)</td><td>Personalisierte Angebote; Online-Marktpl\u00e4tze; neue Gesch\u00e4ftsfelder durch IT</td></tr>
+  <tr><td><strong>Nachhaltigkeit</strong></td><td>Soziale &amp; \u00f6kologische Nebenziele</td><td>Ergonomische Arbeitspl\u00e4tze; Papiereinsparung; weniger Emissionen</td></tr>
+</table>`,
+      merke: `4 Ziele: Rationalisierung \u2022 Information/Entscheidung \u2022 Innovation \u2022 Nachhaltigkeit`,
+      schritte: [
+        {
+          titel: "Schritt 1: Warum haben IS \u00fcberhaupt Ziele?",
+          inhalt: `<p>IS sind <strong>kein Selbstzweck</strong> \u2013 sie dienen betrieblichen Zielen.</p>
+<p>\ud83c\udfaf Betriebliche Ziele (z.B. Gewinn, Marktanteil) \u2192 IS-Ziele als <strong>Unterziele</strong></p>
+<div class="def-box"><div class="def-label">Merksatz</div>
+IS sind <em>Mittel zum Zweck</em>: Sie sollen wirtschaftliche, soziale und \u00f6kologische Oberziele des Betriebs unterst\u00fctzen.
+</div>`
+        },
+        {
+          titel: "Schritt 2: Rationalisierung",
+          inhalt: `<p><strong>Rationalisierung</strong> = sichere, straffe, kosteng\u00fcnstige Alltagsabwicklung</p>
+<p>\ud83d\udd01 Rechner laufen <strong>24/7</strong> ohne Arbeitszeiten</p>
+<p>\ud83d\udcc8 Massenverarbeitung: Kontobewe-gungen, Lohnabrechnung, Platzbuchungen</p>
+<p>\ud83d\udcb0 Kosteneinsparung durch Automatisierung von Routineaufgaben</p>
+<p>\u2705 Fehlerquellen durch menschliche Unzul\u00e4nglichkeit werden ausgeschaltet</p>`
+        },
+        {
+          titel: "Schritt 3: Information & Innovation",
+          inhalt: `<p><strong>Information & Entscheidungsunterst\u00fctzung</strong>:</p>
+<p>\ud83d\udcca Transaktionsdaten \u2192 Grundlage f\u00fcr Entscheidungen<br>
+\ud83e\udd16 Big Data + maschinelles Lernen = neue Erkenntnisse</p>
+<br>
+<p><strong>Innovation</strong> (enabling technology):</p>
+<p>\ud83d\ude80 IT erm\u00f6glicht v\u00f6llig neue Gesch\u00e4ftsmodelle<br>
+\ud83d\udc65 Personalisierte Angebote, Online-M\u00e4rkte, Plattformen<br>
+\u26a0\ufe0f Ziel: nicht nur effizienter machen, sondern <em>neu denken</em>!</p>`
+        },
+        {
+          titel: "Schritt 4: Merkhilfe & Klausurtipp",
+          inhalt: `<p>Merkhilfe: <strong>R-I-I-N</strong></p>
+<table class="erk-table">
+  <tr><th>Buchstabe</th><th>Ziel</th><th>Stichwort</th></tr>
+  <tr><td><strong>R</strong></td><td>Rationalisierung</td><td>Kosten senken, Automatisierung</td></tr>
+  <tr><td><strong>I</strong></td><td>Information</td><td>Entscheidungsunterst\u00fctzung, Big Data</td></tr>
+  <tr><td><strong>I</strong></td><td>Innovation</td><td>enabling technology, neue Modelle</td></tr>
+  <tr><td><strong>N</strong></td><td>Nachhaltigkeit</td><td>sozial, \u00f6kologisch</td></tr>
+</table>
+<p>\ud83d\udccc <strong>Klausurtipp</strong>: Unterscheide wirtschaftliche Ziele (R, I, I) von sozialen/\u00f6kologischen (N)!</p>`
+        }
+      ],
+      interaktion: [
+        { frage: "Was ist das Ziel 'Rationalisierung' beim IS-Einsatz?", optionen: ["Neue Gesch\u00e4ftsmodelle entwickeln", "Sichere, kosteng\u00fcnstige Alltagsabwicklung", "Daten f\u00fcr Entscheidungen aufbereiten", "Soziale Ziele erf\u00fcllen"], richtig: 1, erklaerung: "Rationalisierung = straffe, sichere, kosteng\u00fcnstige Abwicklung des Alltagsbetriebs, z.B. automatische Lohnabrechnung." },
+        { frage: "Was meint Hansen mit IS als 'enabling technology'?", optionen: ["IS sind gesetzlich vorgeschrieben", "IS machen bestehende Prozesse schneller", "IS erm\u00f6glichen v\u00f6llig neue Gesch\u00e4ftsmodelle", "IS ersetzen alle Mitarbeiter"], richtig: 2, erklaerung: "Enabling technology (Innovation): IT erm\u00f6glicht neue Formen von Prozessen und Gesch\u00e4ftsmodellen, die ohne IT nicht realisierbar w\u00e4ren." },
+        { frage: "Welche vier wirtschaftlichen Ziele nennt Hansen f\u00fcr IS?", optionen: ["Effizienz, Effektivit\u00e4t, Qualit\u00e4t, Service", "Rationalisierung, Information, Innovation, Nachhaltigkeit", "ERP, MIS, DSS, EIS", "Planung, Kontrolle, Steuerung, Koordination"], richtig: 1, erklaerung: "Hansen nennt: Rationalisierung, Information & Entscheidungsunterst\u00fctzung, Innovation und Nachhaltigkeit (sozial/\u00f6kologisch)." }
+      ]
+    },
+    {
+      titel: "\u{1F4CA} IS-Typen nach Hansen",
+      inhalt: `<p>Hansen unterscheidet IS nach ihrer <strong>Aufgabe</strong> im Betrieb:</p>
+<table class="erk-table">
+  <tr><th>IS-Typ</th><th>Aufgabe</th><th>Beispiel</th></tr>
+  <tr><td><strong>Operatives IS</strong></td><td>Unterst\u00fctzt allt\u00e4gliche Leistungsprozesse (Transaktionen)</td><td>Bestellsystem, Lagerverwaltung, Kassensystem</td></tr>
+  <tr><td><strong>ERP-System</strong></td><td>Integriertes IS f\u00fcr alle betrieblichen Funktionsbereiche</td><td>SAP, Oracle ERP</td></tr>
+  <tr><td><strong>Planungssystem</strong></td><td>Unterst\u00fctzt F\u00fchrungskr\u00e4fte bei Planungsaufgaben</td><td>Budgetplanung, Kapazit\u00e4tsplanung</td></tr>
+  <tr><td><strong>Kontrollsystem</strong></td><td>Soll-Ist-Vergleiche, Korrekturma\u00dfnahmen</td><td>Abweichungsanalyse im Controlling</td></tr>
+  <tr><td><strong>MUS</strong></td><td>Managementunterst\u00fctzungssystem = Planungs- + Kontrollsysteme</td><td>BI-Dashboards, Balanced Scorecard</td></tr>
+  <tr><td><strong>B\u00fcro-IS</strong></td><td>Kommunikation und Zusammenarbeit</td><td>E-Mail, Textverarbeitung, Videokonferenz</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Horizontale vs. vertikale Integration</div>
+<strong>Horizontal</strong>: Verbindet Teilsysteme aus verschiedenen <em>Funktionsbereichen</em> auf gleicher Ebene (z.B. Einkauf + Vertrieb).<br>
+<strong>Vertikal</strong>: Verbindet Teilsysteme des gleichen Bereichs auf <em>verschiedenen Ebenen</em> (z.B. Transaktions-IS + MUS im Finanzwesen).
+</div>`,
+      merke: `Operatives IS (Transaktionen) \u2192 ERP (integriert) \u2192 Planungs+Kontroll = MUS \u2192 B\u00fcro-IS (Kommunikation)`,
+      schritte: [
+        {
+          titel: "Schritt 1: Operatives IS vs. ERP",
+          inhalt: `<p><strong>Operatives IS</strong>: Unterst\u00fctzt das Tagesgesch\u00e4ft</p>
+<p>\ud83d\udce6 Typisch: viele Details, strukturierte Daten, hohe Transaktionszahlen</p>
+<br>
+<p><strong>ERP (Enterprise Resource Planning)</strong>: Spezieller Typ des operativen IS</p>
+<p>\ud83d\udd17 Integriert <em>alle</em> betrieblichen Funktionsbereiche in <em>einem</em> System<br>
+\ud83d\udcbe Gemeinsame Datenbasis = kein Datenchaos<br>
+\ud83c\udfc6 Marktf\u00fchrer: SAP</p>`
+        },
+        {
+          titel: "Schritt 2: Planungssystem & Kontrollsystem = MUS",
+          inhalt: `<p><strong>Planungssystem</strong>: Hilft F\u00fchrungskr\u00e4ften bei der Planung</p>
+<p>\u2192 Budgets, Kapazit\u00e4ten, Personalplanung</p>
+<br>
+<p><strong>Kontrollsystem</strong>: \u00dcberwacht Planerf\u00fcllung</p>
+<p>\u2192 Soll-Ist-Vergleiche, Abweichungsanalyse</p>
+<br>
+<p><strong>MUS (Managementunterst\u00fctzungssystem)</strong> = Sammelbegriff:</p>
+<p>\ud83d\udccb Planungssystem + Kontrollsystem zusammen<br>
+\ud83d\udcca Beispiel: Business Intelligence Dashboards</p>`
+        },
+        {
+          titel: "Schritt 3: B\u00fcro-IS & Integration",
+          inhalt: `<p><strong>B\u00fcro-IS</strong>: Unterst\u00fctzt Kommunikation & Zusammenarbeit</p>
+<p>\ud83d\udce7 E-Mail, Kalender, Videokonferenzen<br>
+\ud83d\udcdd Textverarbeitung, Pr\u00e4sentationen, Ablage</p>
+<br>
+<p><strong>Integration der IS-Typen</strong>:</p>
+<table class="erk-table">
+  <tr><th>Art</th><th>Was wird verbunden?</th></tr>
+  <tr><td>Horizontal</td><td>Verschiedene Funktionsbereiche (Einkauf \u2194 Vertrieb)</td></tr>
+  <tr><td>Vertikal</td><td>Gleicher Bereich, verschiedene Ebenen (Operativ \u2194 Management)</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 4: Hansen vs. klassische IS-Pyramide",
+          inhalt: `<p>Vergleich: <strong>Hansen-Terminologie</strong> vs. klassische Pyramide</p>
+<table class="erk-table">
+  <tr><th>Hansen</th><th>Klassisch (Pyramide)</th></tr>
+  <tr><td>Operatives IS / ERP</td><td>ERP (operativ)</td></tr>
+  <tr><td>Planungssystem / MUS</td><td>MIS (taktisch), DSS (strategisch)</td></tr>
+  <tr><td>MUS (Kontrollsystem)</td><td>EIS / F\u00dcIS (Top-Management)</td></tr>
+  <tr><td>B\u00fcro-IS</td><td>Büroinformationssystem</td></tr>
+</table>
+<p>\ud83d\udccc <strong>Klausurtipp</strong>: Seidlmeier nutzt Hansens Terminologie. Kenne beide Systeme!</p>`
+        }
+      ],
+      interaktion: [
+        { frage: "Was ist ein ERP-System nach Hansen?", optionen: ["Ein Planungssystem f\u00fcr das Top-Management", "Ein integriertes IS f\u00fcr alle betrieblichen Funktionsbereiche", "Ein B\u00fcro-IS f\u00fcr Kommunikation", "Ein Kontrollsystem f\u00fcr Soll-Ist-Vergleiche"], richtig: 1, erklaerung: "ERP (Enterprise Resource Planning): Integriertes IS, das alle wesentlichen Funktionsbereiche unterst\u00fctzt. Ziel: laufenden Ressourceneinsatz steuern und abwickeln." },
+        { frage: "Was ist ein MUS?", optionen: ["Ein Kassensystem f\u00fcr den Einzelhandel", "Mobile Unterst\u00fctzungssystem", "Managementunterst\u00fctzungssystem = Planungs- + Kontrollsysteme", "Ein ERP-System von Microsoft"], richtig: 2, erklaerung: "MUS = Managementunterst\u00fctzungssystem: Sammelbegriff f\u00fcr Planungs- und Kontrollsysteme. Unterst\u00fctzt F\u00fchrungskr\u00e4fte bei Planung und Kontrolle." },
+        { frage: "Was unterscheidet horizontale von vertikaler Integration?", optionen: ["Horizontal = verschiedene Ebenen, Vertikal = verschiedene Bereiche", "Horizontal = verschiedene Funktionsbereiche gleicher Ebene, Vertikal = gleicher Bereich verschiedener Ebenen", "Horizontal = intern, Vertikal = extern", "Horizontal = Software, Vertikal = Hardware"], richtig: 1, erklaerung: "Horizontal: verbindet verschiedene Funktionsbereiche (z.B. Einkauf + Vertrieb). Vertikal: verbindet gleichen Bereich auf verschiedenen Ebenen (z.B. operativ + taktisch)." }
+      ]
+    }
+    ]}
+  ]
+};
+
+// ============================================================
+// WINF-SEIDLMEIER - Kapitel 2
+// ============================================================
+FAECHER["winf-seidlmeier"].themen["system-modell"] = {
+  name: "2. System, Modell, Daten & Information",
+  zusammenfassung: "Systembegriff, Modelltheorie (Stachowiak), semiotische Ebenen und Wissenstreppe.",
+  erklaerungen: [
+    {
+      titel: "\u{1F310} Der Systembegriff",
+      inhalt: `<div class="def-box"><div class="def-label">System</div>
+Geordnete Menge von <strong>Elementen</strong> mit <strong>Beziehungen</strong> und einer <strong>Grenze</strong> zur Umwelt.</div>
+<ul>
+  <li><strong>Offene Systeme</strong> \u2013 tauschen mit Umwelt aus</li>
+  <li><strong>Geschlossene Systeme</strong> \u2013 kein Austausch</li>
+  <li><strong>Subsysteme</strong> \u2013 Elemente k\u00f6nnen selbst Systeme sein</li>
+</ul>`,
+      beispiel: `Unternehmen = offenes System (Austausch mit Kunden, Lieferanten).`,
+      schritte: [
+        {
+          titel: "Schritt 1: Die drei Bestandteile eines Systems",
+          inhalt: `<p>Jedes System besteht aus genau diesen drei Dingen:</p>
+<p>🔵 <strong>Elemente</strong> – die Bausteine (z.B. Mitarbeiter, Maschinen, Abteilungen)<br>
+🔗 <strong>Beziehungen (Relationen)</strong> – die Verbindungen zwischen Elementen<br>
+⬛ <strong><span class="term" data-label="Systemgrenze" data-def="Trennt das System von seiner Umwelt. Definiert, welche Elemente zum System geh\u00f6ren und welche nicht.">Systemgrenze</span></strong> – was gehört dazu, was nicht?</p>
+<p>Und: Das System ist mehr als die Summe seiner Teile – erst die Beziehungen machen es zum System.</p>`
+        },
+        {
+          titel: "Schritt 2: System und seine Umwelt",
+          inhalt: `<p>Jedes System existiert nicht im Vakuum – es hat eine <strong>Systemumwelt</strong>.</p>
+<p>• <strong>Systeminput</strong> – kommt aus der Umwelt ins System<br>
+• <strong>Systemoutput</strong> – geht aus dem System in die Umwelt<br>
+• <strong>Rückkopplung</strong> – Output beeinflusst zukünftigen Input</p>
+<div class="def-box"><div class="def-label">Beispiel Unternehmen</div>
+Input: Rohstoffe, Mitarbeiter, Kapital → Transformation → Output: Produkte, Dienstleistungen</div>`
+        },
+        {
+          titel: "Schritt 3: Offen vs. geschlossen",
+          inhalt: `<p>Systeme lassen sich unterscheiden nach ihrem Verhältnis zur Umwelt:</p>
+<table class="erk-table">
+  <tr><th>Typ</th><th>Austausch mit Umwelt?</th><th>Beispiel</th></tr>
+  <tr><td><strong>Offen</strong></td><td>✅ Ja</td><td>Unternehmen, Menschen</td></tr>
+  <tr><td><strong>Geschlossen</strong></td><td>❌ Nein</td><td>Theoretisch; kaum in der Praxis</td></tr>
+  <tr><td><strong>Isoliert</strong></td><td>❌ Weder Stoff noch Energie</td><td>Nur in der Physik als Ideal</td></tr>
+</table>
+<p>👉 In der WI sind praktisch alle relevanten Systeme <strong>offen</strong>.</p>`
+        },
+        {
+          titel: "Schritt 4: Subsysteme und Hierarchie",
+          inhalt: `<p>Systeme können <strong>ineinander geschachtelt</strong> sein:</p>
+<p>🏢 Unternehmen (Gesamtsystem)<br>
+→ 🏬 Abteilungen (Subsysteme)<br>
+→ 👥 Teams (Sub-Subsysteme)<br>
+→ 👤 Mitarbeiter (Elemente)</p>
+<p>Jedes Element kann selbst ein System sein, wenn man es genauer betrachtet. Das nennt man <strong>Systemhierarchie</strong>.</p>`
+        }
+      ],
+      interaktion: [
+        { frage: "Was macht ein System aus?", optionen: ["Nur Elemente", "Elemente + Beziehungen + Grenze", "Nur Software", "Nur Hardware"], richtig: 1, erklaerung: "System = Elemente + Beziehungen + Systemgrenze." },
+        { frage: "Ein Unternehmen ist ein ... System", optionen: ["Geschlossenes", "Offenes", "Isoliertes", "Statisches"], richtig: 1, erklaerung: "Austausch mit Umwelt = offenes System." },
+        { frage: "Was sind Subsysteme?", optionen: ["Fehlerhafte Systeme", "Elemente, die selbst Systeme sind", "Kleine Computer", "Backup-Systeme"], richtig: 1, erklaerung: "Subsysteme = Elemente, die selbst wieder Systeme darstellen." },
+        { frage: "Geschlossene Systeme ...", optionen: ["Tauschen mit Umwelt aus", "Tauschen NICHT mit Umwelt aus", "Existieren nicht", "Sind immer digital"], richtig: 1, erklaerung: "Geschlossen = kein Austausch mit Umwelt." },
+        { frage: "Was ist die Systemgrenze?", optionen: ["Ein Zaun", "Trennung zwischen System und Umwelt", "Das Ende eines Programms", "Eine Firewall"], richtig: 1, erklaerung: "Systemgrenze trennt das System von seiner Umwelt." }
+      ]
+    },
+    {
+      titel: "\u{1F4D0} Der Modellbegriff (Stachowiak)",
+      inhalt: `<div class="def-box"><div class="def-label">Modell</div>
+<strong>Vereinfachtes Abbild</strong> der Realit\u00e4t \u2013 nur relevante Eigenschaften.</div>
+<table class="erk-table">
+  <tr><th>Merkmal</th><th>Bedeutung</th><th>Beispiel</th></tr>
+  <tr><td><strong>Abbildung</strong></td><td>Bildet etwas ab</td><td>Stadtplan bildet Stadt ab</td></tr>
+  <tr><td><strong>Verk\u00fcrzung</strong></td><td>Nur relevante Eigenschaften</td><td>Keine Haust\u00fcren im Stadtplan</td></tr>
+  <tr><td><strong>Pragmatisch</strong></td><td>Dient einem Zweck</td><td>Stadtplan f\u00fcr Navigation</td></tr>
+</table>`,
+      merke: `Jedes Modell ist eine Vereinfachung! Es zeigt nur, was f\u00fcr den Zweck relevant ist.`,
+      schritte: [
+        {
+          titel: "Schritt 1: Was ist ein Modell?",
+          inhalt: `<p>Ein Modell ist ein <strong>vereinfachtes Abbild der Realit\u00e4t</strong> \u2013 aber warum vereinfacht?</p>
+<p>Weil wir immer nur den Teil abbilden, der f\u00fcr unseren <strong>Zweck relevant</strong> ist.</p>
+<div class="def-box"><div class="def-label">Stachowiaks Definition</div>
+Ein Modell ist eine <strong>Abbildung</strong> eines Originals, die nur <strong>bestimmte Merkmale</strong> f\u00fcr einen <strong>bestimmten Zweck</strong> herausgreift.</div>
+<p>Beispiele: Stadtplan, Organigramm, Flussdiagramm, Architekturmodell</p>`
+        },
+        {
+          titel: "Schritt 2: Die 3 Merkmale nach Stachowiak",
+          inhalt: `<p>Stachowiak definiert jedes Modell \u00fcber <strong>3 Merkmale</strong>:</p>
+<table class="erk-table">
+  <tr><th>Merkmal</th><th>Bedeutung</th><th>Stadtplan-Beispiel</th></tr>
+  <tr><td><strong>Abbildung</strong></td><td>Bildet ein Original ab</td><td>Stadtplan bildet die Stadt ab</td></tr>
+  <tr><td><strong>Verk\u00fcrzung</strong></td><td>Nur relevante Eigenschaften</td><td>Keine Haust\u00fcren, kein Gr\u00fcn</td></tr>
+  <tr><td><strong>Pragmatisch</strong></td><td>Dient einem konkreten Zweck</td><td>Zweck: Navigation/Orientierung</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Modelle in der Wirtschaftsinformatik",
+          inhalt: `<p>In der Wirtschaftsinformatik sind Modelle <strong>\u00fcberall</strong>:</p>
+<p>\ud83d\uddfa\ufe0f <strong>Prozessmodelle</strong> (ARIS, BPMN) \u2192 Gesch\u00e4ftsprozesse darstellen<br>
+\ud83c\udfd7\ufe0f <strong>Datenmodelle</strong> (ER-Diagramme) \u2192 Datenstrukturen abbilden<br>
+\ud83d\udcca <strong>Organigramme</strong> \u2192 Unternehmensstruktur zeigen<br>
+\ud83d\udda5\ufe0f <strong>Use-Case-Diagramme</strong> \u2192 Systemfunktionen beschreiben</p>
+<div class="def-box"><div class="def-label">Wichtig</div>
+Jedes Modell ist nur so gut wie sein Zweck. Ein Modell f\u00fcr Controlling sieht anders aus als eines f\u00fcr IT-Entwicklung!</div>`
+        },
+        {
+          titel: "Schritt 4: Merkhilfe AVP",
+          inhalt: `<p>Eselsbrücke f\u00fcr die 3 Merkmale:</p>
+<p>\ud83d\udd24 <strong>A</strong>bbildung \u2013 jedes Modell bildet ein Original ab<br>
+\u2702\ufe0f <strong>V</strong>erk\u00fcrzung \u2013 nur das Relevante wird gezeigt<br>
+\ud83c\udfaf <strong>P</strong>ragmatisch \u2013 immer f\u00fcr einen bestimmten Zweck</p>
+<p>\u2192 <strong>AVP</strong> merken!</p>
+<div class="def-box"><div class="def-label">Pr\u00fcfungstipp</div>
+"Warum keine Haust\u00fcren im Stadtplan?" \u2192 Verk\u00fcrzung! Haust\u00fcren sind f\u00fcr Navigation irrelevant.</div>`
+        }
+      ],
+      interaktion: [
+        { frage: "Welches Merkmal: nur relevante Eigenschaften?", optionen: ["Abbildung", "Verk\u00fcrzung", "Pragmatisch", "Vereinfachung"], richtig: 1, erklaerung: "Verk\u00fcrzungsmerkmal: nicht alle, nur relevante Eigenschaften." },
+        { frage: "Wer definierte die 3 Modellmerkmale?", optionen: ["Porter", "Hansen", "Stachowiak", "Seidlmeier"], richtig: 2, erklaerung: "Stachowiak: Allgemeine Modelltheorie." },
+        { frage: "Pragmatisches Merkmal bedeutet ...", optionen: ["Schnell erstellt", "Dient einem bestimmten Zweck", "Besonders einfach", "Ist praxisnah"], richtig: 1, erklaerung: "Pragmatisch = f\u00fcr einen bestimmten Zweck erstellt." },
+        { frage: "Ein Modell ist ...", optionen: ["Eine exakte Kopie", "Ein vereinfachtes Abbild", "Immer digital", "Immer 3D"], richtig: 1, erklaerung: "Modell = vereinfachtes Abbild der Realit\u00e4t." },
+        { frage: "Warum zeigt ein Stadtplan keine Haust\u00fcren?", optionen: ["Abbildungsmerkmal", "Verk\u00fcrzungsmerkmal", "Pragmatisches Merkmal", "Fehler"], richtig: 1, erklaerung: "Haust\u00fcren sind f\u00fcr Navigation nicht relevant = Verk\u00fcrzung." }
+      ]
+    },
+    {
+      titel: "\u{1F4AC} Semiotik: Syntax, Semantik, Pragmatik",
+      inhalt: `<table class="erk-table">
+  <tr><th>Ebene</th><th>Frage</th><th>Beispiel "110"</th></tr>
+  <tr><td><strong>Syntax</strong></td><td>Form korrekt?</td><td>3 Ziffern, numerisch \u2713</td></tr>
+  <tr><td><strong>Semantik</strong></td><td>Was bedeutet es?</td><td>110 = Polizei</td></tr>
+  <tr><td><strong>Pragmatik</strong></td><td>Welche Wirkung?</td><td>Ich rufe die Polizei an</td></tr>
+</table>`,
+      merke: `Syntax = Form \u2022 Semantik = Bedeutung \u2022 Pragmatik = Wirkung/Handlung`,
+      schritte: [
+        {
+          titel: "Schritt 1: Was ist Semiotik?",
+          inhalt: `<p><strong>Semiotik</strong> = die Lehre von Zeichen und ihrer Bedeutung.</p>
+<p>In der Wirtschaftsinformatik interessiert uns: Wie werden Daten zu <strong>verstandener Information</strong>?</p>
+<p>Daf\u00fcr gibt es 3 Ebenen:</p>
+<p>\ud83d\udccf <strong>Syntax</strong> \u2013 ist die Form richtig?<br>
+\ud83d\udcad <strong>Semantik</strong> \u2013 was bedeutet das?<br>
+\ud83c\udfaf <strong>Pragmatik</strong> \u2013 was wird dadurch ausgel\u00f6st?</p>`
+        },
+        {
+          titel: "Schritt 2: Die 3 Ebenen an einem Beispiel",
+          inhalt: `<p>Beispiel: Du siehst die Zahl <strong>"110"</strong></p>
+<table class="erk-table">
+  <tr><th>Ebene</th><th>Frage</th><th>Antwort f\u00fcr "110"</th></tr>
+  <tr><td><strong>Syntax</strong></td><td>Form korrekt?</td><td>Ja \u2713 (3 Ziffern, numerisch)</td></tr>
+  <tr><td><strong>Semantik</strong></td><td>Was bedeutet es?</td><td>110 = Polizei-Notruf</td></tr>
+  <tr><td><strong>Pragmatik</strong></td><td>Was passiert?</td><td>Ich rufe die Polizei an</td></tr>
+</table>`
+        },
+        {
+          titel: "Schritt 3: Weitere Beispiele",
+          inhalt: `<p>Noch ein Beispiel: E-Mail "Bitte schicken Sie mir die Rechnung"</p>
+<table class="erk-table">
+  <tr><th>Ebene</th><th>Analyse</th></tr>
+  <tr><td><strong>Syntax</strong></td><td>Grammatikalisch korrekte S\u00e4tze \u2713</td></tr>
+  <tr><td><strong>Semantik</strong></td><td>Aufforderung, ein Dokument zu senden</td></tr>
+  <tr><td><strong>Pragmatik</strong></td><td>Empf\u00e4nger schickt die Rechnung</td></tr>
+</table>
+<div class="def-box"><div class="def-label">IT-Relevanz</div>
+Datenbanken pr\u00fcfen Syntax automatisch. Semantik und Pragmatik muss der Mensch (oder KI) verstehen.</div>`
+        },
+        {
+          titel: "Schritt 4: Merkhilfe & Kl\u00e4rung",
+          inhalt: `<p>Verwechslungsgefahr Pragmatik in Semiotik vs. Stachowiak:</p>
+<table class="erk-table">
+  <tr><th>Kontext</th><th>"Pragmatisch" bedeutet</th></tr>
+  <tr><td>Semiotik</td><td>Wirkung/Handlung des Zeichens</td></tr>
+  <tr><td>Stachowiak</td><td>Modell dient einem Zweck</td></tr>
+</table>
+<p>Merkhilfe f\u00fcr Semiotik:</p>
+<p>\ud83d\udccf <strong>S</strong>yntax = <strong>S</strong>chrift/Form<br>
+\ud83d\udcad <strong>S</strong>emantik = <strong>S</strong>inn/Bedeutung<br>
+\ud83c\udfaf <strong>P</strong>ragmatik = Handlungs-<strong>P</strong>ower</p>`
+        }
+      ],
+      interaktion: [
+        { frage: "'Was bedeutet das?' = welche Ebene?", optionen: ["Syntax", "Semantik", "Pragmatik", "Morphologie"], richtig: 1, erklaerung: "Semantik = Bedeutungsebene." },
+        { frage: "Syntax befasst sich mit ...", optionen: ["Bedeutung", "Formale Regeln", "Handlung", "Kontext"], richtig: 1, erklaerung: "Syntax = formale Regeln der Zeichenanordnung." },
+        { frage: "'Ich rufe die Polizei an' geh\u00f6rt zur ...", optionen: ["Syntax", "Semantik", "Pragmatik", "Phonetik"], richtig: 2, erklaerung: "Handlung/Wirkung = Pragmatik." },
+        { frage: "'Tisch' hat 5 Buchstaben \u2013 welche Ebene?", optionen: ["Syntax", "Semantik", "Pragmatik", "Alle drei"], richtig: 0, erklaerung: "Formale Eigenschaft (Zeichenanzahl) = Syntax." },
+        { frage: "'110 = Polizei-Notruf' \u2013 welche Ebene?", optionen: ["Syntax", "Semantik", "Pragmatik", "Lexik"], richtig: 1, erklaerung: "Die Bedeutung von 110 = Semantik." }
+      ]
+    },
+    {
+      titel: "\u{1F4BE} Daten vs. Information vs. Wissen",
+      inhalt: `<div class="erk-tree">
+  <div class="tree-root">Wissenstreppe</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background:#FEE2E2;"><strong>Zeichen</strong><br><small>1, a, #</small></div>
+    <div class="tree-branch" style="background:#FEF3C7;"><strong>Daten</strong><br><small>Zeichen + Syntax</small></div>
+    <div class="tree-branch" style="background:#D1FAE5;"><strong>Information</strong><br><small>Daten + Bedeutung</small></div>
+    <div class="tree-branch" style="background:#DBEAFE;"><strong>Wissen</strong><br><small>Info + Erfahrung</small></div>
+  </div>
+</div>
+<div class="def-box"><div class="def-label">Merke</div>
+<strong><span class="term" data-label="Daten" data-def="Zeichen + Syntax (Struktur). Noch bedeutungslos. Beispiel: \'20.03.2026\' als Datumsformat.">Daten</span></strong> = Zeichen + Syntax. <strong><span class="term" data-label="Information" data-def="Daten + Bedeutung/Kontext. Beispiel: \'Heute ist der 20. M\u00e4rz 2026\'.">Information</span></strong> = Daten + Bedeutung. <strong><span class="term" data-label="Wissen" data-def="Information + Erfahrung + Vernetzung. Erm\u00f6glicht Schlussfolgerungen und Handlungen.">Wissen</span></strong> = Info + Erfahrung.</div>`,
+      interaktion: [
+        { frage: "Daten vs. Information?", optionen: ["Kein Unterschied", "Information = Daten + Bedeutung", "Daten sind digital", "Info ist analog"], richtig: 1, erklaerung: "Information = Daten + Kontext/Bedeutung." },
+        { frage: "Was kommt nach Daten?", optionen: ["Zeichen", "Wissen", "Information", "Weisheit"], richtig: 2, erklaerung: "Zeichen \u2192 Daten \u2192 Information \u2192 Wissen." },
+        { frage: "'20.03.2026' sind ...", optionen: ["Zeichen", "Daten", "Information", "Wissen"], richtig: 1, erklaerung: "Zeichen + Syntax (Datumsformat) = Daten." },
+        { frage: "'Heute ist der 20. M\u00e4rz' ist ...", optionen: ["Zeichen", "Daten", "Information", "Wissen"], richtig: 2, erklaerung: "Daten + Bedeutung/Kontext = Information." },
+        { frage: "'Im M\u00e4rz wird es w\u00e4rmer' ist ...", optionen: ["Daten", "Information", "Wissen", "Nur eine Meinung"], richtig: 2, erklaerung: "Information + Erfahrung = Wissen." }
+      ],
+      schritte: [
+        {
+          titel: "Schritt 1: Die Wissenstreppe",
+          inhalt: `<p>Wie entsteht <strong>Wissen</strong> aus rohen Zeichen? \u2192 Die Wissenstreppe zeigt es Stufe f\u00fcr Stufe:</p>
+<div class="erk-tree">
+  <div class="tree-root">Wissenstreppe</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background:#FEE2E2;"><strong>Zeichen</strong><br><small>Einzelsymbole: 1, a, #</small></div>
+    <div class="tree-branch" style="background:#FEF3C7;"><strong>Daten</strong><br><small>Zeichen + Syntax</small></div>
+    <div class="tree-branch" style="background:#D1FAE5;"><strong>Information</strong><br><small>Daten + Bedeutung</small></div>
+    <div class="tree-branch" style="background:#DBEAFE;"><strong>Wissen</strong><br><small>Info + Erfahrung</small></div>
+  </div>
+</div>`
+        },
+        {
+          titel: "Schritt 2: Von Zeichen zu Daten",
+          inhalt: `<p>Der erste Schritt: Zeichen werden zu <strong>Daten</strong>.</p>
+<table class="erk-table">
+  <tr><th>Stufe</th><th>Was kommt dazu?</th><th>Beispiel</th></tr>
+  <tr><td><strong>Zeichen</strong></td><td>(Ausgangspunkt)</td><td>2, 0, 0, 3, 2, 6</td></tr>
+  <tr><td><strong>Daten</strong></td><td>+ Syntax (Struktur/Regeln)</td><td>20.03.26 (Datumsformat)</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Wichtig</div>
+Daten sind noch <strong>bedeutungslos</strong>! "20.03.26" k\u00f6nnte ein Datum, ein Code, oder eine Seriennummer sein.</div>`
+        },
+        {
+          titel: "Schritt 3: Von Daten zu Information zu Wissen",
+          inhalt: `<p>Die oberen Stufen der Wissenstreppe:</p>
+<table class="erk-table">
+  <tr><th>Stufe</th><th>Was kommt dazu?</th><th>Beispiel</th></tr>
+  <tr><td><strong>Daten</strong></td><td>(Ausgangspunkt)</td><td>20.03.2026</td></tr>
+  <tr><td><strong>Information</strong></td><td>+ Bedeutung/Kontext</td><td>"Heute ist der 20. M\u00e4rz 2026"</td></tr>
+  <tr><td><strong>Wissen</strong></td><td>+ Erfahrung/Vernetzung</td><td>"Im M\u00e4rz wird es w\u00e4rmer"</td></tr>
+</table>
+<p>\ud83d\udca1 Wissen ist vernetztes Verst\u00e4ndnis \u2013 nicht nur eine Tatsache, sondern ein Zusammenhang!</p>`
+        },
+        {
+          titel: "Schritt 4: Relevanz f\u00fcr die WI & Klausurtipps",
+          inhalt: `<p>Warum ist diese Unterscheidung wichtig?</p>
+<p>\ud83d\udcbb <strong>Datenbanken</strong> speichern <strong>Daten</strong> \u2013 noch keine Information<br>
+\ud83d\udd0d <strong>Abfragen</strong> erzeugen <strong>Information</strong> durch Kontext<br>
+\ud83e\udde0 <strong>KI/Business Intelligence</strong> versucht, <strong>Wissen</strong> zu generieren</p>
+<div class="def-box"><div class="def-label">Klausurtipp</div>
+Frage: "Sind die Kundendaten in der Datenbank Informationen?" \u2192 Nein! Erst mit Kontext (Abfrage, Auswertung) werden sie zur Information.</div>`
+        }
+      ]
+    }
+  ],
+  quiz: [
+    { frage: "Was ist ein System?", optionen: ["Nur Software", "Elemente + Beziehungen + Grenze", "Ein Bauteil", "Nur Hardware"], richtig: 1, erklaerung: "System = Elemente + Beziehungen + Systemgrenze." },
+    { frage: "Verk\u00fcrzungsmerkmal?", optionen: ["Modell wird k\u00fcrzer", "Nur relevante Eigenschaften", "K\u00fcrzere Lebensdauer", "Schneller erstellt"], richtig: 1, erklaerung: "Nur relevante Eigenschaften werden abgebildet." },
+    { frage: "Pragmatik beschreibt ...", optionen: ["Formale Korrektheit", "Bedeutung", "Wirkung/Handlung", "Sch\u00f6nheit"], richtig: 2, erklaerung: "Pragmatik = Wirkung, Handlung." },
+    { frage: "Nach Daten kommt ...", optionen: ["Zeichen", "Wissen", "Information", "Weisheit"], richtig: 2, erklaerung: "Zeichen\u2192Daten\u2192Information\u2192Wissen." },
+    { frage: "Offene vs. geschlossene Systeme?", optionen: ["Offene gr\u00f6\u00dfer", "Offene tauschen mit Umwelt", "Geschlossene \u00e4lter", "Kein Unterschied"], richtig: 1, erklaerung: "Offene tauschen mit Umwelt aus." },
+    { frage: "3 Modellmerkmale von ...", optionen: ["Porter", "Hansen", "Stachowiak", "Seidlmeier"], richtig: 2, erklaerung: "Stachowiak." },
+    { frage: "Syntax = ?", optionen: ["Bedeutung", "Formale Regeln", "Handlung", "Programmierbefehl"], richtig: 1, erklaerung: "Syntax = formale Regeln." },
+    { frage: "Unternehmen ist ein ... System", optionen: ["Geschlossenes", "Offenes", "Isoliertes", "Statisches"], richtig: 1, erklaerung: "Offenes System (Austausch mit Umwelt)." },
+    { frage: "Pragmatisches Merkmal eines Modells?", optionen: ["Pragmatisch erstellt", "Dient bestimmtem Zweck", "Besonders einfach", "Schnell gebaut"], richtig: 1, erklaerung: "F\u00fcr einen bestimmten Zweck erstellt." },
+    { frage: "'110=Polizei' \u2013 welche Ebene?", optionen: ["Syntax", "Semantik", "Pragmatik", "Lexik"], richtig: 1, erklaerung: "Bedeutung = Semantik." }
+  ],
+  lueckentext: [
+    { text: "Ein System besteht aus ___, die \u00fcber ___ verbunden sind und eine ___ zur Umwelt haben.", luecken: ["Elementen", "Beziehungen", "Grenze"], erklaerung: "Drei Bestandteile eines Systems." },
+    { text: "Die 3 Modellmerkmale nach Stachowiak: ___, ___ und pragmatisches Merkmal.", luecken: ["Abbildungsmerkmal", "Verk\u00fcrzungsmerkmal"], erklaerung: "Stachowiaks Modelltheorie." },
+    { text: "Syntax = ___, Semantik = ___, Pragmatik = ___.", luecken: ["Form", "Bedeutung", "Wirkung"], erklaerung: "Die drei semiotischen Ebenen." },
+    { text: "Wissenstreppe: Zeichen \u2192 ___ \u2192 ___ \u2192 Wissen.", luecken: ["Daten", "Information"], erklaerung: "Zeichen+Syntax=Daten, +Bedeutung=Info, +Erfahrung=Wissen." }
+  ],
+  zuordnung: [
+    { titel: "Semiotische Ebenen zuordnen", paare: [
+      { links: "Formale Zeichenregeln", rechts: "Syntax" },
+      { links: "Bedeutung der Nachricht", rechts: "Semantik" },
+      { links: "Handlung/Wirkung", rechts: "Pragmatik" }
+    ]},
+    { titel: "Wissenstreppe zuordnen", paare: [
+      { links: "Einzelne Symbole: 1, a, #", rechts: "Zeichen" },
+      { links: "20.03.2026 (mit Syntax)", rechts: "Daten" },
+      { links: "Heute ist der 20. M\u00e4rz", rechts: "Information" },
+      { links: "Im M\u00e4rz wird es w\u00e4rmer", rechts: "Wissen" }
+    ]},
+    { titel: "Modellmerkmale zuordnen", paare: [
+      { links: "Stadtplan bildet Stadt ab", rechts: "Abbildungsmerkmal" },
+      { links: "Keine Haust\u00fcren im Stadtplan", rechts: "Verk\u00fcrzungsmerkmal" },
+      { links: "Stadtplan f\u00fcr Navigation", rechts: "Pragmatisches Merkmal" }
+    ]}
+  ]
+};
