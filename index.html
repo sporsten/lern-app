@@ -758,6 +758,23 @@
     .schwach-info p { font-size: 13px; color: #991B1B; margin-top: 2px; }
     .schwach-count { background: #EF4444; color: white; font-size: 18px; font-weight: 700; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
+    /* ===== Neuigkeiten ===== */
+    .news-card {
+      background: white; border-radius: var(--radius); padding: 20px 24px;
+      margin-bottom: 16px; box-shadow: var(--shadow); border-left: 5px solid #6366F1;
+    }
+    .news-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .news-title-icon { font-size: 22px; }
+    .news-header h3 { font-size: 16px; font-weight: 700; color: #1F2937; margin: 0; }
+    .news-list { display: flex; flex-direction: column; gap: 10px; }
+    .news-item { display: flex; align-items: flex-start; gap: 10px; }
+    .news-badge { font-size: 11px; font-weight: 700; color: white; padding: 2px 8px;
+      border-radius: 99px; white-space: nowrap; margin-top: 2px; flex-shrink: 0; }
+    .news-content { flex: 1; display: flex; flex-direction: column; gap: 1px; }
+    .news-content strong { font-size: 13px; color: #111827; }
+    .news-content span { font-size: 12px; color: #6B7280; }
+    .news-date { font-size: 11px; color: #9CA3AF; white-space: nowrap; margin-top: 3px; flex-shrink: 0; }
+
     /* ===== Konfidenz-Rating ===== */
     .konfidenz-box {
       margin-top: 14px; padding: 14px 18px; background: #F8FAFC;
@@ -974,6 +991,15 @@
   function getSchwacheFragen() {
     return getWrongData().filter(d => d.anzahl >= 2).sort((a,b) => b.anzahl - a.anzahl);
   }
+  function markProblemzoneRichtig(key) {
+    const data = getWrongData();
+    const idx = data.findIndex(d => d.key === key);
+    if (idx !== -1) {
+      data[idx].anzahl = Math.max(0, data[idx].anzahl - 2);
+      if (data[idx].anzahl < 2) data.splice(idx, 1);
+      saveWrongData(data);
+    }
+  }
 
   // ===== TAGESEMPFEHLUNG =====
   function getEmpfehlung() {
@@ -1157,15 +1183,25 @@
     });
     html += `</div>`;
 
-    // Tagesempfehlung
-    const empf = getEmpfehlung();
-    if (empf) {
-      const empfMsg = empf.prog === 0 ? 'Noch nicht gestartet – heute anfangen!' : empf.prog < 50 ? `Erst ${empf.prog}% geschafft – weiterüben!` : `Fast da! ${empf.prog}% erledigt`;
-      html += `<div class="empfehlung-card fade-in" onclick="showThemen('${empf.fachId}')">
-        <div class="empfehlung-icon">🎯</div>
-        <div class="empfehlung-info">
-          <h3>Heute empfohlen: ${empf.icon} ${empf.fachName}</h3>
-          <p>${empfMsg} · Prüfung in ${empf.tage} Tagen</p>
+    // Neuigkeiten
+    if (typeof NEUIGKEITEN !== 'undefined' && NEUIGKEITEN.length > 0) {
+      const typLabel = { feature: '✨ Neu', inhalt: '📚 Inhalt', fix: '🔧 Fix' };
+      const typColor = { feature: '#8B5CF6', inhalt: '#10B981', fix: '#F59E0B' };
+      const recent = NEUIGKEITEN.slice(0, 4);
+      html += `<div class="news-card fade-in">
+        <div class="news-header"><span class="news-title-icon">🆕</span><h3>Was ist neu?</h3></div>
+        <div class="news-list">
+          ${recent.map(n => {
+            const d = new Date(n.datum);
+            const dateStr = d.toLocaleDateString('de-DE', { day:'numeric', month:'short' });
+            const col = typColor[n.typ] || '#6B7280';
+            const lbl = typLabel[n.typ] || n.typ;
+            return `<div class="news-item">
+              <span class="news-badge" style="background:${col}">${lbl}</span>
+              <div class="news-content"><strong>${n.titel}</strong><span>${n.text}</span></div>
+              <span class="news-date">${dateStr}</span>
+            </div>`;
+          }).join('')}
         </div>
       </div>`;
     }
@@ -1234,11 +1270,10 @@
         html += `<div class="thema-card fade-in">
           <div class="thema-title" onclick="toggleThema(this)"><span>${th.name}</span><span class="arrow">&#9654;</span></div>
           <div class="thema-modes">
-            ${hE?`<button class="mode-btn" onclick="startMode('${fachId}','${tId}','erklaerungen')"><span class="mode-icon">\u{1F4D6}</span> Erkl\u00e4rungen</button>`:''}
+            ${hE?`<button class="mode-btn" onclick="startMode('${fachId}','${tId}','erklaerungen')"><span class="mode-icon">📖</span> Lernen</button>`:''}
             ${hQ?`<button class="mode-btn" onclick="startMode('${fachId}','${tId}','quiz')"><span class="mode-icon">\u2753</span> Quiz ${getProgress(fachId,tId,'quiz')?`(${getProgress(fachId,tId,'quiz')}%)`:''}</button>`:''}
             ${hL?`<button class="mode-btn" onclick="startMode('${fachId}','${tId}','lueckentext')"><span class="mode-icon">✏️</span> Offene Fragen ${getProgress(fachId,tId,'lueckentext')?`(${getProgress(fachId,tId,'lueckentext')}%)`:''}</button>`:''}
             ${hZ?`<button class="mode-btn" onclick="startMode('${fachId}','${tId}','zuordnung')"><span class="mode-icon">\u{1F500}</span> Zuordnung ${getProgress(fachId,tId,'zuordnung')?`(${getProgress(fachId,tId,'zuordnung')}%)`:''}</button>`:''}
-            ${hE?`<button class="mode-btn" onclick="startMode('${fachId}','${tId}','zusammenfassung')"><span class="mode-icon">\u{1F4CB}</span> Zusammenfassung</button>`:''}
           </div>
         </div>`;
       });
@@ -1278,8 +1313,7 @@
   function renderErklaerungen(fachId, themaId) {
     const c = document.getElementById('content');
     const thema = FAECHER[fachId].themen[themaId];
-    let html = `<div class="lern-area fade-in"><h3>\u{1F4D6} ${thema.name}</h3>`;
-    if (thema.zusammenfassung) html += `<p style="margin-bottom:24px;color:var(--text-light);font-size:15px;">${thema.zusammenfassung}</p>`;
+    let html = `<div class="lern-area fade-in"><h3>📖 ${thema.name}</h3>`;
 
     thema.erklaerungen.forEach((e, i) => {
       const bId = `eb_${i}`, hId = `eh_${i}`;
@@ -1815,7 +1849,7 @@
           const idx = parseInt(this.dataset.idx);
           document.querySelectorAll('.quiz-option').forEach(o => { o.classList.add('disabled'); if(parseInt(o.dataset.idx)===q.richtig) o.classList.add('richtig'); });
           const correct = idx===q.richtig;
-          if (correct) { this.classList.add('richtig'); score++; addPoint(); }
+          if (correct) { this.classList.add('richtig'); score++; addPoint(); markProblemzoneRichtig(q.key); }
           else { this.classList.add('falsch'); trackWrong(q.frage, q.optionen, q.richtig, q.erklaerung||'', 'Problemzonen'); }
           const erk = document.getElementById('erklaerung');
           if (erk && erk.textContent) { erk.classList.add('visible'); if(!correct) erk.classList.add('wrong'); }

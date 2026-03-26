@@ -2243,6 +2243,51 @@ Unterst\u00fctzung von <strong>Unternehmensprozessen</strong> durch betriebliche
       ]
     },
     {
+      titel: "📚 Grundbegriffe nach Hansen (S. 1–7)",
+      inhalt: `<p><small>Quelle: Hansen, Mendling, Neumann: Wirtschaftsinformatik, 12. Aufl. 2019 – prüfungsrelevant S. 1–7</small></p>
+<div class="def-box"><div class="def-label">Betrieb</div>
+Wirtschaftseinheit, die zielgerichtet Güter für Außenstehende bereitstellt.<br>
+<strong>Produktionsfaktoren:</strong> Arbeit · Betriebsmittel · Werkstoffe · Wissen<br>
+<small>Mit Gewinnziel = <strong>Unternehmen</strong> · Ohne Gewinnziel = <strong>NPO</strong> (Non-Profit-Organisation)</small>
+</div>
+<div class="def-box"><div class="def-label">Rechner (Computer) – DIN-Definition</div>
+Funktionseinheit zur Verarbeitung von Daten: <strong>mathematisch, umformend, übertragend und speichernd</strong>.
+</div>
+<div class="def-box"><div class="def-label">Daten</div>
+Stellen Information aufgrund <strong>bekannter oder unterstellter Abmachungen</strong> in <strong>maschinell verarbeitbarer Form</strong> dar.
+</div>
+<div class="def-box"><div class="def-label">Informationssystem (IS)</div>
+Besteht aus <strong>Menschen und Maschinen</strong> (Rechner, Software, Netze, Kommunikationseinrichtungen), die Information erzeugen und/oder benutzen und durch Kommunikationsbeziehungen verbunden sind.
+</div>
+<div class="def-box"><div class="def-label">Betriebliches IS</div>
+Unterstützt <strong>Leistungsprozesse und Austauschbeziehungen</strong> innerhalb eines Betriebs sowie zwischen dem Betrieb und seiner Umwelt.
+</div>
+<div class="def-box"><div class="def-label">Rechnergestütztes IS</div>
+IS, bei dem Erfassung, Speicherung, Übertragung und/oder Transformation von Information durch <strong>Informationstechnik</strong> unterstützt wird.
+</div>
+<div class="def-box"><div class="def-label">ERP-System</div>
+<strong>Enterprise Resource Planning</strong>: Integriertes IS, das alle wesentlichen betrieblichen Funktionsbereiche unterstützt und den laufenden Ressourceneinsatz (Kapital, Arbeit, Betriebsmittel, Werkstoffe) steuert.
+</div>`,
+      merke: `Betrieb = Wirtschaftseinheit (mit Gewinn = Unternehmen, ohne = NPO) • IS = Menschen + Maschinen • Betriebliches IS = Leistungsprozesse • Rechnergestütztes IS = IT-Unterstützung`,
+      flipcards: [
+        { vorne: "Betrieb", hinten: "Wirtschaftseinheit zur zielgerichteten Güterbereitstellung<br><small>Produktionsfaktoren: Arbeit, Betriebsmittel, Werkstoffe, Wissen</small>" },
+        { vorne: "Unternehmen vs. NPO", hinten: "<strong>Unternehmen</strong> = Betrieb mit Gewinnziel<br><strong>NPO</strong> = Betrieb ohne Gewinnziel" },
+        { vorne: "Rechner (DIN)", hinten: "Funktionseinheit zur Datenverarbeitung:<br>mathematisch · umformend · übertragend · speichernd" },
+        { vorne: "Daten (Hansen)", hinten: "Information in <strong>maschinell verarbeitbarer Form</strong><br>aufgrund bekannter/unterstellter Abmachungen" },
+        { vorne: "IS (Hansen)", hinten: "Menschen + Maschinen, verbunden durch<br>Kommunikationsbeziehungen" },
+        { vorne: "Betriebliches IS", hinten: "Unterstützt Leistungsprozesse &<br>Austauschbeziehungen im/zwischen Betrieb(en)" },
+        { vorne: "Rechnergestütztes IS", hinten: "IS mit IT-Unterstützung bei Erfassung,<br>Speicherung, Übertragung oder Transformation" },
+        { vorne: "ERP-System", hinten: "Integriertes IS für alle betrieblichen<br>Funktionsbereiche (SAP, Oracle, MS Dynamics)" }
+      ],
+      interaktion: [
+        { frage: "Was ist ein Betrieb laut Hansen?", optionen: ["Ein Gebäude", "Wirtschaftseinheit zur zielgerichteten Güterbereitstellung", "Eine Softwarefirma", "Ein staatliches Amt"], richtig: 1, erklaerung: "Betrieb = Wirtschaftseinheit, die zielgerichtet Güter für Außenstehende bereitstellt." },
+        { frage: "Was unterscheidet Unternehmen von NPO?", optionen: ["Die Größe", "Der Standort", "Das Gewinnziel", "Die Mitarbeiterzahl"], richtig: 2, erklaerung: "Unternehmen = Betrieb mit Gewinnziel. NPO = Non-Profit-Organisation ohne Gewinnziel." },
+        { frage: "DIN-Definition des Rechners?", optionen: ["Gerät zur Texteingabe", "Funktionseinheit zur Datenverarbeitung: mathematisch, umformend, übertragend, speichernd", "Netzwerkgerät", "Drucker und Scanner"], richtig: 1, erklaerung: "DIN-Definition: Funktionseinheit zur Verarbeitung von Daten: mathematisch, umformend, übertragend und speichernd." },
+        { frage: "Was sind Daten laut Hansen?", optionen: ["Alles was gespeichert ist", "Information in maschinell verarbeitbarer Form aufgrund bekannter Abmachungen", "Nur Zahlen", "Texte und Bilder"], richtig: 1, erklaerung: "Daten stellen Information aufgrund bekannter oder unterstellter Abmachungen in maschinell verarbeitbarer Form dar." },
+        { frage: "Woraus besteht ein IS nach Hansen?", optionen: ["Nur Software", "Nur Hardware", "Menschen und Maschinen verbunden durch Kommunikation", "Nur Datenbanken"], richtig: 2, erklaerung: "IS = Menschen + Maschinen (Rechner, Software, Netze), verbunden durch Kommunikationsbeziehungen." }
+      ]
+    },
+    {
       titel: "\u{1F504} Betriebliche Prozesse",
       inhalt: `<div class="def-box"><div class="def-label">Prozess als Modell (Folie 1.-5)</div>
 Ein Prozess ist eine <strong>Folge von Schritten</strong>,<br>
@@ -2891,6 +2936,39 @@ Jedes Modell ist nur so gut wie sein Zweck. Ein Modell f\u00fcr Controlling sieh
       ]
     },
     {
+      titel: "🔗 Modellarten & Wertschöpfungskette (Porter)",
+      inhalt: `<p><strong>Arten von Modellen:</strong></p>
+<table class="erk-table">
+  <tr><th>Modellart</th><th>Beschreibung</th><th>Beispiel</th></tr>
+  <tr><td><strong>Reale Modelle</strong></td><td>Physische, dreidimensionale Nachbildungen</td><td>Architekturmodell, Windkanal-Attrappe</td></tr>
+  <tr><td><strong>Theoretische / formale Modelle</strong></td><td>Abstrakte, symbolische Abbildungen – in der WI am häufigsten</td><td>Organigramm, EPK-Diagramm, ER-Diagramm</td></tr>
+  <tr><td><strong>Isomorphes Modell</strong></td><td>Vollständige, eindeutige Abbildung aller Eigenschaften</td><td>Nur theoretisch möglich</td></tr>
+  <tr><td><strong>Homomorphes Modell</strong></td><td>Vereinfachte Abbildung: mehrere Eigenschaften werden zusammengefasst</td><td>Alle WI-Modelle in der Praxis</td></tr>
+</table>
+<p><small>📌 Merke: In der Praxis sind <strong>alle</strong> WI-Modelle homomorph – eine vollständige (isomorphe) Abbildung ist nur theoretisch denkbar.</small></p>
+<hr style="margin:16px 0;border:none;border-top:1px solid #e2e8f0;">
+<p><strong>Das Unternehmen als Prozessmodell – Wertschöpfungskette nach Porter:</strong></p>
+<p><small>Quelle: Porter, M.: Wettbewerbsvorteile, 3. Aufl. 1992 (Campus), S. 62</small></p>
+<table class="erk-table">
+  <tr><th>Aktivitätstyp</th><th>Aktivitäten</th><th>Bedeutung für IS</th></tr>
+  <tr><td><strong>Primäre Aktivitäten</strong><br><small>(direkt wertschöpfend)</small></td><td>Eingangslogistik · Produktion · Ausgangslogistik · Marketing &amp; Vertrieb · Kundendienst</td><td>Jede dieser Aktivitäten kann durch IS unterstützt werden</td></tr>
+  <tr><td><strong>Unterstützende Aktivitäten</strong></td><td>Unternehmensinfrastruktur · Personalwirtschaft · Technologieentwicklung (F&amp;E) · Beschaffung</td><td>Ermöglichen die primären Aktivitäten</td></tr>
+</table>`,
+      merke: `Isomorph = vollständige Abbildung (nur theoretisch) • Homomorph = vereinfacht (Praxisfall) • Porter-Wertkette: 5 primäre + 4 unterstützende Aktivitäten`,
+      flipcards: [
+        { vorne: "Isomorphes Modell", hinten: "Vollständige, eindeutige Abbildung<br>aller Eigenschaften – nur <strong>theoretisch</strong> möglich" },
+        { vorne: "Homomorphes Modell", hinten: "Vereinfachte Abbildung –<br>alle <strong>Praxis</strong>-Modelle der WI" },
+        { vorne: "Primäre Aktivitäten (Porter)", hinten: "Eingangslogistik · Produktion · Ausgangslogistik<br>Marketing & Vertrieb · Kundendienst" },
+        { vorne: "Unterstützende Aktivitäten (Porter)", hinten: "Infrastruktur · Personalwirtschaft<br>Technologieentwicklung · Beschaffung" }
+      ],
+      interaktion: [
+        { frage: "Was ist ein homomorphes Modell?", optionen: ["Vollständige Abbildung aller Eigenschaften", "Vereinfachte Abbildung – mehrere Eigenschaften zusammengefasst", "Nur reale Modelle", "Nur digitale Modelle"], richtig: 1, erklaerung: "Homomorphes Modell = vereinfachte Abbildung. Alle WI-Praxismodelle sind homomorph." },
+        { frage: "Welches Modell ist nur theoretisch möglich?", optionen: ["Homomorphes Modell", "Reales Modell", "Isomorphes Modell", "Formales Modell"], richtig: 2, erklaerung: "Isomorphes Modell = vollständige Abbildung aller Eigenschaften – in der Praxis nicht realisierbar." },
+        { frage: "Was sind primäre Aktivitäten in Porters Wertschöpfungskette?", optionen: ["HR, IT, Beschaffung", "Eingangslogistik, Produktion, Ausgangslogistik, Marketing, Kundendienst", "Nur Produktion", "Infrastruktur und F&E"], richtig: 1, erklaerung: "Primäre Aktivitäten: Eingangslogistik · Produktion · Ausgangslogistik · Marketing & Vertrieb · Kundendienst." },
+        { frage: "WI-Verbindung zur Wertschöpfungskette?", optionen: ["Keine Verbindung", "IS kann jede Aktivität unterstützen/automatisieren", "Nur IT-Abteilung relevant", "Nur Marketing"], richtig: 1, erklaerung: "Jede Aktivität der Wertschöpfungskette kann durch IS unterstützt, automatisiert oder optimiert werden." }
+      ]
+    },
+    {
       titel: "\u{1F4AC} Semiotik: Syntax, Semantik, Pragmatik",
       inhalt: `<table class="erk-table">
   <tr><th>Ebene</th><th>Frage</th><th>Beispiel "110"</th></tr>
@@ -3127,3 +3205,20 @@ IS k\u00f6nnen Informationen beliebig oft ausgeben, ohne dass sie verbraucht wer
     ]}
   ]
 };
+
+
+// Neuigkeiten – hier neue Einträge oben hinzufügen
+const NEUIGKEITEN = [
+  {
+    datum: "2026-03-26",
+    typ: "feature",   // "feature", "inhalt", "fix"
+    titel: "Problemzonen-Fix",
+    text: "Richtig beantwortete Fragen verschwinden jetzt aus den Problemzonen."
+  },
+  {
+    datum: "2026-03-26",
+    typ: "inhalt",
+    titel: "WInf Kühn – neue Themen",
+    text: "Neue Lerninhalte zu Modellmerkmalen und Systemklassen hinzugefügt."
+  }
+];
