@@ -36,7 +36,82 @@ const FAECHER = {
 // ============================================================
 FAECHER["steuerrecht"].themen["steuerrechtsordnung"] = {
   name: "1. Steuerrechtsordnung",
-  zusammenfassung: "Grundlagen des deutschen Steuerrechts: Abgabenarten, Rechtsquellen, Einteilung der Steuern, Steueraufkommen und Besteuerungsprinzipien.",
+  zusammenfassung: `<h4>1. Steuerrechtsordnung – Vollständige Zusammenfassung</h4>
+
+<h5>📌 Arten der öffentlichen Einnahmen</h5>
+<p>Der Staat finanziert sich durch <strong>4 Einnahmequellen</strong>: Abgaben, Erträge aus staatlichen Betrieben, Veräußerung von Staatsvermögen und Verschuldung.</p>
+<p>Abgaben unterteilen sich in:</p>
+<table class="erk-table">
+  <tr><th>Art</th><th>Gegenleistung</th><th>Beispiele</th><th>Rechtsgrundlage</th></tr>
+  <tr><td><strong>Steuern</strong></td><td>❌ Keine</td><td>Einkommensteuer, USt</td><td>§ 3 Abs. 1 AO</td></tr>
+  <tr><td><strong>Steuerl. Nebenleistungen</strong></td><td>⚠️ Strafcharakter</td><td>Verspätungszuschlag, Zinsen</td><td>§ 3 Abs. 4 AO</td></tr>
+  <tr><td><strong>Beiträge</strong></td><td>🔄 Mögliche</td><td>GKV, Rundfunkbeitrag</td><td>–</td></tr>
+  <tr><td><strong>Gebühren</strong></td><td>✅ Tatsächliche</td><td>Personalausweis, Müllabfuhr</td><td>–</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Definition Steuer (§ 3 Abs. 1 AO)</div>Geldleistungen, die <strong>keine Gegenleistung</strong> für eine besondere staatliche Leistung darstellen und zur Erzielung von Einnahmen allen auferlegt werden, bei denen der Tatbestand zutrifft.</div>
+
+<h5>📌 Rechtsquellen des Steuerrechts – Pyramidensystem</h5>
+<table class="erk-table">
+  <tr><th>Ebene</th><th>Quelle</th><th>Inhalt</th></tr>
+  <tr><td>1️⃣ Spitze</td><td><strong>Grundgesetz (GG)</strong></td><td>Finanzverfassung Art. 104a ff.: Gesetzgebungskompetenz (Art. 105), Steuerverteilung (Art. 106), Finanzverwaltung (Art. 108)</td></tr>
+  <tr><td>2️⃣ Mitte</td><td><strong>Abgabenordnung (AO)</strong></td><td>Allgemeiner Teil: gilt für alle Steuerarten. Regelt Steuerschuldverhältnis, Zuständigkeiten, Verfahren</td></tr>
+  <tr><td>3️⃣ Basis</td><td><strong>Einzelsteuergesetze</strong></td><td>EStG, KStG, GewStG, UStG – je ein Gesetz pro Steuerart</td></tr>
+</table>
+<p><strong>Sonstige Rechtsquellen:</strong> Rechtsverordnungen (z.B. EStDV) · Kommunale Satzungen · Verwaltungsvorschriften (Erlasse) · Rechtsprechung (FG → BFH → BVerfG / EuGH) · Doppelbesteuerungsabkommen (DBA) · EU-Richtlinien</p>
+
+<h5>📌 Einteilung der Steuern (5 Einteilungskriterien)</h5>
+<p><strong>1. Juristische Einteilung:</strong></p>
+<table class="erk-table">
+  <tr><th>Kategorie</th><th>Beispiele</th></tr>
+  <tr><td>Besitzsteuer (Einkommen/Ertrag)</td><td>ESt, KSt, GewSt, Kirchensteuer</td></tr>
+  <tr><td>Besitzsteuer (Vermögen/Substanz)</td><td>ErbSt (Erbschaft), GrSt</td></tr>
+  <tr><td>Verkehrsteuer</td><td>USt, ErbSt (Schenkung), KfzSt, Grunderwerbsteuer</td></tr>
+  <tr><td>Verbrauch-/Aufwandsteuer</td><td>Hundesteuer, Biersteuer, Tabaksteuer</td></tr>
+</table>
+<p><em>Hinweis: ErbSt taucht doppelt auf – Erbschaft = kein Rechtsgeschäft (kein Wille des Toten), Schenkung = Rechtsgeschäft (zwei Willenserklärungen)</em></p>
+
+<p><strong>2. Betriebswirtschaftliche Einteilung:</strong> Direkte Steuern (treffen eigenen Geldbeutel, z.B. ESt) vs. Indirekte Steuern (werden überwälzt, v.a. Verbrauchsteuern, z.B. USt)</p>
+
+<p><strong>3. Steuertechnische Einteilung:</strong> Quellenabzugsteuer (wird direkt einbehalten, z.B. Lohnsteuer, Kapitalertragsteuer) vs. Veranlagungsverfahren (Steuererklärung → Finanzamt setzt fest, z.B. jährl. ESt)</p>
+
+<p><strong>4. Politische Einteilung:</strong></p>
+<table class="erk-table">
+  <tr><th>Träger</th><th>Beispiele</th></tr>
+  <tr><td>Bundessteuern</td><td>Energiesteuer, Tabaksteuer, Soli</td></tr>
+  <tr><td>Landessteuern</td><td>ErbSt, Grunderwerbsteuer</td></tr>
+  <tr><td>Gemeindesteuern</td><td>Grundsteuer, Gewerbesteuer</td></tr>
+  <tr><td><strong>Gemeinschaftsteuern</strong></td><td><strong>ESt, KSt, USt</strong> (Bund + Länder + ggf. Gemeinden) – die größten!</td></tr>
+  <tr><td>Kirchensteuer</td><td>Kirchensteuer</td></tr>
+</table>
+
+<p><strong>5. Zeitliche Einteilung:</strong> Periodische Steuern (jährlich, z.B. ESt) vs. Aperiodische Steuern (einmalig bei Ereignis, z.B. ErbSt)</p>
+
+<h5>📌 Grundsatz Ermittlung der Steuerschuld</h5>
+<p><strong>Schema:</strong> Steuerbemessungsgrundlage × Steuertarif = Steuerschuld</p>
+<table class="erk-table">
+  <tr><th>Begriff</th><th>Erklärung</th></tr>
+  <tr><td>Grenzsteuersatz</td><td>Steuersatz auf den letzten verdienten Euro (Eingangssteuersatz = Beginn, Spitzensteuersatz = Maximum)</td></tr>
+  <tr><td>Durchschnittssteuersatz</td><td>Gesamte Steuer ÷ Gesamteinkommen (immer niedriger als Grenzsteuersatz bei Progression)</td></tr>
+  <tr><td><strong>Freibetrag</strong></td><td>Nur der <strong>übersteigende</strong> Betrag wird besteuert – „soweit" (z.B. §3 EStG)</td></tr>
+  <tr><td><strong>Freigrenze</strong></td><td>Bei Überschreitung: <strong>voller</strong> Betrag wird besteuert – „wenn" (z.B. §23 Abs. 3 EStG)</td></tr>
+</table>
+<p><strong>ESt-Tarif 2026 (§ 32a EStG):</strong> Grundfreibetrag 12.348 € (0%) → Progressionszone (14–42%) → Spitzensteuersatz 42% → Reichensteuersatz 45%. Bei Zusammenveranlagung verdoppeln sich alle Grenzwerte.</p>
+
+<h5>📌 Exkurs: Unternehmensformen & Besteuerungsprinzip</h5>
+<table class="erk-table">
+  <tr><th>Rechtsform</th><th>Haftung</th><th>Mindestkapital</th><th>Besonderheit</th></tr>
+  <tr><td>Einzelunternehmen (EU)</td><td>Unbeschränkt (auch privat)</td><td>Keins</td><td>Transparenzprinzip: Unternehmer = Unternehmen</td></tr>
+  <tr><td>GbR</td><td>Unbeschränkt</td><td>Keins</td><td>Einfachste Personengesellschaft</td></tr>
+  <tr><td>Stille Gesellschaft</td><td>Keine (nur Einlage)</td><td>Keins</td><td>Typisch (§ KV) vs. Atypisch (Vertrag)</td></tr>
+  <tr><td>OHG</td><td>Unbeschränkt</td><td>Keins</td><td>Alle GS zur Geschäftsführung berechtigt</td></tr>
+  <tr><td>KG</td><td>Komplementär: voll / Kommanditist: beschränkt</td><td>Keins</td><td>GmbH & Co. KG: GmbH als Komplementär</td></tr>
+  <tr><td>GmbH</td><td>Nur Gesellschaftsvermögen</td><td>25.000 € (UG: 1 €)</td><td>Eigene Rechtspersönlichkeit</td></tr>
+  <tr><td>AG</td><td>Nur Gesellschaftsvermögen</td><td>50.000 €</td><td>Grundkapital in Aktien zerlegt</td></tr>
+</table>
+<p><strong>Besteuerungsprinzip:</strong></p>
+<p>Personenunternehmen: Unternehmensebene → GewSt | Unternehmerebene → ESt + SolZ + KiSt</p>
+<p>Kapitalgesellschaften: Gesellschaftsebene → KSt (15%) + GewSt + SolZ | Gesellschafterebene → Ausschüttung privat: 25% Abgeltungsteuer / betrieblich: Teileinkünfteverfahren (60% zu versteuern)</p>
+<div class="def-box"><div class="def-label">KöMoG 2021 (Optionsmodell)</div>Personenhandelsgesellschaften können <strong>optieren</strong>, wie eine Kapitalgesellschaft besteuert zu werden – Kombination der außersteuerlichen Vorteile von Personengesellschaften mit den steuerlichen Vorteilen von Kapitalgesellschaften.</div>`,
   erklaerungen: [
     {
       titel: "\uD83D\uDCB0 Arten der \u00f6ffentlichen Einnahmen",
@@ -1098,7 +1173,7 @@ Grenzsteuersatz: ca. <strong>38%</strong></p>`
     ]},
     { titel: "Politische Einteilung zuordnen", paare: [
       { links: "Tabak-, Energiesteuer", rechts: "Bundessteuern" },
-      { links: "Erbschaftssteuer", rechts: "Landessteuern" },
+      { links: "Erbschaftsteuer", rechts: "Landessteuern" },
       { links: "Grund-, Gewerbesteuer", rechts: "Gemeindesteuern" },
       { links: "ESt, USt", rechts: "Gemeinschaftsteuern" }
     ]},
@@ -1146,7 +1221,90 @@ Grenzsteuersatz: ca. <strong>38%</strong></p>`
 // ============================================================
 FAECHER["steuerrecht"].themen["einkommensteuer"] = {
   name: "2. Einkommensteuer",
-  zusammenfassung: "Steuerpflicht, 7 Einkunftsarten, Gewinnermittlung, Verlustverrechnung und Veranlagung.",
+  zusammenfassung: `<h4>2. Einkommensteuer – Vollständige Zusammenfassung</h4>
+
+<h5>📌 Allgemeine Charakterisierung</h5>
+<p><strong>Rechtsgrundlagen:</strong> EStG, EStDV, LStDV (+ Richtlinien: EStR, EStH, LStR, LStH)</p>
+<table class="erk-table">
+  <tr><th>Merkmal</th><th>Inhalt</th><th>Rechtsgrundlage</th></tr>
+  <tr><td><strong>Personensteuer</strong></td><td>Berücksichtigt persönliche Verhältnisse (Familienstand, Kinder, Leistungsfähigkeit)</td><td>§ 1 EStG</td></tr>
+  <tr><td><strong>Ertragsteuer</strong></td><td>Bemessungsgrundlage = zu versteuerndes Einkommen</td><td>§ 2 Abs. 5 EStG</td></tr>
+  <tr><td><strong>Gemeinschaftsteuer</strong></td><td>Aufkommen: Bund / Länder / Gemeinden</td><td>Art. 106 Abs. 3 und 5 GG</td></tr>
+  <tr><td><strong>Jahressteuer</strong></td><td>Veranlagungszeitraum = Kalenderjahr</td><td>§ 2 Abs. 7, § 25 Abs. 1 EStG</td></tr>
+</table>
+
+<h5>📌 7 Einkunftsarten (§ 2 Abs. 1 EStG)</h5>
+<table class="erk-table">
+  <tr><th>Einkunftsart</th><th>Kategorie</th><th>Ermittlung</th></tr>
+  <tr><td>Einkünfte aus Land- und Forstwirtschaft</td><td rowspan="3"><strong>Gewinneinkunftsarten</strong></td><td rowspan="3">Bilanz oder EÜR (§ 4 Abs. 3 EStG)</td></tr>
+  <tr><td>Einkünfte aus Gewerbebetrieb</td></tr>
+  <tr><td>Einkünfte aus selbständiger Arbeit</td></tr>
+  <tr><td>Einkünfte aus nichtselbständiger Arbeit</td><td rowspan="4"><strong>Überschusseinkunftsarten</strong></td><td rowspan="4">Einnahmen − Werbungskosten</td></tr>
+  <tr><td>Einkünfte aus Kapitalvermögen</td></tr>
+  <tr><td>Einkünfte aus Vermietung und Verpachtung</td></tr>
+  <tr><td>Sonstige Einkünfte</td></tr>
+</table>
+
+<h5>📌 Persönliche Steuerpflicht – Prüfungsschema</h5>
+<p><strong>Schritt 1: Unbeschränkte Steuerpflicht (§ 1 Abs. 1–3 EStG)</strong></p>
+<table class="erk-table">
+  <tr><th>Art</th><th>Voraussetzungen</th><th>Prinzip</th></tr>
+  <tr><td>Normal (§ 1 Abs. 1)</td><td>Natürliche Person + Wohnsitz (§ 8 AO) oder gewöhnlicher Aufenthalt &gt;6 Monate (§ 9 AO) im Inland</td><td>Welteinkommensprinzip</td></tr>
+  <tr><td>Erweitert (§ 1 Abs. 2)</td><td>Deutsche Staatsangehörige im Ausland (z.B. Diplomaten)</td><td>Welteinkommensprinzip</td></tr>
+  <tr><td>Fiktiv / Grenzpendler (§ 1 Abs. 3)</td><td>Antrag + Wohnsitz Ausland + inländische Einkünfte (§ 49 EStG) + mind. 90% der dt. ESt unterliegend + Nachweis</td><td>Welteinkommensprinzip</td></tr>
+</table>
+<p><strong>Schritt 2: Beschränkte Steuerpflicht (§ 1 Abs. 4 EStG)</strong></p>
+<table class="erk-table">
+  <tr><th>Art</th><th>Voraussetzungen</th><th>Prinzip</th></tr>
+  <tr><td>Normal (§ 1 Abs. 4)</td><td>Wohnsitz/Aufenthalt Ausland + inländische Einkünfte (§ 49 EStG)</td><td>Inlandsprinzip</td></tr>
+  <tr><td>Erweitert (§ 2 AStG)</td><td>Wegzügler</td><td>Inlandsprinzip</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Prüfungshinweis</div>Immer systematisch prüfen: erst § 1 Abs. 1 → dann § 8/9 AO → dann § 1 Abs. 3 → dann § 1 Abs. 4. <strong>Rechenweg immer vollständig notieren!</strong></div>
+
+<h5>📌 Steuerbefreiungen (§ 3 EStG – Auswahl)</h5>
+<p>Nr. 1: KV, PV, UV | Nr. 2: Arbeitslosengeld | Nr. 11c: Inflationsausgleich | Nr. 15: AG-Zuschüsse ÖPNV | Nr. 16: Reisekostenerstattung | Nr. 26/26a: Übungsleiter / Ehrenamt | Nr. 45: Dienst-Handy</p>
+<div class="def-box"><div class="def-label">Progressionsvorbehalt (§ 32b EStG)</div>Steuerfreie Leistungen (ALG, Krankengeld, Elterngeld, KUG) erhöhen den <strong>Steuersatz</strong> auf das restliche Einkommen. Bei &gt;410 € pro Jahr → Pflichtveranlagung!</div>
+
+<h5>📌 Verlustverrechnung – 3 Stufen</h5>
+<table class="erk-table">
+  <tr><th>Stufe</th><th>Art</th><th>Erklärung</th></tr>
+  <tr><td>1</td><td><strong>Horizontaler Verlustausgleich</strong></td><td>Verrechnung innerhalb derselben Einkunftsart (z.B. 2 Gewerbebetriebe)</td></tr>
+  <tr><td>2</td><td><strong>Vertikaler Verlustausgleich</strong></td><td>Verrechnung zwischen verschiedenen Einkunftsarten (z.B. Gewerbe+ mit V&amp;V−)</td></tr>
+  <tr><td>3</td><td><strong>Verlustabzug (§ 10d EStG)</strong></td><td>Verlustrücktrag (Vorjahr) oder Verlustvortrag (Folgejahre)</td></tr>
+</table>
+<p><strong>Ausnahmen</strong> (kein vertikaler Ausgleich): Einkünfte aus Kapitalvermögen · private Veräußerungsgeschäfte · sonstige Einkünfte (§ 22 Nr. 3)</p>
+
+<h5>📌 Steuerveranlagung (§§ 25 ff. EStG)</h5>
+<p><strong>Abgabefristen (§ 149 AO):</strong> Grundsätzlich Ende Juli des Folgejahres; bei steuerlicher Vertretung Ende Februar des zweiten Folgejahres. Datenfernübertragung bei Gewinneinkünften verpflichtend.</p>
+<table class="erk-table">
+  <tr><th>Veranlagungsart</th><th>Personenkreis</th><th>Tarif</th></tr>
+  <tr><td>Einzelveranlagung</td><td>Ledige, Verwitwete, Geschiedene, dauerhaft getrennte Ehegatten, beschränkt Steuerpflichtige</td><td>Grundtarif</td></tr>
+  <tr><td><strong>Zusammenveranlagung</strong></td><td>Ehegatten: beide unbeschränkt steuerpflichtig, nicht getrennt lebend (1 Tag im VZ genügt)</td><td><strong>Splittingtarif</strong></td></tr>
+</table>
+
+<h5>📌 Einkünfte aus Gewerbebetrieb (§ 15 EStG)</h5>
+<p><strong>Voraussetzungen (kumulativ, § 15 Abs. 2 S. 1 EStG):</strong> Selbständigkeit · Nachhaltigkeit · Gewinnerzielungsabsicht · Beteiligung am allgemeinen wirtschaftlichen Verkehr · Keine LuF · Keine freiberufliche/selbständige Tätigkeit · (Keine Vermögensverwaltung)</p>
+<p><strong>Einkünfteermittlungsmethoden:</strong></p>
+<table class="erk-table">
+  <tr><th>Methode</th><th>Voraussetzung</th><th>Grundlage</th></tr>
+  <tr><td>Betriebsvermögensvergleich (Bilanz)</td><td>Buchführungspflichtige Unternehmen</td><td>Maßgeblichkeitsprinzip: HB → StB (steuerliche Abweichungen möglich)</td></tr>
+  <tr><td>EÜR (§ 4 Abs. 3 EStG)</td><td>Befreiung Buchführungspflicht (§ 241a HGB)</td><td>Zu-/Abflussprinzip (§ 11 EStG); Ausnahmen: 10-Tages-Fiktion, AfA</td></tr>
+</table>
+<p><strong>Wichtige Abweichungen Handelsbilanz / Steuerbilanz:</strong></p>
+<table class="erk-table">
+  <tr><th>Position</th><th>Handelsbilanz</th><th>Steuerbilanz</th></tr>
+  <tr><td>Reinvestitionsrücklagen</td><td>❌ nicht zulässig</td><td>✅ zulässig</td></tr>
+  <tr><td>Drohverlustrückstellungen</td><td>✅ zulässig</td><td>❌ nicht zulässig</td></tr>
+  <tr><td>AfA-Tabellen</td><td>eigene</td><td>steuerliche AfA-Tabellen</td></tr>
+</table>
+<p><strong>Nicht abziehbare Betriebsausgaben (§ 4 Abs. 5 EStG):</strong> Geschenke &gt;50€ p.a. · Jagd/Yachten · Geschäftsessen nur 70% · Geldstrafen · Bestechungsgelder</p>
+<p><strong>Sonderbetriebseinkünfte:</strong> Vergütungen, die der Gesellschafter von der PersGes erhält (Gehalt, Darlehenszinsen, Miete/Pacht) → erhöhen / vermindern das steuerliche Gesamtergebnis</p>
+<p><strong>Veräußerung Gewerbebetrieb (§ 16 EStG):</strong> Veräußerungspreis − Veräußerungskosten − Buchwert BV = Veräußerungsgewinn. Steuerlich begünstigt (§ 16 Abs. 4 + § 34 EStG).</p>
+
+<h5>📌 Einkünfte aus selbständiger Arbeit (§ 18 EStG)</h5>
+<p><strong>Freiberufliche Tätigkeit (§ 18 Abs. 1 Nr. 1):</strong> Wissenschaftliche, künstlerische, schriftstellerische, unterrichtende oder erzieherische Tätigkeit + Katalogberufe (Ärzte, Zahnärzte, Rechtsanwälte, EDV-Berater, Hebammen u.a.)</p>
+<p><strong>Sonstige selbständige Arbeit (§ 18 Abs. 1 Nr. 3):</strong> Gelegentlich oder ausnahmsweise nachhaltig (z.B. Aufsichtsrat, Testamentsvollstrecker)</p>
+<p><strong>Voraussetzungen</strong> wie Gewerbebetrieb: Selbständigkeit · Nachhaltigkeit · Gewinnerzielungsabsicht · Beteiligung am wirtschaftlichen Verkehr. Abgrenzung zum Gewerbebetrieb nach 15.6 EStH.</p>`,
   erklaerungen: [
     {
       titel: "\u{1F464} Pers\u00f6nliche Steuerpflicht",
@@ -1948,18 +2106,84 @@ Nr. 3 taucht in Klausuren oft auf: Aufsichtsrat-Verg\u00fctung = selbst\u00e4ndi
 // ============================================================
 FAECHER["winf-seidlmeier"].themen["was-ist-wi"] = {
   name: "1. Was ist Wirtschaftsinformatik?",
-  zusammenfassung: "Definition der WI, Informationssysteme, betriebliche Prozesse und Wettbewerbsvorteile durch IT (Porter).",
+  zusammenfassung: `<h4>1. Was ist Wirtschaftsinformatik? – Vollständige Zusammenfassung</h4>
+
+<h5>📌 Definition und Grundverständnis</h5>
+<div class="def-box"><div class="def-label">WI als Schnitt- und Zusatzmenge</div>
+<strong>WI1:</strong> Wirtschaftsinformatik als Schnittmenge aus Informatik + BWL<br>
+<strong>WI2:</strong> WI als Zusatzmenge – eigene Inhalte, die über INF und BWL hinausgehen (z.B. neues Wissen aus der Zusammenführung)
+</div>
+<div class="def-box"><div class="def-label">Merksatz (GI-Definition)</div>
+Analyse, Gestaltung und Nutzung von <strong>betrieblichen Informationssystemen</strong> auf der Basis eines gemeinsamen <strong>Prozessverständnisses</strong>.
+</div>
+<p><em>Hintergrund: Das gemeinsame Prozessverständnis ist der „Dolmetscher" zwischen BWL und Informatik. Wirtschaftsinformatik ist eine Wissenschaft, nicht nur Praxis!</em></p>
+
+<h5>📌 Das Grundverständnis: Strategie – Prozess – IS (nach Österle)</h5>
+<table class="erk-table">
+  <tr><th>Ebene</th><th>Inhalt</th><th>Verbindung</th></tr>
+  <tr><td><strong>Geschäftsstrategie</strong></td><td>Unternehmensziele (z.B. Kostenführerschaft, Qualitätsführerschaft nach Porter)</td><td>Prozesse müssen der Strategie entsprechen</td></tr>
+  <tr><td><strong>Prozess</strong></td><td>Zielgerichtete Durchführung betrieblicher Aufgaben in allen Funktionsbereichen</td><td>IS setzt Prozesse um</td></tr>
+  <tr><td><strong>Informationssystem (IS)</strong></td><td>Datenbank, E-Mail-System, ERP – verbessert Prozessabläufe</td><td>IS leistet Erfolgsbeitrag durch Prozessunterstützung</td></tr>
+</table>
+<p><strong>Hauptziel der WI:</strong> Unterstützung von Unternehmensprozessen durch betriebliche IS = prozessorientierte Wirtschaftsinformatik</p>
+<p><strong>Bedeutung:</strong> IS als „befähigende Technik" (enabling technology) – niemals fertig, weil sich Geschäftsbedingungen laufend ändern! Treiber: zunehmende Digitalisierung von Arbeitsplätzen, Unternehmen und Gesellschaft → attraktive Tätigkeitsfelder für BWL'er.</p>
+
+<h5>📌 Was ist ein Prozess?</h5>
+<div class="def-box"><div class="def-label">Definition Prozess</div>
+Ein Prozess ist eine <strong>zielgerichtete, logisch zusammenhängende Folge von Aktivitäten</strong>, die durch ein Ereignis ausgelöst wird und ein definiertes Ergebnis erzeugt.
+</div>
+<p><strong>Bestandteile eines Prozesses:</strong></p>
+<table class="erk-table">
+  <tr><th>Bestandteil</th><th>Erklärung</th><th>Beispiel</th></tr>
+  <tr><td>Startereignis</td><td>Auslöser des Prozesses – muss genau definiert sein</td><td>„Kundenbestellung eingetroffen"</td></tr>
+  <tr><td>Schritte / Funktionen</td><td>Einzelne Aktivitäten, die Input zu Output verarbeiten</td><td>Prüfen, Freigeben, Versenden</td></tr>
+  <tr><td>Ausführende Elemente</td><td>Personen, Stellen, Abteilungen, Anwendungssysteme</td><td>Mitarbeiter 1, Abteilung A</td></tr>
+  <tr><td>Input / Output</td><td>Daten und Informationen, die ein- und ausgehen</td><td>Dokument, Datenbankeinträge</td></tr>
+  <tr><td>Endereignis</td><td>Abschluss des Prozesses – muss genau definiert sein</td><td>„Lieferung bestätigt"</td></tr>
+</table>
+<p><em>Merke: Der Prozess selbst ist immer eine vereinfachte Abbildung der Realität = ein Modell!</em></p>
+
+<h5>📌 Informationssysteme (IS) – Arten und Beitrag</h5>
+<p><strong>IS-Arten nach Aufgabe:</strong> Operative IS (unterstützen Tagesgeschäft) · Führungs-IS / MIS (Management Information Systems) · Entscheidungsunterstützungs-IS (DSS) · Wissensmanagement-IS</p>
+<p><strong>4 wirtschaftliche Ziele des IS-Einsatzes:</strong></p>
+<table class="erk-table">
+  <tr><th>Ziel</th><th>Beschreibung</th></tr>
+  <tr><td>Kostensenkung</td><td>Effizienzsteigerung durch Automatisierung</td></tr>
+  <tr><td>Qualitätssteigerung</td><td>Fehlerreduktion, konsistentere Ergebnisse</td></tr>
+  <tr><td>Zeitersparnis</td><td>Schnellere Prozessabwicklung</td></tr>
+  <tr><td>Flexibilität</td><td>Schnellere Anpassung an veränderte Bedingungen</td></tr>
+</table>
+
+<h5>📌 Praktisches Beispiel: Marktforschungsunternehmen</h5>
+<p><strong>Situation:</strong> Umstieg von Papier-Befragungen auf Smartphones. IT-Leiter kann Wirtschaftlichkeit nicht belegen → BWL-Assistentin mit WI-Schwerpunkt übernimmt.</p>
+<p><strong>Lösung:</strong> Prozessbasierte Analyse von 2 Prozessen (Interview + Datenaufbereitung) → Kennzahlenvergleich:</p>
+<table class="erk-table">
+  <tr><th></th><th>Papier</th><th>Smartphone</th></tr>
+  <tr><td>Gesamtkosten/Auftrag</td><td>5.150 €</td><td>4.224,54 €</td></tr>
+  <tr><td>Kostensenkung/Auftrag</td><td colspan="2">925,46 €</td></tr>
+  <tr><td>Amortisationszeit</td><td colspan="2"><strong>0,42 Jahre (≈ 5 Monate)</strong> bei Investition 95.000 €</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Kernbotschaft</div>
+WI verknüpft <strong>Prozessanalyse + betriebswirtschaftliche Bewertung + technische Möglichkeiten</strong>. Genau das ist Wirtschaftsinformatik in der Praxis!
+</div>`,
   erklaerungen: [
     {
       titel: "\u{1F4D6} Definition Wirtschaftsinformatik",
-      inhalt: `<div class="def-box"><div class="def-label">Wirtschaftsinformatik</div>
-Wissenschaft von <strong>Entwurf, Entwicklung und Einsatz</strong> computergest\u00fctzter <strong>IKS</strong> in Wirtschaft und Verwaltung.</div>
+      inhalt: `<div class="def-box"><div class="def-label">Wirtschaftsinformatik (Vorlesung)</div>
+<strong>WI\u2081</strong> = Fachliche Schnittmenge aus <strong>Informatik</strong> und <strong>Betriebswirtschaftslehre</strong><br>
+<strong>WI\u2082</strong> = Enth\u00e4lt dar\u00fcber hinaus <strong>eigene Inhalte</strong> (neues Wissen aus der Kombination)<br>
++ <strong>Informationstechnische Grundlagen</strong> (z.B. wie funktioniert ein Prozessor?)</div>
+<div class="def-box"><div class="def-label">\u{1F3AF} Merke (Folie 1.-4)</div>
+<strong>Analyse, Gestaltung und Nutzung von betrieblichen IS auf der Basis eines gemeinsamen Prozessverst\u00e4ndnisses</strong></div>
+<div class="def-box"><div class="def-label">Hauptziel der WI</div>
+Unterst\u00fctzung von <strong>Unternehmensprozessen</strong> durch betriebliche IS<br>
+<small>= prozessorientierte Wirtschaftsinformatik (Prozesse stehen im Vordergrund)</small></div>
 <div class="erk-tree">
   <div class="tree-root">Wirtschaftsinformatik</div>
   <div class="tree-branches">
     <div class="tree-branch" style="background:#DBEAFE;"><strong>BWL</strong></div>
     <div class="tree-branch" style="background:#EDE9FE;"><strong>Informatik</strong></div>
-    <div class="tree-branch" style="background:#FEF3C7;"><strong>Systemtheorie</strong></div>
+    <div class="tree-branch" style="background:#FEF3C7;"><strong>WI\u2082 (eigene Inhalte)</strong></div>
   </div>
 </div>`,
       schritte: [
@@ -2020,8 +2244,12 @@ Wissenschaft von <strong>Entwurf, Entwicklung und Einsatz</strong> computergest\
     },
     {
       titel: "\u{1F504} Betriebliche Prozesse",
-      inhalt: `<div class="def-box"><div class="def-label">Gesch\u00e4ftsprozess</div>
-Folge von <strong>zusammenh\u00e4ngenden Aktivit\u00e4ten</strong>, die Input in Output transformieren und <strong>Kundenwert</strong> schaffen.</div>
+      inhalt: `<div class="def-box"><div class="def-label">Prozess als Modell (Folie 1.-5)</div>
+Ein Prozess ist eine <strong>Folge von Schritten</strong>,<br>
+\u2022 mit einem <strong>Start- und Endereignis</strong>,<br>
+\u2022 mit ausf\u00fchrenden <strong>Organisationselementen</strong> (Personen, Stellen, Abteilungen u.\u00a0\u00e4.)<br>
+\u2022 sowie mit den notwendigen <strong>Input-</strong> und erzeugten <strong>Output-Informationen</strong></div>
+<p><small>\u{1F4A1} Vereinfachte Abbildung der Realit\u00e4t = Modell. Start- und Endereignis m\u00fcssen genau definiert werden.</small></p>
 <div class="erk-tree">
   <div class="tree-root">Auftragsabwicklung (Beispiel)</div>
   <div class="tree-branches">
@@ -2248,44 +2476,57 @@ Wettbewerbsvorteil durch IT ist <strong>nicht nachhaltig</strong> ohne kontinuie
         { frage: "Personalwirtschaft ist eine ... Aktivit\u00e4t", optionen: ["Prim\u00e4re", "Unterst\u00fctzende", "Operative", "Strategische"], richtig: 1, erklaerung: "Personal = unterst\u00fctzende Aktivit\u00e4t." },
         { frage: "Was ist KEINE der 5 Kr\u00e4fte?", optionen: ["Substitute", "Kundenmacht", "Digitalisierungsdruck", "Rivalit\u00e4t"], richtig: 2, erklaerung: "Digitalisierungsdruck geh\u00f6rt nicht zu Porters 5 Kr\u00e4ften." }
       ]
-    }
-  ],
-  quiz: [
-    { frage: "IKS steht f\u00fcr?", optionen: ["Internationale Kommunikationsstandards", "Informations- und Kommunikationssysteme", "Integrierte Kontrollsysteme", "Informatik-Kernstrukturen"], richtig: 1, erklaerung: "IKS = Informations- und Kommunikationssysteme." },
-    { frage: "WI verbindet ...", optionen: ["BWL+Mathe", "Informatik+Physik", "BWL+Informatik", "Jura+IT"], richtig: 2, erklaerung: "BWL + Informatik (+ Systemtheorie)." },
-    { frage: "ERP-System ist ...", optionen: ["Betriebssystem", "Ressourcenplanung", "Framework", "Netzwerkprotokoll"], richtig: 1, erklaerung: "ERP = Enterprise Resource Planning." },
-    { frage: "Prim\u00e4re Aktivit\u00e4ten der Wertkette?", optionen: ["Personal+Techno", "Eingangslogistik, Produktion, Ausgangslogistik, Marketing, Service", "Nur Marketing", "Beschaffung+Infra"], richtig: 1, erklaerung: "5 prim\u00e4re Aktivit\u00e4ten." },
-    { frage: "Gesch\u00e4ftsprozess ist ...", optionen: ["Nur IT", "Aktivit\u00e4ten: Input\u2192Output", "Organigramm", "Nur Finanzen"], richtig: 1, erklaerung: "Zusammenh\u00e4ngende Aktivit\u00e4ten, Input\u2192Output." },
-    { frage: "Welches IS f\u00fcrs mittlere Management?", optionen: ["ERP", "MIS", "DSS", "EIS"], richtig: 1, erklaerung: "MIS = taktisch, mittleres Management." },
-    { frage: "KEINE der 5 Porter-Kr\u00e4fte?", optionen: ["Substitute", "Kundenmacht", "Digitalisierungsdruck", "Rivalit\u00e4t"], richtig: 2, erklaerung: "Digitalisierungsdruck ist keine Porter-Kraft." },
-    { frage: "DSS macht ...", optionen: ["Mitarbeiterdaten", "Entscheidungsunterst\u00fctzung", "Produktion", "Kundendaten"], richtig: 1, erklaerung: "DSS = Decision Support System." },
-    { frage: "Prozesse gehen \u00fcber Abteilungsgrenzen weil ...", optionen: ["Schlecht organisiert", "Wertsch\u00f6pfung braucht mehrere Bereiche", "IT gibt es vor", "Management will es"], richtig: 1, erklaerung: "Wertsch\u00f6pfung erfordert mehrere Bereiche." }
-  ],
-  lueckentext: [
-    { text: "WI ist die Wissenschaft von Entwurf, ___ und Einsatz computergest\u00fctzter ___ in Wirtschaft und Verwaltung.", luecken: ["Entwicklung", "Informationssysteme"], erklaerung: "WI-Definition." },
-    { text: "Porters Modell umfasst ___ Wettbewerbskr\u00e4fte, darunter die Verhandlungsmacht der ___ und ___.", luecken: ["5", "Lieferanten", "Kunden"], erklaerung: "5-Kr\u00e4fte-Modell." },
-    { text: "ERP-Systeme dienen der ___ und arbeiten auf der ___ Ebene.", luecken: ["Ressourcenplanung", "operativen"], erklaerung: "ERP = operativ." },
-    { text: "Die prim\u00e4ren Aktivit\u00e4ten sind: Eingangslogistik, ___, Ausgangslogistik, Marketing & Vertrieb und ___.", luecken: ["Produktion", "Service"], erklaerung: "5 prim\u00e4re Aktivit\u00e4ten." }
-  ],
-  zuordnung: [
-    { titel: "IS der Ebene zuordnen", paare: [
-      { links: "ERP", rechts: "Operativ" },
-      { links: "MIS", rechts: "Taktisch" },
-      { links: "DSS", rechts: "Strategisch" },
-      { links: "EIS", rechts: "Top-Management" }
-    ]},
-    { titel: "Porter-Kr\u00e4fte zuordnen", paare: [
-      { links: "Amazon vs. Zalando", rechts: "Rivalit\u00e4t" },
-      { links: "Neues Startup", rechts: "Neue Anbieter" },
-      { links: "E-Book statt Buch", rechts: "Substitute" },
-      { links: "Zulieferer erh\u00f6ht Preise", rechts: "Macht Lieferanten" }
-    ]},
-    { titel: "Wertketten-Aktivit\u00e4ten zuordnen", paare: [
-      { links: "Produktion, Marketing, Service", rechts: "Prim\u00e4r" },
-      { links: "Personal, Technologie, Beschaffung", rechts: "Unterst\u00fctzend" },
-      { links: "Ein-/Ausgangslogistik", rechts: "Prim\u00e4r" },
-      { links: "Unternehmensinfrastruktur", rechts: "Unterst\u00fctzend" }
-,
+    },
+    {
+      titel: "\u{1F30D} Gesch\u00e4ftsstrategie, Prozesse & Digitalisierung",
+      inhalt: `<p>Drei Ebenen sind miteinander verkn\u00fcpft (Vorlesung 24.03.2026):</p>
+<div class="erk-tree">
+  <div class="tree-root">Grundverst\u00e4ndnis WI</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background:#DBEAFE;border-color:#3B82F6;"><strong>Gesch\u00e4ftsstrategie</strong><br><small>Was will das Unternehmen?</small></div>
+    <div class="tree-branch" style="background:#EDE9FE;border-color:#8B5CF6;"><strong>Prozesse</strong><br><small>Wie wird es umgesetzt?</small></div>
+    <div class="tree-branch" style="background:#D1FAE5;border-color:#10B981;"><strong>IS (IT)</strong><br><small>Womit wird es gemacht?</small></div>
+  </div>
+</div>
+<p>Porters <strong>generische Wettbewerbsstrategien</strong>:</p>
+<table class="erk-table">
+  <tr><th>Strategie</th><th>Ziel</th><th>IS-Beitrag</th></tr>
+  <tr><td><strong>Kostenf\u00fchrung</strong></td><td>G\u00fcnstigster Anbieter</td><td>Automatisierung, ERP-Effizienz</td></tr>
+  <tr><td><strong>Qualit\u00e4tsf\u00fchrung</strong></td><td>Bestes Produkt/Service</td><td>CRM, Qualit\u00e4ts-IS, Analytik</td></tr>
+</table>`,
+      beispiel: `Amazon = Kostenf\u00fchrung \u2192 IS automatisiert Lager, Preise, Logistik.<br>
+Apple = Qualit\u00e4tsf\u00fchrung \u2192 IS unterst\u00fctzt Design, Service, \u00d6kosystem.`,
+      merke: `Strategie bestimmt Prozesse \u2192 Prozesse brauchen IS \u2022 Kostenf\u00fchrung & Qualit\u00e4tsf\u00fchrung (Porter)`,
+      schritte: [
+        {
+          titel: "Schritt 1: Das Grundverst\u00e4ndnis",
+          inhalt: `<p>Laut Vorlesung (24.03.): <em>\"Gesch\u00e4fts-/Unternehmensprozesse dienen der zielgerichteten Durchf\u00fchrung von betrieblichen Aufgaben zur Umsetzung von Gesch\u00e4ftsstrategien.\"</em></p>
+<p>Kurzversion: Strategie \u2192 Prozesse \u2192 IS. Wer das versteht, kann IS richtig einsetzen.</p>`
+        },
+        {
+          titel: "Schritt 2: Porters Wettbewerbsstrategien",
+          inhalt: `<p>Porter unterscheidet zwei Grundstrategien:</p>
+<p>\ud83d\udcb0 <strong>Kostenf\u00fchrung</strong>: G\u00fcnstigster Anbieter am Markt. IS helfen durch Automatisierung und Effizienz.</p>
+<p>\u2b50 <strong>Qualit\u00e4tsf\u00fchrung</strong>: Bestes Produkt oder Service. IS helfen durch bessere Daten, CRM, Analytik.</p>
+<p>\u26a0\ufe0f <strong>Stuck in the Middle</strong>: Wer keiner Strategie folgt, verliert gegen beide.</p>`
+        },
+        {
+          titel: "Schritt 3: Digitalisierung als Erfolgsfaktor",
+          inhalt: `<p>Die Vorlesung betont: IS leisten <strong>wichtige Erfolgsbeitr\u00e4ge</strong> \u00fcber Prozessunterst\u00fctzung.</p>
+<p>Damit verbunden ist die <strong>Digitalisierung</strong> von:<br>
+\u2022 <strong>Arbeitspl\u00e4tzen</strong> (weniger manuelle T\u00e4tigkeiten)<br>
+\u2022 <strong>Unternehmen & Branchen</strong> (digitale Gesch\u00e4ftsmodelle)<br>
+\u2022 <strong>Gesellschaften</strong> (E-Government, digitale Infrastruktur)</p>
+<p>\ud83c\udf9f\ufe0f F\u00fcr BWL\u2019er: <strong>Attraktive T\u00e4tigkeitsfelder</strong> an der Schnittstelle von BWL, IT und Digitalisierung.</p>`
+        }
+      ],
+      interaktion: [
+        { frage: "Was kommt in der WI-Logik zuerst?", optionen: ["Informationssystem", "Prozesse", "Gesch\u00e4ftsstrategie", "Datenbank"], richtig: 2, erklaerung: "Erst die Strategie bestimmt die Prozesse, dann kommen IS zur Unterst\u00fctzung." },
+        { frage: "Welche zwei Strategien nennt Porter?", optionen: ["Wachstum & Schrumpfung", "Kostenf\u00fchrung & Qualit\u00e4tsf\u00fchrung", "Push & Pull", "B2B & B2C"], richtig: 1, erklaerung: "Porter: Kostenf\u00fchrung und Qualit\u00e4tsf\u00fchrung (Differenzierung)." },
+        { frage: "Amazon nutzt welche Strategie?", optionen: ["Qualit\u00e4tsf\u00fchrung", "Nischenstrategie", "Kostenf\u00fchrung", "Differenzierung"], richtig: 2, erklaerung: "Amazon = Kostenf\u00fchrung \u2013 g\u00fcnstigste Preise durch maximale Automatisierung." },
+        { frage: "'Stuck in the Middle' bedeutet ...", optionen: ["Man ist Marktf\u00fchrer", "Man hat keine klare Strategie", "Man ist in der Mitte der Wertsch\u00f6pfungskette", "ERP-Fehler"], richtig: 1, erklaerung: "Stuck in the Middle = keine klare Strategie, verliert gegen Kostenf\u00fchrer UND Qualit\u00e4tsf\u00fchrer." }
+      ]
+    },
     {
       titel: "\u{1F3AF} Ziele betrieblicher Informationssysteme",
       inhalt: `<div class="def-box"><div class="def-label">Betriebliches Ziel (Hansen)</div>
@@ -2418,7 +2659,43 @@ IS sind <em>Mittel zum Zweck</em>: Sie sollen wirtschaftliche, soziale und \u00f
         { frage: "Was unterscheidet horizontale von vertikaler Integration?", optionen: ["Horizontal = verschiedene Ebenen, Vertikal = verschiedene Bereiche", "Horizontal = verschiedene Funktionsbereiche gleicher Ebene, Vertikal = gleicher Bereich verschiedener Ebenen", "Horizontal = intern, Vertikal = extern", "Horizontal = Software, Vertikal = Hardware"], richtig: 1, erklaerung: "Horizontal: verbindet verschiedene Funktionsbereiche (z.B. Einkauf + Vertrieb). Vertikal: verbindet gleichen Bereich auf verschiedenen Ebenen (z.B. operativ + taktisch)." }
       ]
     }
-    ]}
+  ],
+  quiz: [
+    { frage: "IKS steht f\u00fcr?", optionen: ["Internationale Kommunikationsstandards", "Informations- und Kommunikationssysteme", "Integrierte Kontrollsysteme", "Informatik-Kernstrukturen"], richtig: 1, erklaerung: "IKS = Informations- und Kommunikationssysteme." },
+    { frage: "WI verbindet ...", optionen: ["BWL+Mathe", "Informatik+Physik", "BWL+Informatik", "Jura+IT"], richtig: 2, erklaerung: "BWL + Informatik (+ Systemtheorie)." },
+    { frage: "ERP-System ist ...", optionen: ["Betriebssystem", "Ressourcenplanung", "Framework", "Netzwerkprotokoll"], richtig: 1, erklaerung: "ERP = Enterprise Resource Planning." },
+    { frage: "Prim\u00e4re Aktivit\u00e4ten der Wertkette?", optionen: ["Personal+Techno", "Eingangslogistik, Produktion, Ausgangslogistik, Marketing, Service", "Nur Marketing", "Beschaffung+Infra"], richtig: 1, erklaerung: "5 prim\u00e4re Aktivit\u00e4ten." },
+    { frage: "Gesch\u00e4ftsprozess ist ...", optionen: ["Nur IT", "Aktivit\u00e4ten: Input\u2192Output", "Organigramm", "Nur Finanzen"], richtig: 1, erklaerung: "Zusammenh\u00e4ngende Aktivit\u00e4ten, Input\u2192Output." },
+    { frage: "Welches IS f\u00fcrs mittlere Management?", optionen: ["ERP", "MIS", "DSS", "EIS"], richtig: 1, erklaerung: "MIS = taktisch, mittleres Management." },
+    { frage: "KEINE der 5 Porter-Kr\u00e4fte?", optionen: ["Substitute", "Kundenmacht", "Digitalisierungsdruck", "Rivalit\u00e4t"], richtig: 2, erklaerung: "Digitalisierungsdruck ist keine Porter-Kraft." },
+    { frage: "DSS macht ...", optionen: ["Mitarbeiterdaten", "Entscheidungsunterst\u00fctzung", "Produktion", "Kundendaten"], richtig: 1, erklaerung: "DSS = Decision Support System." },
+    { frage: "Prozesse gehen \u00fcber Abteilungsgrenzen weil ...", optionen: ["Schlecht organisiert", "Wertsch\u00f6pfung braucht mehrere Bereiche", "IT gibt es vor", "Management will es"], richtig: 1, erklaerung: "Wertsch\u00f6pfung erfordert mehrere Bereiche." }
+  ],
+  lueckentext: [
+    { text: "WI ist die Wissenschaft von Entwurf, ___ und Einsatz computergest\u00fctzter ___ in Wirtschaft und Verwaltung.", luecken: ["Entwicklung", "Informationssysteme"], erklaerung: "WI-Definition." },
+    { text: "Porters Modell umfasst ___ Wettbewerbskr\u00e4fte, darunter die Verhandlungsmacht der ___ und ___.", luecken: ["5", "Lieferanten", "Kunden"], erklaerung: "5-Kr\u00e4fte-Modell." },
+    { text: "ERP-Systeme dienen der ___ und arbeiten auf der ___ Ebene.", luecken: ["Ressourcenplanung", "operativen"], erklaerung: "ERP = operativ." },
+    { text: "Die prim\u00e4ren Aktivit\u00e4ten sind: Eingangslogistik, ___, Ausgangslogistik, Marketing & Vertrieb und ___.", luecken: ["Produktion", "Service"], erklaerung: "5 prim\u00e4re Aktivit\u00e4ten." }
+  ],
+  zuordnung: [
+    { titel: "IS der Ebene zuordnen", paare: [
+      { links: "ERP", rechts: "Operativ" },
+      { links: "MIS", rechts: "Taktisch" },
+      { links: "DSS", rechts: "Strategisch" },
+      { links: "EIS", rechts: "Top-Management" }
+    ]},
+    { titel: "Porter-Kr\u00e4fte zuordnen", paare: [
+      { links: "Amazon vs. Zalando", rechts: "Rivalit\u00e4t" },
+      { links: "Neues Startup", rechts: "Neue Anbieter" },
+      { links: "E-Book statt Buch", rechts: "Substitute" },
+      { links: "Zulieferer erh\u00f6ht Preise", rechts: "Macht Lieferanten" }
+    ]},
+    { titel: "Wertketten-Aktivit\u00e4ten zuordnen", paare: [
+      { links: "Produktion, Marketing, Service", rechts: "Prim\u00e4r" },
+      { links: "Personal, Technologie, Beschaffung", rechts: "Unterst\u00fctzend" },
+      { links: "Ein-/Ausgangslogistik", rechts: "Prim\u00e4r" },
+      { links: "Unternehmensinfrastruktur", rechts: "Unterst\u00fctzend" }
+    ]},
   ]
 };
 
@@ -2427,17 +2704,82 @@ IS sind <em>Mittel zum Zweck</em>: Sie sollen wirtschaftliche, soziale und \u00f
 // ============================================================
 FAECHER["winf-seidlmeier"].themen["system-modell"] = {
   name: "2. System, Modell, Daten & Information",
-  zusammenfassung: "Systembegriff, Modelltheorie (Stachowiak), semiotische Ebenen und Wissenstreppe.",
+  zusammenfassung: `<h4>2. System, Modell, Daten und Information – Vollständige Zusammenfassung</h4>
+
+<h5>📌 2.1 System</h5>
+<div class="def-box"><div class="def-label">Definition System (Krallmann)</div>
+Eine <strong>begrenzte Menge an zusammengehörigen Teilen (Elementen, Objekten)</strong>, die miteinander in Beziehung stehen. Das System umgibt eine Systemumwelt.
+</div>
+<table class="erk-table">
+  <tr><th>Begriff</th><th>Erklärung</th><th>Beispiel (Computer)</th></tr>
+  <tr><td><strong>Systemelement</strong></td><td>Teile, die Teilaufgaben erledigen (Input → Output)</td><td>Prozessor, RAM, Festplatte</td></tr>
+  <tr><td><strong>Systemrelation</strong></td><td>Verbindungen / Beziehungen zwischen Elementen</td><td>Datenbus zwischen CPU und RAM</td></tr>
+  <tr><td><strong>Systemumwelt</strong></td><td>Alles außerhalb des Systems</td><td>Tisch, Raum, Gebäude</td></tr>
+  <tr><td><strong>Input</strong></td><td>Was ins System hineinfließt</td><td>Dateneingabe, Tastendruck</td></tr>
+  <tr><td><strong>Output</strong></td><td>Was das System ausgibt</td><td>Bildschirmausgabe, Feedback</td></tr>
+  <tr><td><strong>Offenes System</strong></td><td>Austauschbeziehungen mit der Umwelt (Regelfall)</td><td>Computer mit Netzwerkverbindung</td></tr>
+  <tr><td><strong>Geschlossenes System</strong></td><td>Kein Input/Output – eher selten</td><td>Offline-Computer ohne Peripherie</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Unternehmen als System</div>
+Zweckgerichtetes, <strong>offenes, sozio-technisches System</strong>: Menschen (soziales Subsystem) + Technik (technisches Subsystem), ständig in Wechselwirkung mit der Umwelt. Für Gesamtaufgaben entstehen Bearbeitungs- bzw. Prozessketten.
+</div>
+
+<h5>📌 2.2 Modell</h5>
+<div class="def-box"><div class="def-label">Definition Modell</div>
+Eine <strong>künstlich geschaffene, vereinfachte Abbildung der Realität</strong> (realer Systeme oder Realitätsausschnitte). Vereinfachung = Weglassen nicht relevanter Bestandteile; Relevanz ergibt sich aus dem Modellierungszweck.
+</div>
+<p><strong>3 Grundeigenschaften jedes Modells (nach Stachowiak):</strong></p>
+<table class="erk-table">
+  <tr><th>Eigenschaft</th><th>Erklärung</th></tr>
+  <tr><td><strong>Abbildungseigenschaft</strong></td><td>Modell ist Abbildung eines natürlichen oder künstlichen Originals</td></tr>
+  <tr><td><strong>Verkürzungseigenschaft</strong></td><td>Modell erfasst nicht alle Attribute des Originals – nur die relevanten</td></tr>
+  <tr><td><strong>Pragmatische Eigenschaft</strong></td><td>Modell ist für bestimmte Subjekte, zu bestimmtem Zweck, in bestimmtem Zeitraum gedacht</td></tr>
+</table>
+<p><strong>Arten von Modellen:</strong> Reale Modelle (z.B. Miniatur, Architekturmodell) · Theoretische Modelle (z.B. Schaltplan, Prozessdiagramm)</p>
+<p><em>Merke: Der Prozess selbst ist bereits ein Modell der Wirklichkeit!</em></p>
+
+<h5>📌 Wertschöpfungskette nach Porter</h5>
+<p>Das Unternehmen als Prozessmodell. Zeigt, welche Aktivitäten gemeinsam Wert für den Kunden schaffen:</p>
+<table class="erk-table">
+  <tr><th>Art</th><th>Aktivitäten</th></tr>
+  <tr><td><strong>Primäre Aktivitäten</strong></td><td>Eingangslogistik · Operationen/Produktion · Ausgangslogistik · Marketing &amp; Vertrieb · Kundendienst</td></tr>
+  <tr><td><strong>Unterstützende Aktivitäten</strong></td><td>Unternehmensinfrastruktur · Personalwirtschaft · Technologieentwicklung · Beschaffung</td></tr>
+</table>
+<p><strong>WI-Verbindung:</strong> Jede Aktivität kann durch ein IS unterstützt, automatisiert oder optimiert werden. ERP-Systeme decken typischerweise mehrere Aktivitäten ab.</p>
+
+<h5>📌 2.3 Daten und Information – Semiotik (Zeichenlehre)</h5>
+<table class="erk-table">
+  <tr><th>Ebene</th><th>Begriff</th><th>Definition</th><th>Beispiel</th></tr>
+  <tr><td><strong>Syntaktisch</strong></td><td>Zeichen / Daten</td><td>Maschinell verarbeitbare Zeichen(-ketten) mit gültiger Struktur. Zeichenvorrat: Buchstaben, Ziffern, Sonderzeichen</td><td>„Otto", „Haus" ✅ / „sjhfdbhk" ❌</td></tr>
+  <tr><td><strong>Semantisch</strong></td><td>Information</td><td>Daten mit Bedeutung in einem Kontext – können verstanden und interpretiert werden</td><td>„Temperatur = 38,5°C" = Fieber</td></tr>
+  <tr><td><strong>Pragmatisch</strong></td><td>Wissen</td><td>Zweckorientierte, vernetzte Information. Dient der Gewinnung von Informationen aus Daten und der Entscheidungsfindung</td><td>„38,5°C → Arzt aufsuchen"</td></tr>
+</table>
+
+<h5>📌 Besondere Merkmale von Informationen (Picot/Franck)</h5>
+<table class="erk-table">
+  <tr><th>Merkmal</th><th>Erklärung</th></tr>
+  <tr><td>Immaterielles Gut</td><td>Information wird nicht verbraucht – kann unbegrenzt oft genutzt werden</td></tr>
+  <tr><td>Kostenverursachung</td><td>Beschaffung, Erzeugung, Nutzung, Weiterleitung verursachen Kosten</td></tr>
+  <tr><td>Leichter Transport</td><td>Informationen können sehr leicht weitergeleitet werden → Tendenz zur Diffusion (auch negativ!)</td></tr>
+  <tr><td>Keine Originale</td><td>Käufer erwirbt immer nur eine Kopie, nie das Original</td></tr>
+  <tr><td>Wert schwer bestimmbar</td><td>Informationen besitzen einen Wert, dessen Bewertung aber oft Probleme bereitet</td></tr>
+</table>`,
   erklaerungen: [
     {
       titel: "\u{1F310} Der Systembegriff",
-      inhalt: `<div class="def-box"><div class="def-label">System</div>
-Geordnete Menge von <strong>Elementen</strong> mit <strong>Beziehungen</strong> und einer <strong>Grenze</strong> zur Umwelt.</div>
-<ul>
-  <li><strong>Offene Systeme</strong> \u2013 tauschen mit Umwelt aus</li>
-  <li><strong>Geschlossene Systeme</strong> \u2013 kein Austausch</li>
-  <li><strong>Subsysteme</strong> \u2013 Elemente k\u00f6nnen selbst Systeme sein</li>
-</ul>`,
+      inhalt: `<div class="def-box"><div class="def-label">System (Vorlesung, Folie 2.-3)</div>
+Eine <strong>begrenzte Menge an zusammengeh\u00f6rigen Teilen</strong> (Elementen, Objekten), die miteinander in <strong>Beziehung</strong> stehen.<br><br>
+\u2022 Das System umgibt eine <strong>Systemumwelt</strong>. Zwischen einem offenen System und seiner Umwelt bestehen Austauschbeziehungen zum Input-/Output-Transfer von Informationen, Materie und Energie.<br>
+\u2022 Systemelemente erledigen <strong>zielgerichtet Teilaufgaben</strong>, indem sie Input zu Output verarbeiten. F\u00fcr Gesamtaufgaben entstehen in Systemen Bearbeitungs- bzw. Prozessketten.<br>
+\u2022 Unternehmen = <strong>Zweckgerichtetes, offenes, sozio-technisches System</strong> (mit menschlichen und technischen Elementen)</div>
+<table class="erk-table">
+  <tr><th>Begriff</th><th>Bedeutung (Vorlesung)</th></tr>
+  <tr><td><strong>Systemelement</strong></td><td>Teile im System (z.B. Teile im Computer)</td></tr>
+  <tr><td><strong>Systemrelation</strong></td><td>Elemente sind miteinander verbunden</td></tr>
+  <tr><td><strong>Systemumwelt</strong></td><td>Alles au\u00dferhalb des Systems (z.B. Tisch, Raum, Geb\u00e4ude)</td></tr>
+  <tr><td><strong>Input</strong></td><td>Dateneingabe / kommt von au\u00dfen ins System</td></tr>
+  <tr><td><strong>Output</strong></td><td>Feedback / Ergebnis des Systems</td></tr>
+</table>`,
       beispiel: `Unternehmen = offenes System (Austausch mit Kunden, Lieferanten).`,
       schritte: [
         {
@@ -2488,15 +2830,18 @@ Input: Rohstoffe, Mitarbeiter, Kapital → Transformation → Output: Produkte, 
     },
     {
       titel: "\u{1F4D0} Der Modellbegriff (Stachowiak)",
-      inhalt: `<div class="def-box"><div class="def-label">Modell</div>
-<strong>Vereinfachtes Abbild</strong> der Realit\u00e4t \u2013 nur relevante Eigenschaften.</div>
+      inhalt: `<div class="def-box"><div class="def-label">Modell (Vorlesung, Folie 2.-4)</div>
+Eine <strong>k\u00fcnstlich geschaffene, vereinfachte Abbildung der Realit\u00e4t</strong> (realer Systeme oder von Realit\u00e4tsausschnitten)<br><br>
+\u2022 <strong>Vereinfachung</strong> bedeutet das Weglassen von nicht relevanten Bestandteilen oder Eigenschaften<br>
+\u2022 Die <strong>Relevanz</strong> ergibt sich aus dem <strong>Modellierungszweck</strong><br>
+\u2022 Die \u00c4hnlichkeit zwischen Realit\u00e4t und Modell muss bez\u00fcglich <strong>Struktur, Funktion und Verhalten</strong> erhalten bleiben</div>
 <table class="erk-table">
-  <tr><th>Merkmal</th><th>Bedeutung</th><th>Beispiel</th></tr>
+  <tr><th>Merkmal (Stachowiak)</th><th>Bedeutung</th><th>Beispiel</th></tr>
   <tr><td><strong>Abbildung</strong></td><td>Bildet etwas ab</td><td>Stadtplan bildet Stadt ab</td></tr>
   <tr><td><strong>Verk\u00fcrzung</strong></td><td>Nur relevante Eigenschaften</td><td>Keine Haust\u00fcren im Stadtplan</td></tr>
   <tr><td><strong>Pragmatisch</strong></td><td>Dient einem Zweck</td><td>Stadtplan f\u00fcr Navigation</td></tr>
 </table>`,
-      merke: `Jedes Modell ist eine Vereinfachung! Es zeigt nur, was f\u00fcr den Zweck relevant ist.`,
+      merke: `Modell = k\u00fcnstlich geschaffene, vereinfachte Abbildung der Realit\u00e4t \u2022 Vereinfachung = Weglassen des Irrelevanten \u2022 Relevanz ergibt sich aus dem Modellierungszweck`,
       schritte: [
         {
           titel: "Schritt 1: Was ist ein Modell?",
@@ -2610,17 +2955,24 @@ Datenbanken pr\u00fcfen Syntax automatisch. Semantik und Pragmatik muss der Mens
     },
     {
       titel: "\u{1F4BE} Daten vs. Information vs. Wissen",
-      inhalt: `<div class="erk-tree">
+      inhalt: `<div class="def-box"><div class="def-label">Zeichen (Vorlesung, Folie 2.-7)</div>
+Basis zur Darstellung von Daten, Informationen und Wissen. Der <strong>Zeichenvorrat</strong> umfasst Buchstaben, Ziffern und Sonderzeichen.</div>
+<div class="def-box"><div class="def-label">Daten</div>
+<strong>Maschinell verarbeitbare Zeichen(-ketten)</strong> mit einer g\u00fcltigen Struktur (syntaktische Ebene)<br>
+<small>Beispiel: \"Otto\", \"Haus\" ✓ &nbsp;&nbsp; Nicht: \"sjhfdbhkbfk\" ✗</small></div>
+<div class="def-box"><div class="def-label">Information</div>
+Daten mit <strong>Bedeutung in einem Kontext</strong> (semantische Ebene) \u2013 d.h. Informationen k\u00f6nnen <strong>verstanden und interpretiert</strong> werden</div>
+<div class="def-box"><div class="def-label">Wissen</div>
+<strong>Zweckorientierte, vernetzte Information</strong> (pragmatische Ebene). Wissen dient der Gewinnung von Informationen aus Daten.</div>
+<div class="erk-tree">
   <div class="tree-root">Wissenstreppe</div>
   <div class="tree-branches">
     <div class="tree-branch" style="background:#FEE2E2;"><strong>Zeichen</strong><br><small>1, a, #</small></div>
-    <div class="tree-branch" style="background:#FEF3C7;"><strong>Daten</strong><br><small>Zeichen + Syntax</small></div>
-    <div class="tree-branch" style="background:#D1FAE5;"><strong>Information</strong><br><small>Daten + Bedeutung</small></div>
-    <div class="tree-branch" style="background:#DBEAFE;"><strong>Wissen</strong><br><small>Info + Erfahrung</small></div>
+    <div class="tree-branch" style="background:#FEF3C7;"><strong>Daten</strong><br><small>syntaktische Ebene</small></div>
+    <div class="tree-branch" style="background:#D1FAE5;"><strong>Information</strong><br><small>semantische Ebene</small></div>
+    <div class="tree-branch" style="background:#DBEAFE;"><strong>Wissen</strong><br><small>pragmatische Ebene</small></div>
   </div>
-</div>
-<div class="def-box"><div class="def-label">Merke</div>
-<strong><span class="term" data-label="Daten" data-def="Zeichen + Syntax (Struktur). Noch bedeutungslos. Beispiel: \'20.03.2026\' als Datumsformat.">Daten</span></strong> = Zeichen + Syntax. <strong><span class="term" data-label="Information" data-def="Daten + Bedeutung/Kontext. Beispiel: \'Heute ist der 20. M\u00e4rz 2026\'.">Information</span></strong> = Daten + Bedeutung. <strong><span class="term" data-label="Wissen" data-def="Information + Erfahrung + Vernetzung. Erm\u00f6glicht Schlussfolgerungen und Handlungen.">Wissen</span></strong> = Info + Erfahrung.</div>`,
+</div>`,
       interaktion: [
         { frage: "Daten vs. Information?", optionen: ["Kein Unterschied", "Information = Daten + Bedeutung", "Daten sind digital", "Info ist analog"], richtig: 1, erklaerung: "Information = Daten + Kontext/Bedeutung." },
         { frage: "Was kommt nach Daten?", optionen: ["Zeichen", "Wissen", "Information", "Weisheit"], richtig: 2, erklaerung: "Zeichen \u2192 Daten \u2192 Information \u2192 Wissen." },
@@ -2673,6 +3025,68 @@ Daten sind noch <strong>bedeutungslos</strong>! "20.03.26" k\u00f6nnte ein Datum
 <div class="def-box"><div class="def-label">Klausurtipp</div>
 Frage: "Sind die Kundendaten in der Datenbank Informationen?" \u2192 Nein! Erst mit Kontext (Abfrage, Auswertung) werden sie zur Information.</div>`
         }
+      ]
+    },
+    {
+      titel: "\u{1F4CA} Merkmale von Informationen",
+      inhalt: `<p>Informationen verhalten sich <strong>anders als materielle G\u00fcter</strong> \u2013 das ist f\u00fcr IS-Design wichtig:</p>
+<table class="erk-table">
+  <tr><th>Merkmal</th><th>Bedeutung</th></tr>
+  <tr><td><strong>Immateriell</strong></td><td>Werden durch Nutzung <strong>nicht verbraucht</strong> (Buch verliert Inhalt nicht beim Lesen)</td></tr>
+  <tr><td><strong>Kosten</strong></td><td>Entstehen bei Beschaffung, Erzeugung, Nutzung, Speicherung und Schutz</td></tr>
+  <tr><td><strong>Leichter Transport</strong></td><td>Sehr leicht und schnell \u00fcbertragbar (geringe Transportkosten)</td></tr>
+  <tr><td><strong>Diffusion</strong></td><td>Neigen zum unkontrollierten Verbreiten \u2013 <strong>Datenschutzrisiko!</strong></td></tr>
+  <tr><td><strong>Nur Kopie erwerbbar</strong></td><td>K\u00e4ufer erwerben immer nur eine Kopie, nie das Original</td></tr>
+  <tr><td><strong>Schwer bewertbar</strong></td><td>Wert ist kontextabh\u00e4ngig und schwer zu bestimmen</td></tr>
+</table>`,
+      beispiel: `Ein Musikst\u00fcck (Information): Wenn du es h\u00f6rst, bleibt es trotzdem noch da \u2192 <strong>immateriell</strong>.<br>
+Wenn du es weiterleist: Du hast es noch immer \u2192 <strong>nur Kopie</strong>.<br>
+Wenn es sich viral verbreitet: <strong>Diffusion</strong> \u2013 Datenschutzproblem!`,
+      merke: `6 Merkmale: Immateriell \u2022 Kostenbehaftet \u2022 Leichter Transport \u2022 Diffusion \u2022 Nur Kopie \u2022 Schwer bewertbar`,
+      flipcards: [
+        { vorne: "Immateriell", hinten: "Wird durch Nutzung<br><strong>nicht verbraucht</strong>" },
+        { vorne: "Diffusion", hinten: "Unkontrolliertes<br>Verbreiten \u2013 Datenschutz!" },
+        { vorne: "Nur Kopie", hinten: "K\u00e4ufer erwerben<br>nie das Original" },
+        { vorne: "Schwer bewertbar", hinten: "Wert ist<br>kontextabh\u00e4ngig" }
+      ],
+      schritte: [
+        {
+          titel: "Schritt 1: Warum sind diese Merkmale wichtig?",
+          inhalt: `<p>Informationen sind kein normales Gut. Sie verhalten sich anders \u2013 und wer IS entwickelt oder nutzt, muss das verstehen.</p>
+<p>Kernfrage: <em>Warum kann man Informationen nicht einfach wie Waren kaufen und verkaufen?</em></p>
+<p>\ud83d\udee1\ufe0f Weil sie sich verbreiten, kopiert werden k\u00f6nnen und ihren Wert kaum benennen lassen.</p>`
+        },
+        {
+          titel: "Schritt 2: Immateriell & Nicht-Verbrauch",
+          inhalt: `<p>Materiell: Ein Apfel \u2013 gegessen = weg.<br>
+Immateriell: Eine Information \u2013 geteilt = noch immer vorhanden!</p>
+<div class="def-box"><div class="def-label">Konsequenz f\u00fcr IS</div>
+IS k\u00f6nnen Informationen beliebig oft ausgeben, ohne dass sie verbraucht werden. Das macht skalierbare Dienste wie Streaming m\u00f6glich.</div>`
+        },
+        {
+          titel: "Schritt 3: Diffusion \u2013 das Datenschutzrisiko",
+          inhalt: `<p><strong>Diffusion</strong> = Informationen neigen dazu, sich <strong>unkontrolliert</strong> zu verbreiten.</p>
+<p>Beispiele:<br>
+\u2022 Kundendaten werden ungewollt weitergegeben<br>
+\u2022 Betriebsgeheimnisse gelangen an die \u00d6ffentlichkeit<br>
+\u2022 Passworts\u00f6rter landen im Darknet</p>
+<p>\ud83d\udee1\ufe0f Deshalb: <strong>DSGVO</strong>, Datenschutzbeauftragte, Verschl\u00fcsselung in IS!</p>`
+        },
+        {
+          titel: "Schritt 4: Nur Kopie & schwere Bewertbarkeit",
+          inhalt: `<p><strong>Nur Kopie:</strong> Wenn du eine Information kaufst, bekommst du immer nur eine Kopie des Originals. Das Original bleibt beim Sender.</p>
+<p>\u2192 Problem f\u00fcr Urheberrecht und digitale G\u00fcter (Musik, Software, eBooks).</p>
+<p><strong>Schwer bewertbar:</strong> Was ist eine Information wert?</p>
+<p>\u2022 Ein Tipp an der B\u00f6rse kann Millionen wert sein \u2013 oder nichts<br>
+\u2022 Kundendaten \u2013 wertvoll f\u00fcr das Marketing, sensibel f\u00fcr Datenschutz<br>
+\u2022 Wert h\u00e4ngt vom <strong>Kontext und Empf\u00e4nger</strong> ab</p>`
+        }
+      ],
+      interaktion: [
+        { frage: "Welches Merkmal beschreibt, dass Informationen sich unkontrolliert verbreiten?", optionen: ["Immateriell", "Diffusion", "Leichter Transport", "Schwer bewertbar"], richtig: 1, erklaerung: "Diffusion = Informationen neigen zur unkontrollierten Verbreitung \u2013 Datenschutzrisiko!" },
+        { frage: "Was bedeutet 'immateriell' bei Informationen?", optionen: ["Sie sind unsichtbar", "Sie werden durch Nutzung nicht verbraucht", "Sie haben keinen Wert", "Sie k\u00f6nnen nicht gespeichert werden"], richtig: 1, erklaerung: "Immateriell = werden durch Nutzung NICHT verbraucht." },
+        { frage: "Was erh\u00e4lt ein K\u00e4ufer einer Information?", optionen: ["Das Original", "Nichts", "Eine Kopie", "Eine Lizenz"], richtig: 2, erklaerung: "K\u00e4ufer erwerben immer nur eine Kopie, nie das Original." },
+        { frage: "Warum ist der Wert von Informationen schwer bestimmbar?", optionen: ["Sie \u00e4ndern sich st\u00e4ndig", "Er ist kontextabh\u00e4ngig", "Sie sind zu komplex", "Niemand braucht sie"], richtig: 1, erklaerung: "Der Wert von Informationen h\u00e4ngt stark vom Kontext und Empf\u00e4nger ab." }
       ]
     }
   ],

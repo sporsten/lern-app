@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>Lern-App</title>
-  <script src="data/data.js"></script>
+  <script src="data/data.js?v=1"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -1896,15 +1899,64 @@
 
   // ===== KLAUSUR-SIMULATION =====
   function fuzzyMatch(input, answer) {
-    const a = input.toLowerCase().trim(), b = answer.toLowerCase().trim();
+    // Normalisiere: Symbole → Wörter, Sonderzeichen weg, Leerzeichen normalisieren
+    function clean(s) {
+      return s.toLowerCase().trim()
+        .replace(/\s*\+\s*/g, ' und ')      // + → und
+        .replace(/\s*&\s*/g, ' und ')        // & → und
+        .replace(/\bbzw\.?\s*/g, 'oder ')    // bzw. → oder
+        .replace(/\bu\.a\.?\s*/g, '')        // u.a. → leer
+        .replace(/\bca\.?\s*/g, '')          // ca. → leer
+        .replace(/[.,;:!?()\[\]\/\\]/g, ' ')// Satzzeichen → Leerzeichen
+        .replace(/\s+/g, ' ').trim();
+    }
+
+    // Levenshtein-Abstand für Tippfehler-Toleranz
+    function lev(a, b) {
+      let d = Array.from({length:a.length+1},(_,i)=>Array.from({length:b.length+1},(_,j)=>i||j));
+      for(let i=1;i<=a.length;i++) for(let j=1;j<=b.length;j++)
+        d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]!==b[j-1]?1:0));
+      return d[a.length][b.length];
+    }
+
+    const a = clean(input), b = clean(answer);
     if (a === b) return true;
     if (a.length < 2 || b.length < 2) return a === b;
-    // Allow 1-2 char difference (Levenshtein)
-    let d = Array.from({length:a.length+1},(_,i)=>Array.from({length:b.length+1},(_,j)=>i||j));
-    for(let i=1;i<=a.length;i++) for(let j=1;j<=b.length;j++)
-      d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]!==b[j-1]?1:0));
-    const dist = d[a.length][b.length];
-    return dist <= (b.length <= 5 ? 1 : 2);
+
+    // Einzel-Wort: Tippfehler erlauben
+    if (!b.includes(' ')) {
+      return lev(a, b) <= (b.length <= 5 ? 1 : 2);
+    }
+
+    // Mehr-Wort-Antwort: Schlüsselwörter vergleichen
+    // Füllwörter, die ignoriert werden
+    const stopWords = new Set(['der','die','das','ein','eine','einen','einem','eines',
+      'ist','sind','wird','werden','war','von','für','mit','bei','in','an','auf','zu',
+      'und','oder','aber','als','wie','nicht','kein','keine','auch','nur','noch',
+      'immer','alle','alles','dem','den','des','dieser','diese','dieses','je','pro']);
+
+    function keywords(s) {
+      return s.split(' ').filter(w => w.length > 2 && !stopWords.has(w));
+    }
+
+    const aKW = keywords(a);
+    const bKW = keywords(b);
+    if (bKW.length === 0) return a.includes(b) || lev(a,b) <= 3;
+
+    // Zähle wie viele Schlüsselwörter der Musterlösung in der Antwort vorkommen
+    let treffer = 0;
+    for (const bw of bKW) {
+      for (const aw of aKW) {
+        const maxFehler = bw.length <= 5 ? 1 : 2;
+        if (aw === bw || (bw.length > 3 && lev(aw, bw) <= maxFehler)) {
+          treffer++;
+          break;
+        }
+      }
+    }
+
+    // Mindestens 60% der Schlüsselwörter müssen stimmen
+    return treffer / bKW.length >= 0.6;
   }
 
   function startKlausur(fachId) {
@@ -2142,6 +2194,11 @@
   });
 
   showHome();
+
+  // Service Worker registrieren – immer neueste Version laden
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(function() {});
+  }
 </script>
 
 </body>
