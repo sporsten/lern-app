@@ -409,6 +409,62 @@
       padding: 12px 16px; margin-bottom: 20px; font-size: 13px; color: #0369A1;
     }
 
+    /* Streak-Badge in Progressleiste */
+    .streak-badge {
+      background: linear-gradient(135deg, #F97316, #EF4444);
+      color: white; font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 20px; white-space: nowrap;
+      animation: streakPop 0.3s ease;
+    }
+    @keyframes streakPop {
+      0% { transform: scale(0.7); opacity: 0; }
+      70% { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Kombo-Toast (fliegend) */
+    .kombo-toast {
+      position: fixed; top: 80px; left: 50%; transform: translateX(-50%) translateY(-20px);
+      background: linear-gradient(135deg, #F97316, #EF4444);
+      color: white; font-size: 20px; font-weight: 800;
+      padding: 12px 28px; border-radius: 30px;
+      box-shadow: 0 8px 24px rgba(239,68,68,0.4);
+      z-index: 9999; opacity: 0; transition: all 0.35s cubic-bezier(.175,.885,.32,1.275);
+      pointer-events: none;
+    }
+    .kombo-toast.kombo-toast-show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* Ergebnis-Seite */
+    .ergebnis-emoji { font-size: 48px; margin-bottom: 8px; }
+    .ergebnis-streak {
+      margin-top: 10px; font-size: 14px; font-weight: 600;
+      color: #F97316; background: #FFF7ED; border-radius: 20px;
+      display: inline-block; padding: 4px 14px;
+    }
+    .ergebnis-review-titel {
+      font-size: 16px; font-weight: 700; margin: 28px 0 12px;
+      padding-bottom: 8px; border-bottom: 2px solid var(--border);
+    }
+    .ergebnis-review { display: flex; flex-direction: column; gap: 10px; }
+    .ergebnis-frage {
+      border-radius: 12px; padding: 14px 16px;
+      border: 2px solid transparent;
+    }
+    .ergebnis-richtig { background: #F0FDF4; border-color: #86EFAC; }
+    .ergebnis-falsch  { background: #FEF2F2; border-color: #FECACA; }
+    .ergebnis-frage-header {
+      display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px;
+    }
+    .ergebnis-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+    .ergebnis-frage-text { font-size: 14px; font-weight: 600; line-height: 1.4; }
+    .ergebnis-antwort-ok { font-size: 13px; color: #15803D; margin-left: 26px; }
+    .ergebnis-antwort-falsch { font-size: 13px; color: #DC2626; margin-left: 26px; margin-bottom: 3px; }
+    .ergebnis-antwort-richtig { font-size: 13px; color: #15803D; margin-left: 26px; }
+    .ergebnis-erk {
+      font-size: 12px; color: #6B7280; margin-left: 26px; margin-top: 4px;
+      font-style: italic;
+    }
+
     /* Lueckentext */
     .luecken-text { font-size: 17px; line-height: 2; margin-bottom: 20px; }
     .luecke-input {
@@ -1585,50 +1641,122 @@
     const c = document.getElementById('content');
     const raw = FAECHER[fachId].themen[themaId].quiz;
     const quizData = shuffleQuiz(raw, 10);
-    let cur = 0, score = 0;
+    let cur = 0, score = 0, streak = 0, maxStreak = 0;
+    const results = []; // {frage, optionen, richtig, userIdx, correct}
+
+    function showKomboToast(n) {
+      const old = document.getElementById('kombo-toast');
+      if (old) old.remove();
+      const msgs = { 3:'🔥 3er Kombo!', 4:'🔥🔥 4er Kombo!', 5:'⚡ 5er Kombo!', 6:'⚡⚡ 6er Kombo!', 7:'💥 7er Kombo!', 8:'💥💥 8er Kombo!', 9:'👑 9er Kombo!', 10:'👑🎯 PERFEKT!' };
+      const msg = msgs[n] || (n > 10 ? '👑🎯 PERFEKT!' : null);
+      if (!msg) return;
+      const toast = document.createElement('div');
+      toast.id = 'kombo-toast';
+      toast.className = 'kombo-toast';
+      toast.textContent = msg;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.classList.add('kombo-toast-show'), 10);
+      setTimeout(() => { toast.classList.remove('kombo-toast-show'); setTimeout(() => toast.remove(), 400); }, 1800);
+    }
+
+    function showErgebnis() {
+      const pct = Math.round(score / quizData.length * 100);
+      setProgressVal(fachId, themaId, 'quiz', pct);
+      const emoji = pct >= 80 ? '🎉' : pct >= 50 ? '😐' : '😅';
+      const msg = pct >= 80 ? 'Super gemacht!' : pct >= 50 ? 'Ganz okay, aber da geht noch mehr!' : 'Noch etwas Übung nötig';
+      const streakMsg = maxStreak >= 5 ? `<div class="ergebnis-streak">🔥 Beste Kombo: ${maxStreak}er Serie!</div>` :
+                        maxStreak >= 3 ? `<div class="ergebnis-streak">🔥 Beste Kombo: ${maxStreak}er Serie</div>` : '';
+
+      let reviewHtml = results.map((r, i) => `
+        <div class="ergebnis-frage ${r.correct ? 'ergebnis-richtig' : 'ergebnis-falsch'}">
+          <div class="ergebnis-frage-header">
+            <span class="ergebnis-icon">${r.correct ? '✅' : '❌'}</span>
+            <span class="ergebnis-frage-text">${i+1}. ${r.frage}</span>
+          </div>
+          ${!r.correct ? `
+            <div class="ergebnis-antwort-falsch">Deine Antwort: <strong>${r.optionen[r.userIdx]}</strong></div>
+            <div class="ergebnis-antwort-richtig">✓ Richtig: <strong>${r.optionen[r.richtig]}</strong></div>
+            ${r.erklaerung ? `<div class="ergebnis-erk">${r.erklaerung}</div>` : ''}
+          ` : `
+            <div class="ergebnis-antwort-ok">✓ ${r.optionen[r.richtig]}</div>
+          `}
+        </div>`).join('');
+
+      c.innerHTML = `<div class="lern-area fade-in">
+        <div class="ergebnis-box">
+          <div class="ergebnis-emoji">${emoji}</div>
+          <div class="score">${pct}%</div>
+          <div class="label">${score} von ${quizData.length} richtig</div>
+          <div class="message">${msg}</div>
+          ${streakMsg}
+        </div>
+        <div class="ergebnis-review-titel">📋 Alle Fragen im Überblick</div>
+        <div class="ergebnis-review">${reviewHtml}</div>
+        <div style="text-align:center;margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <button class="btn btn-secondary" onclick="showThemen('${fachId}')">Zurück</button>
+          <button class="btn btn-primary" onclick="startMode('${fachId}','${themaId}','quiz')">Nochmal</button>
+        </div>
+      </div>`;
+    }
 
     function show() {
-      if (cur >= quizData.length) {
-        const pct = Math.round(score/quizData.length*100);
-        setProgressVal(fachId, themaId, 'quiz', pct);
-        const msg = pct>=80?'Super gemacht!':pct>=50?'Ganz okay, aber da geht noch mehr!':'Noch etwas \u00dcbung n\u00f6tig';
-        c.innerHTML = `<div class="lern-area fade-in"><div class="ergebnis-box">
-          <div class="score">${pct}%</div><div class="label">${score} von ${quizData.length} richtig</div>
-          <div class="message">${msg}</div></div>
-          <div style="text-align:center;margin-top:20px;display:flex;gap:12px;justify-content:center;">
-            <button class="btn btn-secondary" onclick="showThemen('${fachId}')">Zur\u00fcck</button>
-            <button class="btn btn-primary" onclick="startMode('${fachId}','${themaId}','quiz')">Nochmal</button>
-          </div></div>`;
-        return;
-      }
+      if (cur >= quizData.length) { showErgebnis(); return; }
       const q = quizData[cur];
+      const streakBadge = streak >= 3
+        ? `<div class="streak-badge">🔥 ${streak}er Kombo!</div>`
+        : '';
       c.innerHTML = `<div class="lern-area fade-in">
-        <div class="quiz-info">\u{1F500} Fragen und Antworten werden jedes Mal neu gemischt.</div>
-        <div class="quiz-progress"><span>Frage ${cur+1}/${quizData.length}</span>
-          <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${(cur/quizData.length)*100}%"></div></div></div>
+        <div class="quiz-progress">
+          <span>Frage ${cur+1}/${quizData.length}</span>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${(cur/quizData.length)*100}%"></div></div>
+          ${streakBadge}
+        </div>
         <div class="quiz-frage">${q.frage}</div>
         <div class="quiz-optionen" id="optionen">
           ${q.optionen.map((o, i) => `<div class="quiz-option" data-idx="${i}" onclick="checkQ(this,${i},${q.richtig})">${o}</div>`).join('')}
         </div>
         <div class="quiz-erklaerung" id="erklaerung">${q.erklaerung||''}</div>
-        <div class="quiz-nav"><button class="btn btn-primary" id="nextBtn" style="display:none" onclick="qNext()">Weiter &rarr;</button></div>
+        <div class="quiz-nav"><button class="btn btn-primary" id="nextBtn" style="display:none" onclick="qNext()">Weiter →</button></div>
       </div>`;
-      window.qNext = () => { cur++; show(); };
+
+      window._pendingKonfidenz = null;
+      window.qNext = () => {
+        if (window._pendingKonfidenz) {
+          const { stufe, correct } = window._pendingKonfidenz;
+          const q = quizData[cur];
+          if (correct && (stufe === 'unsicher' || stufe === 'mittel')) {
+            addToSR(q.frage, q.optionen, q.richtig, q.erklaerung||'', 'Quiz');
+          }
+          if (stufe === 'unsicher') {
+            const data = getSRData();
+            const item = data.find(d => d.key === q.frage.substring(0,60));
+            if (item) { item.stufe = 0; item.naechste = Date.now() + 86400000; saveSRData(data); }
+          }
+          window._pendingKonfidenz = null;
+        }
+        cur++; show();
+      };
       window.checkQ = (el, idx, r) => {
         const opts = document.querySelectorAll('.quiz-option');
         if (el.classList.contains('disabled')) return;
-        opts.forEach(o => { o.classList.add('disabled'); if (parseInt(o.dataset.idx)===r) o.classList.add('richtig'); });
+        opts.forEach(o => { o.classList.add('disabled'); if (parseInt(o.dataset.idx) === r) o.classList.add('richtig'); });
         const correct = idx === r;
-        if (correct) { el.classList.add('richtig'); score++; addPoint(); }
-        else {
+        results.push({ frage: q.frage, optionen: q.optionen, richtig: r, userIdx: idx, correct, erklaerung: q.erklaerung||'' });
+        if (correct) {
+          el.classList.add('richtig');
+          score++;
+          streak++;
+          if (streak > maxStreak) maxStreak = streak;
+          addPoint();
+          if (streak >= 3) showKomboToast(streak);
+        } else {
           el.classList.add('falsch');
-          const q = quizData[cur];
+          streak = 0;
           addToSR(q.frage, q.optionen, q.richtig, q.erklaerung||'', 'Quiz');
           trackWrong(q.frage, q.optionen, q.richtig, q.erklaerung||'', 'Quiz');
         }
         const erk = document.getElementById('erklaerung');
-        if (erk.textContent) { erk.classList.add('visible'); if (!correct) erk.classList.add('wrong'); }
-        // Konfidenz-Rating einblenden
+        if (erk && erk.textContent.trim()) { erk.classList.add('visible'); if (!correct) erk.classList.add('wrong'); }
         const navDiv = document.querySelector('.quiz-nav');
         navDiv.insertAdjacentHTML('beforebegin', `<div class="konfidenz-box" id="konfBox">
           <div class="konfidenz-label">Wie sicher warst du?</div>
@@ -1640,20 +1768,12 @@
         </div>`);
       };
       window.setKonfidenz = (stufe, correct) => {
-        const q = quizData[cur];
-        // Unsicher oder mittel bei richtiger Antwort → trotzdem in SR aufnehmen
-        if (correct && (stufe === 'unsicher' || stufe === 'mittel')) {
-          addToSR(q.frage, q.optionen, q.richtig, q.erklaerung||'', 'Quiz');
-        }
-        // Bei unsicher → Interval zurücksetzen falls schon in SR
-        if (stufe === 'unsicher') {
-          const data = getSRData();
-          const item = data.find(d => d.key === q.frage.substring(0,60));
-          if (item) { item.stufe = 0; item.naechste = Date.now() + 86400000; saveSRData(data); }
-        }
-        document.querySelectorAll('.konfidenz-btn').forEach(b => b.disabled = true);
+        document.querySelectorAll('.konfidenz-btn').forEach(b => {
+          b.classList.remove('selected-unsicher', 'selected-mittel', 'selected-sicher');
+        });
         const pressed = document.querySelector(`.konfidenz-btn.${stufe}`);
         if (pressed) pressed.classList.add(`selected-${stufe}`);
+        window._pendingKonfidenz = { stufe, correct };
         document.getElementById('nextBtn').style.display = 'inline-block';
       };
     }
@@ -1918,15 +2038,24 @@
           </div>`);
         });
       });
+      window._pendingReviewKonfidenz = null;
       window.setReviewKonfidenz = (stufe, key, correct) => {
-        if (correct && stufe === 'unsicher') { updateSR(key, false); }
-        else if (correct && stufe === 'mittel') { /* interval normal bleiben */ }
-        document.querySelectorAll('.konfidenz-btn').forEach(b => b.disabled = true);
+        document.querySelectorAll('.konfidenz-btn').forEach(b => {
+          b.classList.remove('selected-unsicher', 'selected-mittel', 'selected-sicher');
+        });
         const pressed = document.querySelector(`.konfidenz-btn.${stufe}`);
         if (pressed) pressed.classList.add(`selected-${stufe}`);
+        window._pendingReviewKonfidenz = { stufe, key, correct };
         document.getElementById('nextBtn').style.display = 'inline-block';
       };
-      window._rnext = () => { cur++; show(); };
+      window._rnext = () => {
+        if (window._pendingReviewKonfidenz) {
+          const { stufe, key, correct } = window._pendingReviewKonfidenz;
+          if (correct && stufe === 'unsicher') { updateSR(key, false); }
+          window._pendingReviewKonfidenz = null;
+        }
+        cur++; show();
+      };
     }
     show();
   }
