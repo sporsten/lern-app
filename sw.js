@@ -1,5 +1,5 @@
 // Service Worker – Offline-Unterstützung mit automatischem Update
-const CACHE_NAME = 'lern-app-v1';
+const CACHE_NAME = 'lern-app-v20260327';
 const FILES = [
   './',
   './index.html',
