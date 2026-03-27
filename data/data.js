@@ -4552,5 +4552,516 @@ const NEUIGKEITEN = [
     typ: "feature",
     titel: "Problemzonen-Fix",
     text: "Richtig beantwortete Fragen verschwinden jetzt aus den Problemzonen."
+  },
+  {
+    datum: "2026-03-27",
+    typ: "inhalt",
+    titel: "Großes Quiz-Update 🎯",
+    text: "Alle Themen haben jetzt 15–20 Fragen im Pool. Je Quiz werden 10 zufällig gewählt – immer neue Runden!"
   }
 ];
+
+// ============================================================
+// QUIZ-FRAGEN-POOLS (je 15-20 Fragen pro Thema)
+// ============================================================
+
+// --- Kapitalkonsolidierung ---
+FAECHER["rechnungslegung"].themen["kapitalkonsolidierung"].quiz = [
+  { frage: "Was ist das Ziel der Kapitalkonsolidierung?", optionen: ["Eigenkapital erhöhen", "Verflechtungen zwischen Mutter- und Tochterunternehmen eliminieren", "Schulden tilgen", "Gewinne ausschütten"], richtig: 1, erklaerung: "Die Kapitalkonsolidierung eliminiert gegenseitige Verflechtungen durch Aufrechnung des Anteils gegen das Eigenkapital der Tochter." },
+  { frage: "Wie entsteht ein Goodwill bei der Kapitalkonsolidierung?", optionen: ["Anteilswert < Eigenkapital zu Zeitwerten", "Anteilswert > Eigenkapital zu Zeitwerten", "Eigenkapital = 0", "Keine stillen Reserven vorhanden"], richtig: 1, erklaerung: "Goodwill = Kaufpreis (Anteilswert) minus Eigenkapital zu Zeitwerten. Er entsteht, wenn mehr gezahlt wird als der Zeitwert des Eigenkapitals." },
+  { frage: "Was kennzeichnet die Neubewertungsmethode (Purchase Method)?", optionen: ["Buchwertfortführung, kein Goodwill", "Aktiva/Passiva zu Zeitwerten, Goodwill möglich", "Nur für Pooling geeignet", "Keine Aufdeckung stiller Reserven"], richtig: 1, erklaerung: "Bei der Neubewertungsmethode werden alle Aktiva und Passiva zum Zeitwert angesetzt, und ein verbleibender Überschuss wird als Goodwill bilanziert." },
+  { frage: "Was kennzeichnet die Poolomethode (Pooling of Interests)?", optionen: ["Zeitwertansatz und Goodwill", "Buchwertfortführung, kein Goodwill", "Nur bei 100%-Beteiligung", "Verwendung stiller Reserven"], richtig: 1, erklaerung: "Die Poolomethode führt Buchwerte fort – es entsteht kein Goodwill. Sie gilt für Vereinigungen unter gemeinsamer Leitung." },
+  { frage: "Was sind stille Reserven?", optionen: ["Offene Rücklagen im Jahresabschluss", "Differenz zwischen Zeitwert und Buchwert von Vermögenswerten", "Geheimkonten des Unternehmens", "Steuerlich nicht anerkannte Rücklagen"], richtig: 1, erklaerung: "Stille Reserven = Zeitwert minus Buchwert eines Vermögensgegenstands. Sie werden bei der Kapitalkonsolidierung aufgedeckt." },
+  { frage: "Was passiert mit stillen Lasten bei der Kapitalkonsolidierung?", optionen: ["Sie erhöhen den Goodwill", "Sie verringern das angesetzte Eigenkapital", "Sie werden ignoriert", "Sie werden sofort aufgelöst"], richtig: 1, erklaerung: "Stille Lasten (z.B. Passiva zu Zeitwerten höher als Buchwert) reduzieren das anzurechnende Eigenkapital." },
+  { frage: "Formel: M-AG zahlt 1.000 € für T-GmbH, EK = 300 €, stille Reserven = +60 € in Aktiva, -20 € in Passiva. Goodwill?", optionen: ["700 €", "640 €", "660 €", "720 €"], richtig: 2, erklaerung: "Goodwill = 1.000 - (300 + 60 - 20) = 1.000 - 340 = 660 €." },
+  { frage: "Was ist bei einem negativen Goodwill (Lucky Buy) zu tun?", optionen: ["Sofort als Gewinn verbuchen", "Als passiver Unterschiedsbetrag bilanzieren", "Ignorieren", "Als Verlust abschreiben"], richtig: 1, erklaerung: "Ein negativer Goodwill (Badwill/Lucky Buy) entsteht, wenn weniger gezahlt wird als der Zeitwert. Er wird als passiver Unterschiedsbetrag erfasst." },
+  { frage: "Wie wird der Goodwill nach HGB behandelt?", optionen: ["Sofort als Aufwand erfasst", "Über die Nutzungsdauer abgeschrieben (max. 10 Jahre)", "Dauerhaft bilanziert", "Gegen Eigenkapital verrechnet"], richtig: 1, erklaerung: "Nach HGB wird der Goodwill planmäßig über die Nutzungsdauer abgeschrieben, maximal 10 Jahre." },
+  { frage: "Was passiert, wenn eine Mutter 60% an einer Tochter hält?", optionen: ["Vollkonsolidierung und keine Minderheiten", "Vollkonsolidierung mit Minderheitsanteil (40%) im Konzerneigenkapital", "Nur Quotenkonsolidierung", "Keine Konsolidierung nötig"], richtig: 1, erklaerung: "Bei Vollkonsolidierung werden 100% der Tochter einbezogen. Der nicht gehaltene Anteil (40%) erscheint als Minderheitsanteil im Eigenkapital." },
+  { frage: "Was ist der Akquisitionszeitpunkt?", optionen: ["Datum der ersten Dividende", "Zeitpunkt, zu dem die Kapitalkonsolidierung durchgeführt wird (Erwerb der Anteile)", "Ende des Geschäftsjahres", "Datum der Gründung der Tochter"], richtig: 1, erklaerung: "Der Akquisitionszeitpunkt ist der Zeitpunkt des Anteilserwerbs. Das Eigenkapital wird zu diesem Zeitpunkt zu Zeitwerten ermittelt." },
+  { frage: "Welche Methode wird typischerweise bei einem Unternehmenskauf angewendet?", optionen: ["Poolomethode", "Neubewertungsmethode (Purchase Method)", "Quotenkonsolidierung", "Equity-Methode"], richtig: 1, erklaerung: "Die Neubewertungsmethode (Purchase Method) ist die Standardmethode bei Unternehmenserwerben." },
+  { frage: "Was ist ein Minderheitsanteil im Konzernabschluss?", optionen: ["Schulden gegenüber Tochterunternehmen", "Anteil des EK, der nicht dem Mutterunternehmen gehört", "Der kleinste Konzernbereich", "Nicht konsolidierte Tochterunternehmen"], richtig: 1, erklaerung: "Der Minderheitsanteil zeigt den Anteil am Eigenkapital der Tochter, der von anderen Gesellschaftern gehalten wird." },
+  { frage: "Wozu dient die Konsolidierung im Konzernabschluss generell?", optionen: ["Steueroptimierung", "Konzern als wirtschaftliche Einheit darstellen", "Gewinnmaximierung", "Internationale Rechnungslegung vereinfachen"], richtig: 1, erklaerung: "Konsolidierung beseitigt Doppelzählungen und zeigt den Konzern als wirtschaftliche Einheit (Single Entity Concept)." },
+  { frage: "Wie lautet die grundlegende Formel der Kapitalkonsolidierung?", optionen: ["Anteilswert + EK = Goodwill", "Anteilswert - EK zu Zeitwerten = Goodwill", "EK - Schulden = Goodwill", "Goodwill + stille Reserven = Anteilswert"], richtig: 1, erklaerung: "Goodwill = Anteilswert (Kaufpreis) minus Eigenkapital zu Zeitwerten (inkl. aufgedeckter stiller Reserven/Lasten)." }
+];
+
+// --- Informations- und Anwendungssysteme ---
+FAECHER["winf-seidlmeier"].themen["applikationssysteme"].quiz = [
+  { frage: "Was unterscheidet ein Informationssystem (IS) von einem Anwendungssystem (AS)?", optionen: ["IS ist älter", "IS umfasst Mensch + Technik, AS nur die Technik", "AS ist größer als IS", "Kein Unterschied"], richtig: 1, erklaerung: "IS = soziotechnisches System (Mensch + Hardware + Software). AS = nur die technische Komponente ohne Menschen." },
+  { frage: "Welche Systeme zählen zu den operativen Informationssystemen?", optionen: ["MIS und DSS", "TPS (Transaktionsverarbeitungssysteme)", "EIS (Executive IS)", "KI-Systeme"], richtig: 1, erklaerung: "TPS (Transaction Processing Systems) unterstützen das operative Tagesgeschäft (Bestellungen, Buchungen)." },
+  { frage: "Wofür steht ERP?", optionen: ["Enterprise Resource Planning", "Electronic Retail Processing", "Extended Report Program", "Enterprise Reporting Platform"], richtig: 0, erklaerung: "ERP = Enterprise Resource Planning – integrierte Systeme, die alle Geschäftsfunktionen in einer zentralen Datenbank bündeln." },
+  { frage: "Was ist der Hauptvorteil eines ERP-Systems?", optionen: ["Niedrigere Serverkosten", "Integration aller Geschäftsfunktionen in einer Datenbasis", "Schnellere E-Mails", "Günstigere Hardware"], richtig: 1, erklaerung: "ERP integriert Finanzen, Produktion, Logistik und HR – alle Bereiche arbeiten mit denselben, aktuellen Daten." },
+  { frage: "Für was wird ein CRM-System primär eingesetzt?", optionen: ["Verwaltung von Maschinen", "Verwaltung von Kundenbeziehungen", "Buchhaltung", "Lagerhaltung"], richtig: 1, erklaerung: "CRM (Customer Relationship Management) verwaltet Kundeninformationen, Kontakthistorien und Verkaufsprozesse." },
+  { frage: "Was ist ein SCM-System?", optionen: ["Software für Buchhaltung", "System zur Verwaltung der Lieferkette", "Social Media Management", "Sicherheitssystem"], richtig: 1, erklaerung: "SCM (Supply Chain Management) optimiert die Lieferkette von Zulieferern bis zum Endkunden." },
+  { frage: "Welches IS unterstützt das mittlere Management bei der Entscheidungsfindung?", optionen: ["TPS", "MIS (Management Information System)", "EIS", "DSS"], richtig: 1, erklaerung: "MIS liefert dem mittleren Management aggregierte Berichte und Kennzahlen für strukturierte Entscheidungen." },
+  { frage: "Was macht ein Decision Support System (DSS)?", optionen: ["Entscheidungen autonom treffen", "Manager bei schlecht-strukturierten Entscheidungen unterstützen", "Nur Daten speichern", "Mitarbeiter verwalten"], richtig: 1, erklaerung: "DSS unterstützt Manager bei komplexen, schwach strukturierten Entscheidungen durch Analysen und Modelle." },
+  { frage: "Was bedeutet Medienbruch in einem Informationssystem?", optionen: ["Technischer Defekt", "Wechsel des Datenträgers oder Formats zwischen Prozessschritten", "Systemabsturz", "Fehlerhafte Daten"], richtig: 1, erklaerung: "Medienbruch: Daten müssen von einem Medium auf ein anderes übertragen werden (z.B. Papier → Computer), was Fehlerquellen schafft." },
+  { frage: "Welches System wird typischerweise für das Top-Management genutzt?", optionen: ["TPS", "MIS", "EIS (Executive Information System)", "DSS"], richtig: 2, erklaerung: "EIS liefert dem Top-Management hochaggregierte strategische Informationen und Kennzahlen." },
+  { frage: "Was ist ein Vorteil von Cloud-Computing für Informationssysteme?", optionen: ["Immer günstiger als lokale Systeme", "Flexibilität und Skalierbarkeit", "Keine Sicherheitsbedenken", "100% Verfügbarkeitsgarantie"], richtig: 1, erklaerung: "Cloud bietet Flexibilität (Ressourcen nach Bedarf) und Skalierbarkeit (schnell wachsen oder schrumpfen)." },
+  { frage: "Welche Aussage über ERP-Systeme ist FALSCH?", optionen: ["Sie integrieren mehrere Geschäftsfunktionen", "Sie nutzen eine zentrale Datenbasis", "Sie ersetzen alle anderen IT-Systeme vollständig", "Beispiele sind SAP und Oracle"], richtig: 2, erklaerung: "ERP-Systeme ersetzen nicht alle IT-Systeme – oft gibt es ergänzende Speziallösungen (Best-of-Breed-Ansatz)." },
+  { frage: "Was ist das Ziel der Beseitigung von Medienbrüchen?", optionen: ["Papier komplett abschaffen", "Nahtlosen, fehlerfreien Datenfluss zwischen Systemen sicherstellen", "Mitarbeiter einsparen", "Hardware reduzieren"], richtig: 1, erklaerung: "Ohne Medienbrüche fließen Daten ohne manuelle Übertragung durch alle Prozessschritte – weniger Fehler, mehr Effizienz." },
+  { frage: "Welche Module sind typisch in einem ERP-System?", optionen: ["Klimaanlage, Aufzug, Beleuchtung", "Finanzen, Produktion, Logistik, HR", "E-Mail, Browser, Virenschutz", "Datenbank, Server, Netzwerk"], richtig: 1, erklaerung: "ERP-Module umfassen Geschäftsfunktionen: Finanzwesen (FI), Controlling (CO), Produktion (PP), Logistik (MM/SD), HR." },
+  { frage: "Was versteht man unter einem soziotechnischen System?", optionen: ["Ein System nur aus Hardware und Software", "Ein System, das menschliche und technische Komponenten kombiniert", "Ein System, das ausschließlich von KI gesteuert wird", "Ein soziales Netzwerk"], richtig: 1, erklaerung: "Soziotechnisch = Zusammenspiel von Menschen (sozial) und Technologie (technisch) in einem System." }
+];
+
+// --- Standardsoftware ---
+FAECHER["winf-seidlmeier"].themen["standardsoftware"].quiz = [
+  { frage: "Was ist Standardsoftware?", optionen: ["Speziell für ein Unternehmen entwickelte Software", "Vorgefertigte Software für allgemeine Aufgaben, die am Markt verfügbar ist", "Kostenlose Open-Source-Software", "Interne Software ohne Lizenz"], richtig: 1, erklaerung: "Standardsoftware ist vorgefertigt und für viele Unternehmen nutzbar – im Gegensatz zu maßgeschneiderter Individualsoftware." },
+  { frage: "Was ist Individualsoftware?", optionen: ["Standard-Office-Paket", "Software, die speziell für die Anforderungen eines bestimmten Unternehmens entwickelt wird", "Open-Source-Software", "Freeware"], richtig: 1, erklaerung: "Individualsoftware ist maßgeschneidert und deckt spezifische Unternehmensanforderungen ab, die Standard-Lösungen nicht bieten." },
+  { frage: "Welcher Hauptvorteil hat Standardsoftware?", optionen: ["Maximale Flexibilität", "Geringere Kosten durch Verteilung der Entwicklungskosten auf viele Nutzer", "Keine Abhängigkeit vom Hersteller", "Immer beste Performance"], richtig: 1, erklaerung: "Standardsoftware ist günstiger, weil sich die Entwicklungskosten auf viele Käufer verteilen." },
+  { frage: "Welcher Hauptnachteil hat Standardsoftware?", optionen: ["Zu teuer", "Weniger flexibel – nicht alle spezifischen Anforderungen werden abgedeckt", "Kein Support verfügbar", "Immer veraltet"], richtig: 1, erklaerung: "Standardsoftware kann nicht alle individuellen Unternehmensprozesse optimal abbilden – Kompromisse sind nötig." },
+  { frage: "Was versteht man unter Customizing?", optionen: ["Das Farbschema der Software ändern", "Anpassung von Standardsoftware an spezifische Unternehmensanforderungen", "Die Software neu programmieren", "Ein neues Software-Update installieren"], richtig: 1, erklaerung: "Customizing = Konfiguration und Anpassung von Standardsoftware (ohne Programmierung) an Unternehmensprozesse." },
+  { frage: "Welche Beschaffungsvariante ist typisch für Cloud-Software?", optionen: ["Einmaliger Kauf mit ewigem Nutzungsrecht", "Miete (Subscription) mit monatlichen oder jährlichen Gebühren", "Tausch gegen andere Software", "Kostenloser Download"], richtig: 1, erklaerung: "Cloud-Software wird typischerweise als Subscription (SaaS) bezahlt – monatlich oder jährlich, kein Kauf." },
+  { frage: "Was bedeutet SaaS?", optionen: ["Software as a Service", "System as a Standard", "Subscription and Software", "Secure Application System"], richtig: 0, erklaerung: "SaaS = Software as a Service – Software wird über das Internet als Dienst bereitgestellt und gemietet." },
+  { frage: "Wann ist Individualsoftware sinnvoll?", optionen: ["Immer", "Wenn spezifische Prozesse nicht durch Standardsoftware abgebildet werden können", "Nur für Kleinunternehmen", "Wenn kein Budget vorhanden"], richtig: 1, erklaerung: "Individualsoftware lohnt sich, wenn Unternehmensprozesse einzigartig sind und Standardlösungen nicht passen." },
+  { frage: "Was ist das Risiko der Herstellerabhängigkeit bei Standardsoftware?", optionen: ["Software wird zu langsam", "Preiserhöhungen, Support-Einstellung und erzwungene Updates", "Zu viele Funktionen", "Schlechtere Benutzeroberfläche"], richtig: 1, erklaerung: "Abhängigkeit vom Hersteller bedeutet: Preise, Updates und Support-Entscheidungen liegen beim Hersteller, nicht beim Nutzer." },
+  { frage: "Welche ist ein Beispiel für Standardsoftware?", optionen: ["Ein intern entwickeltes HR-Tool einer Bank", "Microsoft Office, SAP, Salesforce", "Ein Einzelhandel-spezifisches Warenwirtschaftssystem", "Eigene Entwicklung auf Basis von Python"], richtig: 1, erklaerung: "Microsoft Office, SAP und Salesforce sind klassische Beispiele für Standardsoftware." },
+  { frage: "Was passiert, wenn ein Unternehmen Prozesse an die Standardsoftware anpasst?", optionen: ["Das ist nicht möglich", "Das Unternehmen passt seine Abläufe an die Software-Logik an", "Software wird komplett neu entwickelt", "Der Hersteller übernimmt die Anpassung kostenlos"], richtig: 1, erklaerung: "Oft müssen Unternehmen ihre Prozesse an die Software-Logik angleichen – ein häufiger Effekt bei ERP-Einführungen." },
+  { frage: "Was ist der Unterschied zwischen Kauf und Miete von Software?", optionen: ["Kein Unterschied", "Kauf = einmalige Zahlung, dauerhaftes Nutzungsrecht; Miete = laufende Gebühren", "Miete ist teurer als Kauf", "Kauf gilt nur für Privatpersonen"], richtig: 1, erklaerung: "Beim Kauf erwirbt man ein dauerhaftes Nutzungsrecht. Bei der Miete (Subscription) zahlt man laufende Gebühren für die Nutzung." },
+  { frage: "Welches Kriterium spricht für die Wahl von Standardsoftware?", optionen: ["Unternehmen hat völlig einzigartige Prozesse", "Unternehmen hat begrenzte IT-Ressourcen und braucht schnelle Lösung", "Unternehmen möchte keinen Wartungsvertrag", "Unternehmen will vollständige Kontrolle über den Quellcode"], richtig: 1, erklaerung: "Begrenzte Ressourcen und Zeitdruck sprechen für Standardsoftware – schnelle Implementierung, kein Entwicklungsaufwand." },
+  { frage: "Was ist der Unterschied zwischen Standard- und Individualsoftware in Bezug auf Kosten?", optionen: ["Individualsoftware ist immer günstiger", "Standardsoftware hat niedrigere Anschaffungskosten, Individualsoftware höhere Entwicklungskosten", "Beide kosten gleich viel", "Standardsoftware ist teurer wegen Lizenzgebühren"], richtig: 1, erklaerung: "Individualsoftware hat hohe Entwicklungskosten. Standardsoftware verteilt diese auf viele Nutzer, was sie günstiger macht." },
+  { frage: "Was ist eine Lizenz bei Software?", optionen: ["Ein kostenloses Nutzungsrecht", "Eine rechtliche Genehmigung zur Nutzung der Software unter definierten Bedingungen", "Eine Zertifizierung des Herstellers", "Ein Sicherheits-Zertifikat"], richtig: 1, erklaerung: "Eine Softwarelizenz ist die vertragliche Vereinbarung, die Art und Umfang der Nutzung regelt (z.B. Anzahl Nutzer, Standorte)." }
+];
+
+// --- Prozessautomatisierung ---
+FAECHER["winf-seidlmeier"].themen["prozessautomatisierung"].quiz = [
+  { frage: "Was ist Prozessautomatisierung?", optionen: ["Manuelle Ausführung digitaler Prozesse", "Vollständige oder teilweise Übernahme von Prozessschritten durch Anwendungssysteme", "Digitalisierung von Papierdokumenten", "Einführung von ERP-Systemen"], richtig: 1, erklaerung: "Prozessautomatisierung = Maschinen/Systeme übernehmen Prozessschritte, die früher Menschen ausgeführt haben." },
+  { frage: "Was ist ein Workflowsystem?", optionen: ["Ein E-Mail-Programm", "Ein System, das den Ablauf automatisierter Prozessschritte steuert und überwacht", "Ein Projektmanagement-Tool", "Ein Datenbanksystem"], richtig: 1, erklaerung: "Workflowsysteme steuern den Ablauf von Prozessen: welcher Schritt wann von wem oder welchem System ausgeführt wird." },
+  { frage: "Was ist der Unterschied zwischen Digitalisierung und Automatisierung?", optionen: ["Sie sind identisch", "Digitalisierung = analog zu digital; Automatisierung = Maschinen übernehmen Schritte", "Automatisierung ist älter", "Digitalisierung betrifft nur Dokumente"], richtig: 1, erklaerung: "Digitalisierung wandelt analoge Inhalte in digitale um (Papier → PDF). Automatisierung lässt Systeme Schritte selbstständig ausführen." },
+  { frage: "Welche Aufgabe hat ein Workflowsystem?", optionen: ["Nur Dokumente speichern", "Prozesse steuern, überwachen und koordinieren", "Hardware verwalten", "Passwörter verwalten"], richtig: 1, erklaerung: "Workflowsysteme koordinieren Aufgaben, überwachen Fristen und steuern, welche Schritte wann und von wem ausgeführt werden." },
+  { frage: "Was ist RPA (Robotic Process Automation)?", optionen: ["Roboter in der Fabrik", "Software-Roboter, die repetitive digitale Aufgaben automatisch ausführen", "Automatische Datenbankabfragen", "Ein ERP-Modul"], richtig: 1, erklaerung: "RPA = Software-Bots, die wie ein Mensch mit digitalen Systemen interagieren und repetitive Aufgaben automatisieren." },
+  { frage: "Welche Prozessschritte eignen sich besonders gut für Automatisierung?", optionen: ["Kreative Designaufgaben", "Strategische Entscheidungen", "Repetitive, regelbasierte und strukturierte Aufgaben", "Verhandlungen mit Kunden"], richtig: 2, erklaerung: "Automatisierung funktioniert am besten bei repetitiven, klar definierten, regelbasierten Aufgaben ohne Ausnahmefälle." },
+  { frage: "Was ist ein Vorteil der Prozessautomatisierung?", optionen: ["Mehr Mitarbeiter benötigt", "Schnellere Ausführung und weniger Fehler als bei manueller Bearbeitung", "Höhere Kosten", "Mehr Papierkram"], richtig: 1, erklaerung: "Automatisierte Prozesse laufen schneller, konsistenter und mit weniger Fehlern als manuelle Abläufe." },
+  { frage: "Was ist ein Ereignis in einem Prozessmodell (z.B. EPK)?", optionen: ["Eine Aktion, die ausgeführt wird", "Ein Zustand, der einen Prozess auslöst oder abschließt", "Ein Mitarbeiter", "Ein IT-System"], richtig: 1, erklaerung: "Ereignisse (z.B. 'Bestellung eingegangen') lösen Prozesse aus oder beenden sie – sie sind passive Zustände, keine Aktionen." },
+  { frage: "Was ist eine Funktion in einer EPK?", optionen: ["Ein Ereignis", "Eine auszuführende Tätigkeit in einem Prozess", "Ein Datenbank-Aufruf", "Ein Workflowsystem"], richtig: 1, erklaerung: "Funktionen (z.B. 'Bestellung prüfen') sind aktive Tätigkeiten in einer EPK – sie werden von Rollen oder Systemen ausgeführt." },
+  { frage: "Was bedeutet 'end-to-end Automatisierung'?", optionen: ["Nur den letzten Schritt automatisieren", "Den gesamten Prozess von Anfang bis Ende ohne manuelle Eingriffe automatisieren", "Zwei Systeme verbinden", "E-Mail-Automatisierung"], richtig: 1, erklaerung: "End-to-end Automatisierung = kein manueller Eingriff vom Start bis zum Abschluss eines Prozesses." },
+  { frage: "Welches Risiko birgt zu hohe Prozessautomatisierung?", optionen: ["Prozesse werden zu schnell", "Verlust von Flexibilität und Schwierigkeiten bei Ausnahmefällen", "Mitarbeiter haben zu viel zu tun", "Kosten sinken zu stark"], richtig: 1, erklaerung: "Stark automatisierte Prozesse sind starr – unerwartete Situationen, die Urteilsvermögen erfordern, können Probleme verursachen." },
+  { frage: "Was ist ein BPMN-Diagramm?", optionen: ["Eine Datenbankstruktur", "Eine standardisierte Notation zur grafischen Darstellung von Geschäftsprozessen", "Ein Netzwerkdiagramm", "Ein Finanzmodell"], richtig: 1, erklaerung: "BPMN (Business Process Model and Notation) ist ein Standard zur grafischen Darstellung von Prozessen, ähnlich wie EPK." },
+  { frage: "Welcher Begriff beschreibt die Verbindung von Menschen und automatisierten Systemen in einem Prozess?", optionen: ["Vollautomatisierung", "Hybride Automatisierung / Mensch-Maschine-Kollaboration", "Digitalisierung", "ERP-Integration"], richtig: 1, erklaerung: "In hybriden Prozessen arbeiten Menschen und Systeme zusammen – automatische Schritte wechseln mit menschlichen Entscheidungen." },
+  { frage: "Was ist ein Trigger in einem Workflowsystem?", optionen: ["Ein Benutzerpasswort", "Ein Ereignis, das einen automatischen Prozessschritt auslöst", "Eine Datenbanktabelle", "Ein Fehler im System"], richtig: 1, erklaerung: "Trigger sind Auslöser (z.B. Rechnungseingang, Zeitpunkt), die automatisch den nächsten Prozessschritt starten." },
+  { frage: "Was ist das Ziel der Prozessoptimierung vor der Automatisierung?", optionen: ["Möglichst viele Schritte hinzufügen", "Ineffiziente Schritte eliminieren, bevor sie automatisiert werden", "Mitarbeiter schulen", "Hardware aufrüsten"], richtig: 1, erklaerung: "Schlechte Prozesse sollten nicht einfach automatisiert werden – zuerst optimieren, dann automatisieren ('don't automate waste')." }
+];
+
+// --- Digitalisierung in Unternehmen ---
+FAECHER["winf-seidlmeier"].themen["digitalisierung-transformation"].quiz = [
+  { frage: "Was ist der Unterschied zwischen Digitalisierung und digitaler Transformation?", optionen: ["Kein Unterschied", "Digitalisierung = analog zu digital; Transformation = Neugestaltung von Geschäftsmodellen", "Transformation ist älter", "Digitalisierung betrifft nur IT-Abteilungen"], richtig: 1, erklaerung: "Digitalisierung = technische Umwandlung (Papier → Digital). Digitale Transformation = umfassende Neugestaltung von Geschäftsmodellen, Prozessen und Kultur." },
+  { frage: "Was ist ein Beispiel für reine Digitalisierung (ohne Transformation)?", optionen: ["Einführung eines neuen Geschäftsmodells durch KI", "Papierrechnung als PDF-Datei speichern", "Entwicklung einer komplett neuen App", "Schließung aller Filialen zugunsten von Online-Handel"], richtig: 1, erklaerung: "Papier → PDF ist reine Digitalisierung. Der Prozess bleibt gleich, nur das Medium wechselt." },
+  { frage: "Was ist ein Beispiel für digitale Transformation?", optionen: ["E-Mails statt Briefen nutzen", "Netflix ersetzt das Videotheken-Geschäftsmodell durch Streaming", "Scanner statt Fotokopierer", "Digitale Signaturen nutzen"], richtig: 1, erklaerung: "Netflix transformierte die gesamte Branche – nicht nur das Medium, sondern das Geschäftsmodell (Subscription statt Einzelkauf)." },
+  { frage: "Was sind Treiber der digitalen Transformation?", optionen: ["Höhere Steuern", "Neue Technologien (KI, Cloud, IoT), veränderte Kundenwünsche, Wettbewerbsdruck", "Mehr Mitarbeiter", "Weniger IT-Budgets"], richtig: 1, erklaerung: "Digitale Transformation wird getrieben durch Technologie (KI, Cloud, IoT), Kundenwandel und Wettbewerbsdruck." },
+  { frage: "Was versteht man unter dem Internet of Things (IoT)?", optionen: ["Das reguläre Internet", "Vernetzung physischer Objekte (Maschinen, Geräte) mit dem Internet", "Social-Media-Plattformen", "Cloud-Speicher"], richtig: 1, erklaerung: "IoT = physische Objekte (Sensoren, Maschinen, Geräte) sind mit dem Internet verbunden und tauschen Daten aus." },
+  { frage: "Was ist ein disruptives Geschäftsmodell?", optionen: ["Ein Modell mit vielen Fehlern", "Ein Modell, das etablierte Branchen durch neue Technologien grundlegend verändert", "Ein Modell, das nur digital funktioniert", "Ein Modell für Startups"], richtig: 1, erklaerung: "Disruption = neue Anbieter oder Technologien ersetzen etablierte Lösungen (z.B. Uber vs. Taxis, Airbnb vs. Hotels)." },
+  { frage: "Welche Technologie ermöglicht das Analysieren großer Datenmengen?", optionen: ["Fax", "Big Data Analytics", "Textverarbeitung", "E-Mail-Server"], richtig: 1, erklaerung: "Big Data Analytics ermöglicht die Verarbeitung und Analyse sehr großer, schneller und vielfältiger Datenmengen." },
+  { frage: "Was ist künstliche Intelligenz (KI) im Unternehmenskontext?", optionen: ["Nur Roboter in Fabriken", "Systeme, die menschenähnliche kognitive Fähigkeiten imitieren (Lernen, Entscheiden)", "Ein ERP-Modul", "Automatische E-Mail-Antworten"], richtig: 1, erklaerung: "KI = Systeme lernen aus Daten und treffen Entscheidungen, die früher menschliches Urteilsvermögen erforderten." },
+  { frage: "Was ist ein typisches Hindernis bei der digitalen Transformation?", optionen: ["Zu viel IT-Know-how", "Kultureller Widerstand, mangelnde Fähigkeiten und Silodenken", "Zu niedrige Kosten", "Zu wenige Digitaldaten"], richtig: 1, erklaerung: "Kultureller Wandel ist das größte Hindernis: Mitarbeiter müssen neue Denkweisen akzeptieren und Silos überwunden werden." },
+  { frage: "Was ist Plattform-Ökonomie?", optionen: ["Eine Buchhaltungssoftware", "Geschäftsmodelle, die als digitale Plattform Anbieter und Nachfrager verbinden", "Eine Art von ERP", "Öffentliche IT-Infrastruktur"], richtig: 1, erklaerung: "Plattform-Ökonomie: digitale Plattformen verbinden Angebot und Nachfrage (z.B. Amazon, Uber, Airbnb) ohne eigene Produkte." },
+  { frage: "Was versteht man unter 'Agilität' im Kontext der Transformation?", optionen: ["Körperliche Fitness der Mitarbeiter", "Fähigkeit, schnell auf Veränderungen zu reagieren und sich anzupassen", "Schnellere Computer", "Mehr Mitarbeiter einstellen"], richtig: 1, erklaerung: "Agilität = Unternehmen können schnell auf Marktveränderungen reagieren, iterativ entwickeln und sich anpassen." },
+  { frage: "Was ist ein Smart Factory / Industrie 4.0?", optionen: ["Eine besonders große Fabrik", "Vernetzte, automatisierte Produktion durch IoT, KI und Datenanalyse", "Ein Fabrikmanagement-Tool", "Digitalisierte Papierdokumente in der Fabrik"], richtig: 1, erklaerung: "Industrie 4.0 = vernetzte Fabriken, in denen Maschinen kommunizieren, Daten analysieren und Prozesse selbst optimieren." },
+  { frage: "Welche Kompetenz ist für Mitarbeiter in der digitalen Transformation besonders wichtig?", optionen: ["Schreibmaschinenkompetenz", "Digitale Kompetenz (Data Literacy, Umgang mit Tools, agiles Arbeiten)", "Buchhaltungswissen", "Fremdsprachen"], richtig: 1, erklaerung: "Digitale Kompetenz (Digital Literacy) umfasst den sicheren Umgang mit digitalen Tools, Daten und neuen Arbeitsmethoden." },
+  { frage: "Was bedeutet 'Customer Centricity' in der digitalen Transformation?", optionen: ["Kunden bezahlen mehr", "Der Kunde steht im Mittelpunkt aller digitalen Entscheidungen", "Kundendaten sammeln und verkaufen", "Kunden selbst digitalisieren lassen"], richtig: 1, erklaerung: "Customer Centricity = alle Prozesse, Produkte und Systeme werden konsequent auf den Kundennutzen ausgerichtet." },
+  { frage: "Was ist Cloud Computing im Unternehmenskontext?", optionen: ["Speicherung von Wetterdaten", "Bereitstellung von IT-Ressourcen (Server, Software) über das Internet nach Bedarf", "Ein lokales Netzwerk", "Eine Backup-Lösung nur für große Konzerne"], richtig: 1, erklaerung: "Cloud = IT-Ressourcen (Rechenleistung, Speicher, Software) werden über das Internet bedarfsgerecht bereitgestellt." }
+];
+
+// --- Datensicherheit und Datenschutz ---
+FAECHER["winf-seidlmeier"].themen["datensicherheit-datenschutz"].quiz = [
+  { frage: "Wofür steht CIA im Kontext der Informationssicherheit?", optionen: ["Confidentiality, Integrity, Availability", "Control, Inspection, Authorization", "Cybersecurity, IT, Access", "Compliance, Innovation, Audit"], richtig: 0, erklaerung: "CIA = Vertraulichkeit (Confidentiality), Integrität (Integrity), Verfügbarkeit (Availability) – die drei Grundziele der Informationssicherheit." },
+  { frage: "Was bedeutet Vertraulichkeit (Confidentiality)?", optionen: ["Daten sind immer erreichbar", "Nur autorisierte Personen können auf Daten zugreifen", "Daten werden regelmäßig gesichert", "Daten sind korrekt"], richtig: 1, erklaerung: "Vertraulichkeit schützt Daten vor unbefugtem Zugriff durch Verschlüsselung und Zugriffskontrollen." },
+  { frage: "Was bedeutet Integrität in der Informationssicherheit?", optionen: ["Daten sind verschlüsselt", "Daten bleiben korrekt und werden nicht unbemerkt verändert", "Daten sind immer verfügbar", "Daten sind vollständig gesichert"], richtig: 1, erklaerung: "Integrität = Daten werden nicht unbemerkt verändert. Checksummen und digitale Signaturen schützen die Integrität." },
+  { frage: "Was bedeutet Verfügbarkeit (Availability)?", optionen: ["Daten sind verschlüsselt", "Autorisierte Nutzer haben Zugriff auf Daten, wenn sie ihn brauchen", "Keine externen Zugriffe erlaubt", "Daten werden täglich gesichert"], richtig: 1, erklaerung: "Verfügbarkeit = System und Daten sind funktionsfähig und erreichbar, wenn autorisierte Nutzer sie brauchen." },
+  { frage: "Was ist der Unterschied zwischen Datensicherheit und Datenschutz?", optionen: ["Kein Unterschied", "Datensicherheit = technischer Schutz vor Bedrohungen; Datenschutz = rechtlicher Schutz personenbezogener Daten", "Datenschutz ist technisch, Datensicherheit rechtlich", "Datenschutz gilt nur für Großunternehmen"], richtig: 1, erklaerung: "Datensicherheit schützt technisch (CIA-Modell). Datenschutz schützt rechtlich die Privatsphäre personenbezogener Daten (DSGVO)." },
+  { frage: "Wofür steht die DSGVO?", optionen: ["Deutsche Software-Grundverordnung", "Datenschutz-Grundverordnung (EU)", "Digitale Sicherheits-Grundordnung und -Verfahren", "Datenserver-Grundverfassung"], richtig: 1, erklaerung: "DSGVO = Datenschutz-Grundverordnung der EU – regelt den Umgang mit personenbezogenen Daten europaweit." },
+  { frage: "Was sind personenbezogene Daten?", optionen: ["Alle digitalen Daten", "Daten, die eine identifizierte oder identifizierbare natürliche Person betreffen", "Nur Name und Adresse", "Nur Bankdaten"], richtig: 1, erklaerung: "Personenbezogene Daten = alle Daten, die eine Person direkt oder indirekt identifizierbar machen (Name, IP, Standort etc.)." },
+  { frage: "Was ist Zwei-Faktor-Authentifizierung (2FA)?", optionen: ["Zwei Passwörter hintereinander", "Identitätsnachweis durch zwei verschiedene Faktoren (z.B. Passwort + SMS-Code)", "Ein doppeltes Passwort", "Zwei Administratoren müssen zustimmen"], richtig: 1, erklaerung: "2FA = Kombination zweier verschiedener Faktoren: Wissen (Passwort), Besitz (Handy), Biometrie – erhöht die Sicherheit." },
+  { frage: "Was ist eine Firewall?", optionen: ["Ein physischer Schutzwall für Server-Räume", "Eine Sicherheitssoftware/Hardware, die Netzwerkverkehr filtert und unerwünschte Verbindungen blockiert", "Ein Backup-System", "Ein Verschlüsselungsalgorithmus"], richtig: 1, erklaerung: "Firewall = kontrolliert eingehenden und ausgehenden Netzwerkverkehr anhand von Regeln – schützt vor unberechtigten Zugriffen." },
+  { frage: "Was ist ein Phishing-Angriff?", optionen: ["Ein Hackerangriff auf Server-Hardware", "Täuschung von Nutzern durch gefälschte E-Mails/Webseiten zur Datendiebstahl", "Ein Virenangriff auf Datenbanken", "Physischer Diebstahl von Hardware"], richtig: 1, erklaerung: "Phishing = Kriminelle täuschen Nutzer durch gefälschte E-Mails oder Websites, um Login-Daten oder Zahlungsinformationen zu stehlen." },
+  { frage: "Welches Recht gewährt die DSGVO Betroffenen?", optionen: ["Recht auf kostenlose Software", "Recht auf Zugriff, Berichtigung und Löschung personenbezogener Daten", "Recht auf anonymes Surfen", "Recht auf unbegrenzte Datenspeicherung"], richtig: 1, erklaerung: "DSGVO-Rechte: Auskunft, Berichtigung, Löschung ('Recht auf Vergessenwerden'), Datenportabilität, Widerspruch." },
+  { frage: "Was ist Ransomware?", optionen: ["Ein legales Backup-Tool", "Schadsoftware, die Daten verschlüsselt und Lösegeld fordert", "Ein Antivirenprogramm", "Eine Art Firewall"], richtig: 1, erklaerung: "Ransomware verschlüsselt Daten und fordert Lösegeld für den Entschlüsselungscode – eine der gefährlichsten Bedrohungen." },
+  { frage: "Was ist der Datenschutzbeauftragte (DSB)?", optionen: ["Der IT-Administrator eines Unternehmens", "Eine Person, die die Einhaltung des Datenschutzes im Unternehmen überwacht", "Der Geschäftsführer", "Ein externer Auditor"], richtig: 1, erklaerung: "Der DSB überwacht die DSGVO-Konformität im Unternehmen und ist Ansprechpartner für Datenschutzfragen." },
+  { frage: "Was ist Datenverschlüsselung?", optionen: ["Löschen sensibler Daten", "Umwandlung von Daten in ein unlesbares Format, das nur mit dem Schlüssel lesbar ist", "Komprimierung von Daten", "Sicherung von Daten auf externen Servern"], richtig: 1, erklaerung: "Verschlüsselung = Daten werden so umgewandelt, dass nur autorisierte Personen mit dem Schlüssel sie lesen können." },
+  { frage: "Was schützt die Integrität von Daten bei der Übertragung?", optionen: ["Antivirensoftware", "Digitale Signaturen und Checksummen", "Firewall", "Benutzerdokumentation"], richtig: 1, erklaerung: "Digitale Signaturen und Checksummen prüfen, ob Daten während der Übertragung verändert wurden." }
+];
+
+// --- 1. Was ist Wirtschaftsinformatik? (aufstocken auf 17 Fragen) ---
+FAECHER["winf-seidlmeier"].themen["was-ist-wi"].quiz = FAECHER["winf-seidlmeier"].themen["was-ist-wi"].quiz.concat([
+  { frage: "Was ist das Ziel der Wertkette nach Porter?", optionen: ["Alle Kosten senken", "Wettbewerbsvorteile durch systematische Analyse wertschöpfender Aktivitäten", "Produkte billiger machen", "Mitarbeiter reduzieren"], richtig: 1, erklaerung: "Porters Wertkette analysiert primäre und unterstützende Aktivitäten, um Quellen von Wettbewerbsvorteilen zu identifizieren." },
+  { frage: "Was sind unterstützende Aktivitäten in der Wertkette?", optionen: ["Eingangslogistik, Operationen, Ausgangslogistik", "Unternehmensinfrastruktur, HR, Technologieentwicklung, Beschaffung", "Marketing, Vertrieb, Service", "Forschung und Entwicklung"], richtig: 1, erklaerung: "Unterstützende Aktivitäten: Unternehmensinfrastruktur, Personalwirtschaft (HR), Technologieentwicklung, Beschaffung." },
+  { frage: "Was analysieren die fünf Porter-Kräfte?", optionen: ["Interne Mitarbeiterstruktur", "Wettbewerbsintensität einer Branche aus fünf Richtungen", "Kostenstruktur eines Unternehmens", "Nur direkte Konkurrenten"], richtig: 1, erklaerung: "Porters 5 Kräfte: Lieferantenmacht, Kundenmacht, neue Anbieter, Substitute, Wettbewerbsintensität – analysieren die Branchenattraktivität." },
+  { frage: "Was ist ein Executive Information System (EIS)?", optionen: ["Ein E-Mail-Programm für Manager", "IS für das Top-Management mit strategischen Kennzahlen", "Ein Warenwirtschaftssystem", "Ein IT-Sicherheitssystem"], richtig: 1, erklaerung: "EIS liefert dem Top-Management hochaggregierte, strategische Informationen zur Unterstützung von Führungsentscheidungen." },
+  { frage: "Was ist ein Geschäftsprozess?", optionen: ["Eine einzelne Aufgabe", "Eine strukturierte Abfolge von Aktivitäten zur Erreichung eines Unternehmensziels", "Ein IT-System", "Ein Organigramm"], richtig: 1, erklaerung: "Geschäftsprozesse = strukturierte Abfolgen von Aktivitäten (oft abteilungsübergreifend) zur Erreichung eines definierten Ziels." },
+  { frage: "Was ist ein TPS (Transaction Processing System)?", optionen: ["Ein System für das Top-Management", "Ein System zur Verarbeitung von Alltagstransaktionen (Bestellungen, Buchungen)", "Ein Analyse-Tool", "Ein CRM-System"], richtig: 1, erklaerung: "TPS verarbeiten täglich große Mengen an Transaktionen (Bestellungen, Buchungen, Zahlungen) auf operativer Ebene." },
+  { frage: "Warum sind Informationssysteme für die Wertschöpfung entscheidend?", optionen: ["Sie ersetzen alle Mitarbeiter", "Sie unterstützen und optimieren wertschöpfende Aktivitäten durch Daten und Automatisierung", "Sie sind nur für IT-Abteilungen relevant", "Sie senken automatisch alle Kosten"], richtig: 1, erklaerung: "IS ermöglichen bessere Entscheidungen, schnellere Prozesse und neue Geschäftsmodelle – sie sind integraler Teil der Wertschöpfung." },
+  { frage: "Was ist Insourcing vs. Outsourcing im IS-Kontext?", optionen: ["Kein Unterschied", "Insourcing = intern entwickeln/betreiben; Outsourcing = externe Anbieter nutzen", "Outsourcing ist immer günstiger", "Insourcing ist für alle Unternehmen besser"], richtig: 1, erklaerung: "Insourcing = eigene Ressourcen. Outsourcing = externe Dienstleister (z.B. Cloud-Anbieter). Entscheidung abhängig von Kosten, Know-how, Kontrolle." }
+]);
+
+// --- Einkommensteuer (aufstocken auf 20 Fragen) ---
+FAECHER["steuerrecht"].themen["einkommensteuer"].quiz = FAECHER["steuerrecht"].themen["einkommensteuer"].quiz.concat([
+  { frage: "Was sind 'Einkünfte aus Kapitalvermögen'?", optionen: ["Nur Zinsen aus Bankguthaben", "Dividenden, Zinsen und Kursgewinne aus Wertpapieren", "Mieterträge", "Einkünfte aus selbständiger Arbeit"], richtig: 1, erklaerung: "§ 20 EStG: Kapitalvermögen umfasst Dividenden, Zinsen, Kursgewinne – pauschal besteuert mit 25% Abgeltungsteuer." },
+  { frage: "Was ist der Unterschied zwischen Steuerpflicht und Steuerschuld?", optionen: ["Kein Unterschied", "Steuerpflicht = Verpflichtung, Steuererklärung abzugeben; Steuerschuld = konkreter Steuerbetrag", "Steuerschuld entsteht immer automatisch", "Nur natürliche Personen haben Steuerpflicht"], richtig: 1, erklaerung: "Steuerpflicht = persönliche Pflicht zur Steuererklärung. Steuerschuld = der konkret berechnete Steuerbetrag nach Abzug aller Abzüge." },
+  { frage: "Welche Einkunftsart unterliegt der Abgeltungsteuer?", optionen: ["Einkünfte aus Gewerbebetrieb", "Einkünfte aus Kapitalvermögen", "Einkünfte aus nichtselbständiger Arbeit", "Vermietung und Verpachtung"], richtig: 1, erklaerung: "Kapitalerträge (§ 20 EStG) werden pauschal mit 25% Abgeltungsteuer (+ SolZ + KiSt) besteuert." },
+  { frage: "Was ist der Arbeitnehmer-Pauschbetrag für Werbungskosten?", optionen: ["500 €", "1.000 €", "1.230 €", "2.000 €"], richtig: 2, erklaerung: "Der Werbungskosten-Pauschbetrag für Arbeitnehmer beträgt 1.230 € (Stand 2023/2024). Wird automatisch abgezogen." },
+  { frage: "Was sind Sonderausgaben?", optionen: ["Nur Kirchensteuer", "Ausgaben, die nicht Betriebsausgaben/Werbungskosten sind, aber steuerlich absetzbar", "Betriebliche Ausgaben", "Ausgaben für Hobbykosten"], richtig: 1, erklaerung: "Sonderausgaben (z.B. Altersvorsorge, Krankenkasse, Spenden, Kirchensteuer) sind privat, aber steuerlich abziehbar." },
+  { frage: "Was regelt § 2 EStG?", optionen: ["Den Steuersatz", "Den Einkommensbegriff und die Ermittlungssystematik", "Die Steuererklärungspflicht", "Nur Kapitalerträge"], richtig: 1, erklaerung: "§ 2 EStG definiert das zu versteuernde Einkommen und listet die 7 Einkunftsarten." },
+  { frage: "Was ist die Günstigerprüfung bei der Abgeltungsteuer?", optionen: ["Vergleich mit ausländischen Steuersätzen", "Prüfung, ob persönlicher Steuersatz unter 25% liegt – dann gilt dieser statt 25%", "Optimierung durch Steuerberater", "Vergleich mit Vorjahressteuern"], richtig: 1, erklaerung: "Liegt der persönliche Steuersatz unter 25%, kann man die Günstigerprüfung beantragen – Kapitalerträge werden dann niedriger besteuert." },
+  { frage: "Welche Einkunftsarten zählen zu den Überschusseinkünften?", optionen: ["Land/Forst, Gewerbe, Selbständig", "Nichtselbständig, Kapital, V&V, Sonstige", "Alle 7 Einkunftsarten", "Nur gewerbliche Einkünfte"], richtig: 1, erklaerung: "Überschusseinkünfte (Einnahmen - Werbungskosten): Nichtselbständige Arbeit, Kapital, V&V, Sonstige Einkünfte." }
+]);
+
+// ============================================================
+// STEUERRECHT - Kapitel 3: Gewerbesteuer
+// ============================================================
+FAECHER["steuerrecht"].themen["gewerbesteuer"] = {
+  name: "3. Gewerbesteuer",
+  zusammenfassung: `<h4>3. Gewerbesteuer – Vollständige Zusammenfassung</h4>
+
+<h5>📌 Allgemeine Charakterisierung</h5>
+<table class="erk-table">
+  <tr><th>Merkmal</th><th>Inhalt</th><th>Rechtsgrundlage</th></tr>
+  <tr><td><strong>Sachsteuer</strong></td><td>Besteuert die Ertragskraft des Gewerbebetriebs – unabhängig von der Person</td><td>§ 2 GewStG</td></tr>
+  <tr><td><strong>Ertragsteuer</strong></td><td>Bemessungsgrundlage = Gewerbeertrag</td><td>§ 7 GewStG</td></tr>
+  <tr><td><strong>Gemeindesteuer</strong></td><td>Aufkommen fließt den Gemeinden zu</td><td>Art. 106 Abs. 6 GG</td></tr>
+  <tr><td><strong>Jahressteuer</strong></td><td>VZ = Kalenderjahr, vierteljährl. Vorauszahlungen</td><td>§§ 19, 20 GewStG</td></tr>
+</table>
+<p><strong>Aufkommen 2024:</strong> ca. 75 Mrd. €</p>
+
+<h5>📌 Zweistufiges Verfahren</h5>
+<div class="def-box">
+  <div class="def-label">Stufe 1 – Finanzamt</div>
+  Ermittelt den <strong>Steuermessbetrag</strong> → erlässt <strong>Steuermessbescheid</strong> (§ 184 AO = Grundlagenbescheid)
+</div>
+<div class="def-box">
+  <div class="def-label">Stufe 2 – Gemeinde</div>
+  Wendet den <strong>Hebesatz</strong> an → erlässt <strong>Gewerbesteuerbescheid</strong>
+</div>
+
+<h5>📌 Sachliche Steuerpflicht (§ 2 GewStG)</h5>
+<p>Steuerpflichtig sind <strong>inländische stehende Gewerbebetriebe</strong> (§ 2 Abs. 1 GewStG i.V.m. § 12 AO) und Reisegewerbebetriebe (§ 35a GewStG).</p>
+<p><strong>Gewerbebetrieb entsteht auf 3 Wegen:</strong></p>
+<table class="erk-table">
+  <tr><th>Entstehungsweg</th><th>Voraussetzungen</th><th>Norm</th></tr>
+  <tr><td><strong>Kraft gewerblicher Betätigung</strong></td><td>Selbständig, nachhaltig, Gewinnerzielungsabsicht, Beteiligung am Verkehr, nicht LuF/freiberuflich. Achtung: Abfärbetheorie (§ 15 Abs. 3 Nr. 1 EStG) und gewerblich geprägte PersGes (§ 15 Abs. 3 Nr. 2 EStG)</td><td>§ 2 Abs. 1 S. 2 GewStG</td></tr>
+  <tr><td><strong>Kraft Rechtsform</strong></td><td>Kapitalgesellschaften (GmbH, AG) → stets Gewerbebetrieb</td><td>§ 2 Abs. 2 S. 1 GewStG</td></tr>
+  <tr><td><strong>Kraft wirtschaftlichen Geschäftsbetriebs</strong></td><td>e.V. und nichtrechtsfähige Vereine</td><td>§ 2 Abs. 3 GewStG</td></tr>
+</table>
+
+<h5>📌 Persönliche Steuerpflicht (§ 5 GewStG)</h5>
+<table class="erk-table">
+  <tr><th>Unternehmensform</th><th>Steuerschuldner</th></tr>
+  <tr><td>Einzelunternehmen</td><td>Einzelunternehmer</td></tr>
+  <tr><td>Personengesellschaft</td><td>Die Gesellschaft</td></tr>
+  <tr><td>Kapitalgesellschaft</td><td>Die Gesellschaft</td></tr>
+</table>
+
+<h5>📌 Steuerbefreiungen (§ 3 GewStG)</h5>
+<p>Beispiele: Deutsche Bundesbank, KfW (Kreditanstalt für Wiederaufbau), Krankenhäuser/Altenheime/Pflegeheime unter Voraussetzungen (§ 3 Nr. 20 GewStG)</p>
+
+<h5>📌 Ermittlungsschema I – Gewerbeertrag</h5>
+<table class="erk-table">
+  <tr><td>Gewinn aus Gewerbebetrieb</td><td>§ 7 GewStG</td></tr>
+  <tr><td>+ Hinzurechnungen</td><td>§ 8 GewStG</td></tr>
+  <tr><td>− Kürzungen</td><td>§ 9 GewStG</td></tr>
+  <tr><td><strong>= maßgebender Gewerbeertrag</strong></td><td>§ 10 GewStG</td></tr>
+  <tr><td>− Gewerbeverlust vergangener Jahre</td><td>§ 10a GewStG</td></tr>
+  <tr><td><strong>= Gewerbeertrag nach Verlustabzug</strong></td><td></td></tr>
+  <tr><td>Abrundung auf volle 100 €</td><td>§ 11 Abs. 1 S. 3 GewStG</td></tr>
+  <tr><td>− 24.500 € Freibetrag (nur EU/PersGes)</td><td>§ 11 Abs. 1 Nr. 1 GewStG</td></tr>
+  <tr><td><strong>= Gewerbeertrag nach Freibetrag</strong></td><td></td></tr>
+</table>
+
+<h5>📌 Hinzurechnungen (§ 8 GewStG) – Beseitigung von Gewinnverzerrungen</h5>
+<table class="erk-table">
+  <tr><th>Nr.</th><th>Kategorie</th><th>Satz</th></tr>
+  <tr><td>1a–f</td><td>Finanzierungsanteile: Zinsen/Renten (100%), Miete unbewegliche WG (50%), Konzessionen/Lizenzen (25%), Miete bewegliche WG (20%) → Summe − 200.000 € FB × 25%</td><td>§ 8 Nr. 1</td></tr>
+  <tr><td>4, 5</td><td>Diverse Gewinnanteile</td><td>§ 8 Nr. 4, 5</td></tr>
+  <tr><td>8</td><td>Anteile am Verlust von Mitunternehmerschaften (OHG, KG, GmbH & Co. KG)</td><td>§ 8 Nr. 8</td></tr>
+  <tr><td>9</td><td>Ausgaben i.S.v. § 9 Abs. 1 Nr. 2 KStG (Spenden/Zuwendungen bei Körperschaften)</td><td>§ 8 Nr. 9</td></tr>
+  <tr><td>10, 12</td><td>Diverse Gewinnminderungen / ausländische Steuern</td><td>§ 8 Nr. 10, 12</td></tr>
+</table>
+
+<h5>📌 Kürzungen (§ 9 GewStG) – Beseitigung von Gewinnverzerrungen</h5>
+<table class="erk-table">
+  <tr><th>Nr.</th><th>Kategorie</th></tr>
+  <tr><td>1</td><td>Grundsteuer für Grundbesitz im Betriebsvermögen (ab 2025)</td></tr>
+  <tr><td>2</td><td>Anteile am Gewinn von Mitunternehmerschaften → Vermeidung Doppelbesteuerung</td></tr>
+  <tr><td>2a, 2b, 7, 8</td><td>Diverse sonstige Gewinnanteile</td></tr>
+  <tr><td>3</td><td>Anteil des Gewerbeertrags einer ausländischen Betriebsstätte</td></tr>
+  <tr><td>5</td><td>Aus Mitteln des Gewerbebetriebs geleistete Zuwendungen (Höchstbeträge: 20% des erhöhten Gewinns oder 4‰ von Umsatz + Lohnsumme)</td></tr>
+</table>
+
+<h5>📌 Verlustabzug (§ 10a GewStG)</h5>
+<div class="def-box">
+  <div class="def-label">Wichtig: Nur Verlustvortrag – kein Verlustrücktrag!</div>
+  <strong>1. Stufe:</strong> Unbegrenzter Verlustabzug bis 1 Mio. €<br>
+  <strong>2. Stufe:</strong> Für Gewerbeertrag über 1 Mio. € → begrenzter Verlustabzug von 60 %
+</div>
+
+<h5>📌 Ermittlungsschema II – Von Gewerbeertrag zur Steuer</h5>
+<table class="erk-table">
+  <tr><td>Gewerbeertrag nach Freibetrag</td><td></td></tr>
+  <tr><td>× Steuermesszahl 3,5 %</td><td>§ 11 Abs. 2 GewStG</td></tr>
+  <tr><td><strong>= Steuermessbetrag</strong> (abrunden auf volle €)</td><td>§§ 11, 14 GewStG</td></tr>
+  <tr><td>× Gewerbesteuerhebesatz (mind. 200 %)</td><td>§ 16 GewStG</td></tr>
+  <tr><td><strong>= festzusetzende Gewerbesteuer</strong></td><td></td></tr>
+  <tr><td>− Vorauszahlungen</td><td>§§ 19, 20 GewStG</td></tr>
+  <tr><td><strong>= Nachzahlung / Erstattung</strong></td><td></td></tr>
+</table>
+
+<h5>📌 Anrechnung auf die ESt (§ 35 EStG)</h5>
+<p>Für Einzelunternehmer und Mitunternehmer: Ermäßigung der ESt um das <strong>4-fache des Steuermessbetrags</strong>, maximal jedoch die tatsächliche Gewerbesteuer. Nur anrechenbar auf Gewerbeeinkünfte, kein Vor-/Rücktrag.</p>`,
+
+  erklaerungen: [
+    {
+      titel: "Allgemeine Charakterisierung der Gewerbesteuer",
+      inhalt: `<p>Die <strong>Gewerbesteuer (GewSt)</strong> ist eine der wichtigsten Steuern für Unternehmen. Sie hat vier prägende Merkmale:</p>
+<div class="erk-tree">
+  <div class="tree-root">Gewerbesteuer – Charakter</div>
+  <div class="tree-branches">
+    <div class="tree-branch"><strong>Sachsteuer:</strong> Besteuert die Ertragskraft des Betriebs, nicht die Person dahinter</div>
+    <div class="tree-branch"><strong>Ertragsteuer:</strong> Bemessungsgrundlage ist der Gewerbeertrag</div>
+    <div class="tree-branch"><strong>Gemeindesteuer:</strong> Das Aufkommen fließt der Gemeinde zu (Art. 106 Abs. 6 GG)</div>
+    <div class="tree-branch"><strong>Jahressteuer:</strong> Vierteljährliche Vorauszahlungen (§§ 19, 20 GewStG)</div>
+  </div>
+</div>
+<p>Das <strong>zweistufige Verfahren</strong> ist entscheidend:</p>
+<table class="erk-table">
+  <tr><th>Stufe</th><th>Wer?</th><th>Was?</th><th>Ergebnis</th></tr>
+  <tr><td>1</td><td>Finanzamt</td><td>Ermittelt Steuermessbetrag</td><td>Steuermessbescheid (Grundlagenbescheid, § 184 AO)</td></tr>
+  <tr><td>2</td><td>Gemeinde</td><td>Wendet Hebesatz an</td><td>Gewerbesteuerbescheid</td></tr>
+</table>`,
+      beispiel: "Aufkommen 2024: ca. 75 Mrd. € – damit ist die GewSt nach USt und Lohnsteuer die drittgrößte Steuer.",
+      merke: "GewSt = Sachsteuer! Sie besteuert den Betrieb, nicht den Unternehmer persönlich. Zweistufiges Verfahren: FA ermittelt Messbetrag, Gemeinde setzt GewSt fest.",
+      flipcards: [
+        { vorne: "Was ist das Steuersubjekt der GewSt?", hinten: "Der Gewerbebetrieb als solcher (Sachsteuer) – nicht der Unternehmer persönlich." },
+        { vorne: "Wer erlässt den Steuermessbescheid?", hinten: "Das Finanzamt (Grundlagenbescheid nach § 184 AO)." },
+        { vorne: "Wer erlässt den Gewerbesteuerbescheid?", hinten: "Die Gemeinde – sie wendet ihren Hebesatz auf den Messbetrag an." },
+        { vorne: "Wie hoch ist das GewSt-Aufkommen 2024?", hinten: "Ca. 75 Mrd. € – fließt vollständig den Gemeinden zu." }
+      ],
+      details: [
+        { titel: "Warum Gemeinde und nicht Bund/Land?", inhalt: "Die GewSt ist Ausgleich dafür, dass Unternehmen die kommunale Infrastruktur nutzen (Straßen, Ver-/Entsorgung, Feuerwehr etc.)." },
+        { titel: "Vorauszahlungen", inhalt: "Jeweils am 15.02., 15.05., 15.08. und 15.11. – je ein Viertel der Vorauszahlung (§ 19 GewStG)." }
+      ],
+      interaktion: [
+        { frage: "Was beschreibt den Charakter der GewSt als 'Sachsteuer' am besten?", optionen: ["Sie ist abhängig vom Einkommen des Unternehmers", "Sie besteuert die Ertragskraft des Betriebs unabhängig von der Person", "Sie ist eine Verbrauchsteuer", "Sie wird vom Bund erhoben"], richtig: 1, erklaerung: "Sachsteuer = die Steuer knüpft an den Betrieb (die Sache) an, nicht an die persönlichen Verhältnisse des Inhabers." },
+        { frage: "Welches Verfahren gilt bei der Gewerbesteuer?", optionen: ["Einheitliches Verfahren nur durch Finanzamt", "Zweistufig: FA → Messbescheid, Gemeinde → GewSt-Bescheid", "Nur Gemeinde zuständig", "Nur Finanzamt zuständig"], richtig: 1, erklaerung: "Zweistufig: Das FA ermittelt den Steuermessbetrag (Grundlagenbescheid), die Gemeinde wendet ihren Hebesatz an." }
+      ]
+    },
+    {
+      titel: "Steuerpflicht: Wer unterliegt der Gewerbesteuer?",
+      inhalt: `<p>Die Steuerpflicht bei der GewSt unterscheidet zwischen <strong>sachlicher</strong> und <strong>persönlicher</strong> Steuerpflicht.</p>
+
+<p><strong>Sachliche Steuerpflicht (§ 2 GewStG):</strong> Inländische stehende Gewerbebetriebe.</p>
+<p>Ein Gewerbebetrieb entsteht auf <strong>3 Wegen</strong>:</p>
+<div class="erk-tree">
+  <div class="tree-root">Gewerbebetrieb entsteht kraft...</div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <strong>1. Gewerblicher Betätigung</strong> (§ 2 Abs. 1 S. 2 GewStG)<br>
+      Alle 5 Voraussetzungen müssen kumulativ vorliegen: Selbständigkeit, Nachhaltigkeit, Gewinnerzielungsabsicht, Beteiligung am allg. wirtschaftl. Verkehr, nicht LuF und nicht freiberuflich.<br>
+      ⚠ Abfärbetheorie (§ 15 Abs. 3 Nr. 1 EStG): Eine gewerbliche Tätigkeit „färbt" alle anderen Tätigkeiten einer PersGes ab.<br>
+      ⚠ Gewerblich geprägte PersGes (§ 15 Abs. 3 Nr. 2 EStG)
+    </div>
+    <div class="tree-branch">
+      <strong>2. Rechtsform</strong> (§ 2 Abs. 2 S. 1 GewStG)<br>
+      Kapitalgesellschaften (GmbH, AG, KGaA) → stets und in vollem Umfang Gewerbebetrieb
+    </div>
+    <div class="tree-branch">
+      <strong>3. Wirtschaftlichen Geschäftsbetriebs</strong> (§ 2 Abs. 3 GewStG)<br>
+      e.V. und nichtrechtsfähige Vereine mit wirtschaftlichem Geschäftsbetrieb
+    </div>
+  </div>
+</div>
+
+<p><strong>Persönliche Steuerpflicht (§ 5 GewStG):</strong></p>
+<table class="erk-table">
+  <tr><th>Unternehmensform</th><th>Steuerschuldner</th></tr>
+  <tr><td>Einzelunternehmen</td><td>Der Einzelunternehmer persönlich</td></tr>
+  <tr><td>Personengesellschaft (OHG, KG...)</td><td>Die Gesellschaft selbst</td></tr>
+  <tr><td>Kapitalgesellschaft (GmbH, AG...)</td><td>Die Gesellschaft selbst</td></tr>
+</table>`,
+      beispiel: "Eine GmbH ist kraft Rechtsform immer gewerbesteuerpflichtig – auch wenn sie nur vermögensverwaltend tätig wäre. Ein Arzt (Freiberufler) hingegen zahlt keine GewSt.",
+      merke: "GmbH/AG = immer GewSt (kraft Rechtsform)! Freiberufler (Ärzte, Anwälte, Steuerberater) und Land-/Forstwirte zahlen keine GewSt.",
+      flipcards: [
+        { vorne: "Zahlt eine GmbH, die nur Immobilien verwaltet, GewSt?", hinten: "Ja! Kapitalgesellschaften unterliegen kraft Rechtsform (§ 2 Abs. 2 GewStG) immer der GewSt." },
+        { vorne: "Was ist die Abfärbetheorie?", hinten: "§ 15 Abs. 3 Nr. 1 EStG: Eine gewerbliche Tätigkeit einer PersGes 'infiziert' alle anderen Tätigkeiten → gesamte Tätigkeit wird gewerblich." },
+        { vorne: "5 Voraussetzungen Gewerbebetrieb kraft Betätigung?", hinten: "Selbständigkeit, Nachhaltigkeit, Gewinnerzielungsabsicht, Beteiligung am allg. wirtschaftl. Verkehr, nicht LuF/freiberuflich." },
+        { vorne: "Wer ist Steuerschuldner bei einer OHG?", hinten: "Die OHG selbst (§ 5 Abs. 1 GewStG) – nicht die einzelnen Gesellschafter." }
+      ],
+      details: [
+        { titel: "Abgrenzung: Freiberufler vs. Gewerbebetrieb", inhalt: "Freiberufliche Tätigkeiten (§ 18 EStG): Ärzte, Rechtsanwälte, Steuerberater, Architekten, Journalisten etc. → keine GewSt. Abgrenzung kann schwierig sein (z.B. Ingenieur als Freiberufler vs. gewerblicher Betrieb)." },
+        { titel: "Steuerbefreiungen § 3 GewStG", inhalt: "Befreit sind u.a.: Deutsche Bundesbank, KfW, Krankenhäuser/Altenheime/Pflegeheime unter bestimmten Voraussetzungen (§ 3 Nr. 20 GewStG)." }
+      ],
+      interaktion: [
+        { frage: "Eine GmbH betreibt ausschließlich Vermögensverwaltung. Unterliegt sie der GewSt?", optionen: ["Nein, weil reine Vermögensverwaltung kein Gewerbe ist", "Ja, weil Kapitalgesellschaften kraft Rechtsform stets gewerblich sind", "Nur wenn der Gewinn über 24.500 € liegt", "Nein, Vermögensverwaltung ist immer steuerfrei"], richtig: 1, erklaerung: "§ 2 Abs. 2 GewStG: Kapitalgesellschaften begründen stets und in vollem Umfang einen Gewerbebetrieb – unabhängig von ihrer Tätigkeit." },
+        { frage: "Eine OHG betreibt sowohl eine freiberufliche Beratung als auch einen kleinen Handel. Was gilt?", optionen: ["Nur der Handelsanteil unterliegt der GewSt", "Gar keine GewSt, weil überwiegend freiberuflich", "Durch die Abfärbetheorie wird die gesamte Tätigkeit gewerblich", "Nur wenn Gewinn > 24.500 €"], richtig: 2, erklaerung: "Abfärbetheorie (§ 15 Abs. 3 Nr. 1 EStG): Die gewerbliche Tätigkeit infiziert die gesamte PersGes – alle Einkünfte werden gewerblich und unterliegen der GewSt." }
+      ]
+    },
+    {
+      titel: "Ermittlung des Gewerbeertrags: Hinzurechnungen und Kürzungen",
+      inhalt: `<p>Ausgangspunkt ist der steuerliche <strong>Gewinn aus Gewerbebetrieb (§ 7 GewStG)</strong>:</p>
+<table class="erk-table">
+  <tr><th>Unternehmensform</th><th>Gewinn i.S.v. § 7 GewStG</th></tr>
+  <tr><td>Einzelunternehmen / PersGes</td><td>Einkünfte aus Gewerbebetrieb gem. § 15 Abs. 1 EStG</td></tr>
+  <tr><td>Kapitalgesellschaft</td><td>Zu versteuerndes Einkommen vor Verlustabzug (§§ 7+8 KStG)</td></tr>
+</table>
+
+<p><strong>Hinzurechnungen (§ 8 GewStG)</strong> – Beseitigung von Gewinnverzerrungen durch Finanzierungsform:</p>
+<div class="def-box">
+  <div class="def-label">§ 8 Nr. 1 – Finanzierungsanteile (wichtigste Hinzurechnung!)</div>
+  <table class="erk-table">
+    <tr><td>Zinsen, Renten, dauernde Lasten, Gewinnanteile stiller Gesellschafter</td><td>100 %</td></tr>
+    <tr><td>Mieten/Pachten/Leasing unbewegliche Wirtschaftsgüter</td><td>50 %</td></tr>
+    <tr><td>Konzessionen / Lizenzen</td><td>25 %</td></tr>
+    <tr><td>Mieten/Pachten/Leasing bewegliche Wirtschaftsgüter</td><td>20 %</td></tr>
+    <tr><td><strong>= Summe Finanzierungsanteile</strong></td><td></td></tr>
+    <tr><td>− Freibetrag</td><td>200.000 €</td></tr>
+    <tr><td><strong>= Summe nach Freibetrag</strong></td><td></td></tr>
+    <tr><td>× allgemeiner Hinzurechnungssatz</td><td>25 %</td></tr>
+    <tr><td><strong>= Hinzurechnungsbetrag</strong></td><td></td></tr>
+  </table>
+</div>
+<p>Weitere Hinzurechnungen: Anteile am Verlust von Mitunternehmerschaften (§ 8 Nr. 8), Spenden/Zuwendungen bei Körperschaften (§ 8 Nr. 9)</p>
+
+<p><strong>Kürzungen (§ 9 GewStG)</strong> – ebenfalls Beseitigung von Gewinnverzerrungen:</p>
+<table class="erk-table">
+  <tr><td>§ 9 Nr. 1</td><td>Grundsteuer für Grundbesitz im Betriebsvermögen (ab 2025)</td></tr>
+  <tr><td>§ 9 Nr. 2</td><td>Anteile am Gewinn von Mitunternehmerschaften → Vermeidung Doppelbesteuerung</td></tr>
+  <tr><td>§ 9 Nr. 3</td><td>Gewerbeertrag auf ausländische Betriebsstätten entfallend</td></tr>
+  <tr><td>§ 9 Nr. 5</td><td>Zuwendungen (Spenden): max. 20% des erhöhten Gewinns oder 4‰ von Umsatz+Lohnsumme</td></tr>
+</table>`,
+      beispiel: `Rosenheimer Craft Beer OHG (Gewinn § 7 GewStG: 2.000.000 €):
+Hinzurechnungen:
++ Zinsen Bankdarlehen 2 Mio. × 10% = 200.000 € × 100% = 200.000 €
++ Stiller Gesellschafter Gewinnanteil 20.000 € × 100% = 20.000 €
++ Miete Gewerbehalle 10.000 × 12 = 120.000 € × 50% = 60.000 €
++ Leasing LKW 5.000 × 12 = 60.000 € × 20% = 12.000 €
+= Summe Finanzierungsanteile: 292.000 € − 200.000 FB = 92.000 € × 25% = 23.000 €
++ Verlustanteil Mälzerei OHG (20% von 50.000 €) = 10.000 €
+Gesamt-Hinzurechnungen: 33.000 €`,
+      merke: "Hinzurechnungen neutralisieren den Vorteil der Fremdfinanzierung – Eigenkapital und Fremdkapital sollen steuerlich gleichbehandelt werden. Wichtig: Freibetrag 200.000 € bei Finanzierungsanteilen!",
+      flipcards: [
+        { vorne: "Warum gibt es Hinzurechnungen bei der GewSt?", hinten: "Beseitigung von 'Gewinnverzerrungen': Eigenkapital- und fremdkapitalfinanzierte Betriebe sollen gleich behandelt werden." },
+        { vorne: "Hinzurechnung Zinsen § 8 Nr. 1 GewStG: Wie viel Prozent?", hinten: "Zunächst 100% → Summe − 200.000 € Freibetrag → × 25% = Hinzurechnungsbetrag." },
+        { vorne: "Warum werden Gewinnanteile aus Mitunternehmerschaften gekürzt (§ 9 Nr. 2)?", hinten: "Vermeidung der Doppelbesteuerung: Der Gewinn wird bei der Mitunternehmerschaft bereits mit GewSt belastet." },
+        { vorne: "Was ist die Kürzung nach § 9 Nr. 1 GewStG (ab 2025)?", hinten: "Grundsteuer für Grundbesitz im Betriebsvermögen – weil Grundsteuer und GewSt sonst doppelt belasten würden." }
+      ],
+      details: [
+        { titel: "Hinzurechnung Verlustanteil Mitunternehmerschaft (§ 8 Nr. 8)", inhalt: "Hat ein Betrieb einen Verlustanteil als Gesellschafter einer OHG/KG/GmbH & Co. KG abgezogen, wird dieser hinzugerechnet. Der Verlust soll die GewSt-Basis des eigenen Betriebs nicht mindern." },
+        { titel: "Spenden: Hinzurechnung und Kürzung", inhalt: "Spenden werden zunächst nach § 8 Nr. 9 hinzugerechnet und dann nach § 9 Nr. 5 bis zum Höchstbetrag wieder gekürzt. Höchstbetrag: 20% des erhöhten Gewinns (§ 7 + § 8 Nr. 9) ODER 4‰ von Gesamtumsatz + Lohnsumme (höherer Betrag gilt)." }
+      ],
+      interaktion: [
+        { frage: "Ein Unternehmen zahlt 500.000 € Zinsen für ein Darlehen. Wie hoch ist der Hinzurechnungsbetrag (§ 8 Nr. 1 GewStG)? (Nur Zinsen, kein anderer Posten)", optionen: ["500.000 €", "125.000 €", "75.000 €", "300.000 €"], richtig: 2, erklaerung: "500.000 € × 100% = 500.000 € − 200.000 € FB = 300.000 € × 25% = 75.000 € Hinzurechnungsbetrag." },
+        { frage: "Warum werden Mieten für Gewerbehallen nur zu 50% bei § 8 Nr. 1 GewStG angesetzt?", optionen: ["Weil Mieten generell steuerbefreit sind", "Weil nur der Finanzierungsanteil (= Zinsäquivalent) aus der Miete erfasst werden soll", "Weil Immobilien besonders gefördert werden", "Aus politischen Gründen"], richtig: 1, erklaerung: "In einer Miete steckt neben einem Finanzierungsanteil auch ein Entgelt für Betrieb, Verwaltung, Instandhaltung. Nur der Finanzierungsanteil soll hinzugerechnet werden." }
+      ]
+    },
+    {
+      titel: "Berechnung der Gewerbesteuer: Messbetrag, Hebesatz, Anrechnung",
+      inhalt: `<p>Nach Ermittlung des Gewerbeertrags erfolgt die <strong>eigentliche Steuerberechnung in zwei Schritten</strong>:</p>
+
+<p><strong>Verlustabzug (§ 10a GewStG):</strong></p>
+<div class="def-box">
+  <div class="def-label">Wichtig: Nur Verlustvortrag – KEIN Verlustrücktrag!</div>
+  1. Stufe: Unbegrenzt abziehbar bis 1 Mio. €<br>
+  2. Stufe: Für den 1 Mio. € übersteigenden Gewerbeertrag: max. 60 % abziehbar
+</div>
+
+<p><strong>Freibetrag (§ 11 Abs. 1 GewStG):</strong></p>
+<table class="erk-table">
+  <tr><th>Rechtsform</th><th>Freibetrag</th></tr>
+  <tr><td>Einzelunternehmen / Personengesellschaft</td><td>24.500 € (§ 11 Abs. 1 Nr. 1 GewStG)</td></tr>
+  <tr><td>Kapitalgesellschaft</td><td>0 € – kein Freibetrag!</td></tr>
+</table>
+
+<p><strong>Steuermesszahl und Messbetrag:</strong></p>
+<table class="erk-table">
+  <tr><td>Gewerbeertrag nach Freibetrag (abgerundet auf volle 100 €)</td><td></td></tr>
+  <tr><td>× Steuermesszahl</td><td><strong>3,5 %</strong> (§ 11 Abs. 2 GewStG)</td></tr>
+  <tr><td>= <strong>Steuermessbetrag</strong></td><td>Abrunden auf volle €, Grundlagenbescheid FA</td></tr>
+  <tr><td>× <strong>Hebesatz</strong> (mind. 200 %)</td><td>§ 16 GewStG, wird von Gemeinde festgesetzt</td></tr>
+  <tr><td>= <strong>festzusetzende Gewerbesteuer</strong></td><td></td></tr>
+</table>
+
+<p><strong>Anrechnung auf die ESt (§ 35 EStG)</strong> – nur für Einzelunternehmer und Mitunternehmer:</p>
+<div class="def-box">
+  <div class="def-label">§ 35 EStG – Gewerbesteueranrechnung</div>
+  Ermäßigung der ESt = <strong>4-facher Steuermessbetrag</strong>, maximal jedoch die tatsächlich gezahlte Gewerbesteuer.<br>
+  Nur anrechenbar auf die ESt, die auf Gewerbeeinkünfte entfällt – kein Vor-/Rücktrag.<br>
+  Anrechnung darf nicht zu einer Erstattung führen.
+</div>`,
+      beispiel: `Beispiel Einzelunternehmer (Gewerbeertrag 47.768 €):
+47.768 € − 24.500 € FB = 23.268 €, abgerundet → 23.200 €
+× 3,5% = 812 € Steuermessbetrag
+
+Hebesatz 450%: GewSt = 812 € × 450% = 3.654 €
+Anrechnung ESt: 4 × 812 € = 3.248 € (< 3.654 €, also 3.248 € anrechenbar)
+→ Effektive Belastung: 3.654 € − 3.248 € = 406 €
+
+Hebesatz 300%: GewSt = 812 € × 300% = 2.436 €
+Anrechnung ESt: 4 × 812 € = 3.248 €, aber max. 2.436 € (tatsächliche GewSt)
+→ Bei niedrigem Hebesatz wird GewSt fast vollständig angerechnet!`,
+      merke: "Steuermesszahl immer 3,5% – bundeseinheitlich! Hebesatz variiert (mind. 200%). München: 490%, Rosenheim: 400%. Für Einzelunternehmer/Mitunternehmer: GewSt wird über § 35 EStG auf die ESt angerechnet (4-facher Messbetrag).",
+      flipcards: [
+        { vorne: "Wie hoch ist die Steuermesszahl bei der GewSt?", hinten: "3,5% – bundeseinheitlich (§ 11 Abs. 2 GewStG). Sie wird auf den Gewerbeertrag nach Freibetrag angewendet." },
+        { vorne: "Welchen Freibetrag hat eine GmbH bei der GewSt?", hinten: "Keinen! Der Freibetrag von 24.500 € gilt nur für Einzelunternehmer und Personengesellschaften (§ 11 Abs. 1 Nr. 1 GewStG)." },
+        { vorne: "Was bedeutet § 35 EStG für Einzelunternehmer?", hinten: "GewSt-Anrechnung auf die ESt: 4-facher Steuermessbetrag, max. tatsächliche GewSt – mindert die Steuerbelastung." },
+        { vorne: "Warum gibt es keinen GewSt-Verlustrücktrag?", hinten: "Rücktrag würde bereits festgesetzte GewSt-Bescheide aufheben → problematisch für Gemeinden. Nur Vortrag möglich (§ 10a GewStG)." }
+      ],
+      details: [
+        { titel: "Zerlegung bei mehreren Betriebsstätten (§§ 28 ff. GewStG)", inhalt: "Hat ein Unternehmen Betriebsstätten in mehreren Gemeinden, wird der Steuermessbetrag nach dem Verhältnis der Arbeitslöhne auf die Gemeinden aufgeteilt (Zerlegungsbescheid = Grundlagenbescheid durch das Betriebsfinanzamt am Ort der Geschäftsleitung)." },
+        { titel: "GewSt als Betriebsausgabe?", inhalt: "NEIN! Seit 2008 ist die GewSt keine Betriebsausgabe mehr (§ 4 Abs. 5b EStG). In der Handelsbilanz: Aufwand. Steuerlich: außerbilanzielle Neutralisierung → steuerlicher Gewinn wird durch GewSt nicht gemindert." },
+        { titel: "Mindest-Hebesatz", inhalt: "§ 16 Abs. 4 GewStG: Hebesatz mindestens 200%. Ausnahme: Gemeinden die keinen Hebesatz festsetzen, gilt automatisch 200%. Schönbeck (MV) mit 11 Einwohnern hat den Mindest-Hebesatz. Rekordhoch: Dierfeld (RP) mit 900%." }
+      ],
+      interaktion: [
+        { frage: "Ein Einzelunternehmer hat einen Gewerbeertrag von 74.500 €. Wie hoch ist der Steuermessbetrag?", optionen: ["2.607 €", "2.625 €", "1.750 €", "3.500 €"], richtig: 2, erklaerung: "74.500 € − 24.500 € Freibetrag = 50.000 € → abgerundet auf volle 100 €: 50.000 € × 3,5% = 1.750 € Steuermessbetrag (§ 11 Abs. 2 GewStG)." },
+        { frage: "Was ist die Untergrenze für den Gewerbesteuer-Hebesatz?", optionen: ["100%", "150%", "200%", "300%"], richtig: 2, erklaerung: "§ 16 Abs. 4 S. 2 GewStG: Der Hebesatz muss mindestens 200% betragen. Gemeinden darunter würden Unternehmen mit Scheinbetriebsstätten anlocken (Steueroasen-Problem)." }
+      ]
+    }
+  ],
+
+  lueckentext: [
+    { text: "Die Gewerbesteuer ist eine ___, die die Ertragskraft des Betriebs besteuert – unabhängig von der Person des Unternehmers.", luecken: ["Sachsteuer"], erklaerung: "GewSt = Sachsteuer: Sie knüpft an den Betrieb an, nicht an den Unternehmer persönlich." },
+    { text: "Das Finanzamt erlässt den ___, die Gemeinde dann den ___.", luecken: ["Steuermessbescheid", "Gewerbesteuerbescheid"], erklaerung: "Zweistufiges Verfahren: FA → Steuermessbescheid (Grundlagenbescheid), Gemeinde → GewSt-Bescheid mit Hebesatz." },
+    { text: "Der Gewerbeertrag ergibt sich aus: Gewinn § 7 GewStG + ___ (§ 8) − ___ (§ 9).", luecken: ["Hinzurechnungen", "Kürzungen"], erklaerung: "Ermittlungsschema I: Gewinn + Hinzurechnungen − Kürzungen = maßgebender Gewerbeertrag (§ 10 GewStG)." },
+    { text: "Die Steuermesszahl beträgt bundeseinheitlich ___. Der Freibetrag für Einzelunternehmer und PersGes beträgt ___.", luecken: ["3,5 %", "24.500 €"], erklaerung: "Steuermesszahl 3,5% (§ 11 Abs. 2 GewStG); Freibetrag 24.500 € nur für EU/PersGes (§ 11 Abs. 1 Nr. 1 GewStG)." },
+    { text: "Die GewSt ist seit 2008 ___ Betriebsausgabe mehr (§ 4 Abs. 5b EStG). Bei EU/Mitunternehmern kann sie über § 35 EStG auf die ESt angerechnet werden: ___ des Steuermessbetrags.", luecken: ["keine", "das 4-fache"], erklaerung: "§ 4 Abs. 5b EStG: GewSt keine BA mehr. § 35 EStG: Anrechnung 4-facher Messbetrag, max. tatsächliche GewSt." },
+    { text: "Kapitalgesellschaften sind kraft ___ immer gewerbesteuerpflichtig. Der gesetzliche Mindest-Hebesatz beträgt ___ (§ 16 Abs. 4 GewStG).", luecken: ["Rechtsform", "200 %"], erklaerung: "§ 2 Abs. 2 GewStG: KapGes stets Gewerbebetrieb. § 16 Abs. 4 GewStG: Mindest-Hebesatz 200%." }
+  ],
+
+  zuordnung: [
+    {
+      titel: "GewSt-Charaktermerkmale zuordnen",
+      paare: [
+        { links: "Sachsteuer", rechts: "Besteuert Ertragskraft des Betriebs" },
+        { links: "Ertragsteuer", rechts: "BMG ist der Gewerbeertrag" },
+        { links: "Gemeindesteuer", rechts: "Aufkommen fließt den Gemeinden zu" },
+        { links: "Jahressteuer", rechts: "Vierteljährliche Vorauszahlungen" }
+      ]
+    },
+    {
+      titel: "Entstehung Gewerbebetrieb zuordnen",
+      paare: [
+        { links: "GmbH (nur Vermögensverwaltung)", rechts: "Kraft Rechtsform (§ 2 Abs. 2 GewStG)" },
+        { links: "Einzelhändler mit Gewinnabsicht", rechts: "Kraft gewerblicher Betätigung (§ 2 Abs. 1 GewStG)" },
+        { links: "e.V. mit Wirtschaftsbetrieb", rechts: "Kraft wirtschaftlichen Geschäftsbetriebs (§ 2 Abs. 3 GewStG)" },
+        { links: "Arzt in eigener Praxis", rechts: "Kein Gewerbebetrieb (Freiberufler)" }
+      ]
+    },
+    {
+      titel: "Hinzurechnungen und Kürzungen zuordnen",
+      paare: [
+        { links: "Zinsen für Bankdarlehen", rechts: "Hinzurechnung § 8 Nr. 1a (100%)" },
+        { links: "Miete Gewerbehalle", rechts: "Hinzurechnung § 8 Nr. 1e (50%)" },
+        { links: "Gewinnanteil aus OHG-Beteiligung", rechts: "Kürzung § 9 Nr. 2 (Doppelbesteuerung)" },
+        { links: "Verlustanteil aus KG-Beteiligung", rechts: "Hinzurechnung § 8 Nr. 8" }
+      ]
+    }
+  ],
+
+  quiz: [
+    { frage: "Was ist das Steuersubjekt der Gewerbesteuer?", optionen: ["Der Unternehmer persönlich", "Der Gewerbebetrieb als solcher (Sachsteuer)", "Das Finanzamt", "Die Gemeinde"], richtig: 1, erklaerung: "Die GewSt ist eine Sachsteuer – sie besteuert die Ertragskraft des Betriebs, nicht den Unternehmer persönlich." },
+    { frage: "Wer erlässt den Steuermessbescheid?", optionen: ["Die Gemeinde", "Der Steuerberater", "Das Finanzamt", "Das Bundesfinanzministerium"], richtig: 2, erklaerung: "Das Finanzamt ermittelt den Steuermessbetrag und erlässt den Steuermessbescheid (Grundlagenbescheid, § 184 AO)." },
+    { frage: "Unterliegt eine GmbH, die nur Wohnungen vermietet, der Gewerbesteuer?", optionen: ["Nein, Vermögensverwaltung ist kein Gewerbe", "Ja, weil Kapitalgesellschaften kraft Rechtsform stets gewerblich sind", "Nur wenn Gewinn über 24.500 €", "Nur bei mehr als 3 Wohnungen"], richtig: 1, erklaerung: "§ 2 Abs. 2 GewStG: Kapitalgesellschaften begründen stets und in vollem Umfang einen Gewerbebetrieb – unabhängig von ihrer Tätigkeit." },
+    { frage: "Wie hoch ist die Steuermesszahl bei der Gewerbesteuer?", optionen: ["15%", "5%", "3,5%", "25%"], richtig: 2, erklaerung: "Die Steuermesszahl beträgt bundeseinheitlich 3,5% (§ 11 Abs. 2 GewStG)." },
+    { frage: "Welche Aussage zum Freibetrag bei der GewSt ist richtig?", optionen: ["Alle Unternehmen haben einen FB von 24.500 €", "Kapitalgesellschaften haben keinen Freibetrag", "Der FB beträgt 50.000 €", "Der FB gilt nur für GmbHs"], richtig: 1, erklaerung: "Der Freibetrag von 24.500 € gilt nur für Einzelunternehmer und Personengesellschaften (§ 11 Abs. 1 Nr. 1 GewStG). KapGes haben 0 €." },
+    { frage: "Was sind Hinzurechnungen bei der GewSt?", optionen: ["Steuern, die nachgezahlt werden müssen", "Beträge, die zum Gewinn hinzuaddiert werden, um Gewinnverzerrungen durch Finanzierungsform zu beseitigen", "Zusätzliche Steuern auf Luxusgüter", "Gewinn aus Beteiligungen"], richtig: 1, erklaerung: "Hinzurechnungen (§ 8 GewStG) gleichen den Vorteil der Fremdfinanzierung aus – z.B. werden Zinsen anteilig hinzugerechnet." },
+    { frage: "Zu wieviel Prozent werden Zinsen für Bankdarlehen bei der GewSt hinzugerechnet (vor Freibetrag)?", optionen: ["25%", "50%", "100%", "20%"], richtig: 2, erklaerung: "Zinsen werden zunächst zu 100% erfasst. Davon wird der Freibetrag von 200.000 € abgezogen, dann × 25% = Hinzurechnungsbetrag (§ 8 Nr. 1a GewStG)." },
+    { frage: "Warum gibt es bei der GewSt keinen Verlustrücktrag?", optionen: ["Weil GewSt keine Betriebsausgabe ist", "Weil es keine Verluste bei Gewerbebetrieben gibt", "Weil ein Rücktrag Gemeinden durch Erstattung bereits festgesetzter Steuern belasten würde", "Weil das GewStG dies nicht regelt"], richtig: 2, erklaerung: "Nur Verlustvortrag (§ 10a GewStG). Ein Rücktrag würde bereits beschlossene Gemeindebudgets gefährden. 1. Stufe: unbegrenzt bis 1 Mio. €; 2. Stufe: 60% des übersteigenden Betrags." },
+    { frage: "Was regelt § 35 EStG?", optionen: ["Den GewSt-Hebesatz", "Die Anrechnung der GewSt auf die Einkommensteuer bei EU/Mitunternehmern", "Den Freibetrag bei der GewSt", "Die Verlustverrechnung"], richtig: 1, erklaerung: "§ 35 EStG ermöglicht EU und Mitunternehmern, die GewSt auf die ESt anzurechnen: 4-facher Steuermessbetrag, max. tatsächliche GewSt." },
+    { frage: "Was gilt bei der Zerlegung (§§ 28 ff. GewStG)?", optionen: ["Aufteilung des Gewinns nach Umsatz", "Aufteilung des Steuermessbetrags nach dem Verhältnis der Arbeitslöhne bei mehreren Betriebsstätten", "Nur für Kapitalgesellschaften", "Aufteilung des Gewinns nach Eigenkapitalanteilen"], richtig: 1, erklaerung: "Bei mehreren Betriebsstätten in verschiedenen Gemeinden wird der Steuermessbetrag nach Arbeitslöhnen auf die Gemeinden aufgeteilt." }
+  ]
+};
