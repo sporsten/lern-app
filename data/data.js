@@ -32,6 +32,403 @@ const FAECHER = {
 };
 
 // ============================================================
+// RECHNUNGSLEGUNG - Konzernrechnungslegung Grundlagen
+// ============================================================
+FAECHER["rechnungslegung"].themen["konzernrechnungslegung-grundlagen"] = {
+  name: "Konzernrechnungslegung – Grundlagen",
+  zusammenfassung: "Die Konzernrechnungslegung regelt die konsolidierte Betrachtung von Unternehmensgruppen. Sie umfasst Rechtsgrundlagen, Konzernarten und die Pflicht zur Konsolidierung nach Größe und Struktur der Gruppe.",
+  erklaerungen: [
+    {
+      titel: "📚 Grundlagen der Konzernrechnungslegung",
+      inhalt: `<p>Die <strong>Konzernrechnungslegung</strong> stellt eine Unternehmensgruppe als wirtschaftliche Einheit dar. Sie erfasst die <strong>Muttergesellschaft</strong> und alle <strong>Tochterunternehmen</strong> als konsolidierte Gesamtheit.</p>
+<div class="def-box"><div class="def-label">Konzernrechnungslegung</div>Rechnungslegung einer Unternehmensgruppe, die die wirtschaftliche Realität einer zusammenhängenden Unternehmensorganisation widerspiegelt und mehrere separate Einzelunternehmen als eine Einheit behandelt.</div>
+<h5>Rechtsgrundlagen</h5>
+<ul>
+<li><strong>HGB (deutsches Recht):</strong> §§ 290-313 für die Konzernbilanz und Konzerngewinn- und Verlustrechnung</li>
+<li><strong>IFRS (international):</strong> IFRS 10 für Konsolidierung, IFRS 12 für Angabepflichten</li>
+<li><strong>EU-Richtlinie:</strong> Konzernrichtlinie 2013/34/EU für europäische Harmonisierung</li>
+</ul>`,
+      beispiel: "Beispiel: Die Daimler AG als Muttergesellschaft mit ihren zahlreichen Töchtern (Mercedes-Benz, Vito, Sprinter) wird in der Konzernbilanz als eine wirtschaftliche Einheit dargestellt, obwohl es rechtlich separate Unternehmen sind.",
+      merke: "Konzernrechnungslegung = wirtschaftliche Einheit statt rechtliche Einzelunternehmen.",
+      flipcards: [
+        { vorne: "Muttergesellschaft", hinten: "Unternehmen, das ein oder mehrere andere Unternehmen kontrolliert" },
+        { vorne: "Tochtergesellschaft", hinten: "Unternehmen, das unter der Kontrolle einer Muttergesellschaft steht" },
+        { vorne: "Konsolidierung", hinten: "Zusammenfassung von Einzel- zu Konzernabschlüssen" }
+      ],
+      details: [
+        { titel: "📖 Konzernarten nach Struktur", inhalt: "Vertikal integrierte Konzerne (Muttergesellschaft auf der Spitze), Horizontale Konzerne (Unternehmen gleicher Ebene), Diagonale Konzerne (gemischte Struktur), Finanzkonzerne (Holdinggesellschaft)." }
+      ],
+      interaktion: [
+        { frage: "Welche Aussage über die Konzernrechnungslegung ist korrekt?", optionen: ["Sie ersetzt die Einzelabschlüsse der Tochterunternehmen", "Sie stellt eine Unternehmensgruppe als wirtschaftliche Einheit dar", "Sie ist nur für kapitalmarktorientierte Unternehmen verpflichtend", "Sie wird nur in der Bilanz, nicht in der GuV dargestellt"], richtig: 1, erklaerung: "Die Konzernrechnungslegung fasst mehrere rechtlich selbstständige Unternehmen als eine wirtschaftliche Einheit zusammen. Sie ersetzt nicht die Einzelabschlüsse, sondern ergänzt diese." },
+        { frage: "Welche Institution setzt die internationalen Standards für Konzernrechnungslegung?", optionen: ["Der IASB (International Accounting Standards Board)", "Die nationale Finanzbehörde", "Das Bundeszentralamt für Steuern", "Die Europäische Zentralbank"], richtig: 0, erklaerung: "Der IASB verabschiedet die IFRS-Standards, die international gültig sind." },
+        { frage: "Wie wird ein vertikal integrierter Konzern charakterisiert?", optionen: ["Unternehmen auf gleicher hierarchischer Ebene", "Muttergesellschaft an der Spitze mit untergeordneten Töchtern", "Mehrere unabhängige Unternehmen mit gleicher Kontrolle", "Ein großes Unternehmen mit vielen Standorten"], richtig: 1, erklaerung: "Vertikale Integration bedeutet, dass die Muttergesellschaft hierarchisch an der Spitze steht und Tochterunternehmen verschiedener Ebenen kontrolliert." },
+        { frage: "In welchem HGB-Paragraphen sind die Regelungen zur Konzernbilanz zu finden?", optionen: ["§§ 100-150 HGB", "§§ 290-313 HGB", "§§ 400-450 HGB", "§§ 500-550 HGB"], richtig: 1, erklaerung: "Die Konzernrechnungslegung ist in den §§ 290-313 HGB geregelt." },
+        { frage: "Welcher Konzerntyp wird auch als Holdinggesellschaft bezeichnet?", optionen: ["Vertikaler Konzern", "Horizontaler Konzern", "Finanzkonzern", "Gemischter Konzern"], richtig: 2, erklaerung: "Ein Finanzkonzern mit reiner Holdinggesellschaft dient nur der Verwaltung von Anteilen an anderen Unternehmen." }
+      ]
+    },
+    {
+      titel: "📚 Konsolidierungskreis und -vorbereitung",
+      inhalt: `<p>Der <strong>Konsolidierungskreis</strong> bestimmt, welche Unternehmen in die Konsolidierung einbezogen werden. Dies hängt von <strong>Kontrolle</strong>, <strong>Größe</strong> und <strong>Art der Beteiligung</strong> ab.</p>
+<div class="def-box"><div class="def-label">Konsolidierungskreis</div>Gesamtheit der Unternehmen, die in den Konzernabschluss einzubeziehen sind, bestimmt nach Kriterien wie Kontrolle, Quote und Wesentlichkeit.</div>
+<h5>Kriterien für Konsolidierungspflicht</h5>
+<table class="erk-table">
+<tr><th>Kriterium</th><th>Regelung</th><th>Beispiel</th></tr>
+<tr><td><strong>Kontrolle</strong></td><td>Mehrheit der Stimmrechte oder faktische Kontrolle</td><td>75% Beteiligung an Tochter-GmbH</td></tr>
+<tr><td><strong>Größe</strong></td><td>Schwellwertüberschreitung (Bilanzsumme, Umsatz, Mitarbeiterzahl)</td><td>Bilanzsumme > 20 Mio. EUR</td></tr>
+<tr><td><strong>Materialität</strong></td><td>Wesentlichkeit des Unternehmens für das Konzernbild</td><td>Umsatz > 5% des Konzernumsatzes</td></tr>
+</table>`,
+      beispiel: "Die Automobilgruppe VW konsolidiert Porsche AG (Beteiligung > 50%), muss aber kleinere Handelsunternehmen unter Schwellwerten nicht konsolidieren.",
+      merke: "Konsolidierungskreis = Kontrolle + Größe + Wesentlichkeit entscheiden.",
+      flipcards: [
+        { vorne: "Konsolidierungskreis", hinten: "Summe aller Unternehmen, die in den Konzernabschluss einbezogen werden müssen" },
+        { vorne: "Kontrolle (Konzern)", hinten: "Mehrheit der Stimmrechte oder faktische Beherrschung eines Unternehmens" },
+        { vorne: "Schwellwert", hinten: "Größengrenzen, ab denen ein Unternehmen konsolidiert werden muss" }
+      ],
+      details: [
+        { titel: "📖 Konsolidierungsvorbereitung", inhalt: "Vor der Konsolidierung müssen Einzelabschlüsse zum selben Stichtag vorliegen, gleiche Bilanzierungsmethoden angewendet werden, und Zwischenergebnisse eliminiert werden." }
+      ],
+      interaktion: [
+        { frage: "Ab welcher Beteiligungsquote muss ein Unternehmen normalerweise konsolidiert werden?", optionen: ["Ab 20% Beteiligung", "Ab 25% Beteiligung", "Ab 50% Beteiligung", "Ab 75% Beteiligung"], richtig: 2, erklaerung: "Bei mehr als 50% Beteiligung hat das Mutterunternehmen die Kontrolle und Konsolidierungspflicht entsteht." },
+        { frage: "Welche der folgenden Informationen wird NICHT zur Bestimmung des Konsolidierungskreises benötigt?", optionen: ["Beteiligungsquote", "Kontrolle des Unternehmens", "Farbdesign der Unternehmenswebseite", "Größe des Unternehmens"], richtig: 2, erklaerung: "Das Farbdesign der Webseite ist völlig irrelevant. Beteiligungsquote, Kontrolle und Größe sind entscheidende Kriterien." },
+        { frage: "Was ist ein Schwellwert in der Konsolidierung?", optionen: ["Ein Mindestpreis für Unternehmensanteile", "Eine Größengrenze zur Bestimmung der Konsolidierungspflicht", "Ein Strafzins bei Verletzung von Regeln", "Ein Prüfbericht des Abschlussprüfers"], richtig: 1, erklaerung: "Schwellwerte sind Größengrenzen (Bilanzsumme, Umsatz, etc.), ab denen Unternehmen konsolidiert werden müssen." },
+        { frage: "Für welchen Stichtag müssen alle Einzelabschlüsse in den Konsolidierungskreis einbezogen werden?", optionen: ["Jeweils für ihren eigenen Geschäftsjahresstichtag", "Für den Stichtag der Muttergesellschaft", "Für den 31.12. des Vorjahres", "Quartalsstichtage sind ausreichend"], richtig: 1, erklaerung: "Zur Konsolidierung müssen alle Einzelabschlüsse auf den Stichtag der Muttergesellschaft abgestimmt werden." },
+        { frage: "Welche Bilanzierungsmethoden sind in einem Konzernabschluss zulässig?", optionen: ["Jedes Unternehmen wendet seine bevorzugte Methode an", "Alle Unternehmen müssen einheitliche Methoden anwenden", "BFH-Erlasse ersetzen IAS/IFRS", "Kleine Tochterunternehmen sind ausgenommen"], richtig: 1, erklaerung: "Ein Konzernabschluss erfordert einheitliche Bilanzierungsmethoden über alle Konzernunternehmen hinweg für Vergleichbarkeit." }
+      ]
+    }
+  ]
+};
+
+// ============================================================
+// RECHNUNGSLEGUNG - Kapitalkonsolidierung
+// ============================================================
+FAECHER["rechnungslegung"].themen["kapitalkonsolidierung"] = {
+  name: "Kapitalkonsolidierung",
+  zusammenfassung: "Die Kapitalkonsolidierung eliminiert die gegenseitigen Verflechtungen zwischen Muttergesellschaft und Tochterunternehmen durch Aufrechnung des Anteils mit dem Eigenkapital der Tochter.",
+  erklaerungen: [
+    {
+      titel: "📚 Methoden der Kapitalkonsolidierung",
+      inhalt: `<p>Die <strong>Kapitalkonsolidierung</strong> ist der erste Schritt der Konsolidierung. Sie eliminiert die gegenseitigen Verflechtungen zwischen Muttergesellschaft und Tochterunternehmen.</p>
+<div class="def-box"><div class="def-label">Kapitalkonsolidierung</div>Elimination des Anteils des Mutterunternehmens an der Tochtergesellschaft gegen die Eigenkapitalquote der Tochter zum Akquisitionszeitpunkt.</div>
+<h5>Zwei Konsolidierungsmethoden</h5>
+<table class="erk-table">
+<tr><th>Methode</th><th>Anwendung</th><th>Behandlung</th></tr>
+<tr><td><strong>Neubewertungsmethode (Purchase Method)</strong></td><td>Erwerbung von Tochterunternehmen (typisch)</td><td>Aktiva/Passiva zu Zeitwerten bewertet, Goodwill entsteht bei Überzahlung</td></tr>
+<tr><td><strong>Poolomethode (Pooling Method)</strong></td><td>Vereinigung unter gemeinsamer Leitung (selten)</td><td>Buchwertfortführung, kein Goodwill</td></tr>
+</table>
+<h5>Schritte der Kapitalkonsolidierung (Neubewertungsmethode)</h5>
+<ol>
+<li><strong>Zeitwertermittlung:</strong> Aktiva und Passiva der Tochter zum Akquisitionszeitpunkt bewerten</li>
+<li><strong>Aufrechnung:</strong> Beteiligungsbuchwert gegen Eigenkapital aufrechnen</li>
+<li><strong>Differenz buchen:</strong> Ist der Erwerbspreis > Eigenkapital → Goodwill; Ist Erwerbspreis < Eigenkapital → negative Goodwill (stille Lasten/Reserven)</li>
+</ol>`,
+      beispiel: "Die M-AG erwirbt 100% der T-GmbH für 1.000 EUR. Das Eigenkapital der T-GmbH beträgt 300 EUR, stille Reserven liegen bei 60 EUR in Aktiva und -20 EUR in Passiva. Goodwill = 1.000 - (300 + 60 - 20) = 660 EUR.",
+      merke: "Kapitalkonsolidierung: Anteilbuchwert - Eigenkapital (zu Zeitwerten) = Goodwill.",
+      flipcards: [
+        { vorne: "Kapitalkonsolidierung", hinten: "Eliminierung des Beteiligungspostens durch Aufrechnung gegen Eigenkapital" },
+        { vorne: "Goodwill", hinten: "Entsteht bei Erstkonsolidierung, wenn Erwerbspreis > Eigenkapital zu Zeitwerten" },
+        { vorne: "Stille Reserven", hinten: "Nicht in der Bilanz ausgewiesene Wertdifferenzen bei der Konsolidierung" }
+      ],
+      details: [
+        { titel: "📖 Zeitwertbewertung bei Konsolidierung", inhalt: "Bei der Konsolidierung müssen Vermögenswerte und Schulden der Tochter zu ihren Zeitwerten (Marktwerten) bewertet werden, nicht zu ihren Buchwerten. Beispiele: Immobilien zu Marktpreis, Markenrechte zu Lizenzwert." }
+      ],
+      interaktion: [
+        { frage: "Wann entsteht ein positiver Goodwill?", optionen: ["Wenn der Buchwert der Tochter höher ist als der Erwerbspreis", "Wenn der Erwerbspreis höher ist als die Zeitwerte des Eigenkapitals", "Wenn stille Lasten eliminiert werden", "Wenn die Tochter Verluste macht"], richtig: 1, erklaerung: "Ein positiver Goodwill entsteht, wenn die Muttergesellschaft mehr für das Unternehmen zahlt, als dessen Netto-Vermögenswert (zu Zeitwerten) beträgt." },
+        { frage: "Was ist die Poolomethode?", optionen: ["Eine Methode zur Bilanzierung von Bankenkonten", "Eine vereinfachte Konsolidierungsmethode für Vereinigungen unter gemeinsamer Leitung", "Eine Methode zur Eliminierung von Zwischenergebnissen", "Eine Technik zur Bewertung von Goodwill"], richtig: 1, erklaerung: "Die Poolomethode wird bei Vereinigungen unter gemeinsamer Leitung angewendet und führt Buchwerte fort, ohne Goodwill zu erzeugen." },
+        { frage: "In welcher Reihenfolge wird die Kapitalkonsolidierung durchgeführt?", optionen: ["Aufrechnung → Bewertung → Goodwill", "Bewertung → Aufrechnung → Goodwill", "Goodwill → Aufrechnung → Bewertung", "Aufrechnung → Goodwill → Bewertung"], richtig: 1, erklaerung: "Zuerst werden die Vermögenswerte zu Zeitwerten bewertet, dann erfolgt die Aufrechnung, und schließlich wird eine mögliche Goodwill-Differenz ermittelt." },
+        { frage: "Welche Auswirkung haben stille Reserven in Aktiva?", optionen: ["Sie reduzieren den Goodwill", "Sie erhöhen den Goodwill", "Sie haben keine Auswirkung", "Sie müssen eliminiert werden"], richtig: 0, erklaerung: "Stille Reserven in Aktiva werden bei der Zeitwertbewertung offengelegt und reduzieren damit den Goodwill." },
+        { frage: "Was versteht man unter Erstkonsolidierung?", optionen: ["Die jährlich wiederkehrende Konsolidierung", "Die erste Konsolidierung bei Erwerb einer Tochtergesellschaft", "Die Konsolidierung bei Fusion von Unternehmen", "Die Konsolidierung von Bankengruppen"], richtig: 1, erklaerung: "Die Erstkonsolidierung findet bei der ersten Aufnahme einer Tochter in den Konzernkreis statt." }
+      ]
+    }
+  ]
+};
+
+// ============================================================
+// WIRTSCHAFTSINFORMATIK SEIDLMEIER - Kapitel 4: Datenbanksysteme
+// ============================================================
+FAECHER["winf-seidlmeier"].themen["datenbanksysteme"] = {
+  name: "4. Datenbanksysteme",
+  zusammenfassung: "Datenbanksysteme sind zentrale Informationsspeicher, die von verschiedenen Geschäftsfunktionen genutzt werden. Grundkonzepte sind Datenmodellierung (ER-Modell), Datenschichten und relationale Datenbanken.",
+  erklaerungen: [
+    {
+      titel: "📚 Grundstrukturen und Datenmodellierung",
+      inhalt: `<p><strong>Datenbanksysteme</strong> organisieren Informationen zentral für ein Unternehmen. Sie stellen sicher, dass verschiedene Abteilungen (Buchhaltung, Produktion, Marketing) auf eine <strong>gemeinsame Datengrundlage</strong> zugreifen.</p>
+<div class="def-box"><div class="def-label">Datenbanksystem</div>Ein System zur zentralen Speicherung, Verwaltung und Bereitstellung von Daten für verschiedene Geschäftsprozesse mit konsistenten, integrierten Informationen.</div>
+<h5>Datenschichten-Modell (ANSI-SPARC)</h5>
+<table class="erk-table">
+<tr><th>Schicht</th><th>Fokus</th><th>Beschreibung</th></tr>
+<tr><td><strong>Externes Schema</strong></td><td>Benutzerblickwinkel</td><td>Verschiedene Sichtweisen für verschiedene Benutzer (was jeder sieht)</td></tr>
+<tr><td><strong>Konzeptionelles Schema</strong></td><td>Logische Struktur</td><td>Gesamtmodell aller Daten unabhängig von der Implementierung</td></tr>
+<tr><td><strong>Internes Schema</strong></td><td>Physische Speicherung</td><td>Wie Daten tatsächlich auf der Festplatte gespeichert sind</td></tr>
+</table>
+<h5>Das Entity-Relationship-Modell (ER-Modell)</h5>
+<p>Das ER-Modell ist eine Methode zur Datenmodellierung:</p>
+<ul>
+<li><strong>Entity (Entität):</strong> Ein Objekt der Realität (z.B. Mitarbeiter, Projekt, Kunde)</li>
+<li><strong>Attribute:</strong> Eigenschaften einer Entität (z.B. Name, Alter, Gehalt)</li>
+<li><strong>Beziehung (Relationship):</strong> Verbindung zwischen Entitäten (z.B. Mitarbeiter arbeitet an Projekt)</li>
+<li><strong>Kardinalität:</strong> Wie viele Entitäten zueinander in Beziehung stehen (1:1, 1:n, m:n)</li>
+</ul>`,
+      beispiel: "Beispiel ER-Modell: Entität Mitarbeiter (mit Attributen ID, Name, Gehalt) steht in 1:1-Beziehung zu PC (ID, Modell) und in m:n-Beziehung zu Projekt (Projektname, Budget). Ein Mitarbeiter nutzt einen PC, aber viele Mitarbeiter arbeiten an vielen Projekten.",
+      merke: "ER-Modell: Entity = Objekt, Attribute = Eigenschaften, Relationships = Verbindungen mit Kardinalitäten.",
+      flipcards: [
+        { vorne: "Entity", hinten: "Ein Objekt der realen Welt, das modelliert wird (z.B. Kunde, Produkt)" },
+        { vorne: "Attribut", hinten: "Eine Eigenschaft einer Entität (z.B. Name, Alter, Adresse)" },
+        { vorne: "Kardinalität", hinten: "Beschreibt, wie viele Entitäten zueinander in Beziehung stehen (1:1, 1:n, m:n)" },
+        { vorne: "Externes Schema", hinten: "Verschiedene Datensichten für verschiedene Benutzergruppen" }
+      ],
+      details: [
+        { titel: "📖 Relationales Datenmodell", inhalt: "Das relationale Modell basiert auf Tabellen (Relationen), Zeilen (Tupel) und Spalten (Attribute). Jede Tabelle hat einen Primärschlüssel (eindeutig) und kann Fremdschlüssel (Verweise) zu anderen Tabellen haben." }
+      ],
+      interaktion: [
+        { frage: "Welche Schicht des ANSI-SPARC-Modells beschreibt die physische Speicherung?", optionen: ["Externes Schema", "Konzeptionelles Schema", "Internes Schema", "Übergeordnetes Schema"], richtig: 2, erklaerung: "Das Interne Schema regelt die tatsächliche Speicherung auf der Festplatte." },
+        { frage: "Was ist eine Entity-Relationship?", optionen: ["Ein Datensicherungsprozess", "Eine Verbindung zwischen zwei Objekten der realen Welt", "Ein SQL-Befehl", "Ein Benutzerkonto"], richtig: 1, erklaerung: "Ein Relationship verbindet zwei oder mehr Entitäten logisch miteinander." },
+        { frage: "Welche Kardinalität bedeutet, dass ein Mitarbeiter genau einen Computer nutzt, aber mehrere Mitarbeiter denselben Computer nutzen können?", optionen: ["1:1", "1:n", "m:1", "m:n"], richtig: 2, erklaerung: "Die Kardinalität m:1 bedeutet: viele Mitarbeiter (m) zu einem Computer (1)." },
+        { frage: "Welcher Schlüssel identifiziert eine Zeile in einer Relation eindeutig?", optionen: ["Fremdschlüssel", "Primärschlüssel", "Sekundärschlüssel", "Attributschlüssel"], richtig: 1, erklaerung: "Der Primärschlüssel (Primary Key) identifiziert jede Zeile einer Tabelle eindeutig." },
+        { frage: "Was ist der Hauptzweck eines konzeptionellen Schemas in einem Datenbanksystem?", optionen: ["Die physische Speicherung zu beschreiben", "Das Gesamtmodell aller Daten unabhängig von der Implementierung zu definieren", "Benutzergruppen Zugriffsrechte zu erteilen", "SQL-Anfragen zu optimieren"], richtig: 1, erklaerung: "Das konzeptionelle Schema definiert die logische Struktur unabhängig davon, wie sie implementiert oder angezeigt wird." }
+      ]
+    }
+  ]
+};
+
+// ============================================================
+// WIRTSCHAFTSINFORMATIK SEIDLMEIER - Kapitel 5: Informations- und Anwendungssysteme
+// ============================================================
+FAECHER["winf-seidlmeier"].themen["applikationssysteme"] = {
+  name: "5. Informations- und Anwendungssysteme",
+  zusammenfassung: "Informationssysteme (IS) unterstützen Geschäftsprozesse durch Daten und Funktionen. Sie bestehen aus Hardware, Software und Menschen. ERP-Systeme integrieren alle Geschäftsfunktionen, CRM-Systeme verwalten Kundenbeziehungen.",
+  erklaerungen: [
+    {
+      titel: "📚 Abgrenzung IS vs. AS und praktische Anwendungen",
+      inhalt: `<p><strong>Informationssysteme (IS)</strong> sind soziotechnische Systeme, die menschliche und maschinelle Komponenten verbinden, um Geschäftsprozesse zu unterstützen.</p>
+<div class="def-box"><div class="def-label">Informationssystem (IS)</div>Ein System aus menschlichen und technischen Komponenten (Hardware, Software, Daten), das Informationen verarbeitet, um Geschäftsziele zu unterstützen.</div>
+<div class="def-box"><div class="def-label">Anwendungssystem (AS)</div>Automatisierte Teilsysteme eines IS. Die technische Komponente (Hardware, Systemsoftware, Anwendungssoftware) ohne die menschliche Komponente.</div>
+<h5>ERP-Systeme (Enterprise Resource Planning)</h5>
+<ul>
+<li><strong>Definition:</strong> Integrierte Systeme, die alle Geschäftsfunktionen (Finanzen, Produktion, HR, Logistik) in einer zentralen Datenbank vereinen</li>
+<li><strong>Vorteile:</strong> Echtzeit-Datenfluss, Eliminierung von Medienbrüchen, konsistente Daten über alle Bereiche</li>
+<li><strong>Beispiele:</strong> SAP, Oracle, Microsoft Dynamics</li>
+<li><strong>Module:</strong> FI (Finanzwesen), MM (Materialwirtschaft), SD (Vertrieb), HR (Personal)</li>
+</ul>
+<h5>CRM-Systeme (Customer Relationship Management)</h5>
+<ul>
+<li><strong>Definition:</strong> Systeme zur Verwaltung von Kundenbeziehungen und -daten</li>
+<li><strong>Funktionen:</strong> Kundenhistorie, Kontaktmanagement, Vertriebspipeline, Marketing-Automation</li>
+<li><strong>Beispiele:</strong> Salesforce, HubSpot, Microsoft Dynamics CRM</li>
+</ul>`,
+      beispiel: "ERP-Beispiel: Im SAP-System bucht der Verkauf einen Auftrag. Automatisch werden Lager-Bestände aktualisiert, eine Rechnung erstellt, Buchhaltung und Controlling informiert – alles in Echtzeit aus einer Datenbank.",
+      merke: "IS = Mensch + Technik; AS = nur Technik. ERP = alle Prozesse integriert. CRM = Kundenbeziehungen.",
+      flipcards: [
+        { vorne: "Informationssystem (IS)", hinten: "Soziotechnisches System aus Mensch, Hardware, Software und Daten" },
+        { vorne: "Anwendungssystem (AS)", hinten: "Technische Komponente eines IS: Hardware, Systemsoftware und Anwendungssoftware" },
+        { vorne: "ERP-System", hinten: "Integriertes Unternehmenssystem für alle Geschäftsfunktionen in einer Datenbank" },
+        { vorne: "CRM-System", hinten: "System zur Verwaltung aller Kundenbeziehungen und Kundeninteraktionen" }
+      ],
+      details: [
+        { titel: "📖 Client-Server-Architektur", inhalt: "Moderne IS nutzen Client-Server-Modelle: Der Server speichert zentrale Daten und Geschäftslogik, Clients (PCs, Smartphones) greifen auf diese zu. Vorteil: zentrale Kontrolle, Nachteil: Abhängigkeit vom Server." },
+        { titel: "📖 Cloud Computing in IS", inhalt: "Cloud-basierte IS verlagern Hard- und Software zum Anbieter. Vorteile: Skalierbarkeit, niedrige Anfangskosten, Zugriff von überall. Nachteile: Abhängigkeit vom Provider, Datenschutz, Verfügbarkeit." }
+      ],
+      interaktion: [
+        { frage: "Welcher Unterschied besteht zwischen IS und AS?", optionen: ["IS ist älter als AS", "IS umfasst Menschen und Technik, AS nur Technik", "AS ist ein Teil von IS, aber IS kann ohne AS nicht funktionieren", "Sie sind synonyme Begriffe"], richtig: 1, erklaerung: "IS (Informationssystem) ist ein soziotechnisches System mit Menschen, Hardware und Software. AS (Anwendungssystem) ist nur die technische Komponente." },
+        { frage: "Welche Module sind NICHT typischerweise in einem ERP-System enthalten?", optionen: ["Finanzwesen (FI)", "Produktion", "Personalabteilung (HR)", "Klimaanlage-Steuerung"], richtig: 3, erklaerung: "ERP-Systeme steuern geschäftliche Prozesse, nicht technische Gebäudeinstallationen wie Klimaanlagen." },
+        { frage: "Welche Vorteile bietet die Zentralisierung von Daten in einem ERP-System?", optionen: ["Schnellere Computerprozesse", "Konsistente, aktuelle Daten für alle Bereiche", "Mehr Speicherplatz auf lokalen Rechnern", "Kürzere E-Mail-Wartezeiten"], richtig: 1, erklaerung: "Ein ERP gewährleistet, dass alle Bereiche mit den gleichen, aktuellen Daten arbeiten, ohne Redundanz und Widersprüche." },
+        { frage: "Für welche Aufgabe ist ein CRM-System hauptsächlich geeignet?", optionen: ["Produktion von Waren", "Verwaltung von Kundenbeziehungen", "Lagerbestandsverwaltung", "Finanzbuchhaltung"], richtig: 1, erklaerung: "CRM-Systeme verwalten Kundenbeziehungen, Kundenhistorien, Verkaufspipelines und Kundeninteraktionen." },
+        { frage: "Welche Aussage über Cloud Computing ist wahr?", optionen: ["Cloud Computing ist immer günstiger als lokale Server", "Cloud-Anbieter garantieren 100% Verfügbarkeit", "Cloud-Services bieten Flexibilität und Skalierbarkeit", "Cloud Computing erfordert weniger Sicherheitsmaßnahmen"], richtig: 2, erklaerung: "Cloud Computing bietet Flexibilität, Skalierbarkeit und niedrigere Anfangskosten, hat aber auch Risiken bei Datenschutz und Verfügbarkeit." }
+      ]
+    }
+  ]
+};
+
+// ============================================================
+// WIRTSCHAFTSINFORMATIK SEIDLMEIER - Kapitel 6: Standardsoftware
+// ============================================================
+FAECHER["winf-seidlmeier"].themen["standardsoftware"] = {
+  name: "6. Standardsoftware",
+  zusammenfassung: "Standardsoftware ist vorgefertigte Software für allgemeine Aufgaben (Kauf, Miete, Lizenz). Sie wird oft mit individueller Software verglichen, die speziell für Unternehmen entwickelt wird.",
+  erklaerungen: [
+    {
+      titel: "📚 Standardsoftware vs. Individualsoftware",
+      inhalt: `<p><strong>Standardsoftware</strong> ist vorgefertigte, am Markt verfügbare Software für typische Aufgaben. <strong>Individualsoftware</strong> wird speziell für die Anforderungen eines Unternehmens entwickelt.</p>
+<div class="def-box"><div class="def-label">Standardsoftware</div>Vorgefertigte, am Markt angebotene Software, die für allgemeine Geschäftsfunktionen einsetzbar ist und von vielen Unternehmen genutzt wird.</div>
+<div class="def-box"><div class="def-label">Individualsoftware</div>Speziell für die Anforderungen eines bestimmten Unternehmens entwickelte Software, die maßgeschneiderte Lösungen bietet.</div>
+<h5>Vorteile Standardsoftware</h5>
+<table class="erk-table">
+<tr><th>Vorteil</th><th>Erklärung</th></tr>
+<tr><td>Günstiger</td><td>Entwicklungskosten auf viele Nutzer verteilt</td></tr>
+<tr><td>Schnelle Implementierung</td><td>Software ist sofort nutzbar</td></tr>
+<tr><td>Support</td><td>Hersteller bietet Wartung und Updates</td></tr>
+<tr><td>Bewährte Technologie</td><td>In vielen Unternehmen getestet</td></tr>
+</table>
+<h5>Nachteile Standardsoftware</h5>
+<table class="erk-table">
+<tr><th>Nachteil</th><th>Erklärung</th></tr>
+<tr><td>Weniger Flexibilität</td><td>Nicht alle Spezifika können abgebildet werden</td></tr>
+<tr><td>Höherer Anpassungsaufwand</td><td>Prozesse müssen oft an Software angepasst werden</td></tr>
+<tr><td>Abhängigkeit vom Hersteller</td><td>Updates und Wartung sind zwingend erforderlich</td></tr>
+</table>`,
+      beispiel: "Beispiel Standardsoftware: Microsoft Office, Salesforce, SAP. Ein großer Maschinenbaukonzern nutzt SAP für alle Fabriken, muss aber seine speziellen Anforderungen durch Customizing anpassen.",
+      merke: "Standard = vorgefertigt, günstig, weniger flexibel. Individual = maßgeschneidert, teuer, flexibel.",
+      flipcards: [
+        { vorne: "Standardsoftware", hinten: "Am Markt angebotene, vorgefertigte Software für allgemeine Aufgaben" },
+        { vorne: "Individualsoftware", hinten: "Speziell für ein Unternehmen entwickelte maßgeschneiderte Software" },
+        { vorne: "Customizing", hinten: "Anpassung von Standardsoftware an spezifische Anforderungen" },
+        { vorne: "SaaS", hinten: "Software as a Service – gemietete Software über das Internet" }
+      ],
+      details: [
+        { titel: "📖 Beschaffungsvarianten für Standardsoftware", inhalt: "Kauf (Kauf des Nutzungsrechts gegen einmalige Zahlung), Miete (monatliche/jährliche Gebühren, typisch für Cloud), Lizenz (Gebührenmodelle je nach Nutzer/Rechner)." }
+      ],
+      interaktion: [
+        { frage: "Welcher Hauptvorteil hat Standardsoftware gegenüber Individualsoftware?", optionen: ["Sie ist immer flexibler", "Sie ist günstiger und schneller implementierbar", "Sie braucht keinen Support", "Sie ist sicherer"], richtig: 1, erklaerung: "Standardsoftware ist kostengünstiger (Entwicklung verteilt sich auf viele Nutzer) und schneller einsatzbereit." },
+        { frage: "Für wen ist Individualsoftware besser geeignet?", optionen: ["Kleine Einzelhandelsketten", "Unternehmen mit speziellen, einzigartigen Anforderungen", "Startups mit kleinem Budget", "Unternehmen ohne IT-Abteilung"], richtig: 1, erklaerung: "Individualsoftware lohnt sich für Unternehmen, deren Prozesse sich wesentlich von Standard-Lösungen unterscheiden." },
+        { frage: "Was versteht man unter Customizing?", optionen: ["Die Farbgestaltung der Benutzeroberfläche", "Anpassung von Standardsoftware an spezifische Unternehmensanforderungen", "Der Kundenservice des Softwareherstellers", "Eine monatliche Abrechnung der Softwarenutzung"], richtig: 1, erklaerung: "Customizing ist die Konfiguration und Anpassung von Standardsoftware an die speziellen Bedürfnisse eines Unternehmens." },
+        { frage: "Welche Beschaffungsvariante ist typisch für Cloud-Software?", optionen: ["Kauf mit einmaliger Zahlung", "Miete mit monatlichen oder jährlichen Gebühren", "Kostenlose Downloads", "Tausch gegen andere Software"], richtig: 1, erklaerung: "Cloud-Software wird typischerweise als Service gemietete (Subscription-Modell) bezahlt, nicht gekauft." },
+        { frage: "Welches Risiko besteht bei starker Abhängigkeit von einem Softwarehersteller?", optionen: ["Die Software wird zu teuer", "Preiserhöhungen, eingestellte Updates, Einstellung von Support", "Die Software wird zu langsam", "Die Sicherheit wird besser"], richtig: 1, erklaerung: "Abhängigkeit von einem Hersteller bedeutet, dass der Nutzer Updates, Preise und Support-Entscheidungen akzeptieren muss." }
+      ]
+    }
+  ]
+};
+
+// ============================================================
+// WIRTSCHAFTSINFORMATIK SEIDLMEIER - Kapitel 7: Prozessautomatisierung
+// ============================================================
+FAECHER["winf-seidlmeier"].themen["prozessautomatisierung"] = {
+  name: "7. Prozessautomatisierung mit Workflowsystemen",
+  zusammenfassung: "Prozessautomatisierung ersetzt manuelle Arbeitsschritte durch automatisierte Systeme. Workflowsysteme steuern und überwachen den Ablauf von Prozessschritten automatisch.",
+  erklaerungen: [
+    {
+      titel: "📚 Prozessautomatisierung und Workflowsysteme",
+      inhalt: `<p><strong>Prozessautomatisierung</strong> ist die Überführung von manuellen Arbeitsschritten in automatisierte Systemfunktionen. <strong>Workflowsysteme</strong> steuern die Ausführung und Überwachung dieser automatisierten Prozesse.</p>
+<div class="def-box"><div class="def-label">Prozessautomatisierung</div>Vollständige oder teilweise Automatisierung von betrieblichen Prozessschritten durch Anwendungssysteme, die Aufgaben selbstständig ausführen und überwachen.</div>
+<div class="def-box"><div class="def-label">Workflowsystem</div>Ein System zur Steuerung und Überwachung des Ablaufs von Prozessschritten, Aufgabenverweisung an Benutzer und Datenfluss zwischen Systemen.</div>
+<h5>ERP und CRM vs. Workflowsysteme</h5>
+<table class="erk-table">
+<tr><th>System</th><th>Fokus</th><th>Automatisierung</th></tr>
+<tr><td><strong>ERP/CRM</strong></td><td>Ausführung (Execution)</td><td>Automatisiert operative Tätigkeiten (Verkauf, Produktion, Kundeninteraktion)</td></tr>
+<tr><td><strong>Workflowsystem</strong></td><td>Steuerung & Überwachung (Control)</td><td>Automatisiert Steuerung und Überwachung von Prozessabläufen</td></tr>
+</table>
+<h5>Wichtige Unterscheidung</h5>
+<ul>
+<li><strong>Automatisierung ≠ Digitalisierung:</strong> Automatisierung ersetzt manuelle Arbeitsschritte. Digitalisierung wandelt analoge Prozesse in digitale um, ohne sie zu automatisieren.</li>
+<li><strong>Beispiel:</strong> Ein Papierformular einscannen = Digitalisierung. Den Genehmigungsprozess per Workflow automatisieren = Automatisierung.</li>
+</ul>`,
+      beispiel: "Beispiel Workflow: Ein Reiseantrag wird im System eingereicht → Automatisch geleitet an Vorgesetzer → Nach Genehmigung automatisch an Reisekostenstelle → Automatisch Erstattung gebucht. Ohne Workflow: manuelles Weiterreichen, Verzögerungen, Fehler.",
+      merke: "Automatisierung: Maschine macht es. Digitalisierung: Papier → Digital. Workflow: Steuerung und Überwachung automatisieren.",
+      flipcards: [
+        { vorne: "Prozessautomatisierung", hinten: "Umwandlung manueller Arbeitsschritte in automatisierte Systemfunktionen" },
+        { vorne: "Workflowsystem", hinten: "Steuert und überwacht den automatisierten Ablauf von Prozessschritten" },
+        { vorne: "Digitalisierung", hinten: "Umwandlung von analogen (Papier) in digitale Formate" },
+        { vorne: "Automatisierung vs. Digitalisierung", hinten: "Automatisierung=Maschine übernimmt; Digitalisierung=Papier wird Digital" }
+      ],
+      details: [
+        { titel: "📖 Workflow-Modellierung", inhalt: "Workflows bestehen aus Aktivitäten (Aufgaben), Entscheidungspunkten (Bedingungen) und Pfaden. Sie können grafisch modelliert werden (z.B. mit BPMN – Business Process Model and Notation)." }
+      ],
+      interaktion: [
+        { frage: "Was ist der Hauptunterschied zwischen Automatisierung und Digitalisierung?", optionen: ["Automatisierung ist älter", "Automatisierung ersetzt manuelle Schritte, Digitalisierung wandelt analog zu digital", "Sie sind das Gleiche", "Digitalisierung ist teurer"], richtig: 1, erklaerung: "Automatisierung bedeutet, dass Maschinen manuelle Arbeiten übernehmen. Digitalisierung bedeutet Umwandlung von analog (Papier) zu digital (Datei)." },
+        { frage: "Welcher Prozessschritt wird durch Workflowsysteme automatisiert?", optionen: ["Die Ausführung von Verkaufstransaktionen", "Die Steuerung und Überwachung des Prozessablaufs", "Das Schreiben von Berichten", "Das Einlagern von Produkten"], richtig: 1, erklaerung: "Workflowsysteme automatisieren die Steuerung und Überwachung, nicht die operative Ausführung (das machen ERP/CRM)." },
+        { frage: "Welche Aussage über ERP-Systeme ist korrekt?", optionen: ["Sie automatisieren Prozesssteuerung", "Sie automatisieren die Ausführung (Execution) von Geschäftsaufgaben", "Sie sind identisch mit Workflowsystemen", "Sie können keine Datenbanken verwenden"], richtig: 1, erklaerung: "ERP-Systeme automatisieren operative Tätigkeiten wie Verkauf, Produktion und Lagerung." },
+        { frage: "In welche Schritte kann man ein Workflow-Prozess einteilen?", optionen: ["Nur Anfang und Ende", "Aktivitäten, Entscheidungspunkte und Pfade", "Nur automatische Schritte", "Nur manuelle Schritte"], richtig: 1, erklaerung: "Workflows bestehen aus mehreren Komponenten: Aktivitäten (Aufgaben), Bedingungen (Entscheidungen) und Prozessflusswege." },
+        { frage: "Ist eine automatisierte Prozessabfertigung bei einem intelligenten System möglich?", optionen: ["Nein, Menschen müssen immer entscheiden", "Ja, wenn die Bedingungen eindeutig sind", "Nur bei sehr großen Unternehmen", "Nur in der öffentlichen Verwaltung"], richtig: 1, erklaerung: "Intelligente Workflowsysteme können eigenständig entscheiden, wenn Bedingungen eindeutig definiert sind (z.B. Rechnungen unter 100 EUR autom. genehmigen)." }
+      ]
+    }
+  ]
+};
+
+// ============================================================
+// WIRTSCHAFTSINFORMATIK SEIDLMEIER - Kapitel 8: Digitalisierung
+// ============================================================
+FAECHER["winf-seidlmeier"].themen["digitalisierung-transformation"] = {
+  name: "8. Digitalisierung in Unternehmen",
+  zusammenfassung: "Digitalisierung ist die Umwandlung von analogen Prozessen in digitale Formate. Digitale Transformation ist die umfassende Änderung von Geschäftsmodellen, Prozessen und Kulturen durch digitale Technologien.",
+  erklaerungen: [
+    {
+      titel: "📚 Digitalisierung vs. digitale Transformation",
+      inhalt: `<p><strong>Digitalisierung</strong> ist die reine Umwandlung von analog zu digital (Papier → PDF). <strong>Digitale Transformation</strong> ist die umfassende Neugestaltung von Geschäftsmodellen, Prozessen und Organisationen.</p>
+<div class="def-box"><div class="def-label">Digitalisierung</div>Technische Umwandlung von analogen Informationen und Prozessen in digitale Formate und Systeme.</div>
+<div class="def-box"><div class="def-label">Digitale Transformation</div>Umfassende Umgestaltung von Geschäftsmodellen, Organisationsstrukturen, Fähigkeiten und Unternehmenskultur durch systematische Nutzung digitaler Technologien.</div>
+<h5>Beispiele zur Abgrenzung</h5>
+<table class="erk-table">
+<tr><th>Digitalisierung (eng)</th><th>Digitale Transformation (breit)</th></tr>
+<tr><td>Papierfaktura → PDF-Faktura</td><td>Komplett neues Geschäftsmodell durch Online-Plattformen</td></tr>
+<tr><td>Handschriftliche Liste → Excel-Tabelle</td><td>Automatisierung und Neuorganisation des gesamten Prozesses</td></tr>
+<tr><td>Vor-Ort-Meetings → Videokonferenzen</td><td>Neue Arbeitsweisen, Rollen, Kompetenzen, Unternehmenskultur</td></tr>
+</table>
+<h5>Digitalisierung als Change-Management-Prozess</h5>
+<p>Digitale Transformation ist nicht nur technisch, sondern auch organisatorisch:</p>
+<ul>
+<li><strong>Technologie:</strong> Cloud, AI, IoT, Blockchain</li>
+<li><strong>Prozesse:</strong> Neue Workflows, Automatisierung, Agile Methoden</li>
+<li><strong>Menschen:</strong> Schulung, neue Rollen, Kulturwandel</li>
+<li><strong>Geschäftsmodell:</strong> Neue Wertschöpfungsketten, Kundenorientierung</li>
+</ul>`,
+      beispiel: "Beispiel Digitalisierung vs. Transformation: Ein Einzelhandelgeschäft digitalisiert, wenn es seine Kundenkartei von Papier ins Computer-System überträgt. Digitale Transformation liegt vor, wenn das Geschäft auch Online-Shop, Mobile-App, und Click-&-Collect-Services startet – komplett neues Geschäftsmodell.",
+      merke: "Digitalisierung = Papier → Digital. Digitale Transformation = Umgestaltung ganzer Geschäftsmodelle und Organisationen.",
+      flipcards: [
+        { vorne: "Digitalisierung", hinten: "Umwandlung von analogen Prozessen in digitale Formate" },
+        { vorne: "Digitale Transformation", hinten: "Umgestaltung von Geschäftsmodellen, Prozessen und Kultur durch Digitaltechnologien" },
+        { vorne: "Change Management", hinten: "Gestaltung von organisatorischen Veränderungsprozessen" },
+        { vorne: "Industrie 4.0", hinten: "Intelligente Vernetzung von Produktion, Daten und Menschen" }
+      ],
+      details: [
+        { titel: "📖 Chancen und Risiken der Digitalisierung", inhalt: "Chancen: Effizienzsteigerung, neue Geschäftsfelder, bessere Kundenorientierung. Risiken: Investitionen, Datenschutz, technische Obsoleszenz, Widerstände gegen Veränderung." }
+      ],
+      interaktion: [
+        { frage: "Welche Aussage ist korrekt?", optionen: ["Digitalisierung und digitale Transformation sind Synonyme", "Digitalisierung ist die Umwandlung zu digital, Transformation ist umfassender", "Digitale Transformation ist älter als Digitalisierung", "Nur große Konzerne können digitalisieren"], richtig: 1, erklaerung: "Digitalisierung ist eng (analog→digital), Transformation ist breit (Geschäftsmodelle, Kultur, Organisationen)." },
+        { frage: "Welche Bereiche umfasst digitale Transformation?", optionen: ["Nur IT und Technik", "Nur Verwaltung und Buchhaltung", "Technologie, Prozesse, Menschen und Geschäftsmodell", "Nur Kundenbeziehungen"], richtig: 2, erklaerung: "Digitale Transformation ist ein ganzheitlicher Prozess, der Technologie, Prozesse, Menschen und Geschäftsstrategie einbezieht." },
+        { frage: "Was ist ein Beispiel für Digitalisierung (nicht Transformation)?", optionen: ["Ein Unternehmen gründet einen Online-Shop", "Ein Unternehmen scannt alle Rechnungen statt sie auszudrucken", "Ein Unternehmen ändert sein komplettes Geschäftsmodell", "Ein Unternehmen trainiert Mitarbeiter in neuen Fähigkeiten"], richtig: 1, erklaerung: "Das Scannen von Rechnungen ist reine Digitalisierung (analog→digital), ohne das Geschäftsmodell zu verändern." },
+        { frage: "Welche Rolle spielt Change Management in der digitalen Transformation?", optionen: ["Keine Rolle, nur Technik ist wichtig", "Eine untergeordnete Rolle", "Eine zentrale Rolle zur Akzeptanz und Umsetzung", "Nur für externe Berater relevant"], richtig: 2, erklaerung: "Change Management ist essentiell, um Menschen, Prozesse und Kultur in eine digitale Zukunft zu führen." },
+        { frage: "Welche Technologien sind typischerweise Teil der Digitalen Transformation?", optionen: ["Nur Cloud Computing", "Cloud, AI, IoT, Blockchain und weitere Technologien", "Nur ältere Desktop-Software", "Technologie ist irrelevant"], richtig: 1, erklaerung: "Digitale Transformation nutzt moderne Technologien wie Cloud, Künstliche Intelligenz, IoT und Blockchain." }
+      ]
+    }
+  ]
+};
+
+// ============================================================
+// WIRTSCHAFTSINFORMATIK SEIDLMEIER - Kapitel 9: Datensicherheit
+// ============================================================
+FAECHER["winf-seidlmeier"].themen["datensicherheit-datenschutz"] = {
+  name: "9. Datensicherheit und Datenschutz",
+  zusammenfassung: "Datensicherheit schützt Daten vor unbefugtem Zugriff (Identität, Authentifizierung, Integrität). Datenschutz regelt den Umgang mit personenbezogenen Daten und deren Rechte (DSGVO).",
+  erklaerungen: [
+    {
+      titel: "📚 Informationssicherheit und Datenschutz",
+      inhalt: `<p><strong>Datensicherheit</strong> (Informationssicherheit) schützt Daten und Informationen vor Bedrohungen wie unbefugtem Zugriff, Manipulation und Verlust. <strong>Datenschutz</strong> ist der Schutz personenbezogener Daten und der Schutz der Persönlichkeitsrechte.</p>
+<div class="def-box"><div class="def-label">Datensicherheit (Informationssicherheit)</div>Maßnahmen zum Schutz von Informationen und Daten vor unbefugtem Zugriff, Manipulation, Verlust und Missbrauch durch technische und organisatorische Mittel.</div>
+<div class="def-box"><div class="def-label">Datenschutz</div>Rechtlicher und technischer Schutz personenbezogener Daten, ihrer Verarbeitung und Nutzung, insbesondere zum Schutz von Privatsphäre und Persönlichkeitsrechten (z.B. DSGVO).</div>
+<h5>Sicherheitsziele (CIA-Modell + Authentizität)</h5>
+<table class="erk-table">
+<tr><th>Ziel</th><th>Definition</th><th>Maßnahme</th></tr>
+<tr><td><strong>Vertraulichkeit</strong></td><td>Nur autorisierte Personen dürfen Zugriff haben</td><td>Verschlüsselung, Passwörter, Zugriffskontrolle</td></tr>
+<tr><td><strong>Integrität</strong></td><td>Daten dürfen nicht unbemerkt verändert werden</td><td>Checksummen, digitale Signaturen</td></tr>
+<tr><td><strong>Verfügbarkeit</strong></td><td>Daten müssen verfügbar sein, wenn benötigt</td><td>Backups, redundante Systeme, Disaster Recovery</td></tr>
+<tr><td><strong>Authentifizierung</strong></td><td>Verifizierung der Identität von Benutzern</td><td>Passwörter, Zwei-Faktor-Authentifizierung</td></tr>
+</table>
+<h5>Datenschutzziele (Höhere und Basisdienste)</h5>
+<table class="erk-table">
+<tr><th>Höhere Dienste</th><th>Basisdienste</th></tr>
+<tr><td>Zurechenbarkeit, Nichtabstreitbarkeit, Zugriffsschutz</td><td>Vertraulichkeit, Datenintegrität, Authentifizierung, Verfügbarkeit</td></tr>
+</table>`,
+      beispiel: "Beispiel Sicherheit: Ein Bankserver muss Kundendaten vertraulich halten (Verschlüsselung), darf keine Kontostände verfälscht werden (Integrität), muss 24/7 erreichbar sein (Verfügbarkeit), und Kunden müssen sich authentifizieren (Login).",
+      merke: "CIA = Vertraulichkeit, Integrität, Verfügbarkeit. Datenschutz = Personenbezogene Daten + DSGVO.",
+      flipcards: [
+        { vorne: "Vertraulichkeit", hinten: "Nur autorisierte Personen dürfen auf Daten zugreifen" },
+        { vorne: "Integrität", hinten: "Daten bleiben korrekt und werden nicht unbemerkt verändert" },
+        { vorne: "Verfügbarkeit", hinten: "Autorisierte Benutzer haben Zugriff, wenn sie ihn benötigen" },
+        { vorne: "Authentifizierung", hinten: "Überprüfung der Identität eines Benutzers oder Systems" }
+      ],
+      details: [
+        { titel: "📖 DSGVO und Datenschutzrecht", inhalt: "Die Datenschutz-Grundverordnung (DSGVO) regelt in Europa den Umgang mit personenbezogenen Daten. Wichtige Rechte: Recht auf Zugriff, Berichtigung, Löschung ('Recht auf Vergessenwerden'), Datenportabilität." }
+      ],
+      interaktion: [
+        { frage: "Welche Komponente des CIA-Modells schützt vor unbefugtem Zugriff?", optionen: ["Verfügbarkeit", "Integrität", "Vertraulichkeit", "Authentizität"], richtig: 2, erklaerung: "Vertraulichkeit schützt Daten vor unbefugtem Zugriff durch Verschlüsselung und Zugriffskontrolle." },
+        { frage: "Welche Maßnahme stellt Datenverfügbarkeit sicher?", optionen: ["Verschlüsselung", "Regelmäßige Backups und redundante Systeme", "Netzwerk-Firewalls", "Benutzerdokumentation"], richtig: 1, erklaerung: "Verfügbarkeit wird durch Backups, Redundanzen und Disaster-Recovery-Pläne sichergestellt." },
+        { frage: "Was ist der Unterschied zwischen Datensicherheit und Datenschutz?", optionen: ["Sie sind das Gleiche", "Datensicherheit schützt vor technischen Bedrohungen, Datenschutz schützt personenbezogene Daten rechtlich", "Datenschutz ist älter", "Nur große Unternehmen müssen sich damit befassen"], richtig: 1, erklaerung: "Datensicherheit ist technisch (CIA), Datenschutz ist rechtlich (DSGVO) für personenbezogene Daten." },
+        { frage: "Welches Recht gewährt die DSGVO den Betroffenen?", optionen: ["Das Recht, beliebig zu lagern", "Das Recht auf Zugriff, Berichtigung und Löschung", "Das Recht auf kostenlose Cloud-Speicher", "Das Recht auf Anonymität"], richtig: 1, erklaerung: "Die DSGVO gibt Personen Rechte wie Zugriff auf ihre Daten, Berichtigung und Löschung (Recht auf Vergessenwerden)." },
+        { frage: "Was ist Zwei-Faktor-Authentifizierung?", optionen: ["Ein Passwort, das zweimal eingegeben wird", "Nutzung von zwei verschiedenen Passwörtern", "Bestätigung der Identität durch zwei unterschiedliche Faktoren (z.B. Passwort + Handy)", "Eine Sicherheitsrichtlinie für IT-Abteilungen"], richtig: 2, erklaerung: "Zwei-Faktor-Authentifizierung nutzt zwei unterschiedliche Authentifizierungsmethoden (z.B. Passwort + SMS-Code) für erhöhte Sicherheit." }
+      ]
+    }
+  ]
+};
+
+// ============================================================
 // STEUERRECHT - Kapitel 1: Steuerrechtsordnung
 // ============================================================
 FAECHER["steuerrecht"].themen["steuerrechtsordnung"] = {
@@ -2821,9 +3218,12 @@ Eine <strong>begrenzte Menge an zusammengeh\u00f6rigen Teilen</strong> (Elemente
   <tr><th>Begriff</th><th>Bedeutung (Vorlesung)</th></tr>
   <tr><td><strong>Systemelement</strong></td><td>Teile im System (z.B. Teile im Computer)</td></tr>
   <tr><td><strong>Systemrelation</strong></td><td>Elemente sind miteinander verbunden</td></tr>
-  <tr><td><strong>Systemumwelt</strong></td><td>Alles au\u00dferhalb des Systems (z.B. Tisch, Raum, Geb\u00e4ude)</td></tr>
-  <tr><td><strong>Input</strong></td><td>Dateneingabe / kommt von au\u00dfen ins System</td></tr>
+  <tr><td><strong>Systemstruktur</strong></td><td>Gesamtheit der Beziehungen (Relationen) zwischen den Systemelementen</td></tr>
+  <tr><td><strong>Systemumwelt</strong></td><td>Alles außerhalb des Systems (z.B. Tisch, Raum, Gebäude)</td></tr>
+  <tr><td><strong>Systemgrenze</strong></td><td>Trennt das System von seiner Umwelt; legt fest, was zum System gehört</td></tr>
+  <tr><td><strong>Input</strong></td><td>Dateneingabe / kommt von außen ins System</td></tr>
   <tr><td><strong>Output</strong></td><td>Feedback / Ergebnis des Systems</td></tr>
+  <tr><td><strong>Rückkopplung</strong></td><td>Output beeinflusst zukünftigen Input (Feedback-Schleife)</td></tr>
 </table>`,
       beispiel: `Unternehmen = offenes System (Austausch mit Kunden, Lieferanten).`,
       schritte: [
@@ -3090,9 +3490,18 @@ Daten sind noch <strong>bedeutungslos</strong>! "20.03.26" k\u00f6nnte ein Datum
   <tr><th>Stufe</th><th>Was kommt dazu?</th><th>Beispiel</th></tr>
   <tr><td><strong>Daten</strong></td><td>(Ausgangspunkt)</td><td>20.03.2026</td></tr>
   <tr><td><strong>Information</strong></td><td>+ Bedeutung/Kontext</td><td>"Heute ist der 20. M\u00e4rz 2026"</td></tr>
-  <tr><td><strong>Wissen</strong></td><td>+ Erfahrung/Vernetzung</td><td>"Im M\u00e4rz wird es w\u00e4rmer"</td></tr>
+  <tr><td><strong>Wissen</strong></td><td>+ Erfahrung/Vernetzung</td><td>"Im M\u00e4rz wird es wärmer"</td></tr>
 </table>
-<p>\ud83d\udca1 Wissen ist vernetztes Verst\u00e4ndnis \u2013 nicht nur eine Tatsache, sondern ein Zusammenhang!</p>`
+<p>💡 Wissen ist vernetztes Verständnis – nicht nur eine Tatsache, sondern ein Zusammenhang!</p>
+<div class="def-box"><div class="def-label">📌 Beispiel aus der Vorlesung (Folie 2-7): Devisenkurs</div>
+<table class="erk-table">
+  <tr><th>Stufe</th><th>Inhalt</th></tr>
+  <tr><td><strong>Zeichen</strong></td><td>"1", ".", "1", "2" – einzelne Symbole</td></tr>
+  <tr><td><strong>Daten</strong></td><td>1.12 – syntaktisch gültige Zeichenkette</td></tr>
+  <tr><td><strong>Information</strong></td><td>"Euro 1 = 1,12 Dollar" – Bedeutung im Kontext</td></tr>
+  <tr><td><strong>Wissen</strong></td><td>Auswirkung auf Import-/Exportpreise – zweckorientiert vernetzt</td></tr>
+</table>
+</div>`
         },
         {
           titel: "Schritt 4: Relevanz f\u00fcr die WI & Klausurtipps",
@@ -3207,18 +3616,941 @@ IS k\u00f6nnen Informationen beliebig oft ausgeben, ohne dass sie verbraucht wer
 };
 
 
+FAECHER["winf-seidlmeier"].themen["modellierung-org-is"] = {
+  name: "3. Modellierung von Organisationen und IS",
+  zusammenfassung: `<h4>3. Die Modellierung von Organisationen und Informationssystemen</h4>
+
+<h5>📌 3.1 Die Prozesssicht auf die WI</h5>
+<p>Die prozessorientierte WI stellt den <strong>Prozess</strong> ins Zentrum. IS unterstützen Prozesse, Prozesse folgen der Geschäftsstrategie – und IS liefern wiederum Informationen, um die Strategie anzupassen.</p>
+<div class="def-box"><div class="def-label">Dreieck: Strategie – Prozess – IS</div>
+<strong>Geschäftsstrategie</strong> → definiert Ziele → <strong>Prozess</strong> → setzt Ziele um → <strong>Informationssystem</strong> → unterstützt den Prozess → liefert Feedback an die Strategie
+</div>
+
+<h5>📌 3.2 Prozesstypen</h5>
+<table class="erk-table">
+  <tr><th>Typ</th><th>Beschreibung</th><th>Beispiel</th></tr>
+  <tr><td><strong>Geschäftsprozesse</strong></td><td>Wertschöpfende Kernprozesse mit direktem Kundenbezug</td><td>Auftragsabwicklung, Produktion</td></tr>
+  <tr><td><strong>Unterstützungsprozesse</strong></td><td>Interne Prozesse ohne direkten Kundenwert, aber notwendig</td><td>Buchhaltung, IT-Support</td></tr>
+  <tr><td><strong>Führungsprozesse</strong></td><td>Steuerung und Kontrolle des Unternehmens</td><td>Budgetplanung, Strategieentwicklung</td></tr>
+</table>
+<p><em>Geschäfts- + Unterstützungsprozesse = Leistungsprozesse. Zusammen mit Führungsprozessen = Betriebliche Prozesse.</em></p>
+
+<h5>📌 3.3 Organisations-Modellierung</h5>
+<table class="erk-table">
+  <tr><th>Art</th><th>Fragestellung</th><th>Darstellung</th><th>Beispiel</th></tr>
+  <tr><td><strong>Aufbauorganisation</strong></td><td>WER ist wofür zuständig?</td><td>Organigramm (statisch)</td><td>Lean Drive GmbH: Vertrieb, Einkauf, Auftragsabwicklung ...</td></tr>
+  <tr><td><strong>Ablauforganisation</strong></td><td>WIE laufen Aufgaben ab?</td><td>Prozessdiagramm (dynamisch)</td><td>Check-in am Flughafen: Ereignis → Funktion → Ereignis ...</td></tr>
+</table>
+
+<h5>📌 3.4 IS-Modellierung: Die EPK</h5>
+<div class="def-box"><div class="def-label">EPK = Ereignisgesteuerte Prozesskette</div>
+Ein Prozessmodell, aus dem ein IS-Modell abgeleitet wird. Drei Dimensionen:<br>
+• <strong>IS-Funktionen</strong> – was macht das System? (grüne Rechtecke)<br>
+• <strong>IS-Daten/Informationen</strong> – womit arbeitet es? (graue Dokumente)<br>
+• <strong>IS-Anwender</strong> – wer nutzt es? (orange Personen/Organisationseinheiten)
+</div>
+<table class="erk-table">
+  <tr><th>EPK-Element</th><th>Form</th><th>Bedeutung</th></tr>
+  <tr><td><strong>Ereignis</strong></td><td>Lila Hexagon</td><td>Zustand, der einen Prozess auslöst oder beendet</td></tr>
+  <tr><td><strong>Funktion</strong></td><td>Grünes Rechteck (abgerundet)</td><td>Aktivität/Aufgabe im Prozess</td></tr>
+  <tr><td><strong>Organisationseinheit</strong></td><td>Orange Personen-Symbol</td><td>Wer führt die Funktion aus?</td></tr>
+  <tr><td><strong>Dokument/Daten</strong></td><td>Graues Dokument-Symbol</td><td>Welche Daten fließen ein oder aus?</td></tr>
+</table>
+
+<h5>📌 3.5 Die ARIS-Methodik</h5>
+<div class="def-box"><div class="def-label">ARIS = Architektur integrierter Informationssysteme</div>
+Methodik zur Modellierung von Unternehmen und IS durch <strong>4 Beschreibungssichten</strong>. Ziel: Reduktion von Komplexität durch getrenntes Betrachten und anschließendes Zusammenführen.
+</div>
+<table class="erk-table">
+  <tr><th>Sicht</th><th>Frage</th><th>Darstellung</th></tr>
+  <tr><td><strong>Datensicht</strong></td><td>Welche Daten werden benötigt?</td><td>Datenmodell (z.B. ER-Diagramm)</td></tr>
+  <tr><td><strong>Funktionssicht</strong></td><td>Welche Aufgaben gibt es?</td><td>Funktionsbaum</td></tr>
+  <tr><td><strong>Organisationssicht</strong></td><td>Wer ist zuständig?</td><td>Organigramm</td></tr>
+  <tr><td><strong>Steuerungs-/Prozesssicht</strong></td><td>Wie laufen Prozesse ab?</td><td>EPK (integriert alle Sichten)</td></tr>
+</table>
+<p><strong>Kernprinzip:</strong> Jede Sicht ist ein „Baustein" – die Steuerungs-/Prozesssicht (EPK) fügt alle Bausteine zusammen.</p>
+
+<h5>📌 3.6 Anwendungsbeispiel: KDIS (ProElectron)</h5>
+<div class="def-box"><div class="def-label">Ausgangssituation</div>
+ProElectron Inc. (Seattle) – Hersteller von Kassensystemen. Expandierendes Unternehmen → wachsende Datenflut im Kundendienst (KD). Lösung: KDIS = Kundendienst-Informationssystem.
+</div>
+<p><strong>Kundendienst-Prozessstruktur:</strong></p>
+<table class="erk-table">
+  <tr><th>Hauptprozess</th><th>Teilprozesse</th></tr>
+  <tr><td>Auftragsannahme</td><td>Erfassung der Auftragsdaten, Entgegennahme der Kasse</td></tr>
+  <tr><td>Auftragsbearbeitung</td><td>Wartung der Kasse, Reparatur der Kasse</td></tr>
+  <tr><td>Auftragsabschluss</td><td>Herstellung Versandbereitschaft, Erstellung der Rechnung</td></tr>
+</table>
+<p><strong>Systemfunktionen (aus Prozessen abgeleitet):</strong> Kundenbezogene Verwaltung der Aufträge · Erstellung von Berichten (Umsatz nach Monaten/Mitarbeitern, erledigte/unerledigte Aufträge)</p>`,
+
+  erklaerungen: [
+    {
+      titel: "🔄 Prozesstypen im Überblick",
+      inhalt: `<div class="def-box"><div class="def-label">Hierarchie betrieblicher Prozesse (Folie 3.-4)</div>
+<div class="erk-tree">
+  <div class="tree-root">Betriebliche Prozesse / Unternehmensprozesse</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background:#D1FAE5;">
+      <strong>Leistungsprozesse</strong><br>
+      <small>→ Geschäftsprozesse (direkter Kundenwert)<br>
+      → Unterstützungsprozesse (intern, notwendig)</small>
+    </div>
+    <div class="tree-branch" style="background:#FEF3C7;">
+      <strong>Führungsprozesse</strong><br>
+      <small>→ Steuerung und Kontrolle</small>
+    </div>
+  </div>
+</div></div>
+<table class="erk-table">
+  <tr><th>Typ</th><th>Merkmal</th><th>Beispiel</th></tr>
+  <tr><td><strong>Geschäftsprozess</strong></td><td>Direkter Kundenwert, wertschöpfend</td><td>Auftragsabwicklung</td></tr>
+  <tr><td><strong>Unterstützungsprozess</strong></td><td>Kein direkter Kundenwert, aber notwendig</td><td>Buchhaltung, IT</td></tr>
+  <tr><td><strong>Führungsprozess</strong></td><td>Steuerung, Planung, Kontrolle</td><td>Budgetplanung</td></tr>
+</table>`,
+      beispiel: `Beim Kassensystem-Hersteller ProElectron:<br>
+<strong>Geschäftsprozess:</strong> Kassensystem reparieren (direkter Kundenauftrag)<br>
+<strong>Unterstützungsprozess:</strong> Lohnbuchhaltung der Techniker<br>
+<strong>Führungsprozess:</strong> Jahresplanung der KD-Abteilung`,
+      merke: `Geschäftsprozesse + Unterstützungsprozesse = Leistungsprozesse • Führungsprozesse steuern alles • Alle zusammen = Betriebliche Prozesse`,
+      flipcards: [
+        { vorne: "Geschäftsprozess", hinten: "Direkter Kundenwert<br>wertschöpfend<br>(z.B. Auftragsabwicklung)" },
+        { vorne: "Unterstützungsprozess", hinten: "Kein direkter Kundenwert<br>aber intern notwendig<br>(z.B. Buchhaltung)" },
+        { vorne: "Führungsprozess", hinten: "Steuerung & Kontrolle<br>des Unternehmens<br>(z.B. Budgetplanung)" },
+        { vorne: "Leistungsprozesse", hinten: "Geschäftsprozesse<br>+<br>Unterstützungsprozesse" }
+      ],
+      interaktion: [
+        { frage: "Welcher Prozesstyp schafft direkten Kundenwert?", optionen: ["Führungsprozess", "Unterstützungsprozess", "Geschäftsprozess", "Datenprozess"], richtig: 2, erklaerung: "Geschäftsprozesse sind wertschöpfend und haben direkten Kundenbezug." },
+        { frage: "Buchhaltung ist ein ...", optionen: ["Geschäftsprozess", "Unterstützungsprozess", "Führungsprozess", "Kernprozess"], richtig: 1, erklaerung: "Buchhaltung = kein direkter Kundenwert, aber intern notwendig = Unterstützungsprozess." },
+        { frage: "Was gehört zu den Leistungsprozessen?", optionen: ["Nur Geschäftsprozesse", "Nur Führungsprozesse", "Geschäfts- + Unterstützungsprozesse", "Alle Prozesstypen"], richtig: 2, erklaerung: "Leistungsprozesse = Geschäftsprozesse + Unterstützungsprozesse." },
+        { frage: "Jahresplanung und Budgetkontrolle sind ...", optionen: ["Geschäftsprozesse", "Unterstützungsprozesse", "Führungsprozesse", "Leistungsprozesse"], richtig: 2, erklaerung: "Steuerung und Kontrolle = Führungsprozesse." }
+      ]
+    },
+    {
+      titel: "🏢 Aufbau- vs. Ablauforganisation",
+      inhalt: `<div class="def-box"><div class="def-label">Zwei Arten der Organisations-Modellierung (Folie 3.-5 / 3.-6)</div>
+<strong>Aufbauorganisation</strong> → <em>WER ist wofür zuständig?</em> (statisch)<br>
+Darstellung: <strong>Organigramm</strong> – zeigt Stellen, Abteilungen, Hierarchien<br><br>
+<strong>Ablauforganisation</strong> → <em>WIE laufen Aufgaben ab?</em> (dynamisch)<br>
+Darstellung: <strong>Prozessdiagramm/EPK</strong> – zeigt Ablauf, Ereignisse, Funktionen
+</div>
+<table class="erk-table">
+  <tr><th></th><th>Aufbauorganisation</th><th>Ablauforganisation</th></tr>
+  <tr><td><strong>Frage</strong></td><td>Wer ist zuständig?</td><td>Wie läuft es ab?</td></tr>
+  <tr><td><strong>Art</strong></td><td>Statisch</td><td>Dynamisch</td></tr>
+  <tr><td><strong>Modell</strong></td><td>Organigramm</td><td>Prozessdiagramm / EPK</td></tr>
+  <tr><td><strong>Beispiel</strong></td><td>Lean Drive GmbH</td><td>Check-in am Flughafen</td></tr>
+</table>`,
+      beispiel: `<strong>Lean Drive GmbH – Aufbauorganisation (Organigramm):</strong><br>
+Lean Drive → Vertrieb, Einkauf, Auftragsabwicklung, Arbeitsvorbereitung, Technik, Lager<br><br>
+<strong>Check-in Flughafen – Ablauforganisation (EPK):</strong><br>
+Ereignis: „Fluggast erschienen" → Funktion: „Anwesenheit mitteilen" → Ereignis: „Anwesenheit mitgeteilt" → Funktion: „Formalitäten prüfen" → Funktion: „Gepäck verbuchen" → Ereignis: „Gepäck verbucht"`,
+      merke: `Aufbauorganisation = WER (statisch, Organigramm) • Ablauforganisation = WIE (dynamisch, EPK)`,
+      flipcards: [
+        { vorne: "Aufbauorganisation", hinten: "WER ist zuständig?<br>→ Organigramm (statisch)<br>Stellen & Hierarchien" },
+        { vorne: "Ablauforganisation", hinten: "WIE läuft es ab?<br>→ Prozessdiagramm (dynamisch)<br>Ereignisse & Funktionen" },
+        { vorne: "Organigramm", hinten: "Modell der Aufbauorganisation<br>Zeigt: Stellen, Abteilungen,<br>Hierarchien und Beziehungen" },
+        { vorne: "EPK", hinten: "Ereignisgesteuerte Prozesskette<br>Modell der Ablauforganisation<br>Ereignis → Funktion → Ereignis ..." }
+      ],
+      interaktion: [
+        { frage: "Was zeigt ein Organigramm?", optionen: ["Wie Prozesse ablaufen", "Wer wofür zuständig ist", "Welche Daten gespeichert werden", "Wie das IS aufgebaut ist"], richtig: 1, erklaerung: "Organigramm = Aufbauorganisation = WER ist zuständig (statisch)." },
+        { frage: "Die Ablauforganisation zeigt ...", optionen: ["Hierarchien", "Stellenbeschreibungen", "Wie Aufgaben ablaufen", "Gehälter der Mitarbeiter"], richtig: 2, erklaerung: "Ablauforganisation = WIE laufen Aufgaben ab (dynamisch)." },
+        { frage: "Check-in-Prozess am Flughafen ist ein Beispiel für ...", optionen: ["Aufbauorganisation", "Ablauforganisation", "Datensicht", "Führungsprozess"], richtig: 1, erklaerung: "Ein Ablaufprozess (EPK) zeigt das WIE = Ablauforganisation." },
+        { frage: "Welches Modell ist dynamisch?", optionen: ["Organigramm", "Stellenplan", "EPK/Prozessdiagramm", "Hierarchiediagramm"], richtig: 2, erklaerung: "EPK = dynamisch, zeigt zeitlichen Ablauf von Prozessen." }
+      ]
+    },
+    {
+      titel: "📋 Die EPK – Elemente & Aufbau",
+      inhalt: `<div class="def-box"><div class="def-label">EPK = Ereignisgesteuerte Prozesskette (Folie 3.-7)</div>
+Standardmethode zur Modellierung von Geschäftsprozessen und IS-Anforderungen.<br>
+Aus einer EPK lassen sich direkt <strong>IS-Funktionen, IS-Daten und IS-Anwender</strong> ableiten.
+</div>
+<table class="erk-table">
+  <tr><th>Element</th><th>Form</th><th>Bedeutung</th><th>Beispiel</th></tr>
+  <tr><td><strong>Ereignis</strong></td><td>🟣 Lila Hexagon (Pfeilform)</td><td>Zustand – löst Prozess aus oder beendet ihn</td><td>„Bestellbedarf ist aufgetreten"</td></tr>
+  <tr><td><strong>Funktion</strong></td><td>🟩 Grünes Rechteck</td><td>Aktivität/Aufgabe im Prozess</td><td>„Bestellschein ausfüllen"</td></tr>
+  <tr><td><strong>Org.-Einheit</strong></td><td>🟧 Orange Person</td><td>Wer führt die Funktion aus?</td><td>„Mitarbeiter Einkauf"</td></tr>
+  <tr><td><strong>Dokument/Daten</strong></td><td>⬜ Grau, Dokument</td><td>Welche Daten fließen ein/aus?</td><td>„Lieferkatalog", „Bestellschein"</td></tr>
+</table>
+<p><strong>Grundprinzip:</strong> <span style="color:#8B5CF6">Ereignis</span> → <span style="color:#10B981">Funktion</span> → <span style="color:#8B5CF6">Ereignis</span> → <span style="color:#10B981">Funktion</span> → ...</p>`,
+      beispiel: `<strong>Bestellprozess (Folie 3.-7):</strong><br>
+🟣 „Bestellbedarf ist aufgetreten" (Ereignis)<br>
+→ 🟩 „Bestellschein ausfüllen" (Funktion) ← Mitarbeiter (IS-Anwender) ← Lieferkatalog (IS-Daten)<br>
+→ 🟣 Bestellschein liegt vor (implizit)<br>
+→ 🟩 „Bestellung prüfen" (Funktion) ← Leiter Fachabteilung (IS-Anwender) ← Abteilungsbudget (IS-Daten)`,
+      merke: `EPK: Ereignis → Funktion → Ereignis ... • IS-Funktionen (grün), IS-Daten (grau), IS-Anwender (orange) • Ereignisse lösen Funktionen aus, Funktionen erzeugen Ereignisse`,
+      flipcards: [
+        { vorne: "Ereignis (EPK)", hinten: "🟣 Lila Hexagon<br>Zustand der Realität<br>löst Prozess aus oder beendet ihn" },
+        { vorne: "Funktion (EPK)", hinten: "🟩 Grünes Rechteck<br>Aktivität/Aufgabe<br>verarbeitet Input zu Output" },
+        { vorne: "IS-Anwender", hinten: "🟧 Orange Person<br>Wer führt die Funktion aus?<br>= Organisationseinheit" },
+        { vorne: "IS-Daten", hinten: "⬜ Grau, Dokument-Symbol<br>Welche Daten fließen ein/aus?<br>= Dokumente & Informationen" }
+      ],
+      interaktion: [
+        { frage: "Welche Form hat ein Ereignis in der EPK?", optionen: ["Grünes Rechteck", "Lila Hexagon/Pfeilform", "Oranger Kreis", "Graues Dokument"], richtig: 1, erklaerung: "Ereignisse = lila Hexagon/Pfeilform in der EPK." },
+        { frage: "'Bestellbedarf ist aufgetreten' ist ein ...", optionen: ["Funktion", "Dokument", "Ereignis", "Prozess"], richtig: 2, erklaerung: "Es ist ein Zustand, der den Prozess auslöst = Ereignis." },
+        { frage: "Was lässt sich aus einer EPK direkt ableiten?", optionen: ["Nur IS-Funktionen", "IS-Funktionen, IS-Daten, IS-Anwender", "Nur Organigramme", "Nur Datenbankstrukturen"], richtig: 1, erklaerung: "EPK = Basis für IS-Modell mit Funktionen, Daten und Anwendern." },
+        { frage: "Grundprinzip der EPK:", optionen: ["Funktion → Funktion → Funktion", "Ereignis → Funktion → Ereignis", "Daten → Funktion → Daten", "Person → Aufgabe → Person"], richtig: 1, erklaerung: "EPK-Prinzip: Ereignis → Funktion → Ereignis (immer abwechselnd)." }
+      ]
+    },
+    {
+      titel: "🏗️ Die ARIS-Methodik",
+      inhalt: `<div class="def-box"><div class="def-label">ARIS – Architektur integrierter Informationssysteme (Folie 3.-8 / 3.-9)</div>
+Methodik von Prof. Scheer zur Modellierung von Unternehmen und IS.<br>
+<strong>Kernidee:</strong> Reduktion von Komplexität durch <strong>4 getrennte Beschreibungssichten</strong> → dann zusammenführen.
+</div>
+<table class="erk-table">
+  <tr><th>Sicht</th><th>Frage</th><th>Modell</th></tr>
+  <tr><td><strong>Datensicht</strong></td><td>Welche Daten werden gebraucht?</td><td>Datenmodell (z.B. Lieferkatalog, Bestellschein)</td></tr>
+  <tr><td><strong>Funktionssicht</strong></td><td>Welche Aufgaben gibt es?</td><td>Funktionsbaum (z.B. Bestellen → Ausfüllen, Prüfen ...)</td></tr>
+  <tr><td><strong>Organisationssicht</strong></td><td>Wer ist zuständig?</td><td>Organigramm (z.B. Leiter, Mitarbeiter Einkauf)</td></tr>
+  <tr><td><strong>Steuerungs-/Prozesssicht</strong></td><td>Wie läuft der Prozess ab?</td><td>EPK (integriert alle anderen Sichten)</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Zentrales ARIS-Prinzip (Folie 3.-9)</div>
+Jede Sicht = ein <strong>"Baustein"</strong>. Die <strong>Steuerungs-/Prozesssicht (EPK)</strong> fügt alle Bausteine zusammen und zeigt das vollständige Bild.
+</div>`,
+      beispiel: `<strong>Bestellprozess in 4 ARIS-Sichten:</strong><br>
+🗂️ <strong>Datensicht:</strong> Lieferantenverzeichnis, Lieferkatalog, Bestellschein, Abteilungsbudget<br>
+⚙️ <strong>Funktionssicht:</strong> Bestellen → Bestellschein ausfüllen, Bestellung prüfen, Bestellung durchführen<br>
+👥 <strong>Organisationssicht:</strong> Unternehmen → Fachabteilung → Leiter, Mitarbeiter; Einkaufsabteilung → Mitarbeiter<br>
+🔄 <strong>Prozesssicht (EPK):</strong> Bestellbedarf aufgetreten → Bestellschein ausfüllen → ... (alle Sichten integriert)`,
+      merke: `ARIS = 4 Sichten: Daten, Funktion, Organisation, Steuerung/Prozess (EPK) • EPK integriert alle anderen Sichten • Ziel: Komplexitätsreduktion durch getrenntes Betrachten`,
+      flipcards: [
+        { vorne: "ARIS", hinten: "Architektur integrierter<br>Informationssysteme<br>4 Beschreibungssichten" },
+        { vorne: "Datensicht", hinten: "Welche Daten werden gebraucht?<br>(Datenmodell)<br>z.B. Lieferkatalog, Bestellschein" },
+        { vorne: "Funktionssicht", hinten: "Welche Aufgaben gibt es?<br>(Funktionsbaum)<br>z.B. Bestellen → Ausfüllen, Prüfen" },
+        { vorne: "Steuerungs-/Prozesssicht", hinten: "Wie läuft der Prozess ab?<br>(EPK)<br>Integriert ALLE anderen Sichten" }
+      ],
+      interaktion: [
+        { frage: "Wofür steht ARIS?", optionen: ["Automatisiertes Reporting in Systemen", "Architektur integrierter Informationssysteme", "Anwendungsreife IS-Simulation", "Arbeits-Ressourcen-IS"], richtig: 1, erklaerung: "ARIS = Architektur integrierter Informationssysteme (Prof. Scheer)." },
+        { frage: "Welche ARIS-Sicht integriert alle anderen?", optionen: ["Datensicht", "Funktionssicht", "Organisationssicht", "Steuerungs-/Prozesssicht"], richtig: 3, erklaerung: "Die Steuerungs-/Prozesssicht (EPK) fügt alle Bausteine zusammen." },
+        { frage: "Was zeigt die Organisationssicht?", optionen: ["Datenstrukturen", "Prozessabläufe", "Wer ist zuständig", "IS-Funktionen"], richtig: 2, erklaerung: "Organisationssicht = Organigramm = WER ist zuständig." },
+        { frage: "Warum verwendet man verschiedene ARIS-Sichten?", optionen: ["Weil es Vorschrift ist", "Zur Komplexitätsreduktion", "Weil EPK zu einfach ist", "Aus ästhetischen Gründen"], richtig: 1, erklaerung: "ARIS-Ziel: Reduktion von Komplexität durch getrennte Beschreibungssichten." }
+      ]
+    },
+    {
+      titel: "💼 KDIS – Anwendungsbeispiel",
+      inhalt: `<div class="def-box"><div class="def-label">ProElectron Inc. – KDIS (Folie 3.-11 bis 3.-13)</div>
+<strong>Unternehmen:</strong> ProElectron Inc. (Seattle), Hersteller von Kassensystemen<br>
+<strong>Problem:</strong> Expansion → wachsende Datenflut im Kundendienst (mehr Kunden, Aufträge, Produkte, Teile, Mitarbeiter)<br>
+<strong>Lösung:</strong> Entwicklung des KDIS = <strong>Kundendienst-Informationssystem</strong><br>
+<strong>Vorgehen:</strong> Aus KD-Prozessen werden IS-Systemfunktionen abgeleitet
+</div>
+<table class="erk-table">
+  <tr><th>KD-Prozess</th><th>Teilprozesse</th></tr>
+  <tr><td><strong>Auftragsannahme</strong></td><td>Erfassung der Auftragsdaten · Entgegennahme der Kasse</td></tr>
+  <tr><td><strong>Auftragsbearbeitung</strong></td><td>Wartung der Kasse · Reparatur der Kasse</td></tr>
+  <tr><td><strong>Auftragsabschluss</strong></td><td>Herstellung Versandbereitschaft · Erstellung der Rechnung</td></tr>
+</table>
+<p><strong>Abgeleitete Systemfunktionen (KDIS):</strong></p>
+<p>→ Kundenbezogene Verwaltung der Aufträge<br>
+→ Erstellung von Berichten: Umsatz nach Monaten, Umsatz nach Mitarbeitern, erledigte/unerledigte Aufträge</p>`,
+      beispiel: `<strong>Kernbotschaft des KDIS-Beispiels:</strong><br>
+WI-Vorgehen in der Praxis: Erst Prozesse modellieren (EPK) → dann IS-Funktionen, IS-Daten und IS-Anwender ableiten → dann Informationssystem entwickeln.<br><br>
+Das ist genau das Strategie–Prozess–IS-Dreieck aus Kap. 1: Strategie (expandieren) → Prozess (KD-Abläufe) → IS (KDIS).`,
+      merke: `KDIS-Methodik: Prozesse analysieren → IS-Funktionen ableiten → IS entwickeln • Prozessmodell = Basis für IS-Entwicklung`,
+      interaktion: [
+        { frage: "Womit befasst sich ProElectron?", optionen: ["Softwareentwicklung", "Kassensysteme", "Bankdienstleistungen", "Logistik"], richtig: 1, erklaerung: "ProElectron Inc. (Seattle) ist Hersteller von Kassensystemen." },
+        { frage: "Was bedeutet KDIS?", optionen: ["Kundendaten-IS", "Kassendienst-IS", "Kundendienst-IS", "Kerndaten-IS"], richtig: 2, erklaerung: "KDIS = Kundendienst-Informationssystem." },
+        { frage: "Wie werden IS-Systemfunktionen im KDIS-Beispiel ermittelt?", optionen: ["Aus Kundenbeschwerden", "Aus IT-Standards", "Aus KD-Prozessen abgeleitet", "Durch externe Berater"], richtig: 2, erklaerung: "Systemfunktionen werden direkt aus den KD-Prozessen abgeleitet." },
+        { frage: "Welcher KD-Prozess enthält 'Reparatur der Kasse'?", optionen: ["Auftragsannahme", "Auftragsbearbeitung", "Auftragsabschluss", "Auftragsprüfung"], richtig: 1, erklaerung: "Reparatur der Kasse gehört zur Auftragsbearbeitung." }
+      ]
+    }
+  ],
+  quiz: [
+    { frage: "Was zeigt die Aufbauorganisation?", optionen: ["Wie Prozesse ablaufen", "Wer wofür zuständig ist", "Welche IS-Daten benötigt werden", "Wie IS entwickelt werden"], richtig: 1, erklaerung: "Aufbauorganisation = WER ist zuständig (Organigramm, statisch)." },
+    { frage: "EPK steht für ...", optionen: ["Ereignisgeprüfte Prozesskette", "Ereignisgesteuerte Prozesskette", "Einfache Prozesskette", "Elektronische Prozesskette"], richtig: 1, erklaerung: "EPK = Ereignisgesteuerte Prozesskette." },
+    { frage: "ARIS hat ... Beschreibungssichten", optionen: ["2", "3", "4", "5"], richtig: 2, erklaerung: "ARIS: Datensicht, Funktionssicht, Organisationssicht, Steuerungs-/Prozesssicht = 4." },
+    { frage: "Lila Hexagon in EPK = ?", optionen: ["Funktion", "Ereignis", "Dokument", "Person"], richtig: 1, erklaerung: "Lila Hexagon = Ereignis (Zustand, der Prozess auslöst/beendet)." },
+    { frage: "ARIS = ?", optionen: ["Automatisches Reporting", "Architektur integrierter IS", "Abteilungs-Ressource-IS", "Anwendungs-IS"], richtig: 1, erklaerung: "ARIS = Architektur integrierter Informationssysteme." },
+    { frage: "Führungsprozesse ...", optionen: ["Erzeugen direkten Kundenwert", "Unterstützen intern", "Steuern und kontrollieren", "Ersetzen Geschäftsprozesse"], richtig: 2, erklaerung: "Führungsprozesse = Steuerung und Kontrolle des Unternehmens." },
+    { frage: "Die Prozesssicht in ARIS integriert ...", optionen: ["Nur Datensicht", "Nur Organigramme", "Alle anderen Sichten", "Nur Funktionen"], richtig: 2, erklaerung: "Steuerungs-/Prozesssicht (EPK) integriert Daten-, Funktions- und Organisationssicht." },
+    { frage: "KDIS = ?", optionen: ["Kassendaten-IS", "Kundendienst-IS", "KD-Informations-Sicht", "Kassensystem"], richtig: 1, erklaerung: "KDIS = Kundendienst-Informationssystem bei ProElectron." },
+    { frage: "Grünes Rechteck in EPK = ?", optionen: ["Ereignis", "Dokument", "Funktion", "Prozess"], richtig: 2, erklaerung: "Grünes Rechteck = Funktion (Aktivität/Aufgabe im Prozess)." },
+    { frage: "Welcher Prozesstyp enthält keinen direkten Kundenwert?", optionen: ["Geschäftsprozess", "Unterstützungsprozess", "Führungsprozess", "Leistungsprozess"], richtig: 1, erklaerung: "Unterstützungsprozesse haben keinen direkten Kundenwert, sind aber intern notwendig." }
+  ],
+  lueckentext: [
+    { text: "Die ___ zeigt WER wofür zuständig ist, die ___ zeigt WIE Aufgaben ablaufen.", luecken: ["Aufbauorganisation", "Ablauforganisation"], erklaerung: "Aufbau = WER (statisch), Ablauf = WIE (dynamisch)." },
+    { text: "EPK = ___gesteuerte Prozesskette. Grundprinzip: ___ → ___ → Ereignis.", luecken: ["Ereignis", "Ereignis", "Funktion"], erklaerung: "EPK alterniert immer zwischen Ereignis und Funktion." },
+    { text: "ARIS hat 4 Sichten: Datensicht, ___, Organisationssicht und ___.", luecken: ["Funktionssicht", "Steuerungs-/Prozesssicht"], erklaerung: "Die 4 ARIS-Beschreibungssichten." },
+    { text: "Geschäftsprozesse + Unterstützungsprozesse = ___. Zusammen mit Führungsprozessen = ___.", luecken: ["Leistungsprozesse", "Betriebliche Prozesse"], erklaerung: "Hierarchie der betrieblichen Prozesse." }
+  ],
+  zuordnung: [
+    { titel: "EPK-Elemente zuordnen", paare: [
+      { links: "Lila Hexagon", rechts: "Ereignis" },
+      { links: "Grünes Rechteck", rechts: "Funktion" },
+      { links: "Orange Person-Symbol", rechts: "Organisationseinheit / IS-Anwender" },
+      { links: "Graues Dokument-Symbol", rechts: "IS-Daten / Dokument" }
+    ]},
+    { titel: "ARIS-Sichten zuordnen", paare: [
+      { links: "Welche Daten werden gebraucht?", rechts: "Datensicht" },
+      { links: "Welche Aufgaben gibt es?", rechts: "Funktionssicht" },
+      { links: "Wer ist zuständig?", rechts: "Organisationssicht" },
+      { links: "Wie läuft der Prozess ab?", rechts: "Steuerungs-/Prozesssicht" }
+    ]},
+    { titel: "Prozesstypen zuordnen", paare: [
+      { links: "Auftragsabwicklung (direkter Kundenwert)", rechts: "Geschäftsprozess" },
+      { links: "Buchhaltung (intern notwendig)", rechts: "Unterstützungsprozess" },
+      { links: "Jahresplanung und Budgetkontrolle", rechts: "Führungsprozess" }
+    ]}
+  ]
+};
+
+
+// ============================================================
+// RECHNUNGSLEGUNG – Kapitel 1: Grundlagen der Konzernrechnungslegung
+// ============================================================
+FAECHER["rechnungslegung"].themen["konzernrechnungslegung-grundlagen"] = {
+  name: "1. Grundlagen der Konzernrechnungslegung",
+  zusammenfassung: `<h4>1. Grundlagen der Konzernrechnungslegung – Vollständige Zusammenfassung</h4>
+
+<h5>📌 Was ist ein Konzern?</h5>
+<div class="def-box"><div class="def-label">Konzern nach AktG (§ 18)</div>
+Ein herrschendes und ein oder mehrere abhängige Unternehmen unter <strong>einheitlicher Leitung</strong> bilden einen Konzern. Der Konzern selbst ist <strong>keine eigene Rechtspersönlichkeit</strong> – er kann keine Organe, Anteilseigner haben und ist kein Steuersubjekt.
+</div>
+<p>Der Konzern wird nach <strong>§ 297 Abs. 3 HGB</strong> fiktiv als <strong>einheitliche Unternehmung</strong> behandelt (Einheitsfiktion). Konzernunternehmen nehmen den Charakter rechtlich unselbstständiger Betriebe an.</p>
+
+<h5>📌 1.1 Rechtsgrundlagen</h5>
+<table class="erk-table">
+  <tr><th>Rechtsquelle</th><th>Regelungsbereich</th><th>Schlüsselnorm</th></tr>
+  <tr><td><strong>HGB</strong></td><td>Konzernpflicht, Konsolidierung, Befreiungen</td><td>§§ 271, 290–315 HGB</td></tr>
+  <tr><td><strong>AktG</strong></td><td>Konzernbegriff, verbundene Unternehmen</td><td>§§ 15–19, 18 AktG</td></tr>
+  <tr><td><strong>IFRS 10</strong></td><td>Konzernabschluss nach IFRS, Kontrollkonzept</td><td>IFRS 10 (Kontrolle = Macht + Chancen/Risiken + Einfluss)</td></tr>
+</table>
+<p><strong>Anwendung IFRS vs. HGB:</strong> Kapitalmarktorientierte Unternehmen → IFRS-Pflicht für Konzernabschluss (seit 2005). Nicht-kapitalmarktorientierte → HGB oder IFRS-Wahlrecht (§ 315e HGB).</p>
+
+<h5>📌 1.2 Konzernarten</h5>
+<table class="erk-table">
+  <tr><th>Kriterium</th><th>Art</th><th>Merkmal</th></tr>
+  <tr><td>Struktur</td><td><strong>Gleichordnungskonzern</strong></td><td>Keine Abhängigkeit; einheitliche Leitung ohne Hierarchie</td></tr>
+  <tr><td>Struktur</td><td><strong>Unterordnungskonzern</strong></td><td>Herrschendes MU über abhängige TU; wirtschaftliche Abhängigkeit</td></tr>
+  <tr><td>Beherrschung</td><td>Eingliederungskonzern</td><td>Min. 95% Kapital; HV-Beschluss beider UN mit 75%</td></tr>
+  <tr><td>Beherrschung</td><td>Vertragskonzern</td><td>Beherrschungsvertrag; Weisungsbefugnis</td></tr>
+  <tr><td>Beherrschung</td><td>Faktischer Konzern</td><td>i.d.R. &gt;50% Beteiligung; kein formelles Weisungsrecht</td></tr>
+  <tr><td>Leistung</td><td>Horizontaler Konzern</td><td>Gleiche Branche/Stufe (z.B. 2 Autohersteller)</td></tr>
+  <tr><td>Leistung</td><td>Vertikaler Konzern</td><td>Vor-/nachgelagerte Stufen (z.B. Produzent + Händler)</td></tr>
+  <tr><td>Leistung</td><td>Mischkonzern</td><td>Branchenfremde Unternehmen zusammengeschlossen</td></tr>
+  <tr><td>Stufen</td><td>Einstufig</td><td>Alle TU direkt unter MU</td></tr>
+  <tr><td>Stufen</td><td>Mehrstufig</td><td>TU hält selbst Anteile an Enkeln → Teilkonzern</td></tr>
+</table>
+<p><strong>Holding-Typen:</strong> Finanzholding (Beteiligungsverwaltung) · Management-Holding (Strategie) · Organisatorische Holding (Struktur) · Operative Holding/Stammhauskonzern (selbst operativ tätig)</p>
+
+<h5>📌 1.3 Pflicht zur Konzernrechnungslegung (§ 290 HGB)</h5>
+<p>Aufstellungspflicht, wenn <strong>kumulativ</strong> erfüllt: (1) MU = Kapitalgesellschaft mit Sitz im Inland, (2) Ausübung unmittel-/mittelbaren <strong>beherrschenden Einflusses</strong> auf TU.</p>
+<p><strong>4 Tatbestände für beherrschenden Einfluss (§ 290 Abs. 2 HGB):</strong></p>
+<table class="erk-table">
+  <tr><th>Nr.</th><th>Tatbestand</th></tr>
+  <tr><td>1</td><td>MU hält die <strong>Mehrheit der Stimmrechte</strong></td></tr>
+  <tr><td>2</td><td>MU hat <strong>Organbesetzungsrecht</strong> + ist Gesellschafter</td></tr>
+  <tr><td>3</td><td><strong>Beherrschungsvertrag</strong> oder Satzungsbestimmung</td></tr>
+  <tr><td>4</td><td>MU trägt <strong>Mehrheit der Chancen und Risiken</strong> (Zweckgesellschaft)</td></tr>
+</table>
+<p><strong>Tannenbaumprinzip:</strong> Auch MU, die selbst TU sind, müssen Teilkonzernabschlüsse aufstellen → so viele (Teil-)Konzernabschlüsse wie Konzernstufen. Befreiung möglich bei Aufstellung auf höherer Stufe.</p>
+<p><strong>Befreiungstatbestände:</strong> Konzernabschluss auf höherer Ebene (§ 291/292 HGB) · Unterschreiten Größenkriterien (§ 293 HGB) · Ausschließlich TU nach § 296 HGB · Konzernabschluss nach IFRS (§ 315a HGB)</p>`,
+
+  erklaerungen: [
+    {
+      titel: "⚖️ Rechtsgrundlagen: HGB, AktG und IFRS im Vergleich",
+      inhalt: `<div class="def-box"><div class="def-label">Konzern nach AktG (§ 18)</div>
+Herrschendes + abhängige UN unter <strong>einheitlicher Leitung</strong> = Konzern.<br>
+<strong>Unterordnungskonzern:</strong> Einheitliche Leitung durch herrschendes UN<br>
+<strong>Gleichordnungskonzern:</strong> Einheitliche Leitung ohne Abhängigkeit (§ 18 Abs. 2 AktG)
+</div>
+<div class="def-box"><div class="def-label">Konzern nach HGB (§ 290)</div>
+Aufstellungspflicht für Konzernabschluss: MU = Kapitalgesellschaft im Inland, beherrschender Einfluss auf TU.<br>
+<strong>Verbundene Unternehmen (§ 271 Abs. 2 HGB):</strong> Vollkonsolidierte Mutter- oder TochterUN.
+</div>
+<div class="def-box"><div class="def-label">Konzern nach IFRS 10</div>
+<strong>Kontrollkonzept:</strong> 3 Elemente kumulativ:<br>
+1. <strong>Macht</strong> über das investierte Unternehmen (Fähigkeit, relevante Geschäftsaktivitäten zu steuern)<br>
+2. <strong>Risiken und Chancen</strong> aus der Beteiligung<br>
+3. <strong>Einfluss</strong>, die Macht zur Beeinflussung der Erträge einzusetzen
+</div>
+<table class="erk-table">
+  <tr><th>Abschlussart</th><th>Kapitalmarktorientiert</th><th>Nicht-kapitalmarktorientiert</th></tr>
+  <tr><td>Konzernabschluss</td><td>IFRS-Pflicht</td><td>IFRS-Wahlrecht (§ 315e HGB)</td></tr>
+  <tr><td>Einzelabschluss</td><td>HGB (Rechtsfolgen) / HGB od. IFRS (Info)</td><td>HGB</td></tr>
+</table>`,
+      merke: "HGB = §290 ff. · AktG = §15–18 · IFRS 10 = Kontrolle durch Macht + Chancen/Risiken + Einflussvermögen",
+      flipcards: [
+        { vorne: "Konzernvermutung (AktG)", hinten: "Von einem <strong>abhängigen Unternehmen</strong> wird vermutet, dass es mit dem herrschenden UN einen Konzern bildet." },
+        { vorne: "Einheitsgrundsatz (§ 297 Abs. 3 HGB)", hinten: "Konzern wird so dargestellt, <strong>als wäre er ein einziges Unternehmen</strong> (Einheitsfiktion)." },
+        { vorne: "IFRS 10 – Kontrollelement 1", hinten: "<strong>Macht</strong>: Fähigkeit, relevante Geschäftsaktivitäten zu steuern (z.B. via Stimmrechte &gt;50%)" },
+        { vorne: "IFRS 10 – Kontrollelement 2", hinten: "<strong>Risiken/Chancen</strong>: Investor trägt wesentliche Risiken oder profitiert von Erträgen" },
+        { vorne: "IFRS 10 – Kontrollelement 3", hinten: "<strong>Einfluss</strong>: Macht zur Beeinflussung der Erträge (z.B. durch Dividenden, Synergien)" },
+        { vorne: "BilMoG 2009", hinten: "Bilanzrechtsmodernisierungsgesetz: Stärkt Unterschied kapitalmarktorientiert vs. nicht-kapitalmarktorientiert; IFRS fließt stärker in HGB" },
+        { vorne: "§ 315e HGB", hinten: "IFRS-Wahlrecht für nicht-kapitalmarktorientierte UN beim Konzernabschluss" }
+      ],
+      interaktion: [
+        { frage: "Welche 3 Elemente braucht man für Kontrolle nach IFRS 10?", optionen: ["Kapital, Gewinn, Verlust", "Macht, Risiken/Chancen, Einflussvermögen", "Stimmrechte, Vertrag, Sitz", "50%+, Beherrschung, Holdingstruktur"], richtig: 1, erklaerung: "IFRS 10: Kontrolle = (1) Macht über Geschäftsaktivitäten + (2) Risiken/Chancen + (3) Fähigkeit, Macht zur Ertragssteuerung einzusetzen." },
+        { frage: "Für kapitalmarktorientierte Konzerne gilt beim Konzernabschluss:", optionen: ["HGB-Wahlrecht", "IFRS-Pflicht", "US-GAAP", "Keine Vorschriften"], richtig: 1, erklaerung: "Kapitalmarktorientierte Konzerne müssen ihren Konzernabschluss nach IFRS aufstellen." },
+        { frage: "Was ist die Einheitsfiktion im HGB?", optionen: ["Der Konzern ist eine GmbH", "Der Konzern wird wie ein einziges Unternehmen dargestellt", "Alle TU haben denselben Sitz", "Einheitliche Steuerpflicht"], richtig: 1, erklaerung: "§ 297 Abs. 3 HGB: Vermögens-, Finanz- und Ertragslage so darstellen, als wäre der Konzern ein einziges Unternehmen." }
+      ]
+    },
+    {
+      titel: "🏗️ Konzernarten im Überblick",
+      inhalt: `<div class="erk-tree">
+  <div class="tree-root">Konzernarten</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background:#D1FAE5;"><strong>Nach Struktur</strong><br>Gleichordnung · Unterordnung</div>
+    <div class="tree-branch" style="background:#DBEAFE;"><strong>Nach Beherrschung</strong><br>Eingliederung · Vertrags · faktisch</div>
+    <div class="tree-branch" style="background:#EDE9FE;"><strong>Nach Leistung</strong><br>horizontal · vertikal · Misch</div>
+    <div class="tree-branch" style="background:#FEF3C7;"><strong>Nach Stufen</strong><br>einstufig · mehrstufig</div>
+    <div class="tree-branch" style="background:#FCE7F3;"><strong>Nach Eigentümer</strong><br>Staatskonzern · Privatkonzern</div>
+  </div>
+</div>
+<table class="erk-table">
+  <tr><th>Unterordnungskonzern nach Beherrschungsmittel</th><th>Kapitalverflechtung</th><th>Weisungsrecht</th></tr>
+  <tr><td><strong>Eingliederungskonzern</strong></td><td>Min. 95%</td><td>Umfassendes Weisungsrecht</td></tr>
+  <tr><td><strong>Vertragskonzern</strong></td><td>Keine Mindestbeteiligung</td><td>Weisungsbefugnis (Beherrschungsvertrag)</td></tr>
+  <tr><td><strong>Faktischer Konzern</strong></td><td>i.d.R. &gt;50%</td><td>Kein formelles Weisungsrecht</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Holding-Struktur</div>
+<strong>Finanzholding:</strong> Nur Verwaltung der Beteiligungen, keine operative Tätigkeit<br>
+<strong>Management-Holding (Strategie-Holding):</strong> Steuert und plant Strategie der TU<br>
+<strong>Organisatorische Holding (strukturelle H.):</strong> Interne Strukturierung von Unternehmensbereichen<br>
+<strong>Operative Holding (Stammhauskonzern):</strong> Selbst operativ am Markt tätig – der Klassiker
+</div>`,
+      merke: "Gleichordnung = keine Abhängigkeit · Unterordnung = herrschendes MU · Faktisch = >50% · Vertragskonzern = Beherrschungsvertrag · Eingliederung = 95%",
+      flipcards: [
+        { vorne: "Gleichordnungskonzern", hinten: "Einheitliche Leitung OHNE Abhängigkeit<br>Organisationsformen: Interessengemeinschaft, personelle Verflechtung" },
+        { vorne: "Unterordnungskonzern", hinten: "Einheitliche Leitung DURCH herrschendes MU<br>Wirtschaftliche Abhängigkeit, rechtliche Selbstständigkeit" },
+        { vorne: "Horizontaler Konzern", hinten: "Zusammenschluss von UN <strong>gleicher Branche/Stufe</strong><br>Beispiel: 2 Automobilhersteller fusionieren" },
+        { vorne: "Vertikaler Konzern", hinten: "UN aus <strong>vor- und nachgelagerten Stufen</strong><br>Beispiel: Stahl-Produzent + Maschinenbauer + Händler" },
+        { vorne: "Mischkonzern", hinten: "<strong>Branchenfremde</strong> Unternehmen zusammengeschlossen<br>= anorganischer Zusammenschluss" },
+        { vorne: "Einstufiger vs. mehrstufiger Konzern", hinten: "Einstufig: alle TU direkt unter MU<br>Mehrstufig: TU hält selbst Anteile an Enkeln → Teilkonzern entsteht" }
+      ],
+      interaktion: [
+        { frage: "Welche Mindestbeteiligung ist beim Eingliederungskonzern nötig?", optionen: ["50%", "75%", "95%", "100%"], richtig: 2, erklaerung: "Eingliederungskonzern: Min. 95% Kapitalbeteiligung + HV-Beschluss beider UN mit 75% Mehrheit." },
+        { frage: "Was unterscheidet Vertrags- vom faktischen Konzern?", optionen: ["Die Beteiligungsquote", "Das Vorhandensein eines Beherrschungsvertrags", "Der Konzernname", "Die Holding-Art"], richtig: 1, erklaerung: "Vertragskonzern = Beherrschungsvertrag vorhanden (formelles Weisungsrecht). Faktischer Konzern = i.d.R. >50% Beteiligung, kein Vertrag." },
+        { frage: "Ein Konzern aus Produzent + Großhändler + Einzelhandel ist...", optionen: ["horizontal", "vertikal", "Mischkonzern", "Gleichordnungskonzern"], richtig: 1, erklaerung: "Vertikaler Konzern: vor- und nachgelagerte Wertschöpfungsstufen." },
+        { frage: "Eine Holding, die selbst operativ am Markt tätig ist, heißt...", optionen: ["Finanzholding", "Management-Holding", "Operative Holding / Stammhauskonzern", "Strukturholding"], richtig: 2, erklaerung: "Operative Holding = Stammhauskonzern: Die Holdinggesellschaft ist selbst operativ tätig – das ist der 'Klassiker'." }
+      ]
+    },
+    {
+      titel: "📋 Pflicht zur Konzernrechnungslegung (§ 290 HGB)",
+      inhalt: `<p><strong>Aufstellungspflicht:</strong> Gesetzliche Vertreter einer <strong>Kapitalgesellschaft</strong> mit Sitz im <strong>Inland</strong> müssen Konzernabschluss erstellen, wenn sie <strong>beherrschenden Einfluss</strong> auf ein anderes UN ausüben.</p>
+<table class="erk-table">
+  <tr><th>Nr.</th><th>Tatbestand (§ 290 Abs. 2 HGB)</th><th>Erläuterung</th></tr>
+  <tr><td><strong>1</strong></td><td>Stimmrechtsmehrheit</td><td>MU hält die Mehrheit der Stimmrechte am TU</td></tr>
+  <tr><td><strong>2</strong></td><td>Organbesetzungsrecht</td><td>MU kann Mehrheit des Verwaltungs-/Leitungsorgans bestellen <strong>und</strong> ist Gesellschafter</td></tr>
+  <tr><td><strong>3</strong></td><td>Beherrschungsvertrag / Satzung</td><td>MU übt Einfluss aufgrund Beherrschungsvertrag oder Satzungsbestimmung aus</td></tr>
+  <tr><td><strong>4</strong></td><td>Zweckgesellschaft</td><td>MU trägt Mehrheit der Chancen und Risiken der Zweckgesellschaft</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Tannenbaumprinzip</div>
+Auch ein MU, das selbst TU eines übergeordneten MU ist, muss einen <strong>Teilkonzernabschluss</strong> aufstellen. → So viele (Teil-)Konzernabschlüsse wie Konzernstufen. Befreiung möglich, wenn Aufstellung auf höherer Stufe erfolgt.
+</div>
+<div class="def-box"><div class="def-label">Befreiungstatbestände</div>
+• Konzernabschluss auf <strong>höherer Ebene</strong> (§§ 291, 292 HGB)<br>
+• Unterschreiten von <strong>Größenkriterien</strong> (§ 293 HGB, § 11 PublG)<br>
+• Ausschließlich TU nach <strong>§ 296 HGB</strong> (Einbeziehungswahlrecht)<br>
+• Konzernabschluss nach <strong>IFRS</strong> (§ 315a HGB)
+</div>`,
+      merke: "§ 290 HGB: 4 Tatbestände für beherrschenden Einfluss. Zweck-GmbH: Mehrheit Chancen/Risiken genügt. Tannenbaum = Teilkonzernabschlüsse für jede Konzernstufe.",
+      flipcards: [
+        { vorne: "Pflicht nach § 290 Abs. 1 HGB", hinten: "MU = Kapitalgesellschaft im Inland + beherrschender Einfluss auf TU → Pflicht zur Aufstellung in den ersten <strong>5 Monaten</strong> des Konzerngeschäftsjahres" },
+        { vorne: "Zweckgesellschaft (§ 290 Abs. 2 Nr. 4)", hinten: "Juristische Person für klar definierten Zweck. Einbeziehungspflicht, wenn MU <strong>Mehrheit der Chancen und Risiken</strong> trägt – ohne gesellschaftsrechtliche Beziehung." },
+        { vorne: "Befreiung nach § 293 HGB", hinten: "Befreiung bei <strong>Unterschreiten von Größenkriterien</strong> (Bilanzsumme, Umsatz, Mitarbeiter) – 2 von 3 Kriterien an 2 Stichtagen." },
+        { vorne: "§ 296 HGB – Einbeziehungswahlrecht", hinten: "TU muss <strong>nicht</strong> einbezogen werden, wenn: erhebliche Einschränkungen der Rechte, unverhältnismäßige Kosten, untergeordnete Bedeutung." }
+      ],
+      interaktion: [
+        { frage: "Welche 2 Grundvoraussetzungen müssen kumulativ für die Aufstellungspflicht erfüllt sein?", optionen: ["AG + Auslandssitz", "Kapitalgesellschaft im Inland + beherrschender Einfluss auf TU", "GmbH + 100% Beteiligung", "Jahresüberschuss + Bilanzsumme >50 Mio."], richtig: 1, erklaerung: "§ 290 Abs. 1 HGB: (1) MU = Kapitalgesellschaft mit Sitz im Inland + (2) Möglichkeit zur Ausübung beherrschenden Einflusses auf ein anderes UN." },
+        { frage: "Was bedeutet das Tannenbaumprinzip?", optionen: ["TU aus dem Ausland werden wie Tannenbäume behandelt", "Jede Konzernstufe, die MU ist, muss einen (Teil-)Konzernabschluss aufstellen", "Nur das oberste MU erstellt einen Konzernabschluss", "Tochter-TU sind befreit"], richtig: 1, erklaerung: "Tannenbaumprinzip: Jedes MU, das selbst TU ist, muss einen Teilkonzernabschluss erstellen → so viele wie Konzernstufen." },
+        { frage: "Wann greift der Befreiungstatbestand nach § 293 HGB?", optionen: ["Immer bei GmbHs", "Bei Unterschreiten von Größenkriterien", "Bei Holdingstrukturen", "Bei ausländischem MU"], richtig: 1, erklaerung: "§ 293 HGB: Befreiung bei Unterschreiten von Größenkriterien (Bilanzsumme, Umsatz, Arbeitnehmer) – 2 von 3 Kriterien an 2 aufeinanderfolgenden Stichtagen." }
+      ]
+    }
+  ],
+  quiz: [
+    { frage: "Was definiert § 18 AktG als Konzern?", optionen: ["Mehrere GmbHs unter einem Dach", "Herrschendes + abhängige UN unter einheitlicher Leitung", "Zwei AGs mit Beherrschungsvertrag", "UN mit mehr als 50% Beteiligung"], richtig: 1, erklaerung: "§ 18 AktG: Konzern = herrschendes + abhängige UN unter einheitlicher Leitung. Der Konzern ist selbst keine Rechtspersönlichkeit." },
+    { frage: "Was bedeutet die 'Einheitsfiktion' im HGB?", optionen: ["Alle Konzern-UN haben denselben Sitz", "Der Konzern wird wie ein einziges Unternehmen dargestellt", "Einheitliche Steuerpflicht", "Konzern = eigene GmbH"], richtig: 1, erklaerung: "§ 297 Abs. 3 HGB: Einheitsfiktion = Konzern wird so dargestellt, als wäre er ein einziges Unternehmen." },
+    { frage: "Welche 3 Elemente braucht man für Kontrolle nach IFRS 10?", optionen: ["EK, FK, Bilanzsumme", "Macht, Risiken/Chancen, Einfluss auf Erträge", "Stimmrechte, Vertrag, Sitz", "50%+, Holding, Beherrschung"], richtig: 1, erklaerung: "IFRS 10: Kontrolle = (1) Macht + (2) Risiken/Chancen + (3) Fähigkeit, Macht zur Ertragssteuerung einzusetzen." },
+    { frage: "Für kapitalmarktorientierte Konzerne gilt:", optionen: ["HGB-Wahlrecht", "US-GAAP-Pflicht", "IFRS-Pflicht für Konzernabschluss", "Keine Vorschriften"], richtig: 2, erklaerung: "Kapitalmarktorientierte Konzerne müssen den Konzernabschluss nach IFRS aufstellen (seit 2005)." },
+    { frage: "Mindestbeteiligung beim Eingliederungskonzern?", optionen: ["50%", "75%", "95%", "100%"], richtig: 2, erklaerung: "Eingliederungskonzern: Min. 95% Kapitalbeteiligung + HV-Beschluss beider UN mit 75%." },
+    { frage: "Was unterscheidet Vertrags- vom faktischen Konzern?", optionen: ["Beteiligungsquote", "Vorhandensein eines Beherrschungsvertrags", "Konzernname", "Holding-Typ"], richtig: 1, erklaerung: "Vertragskonzern = Beherrschungsvertrag vorhanden. Faktischer Konzern = i.d.R. >50% Beteiligung, kein Vertrag." },
+    { frage: "Konzern aus Produzent + Großhändler + Einzelhandel ist:", optionen: ["Horizontal", "Vertikal", "Mischkonzern", "Gleichordnungskonzern"], richtig: 1, erklaerung: "Vertikaler Konzern: UN aus vor- und nachgelagerten Wertschöpfungsstufen." },
+    { frage: "Was ist eine Finanzholding?", optionen: ["Holding, die selbst operativ tätig ist", "Holding, die nur Beteiligungen verwaltet", "Holding mit Beherrschungsvertrag", "Holding mit 100%-TU"], richtig: 1, erklaerung: "Finanzholding: Nur Erwerb und Verwaltung von Beteiligungen – nicht operativ tätig." },
+    { frage: "Wann muss ein Konzernabschluss nach § 290 HGB aufgestellt werden?", optionen: ["Immer bei GmbHs", "MU = KapG im Inland + beherrschender Einfluss auf TU", "Nur bei AG mit Börsennotierung", "Wenn Bilanzsumme >500 Mio."], richtig: 1, erklaerung: "§ 290 HGB: KapG mit Sitz im Inland + Möglichkeit zur Ausübung beherrschenden Einflusses auf TU." },
+    { frage: "Tatbestand Nr. 2 nach § 290 Abs. 2 HGB lautet:", optionen: ["Stimmrechtsmehrheit", "Organbesetzungsrecht + Gesellschafterstellung", "Beherrschungsvertrag", "Zweckgesellschaft"], richtig: 1, erklaerung: "Nr. 2: MU hat Recht, Mehrheit des Verwaltungs-/Leitungsorgans zu bestellen UND ist Gesellschafter." },
+    { frage: "Was ist eine Zweckgesellschaft i.S. § 290 Abs. 2 Nr. 4 HGB?", optionen: ["Tochter mit 100% Beteiligung", "Juristische Person für klar definierten Zweck; MU trägt Mehrheit der Chancen/Risiken", "Ausländisches TU", "Holding ohne operative Tätigkeit"], richtig: 1, erklaerung: "Zweckgesellschaft: Gegründet für klar definierten Zweck. Konsolidierungspflicht wenn MU Mehrheit der Chancen/Risiken trägt – keine Gesellschafterstellung nötig." },
+    { frage: "Was bedeutet das Tannenbaumprinzip?", optionen: ["TU aus dem Ausland werden besonders behandelt", "Jede Konzernstufe, die MU ist, muss einen (Teil-)Konzernabschluss aufstellen", "Nur das oberste MU erstellt einen Konzernabschluss", "Tochter-TU sind befreit"], richtig: 1, erklaerung: "Jedes MU, das selbst TU ist, muss einen Teilkonzernabschluss erstellen → so viele Konzernabschlüsse wie Konzernstufen." },
+    { frage: "Befreiung nach § 291/292 HGB greift, wenn:", optionen: ["Konzern im Ausland sitzt", "Konzernabschluss auf höherer Ebene aufgestellt wird", "Nur GmbHs im Konzern sind", "Der Konzern verlustbringend ist"], richtig: 1, erklaerung: "§ 291/292 HGB: Befreiung wenn ein übergeordnetes MU bereits einen befreienden Konzernabschluss aufstellt." },
+    { frage: "§ 296 HGB – Einbeziehungswahlrecht: Wann kann TU ausgeschlossen werden?", optionen: ["Immer, wenn MU will", "Bei erheblichen Einschränkungen der Rechte, unverhältnismäßigen Kosten oder untergeordneter Bedeutung", "Nur bei ausländischen TU", "Wenn TU Verluste macht"], richtig: 1, erklaerung: "§ 296: TU muss nicht einbezogen werden bei: erheblichen Einschränkungen der Rechte des MU, unverhältnismäßigen Kosten oder untergeordneter Bedeutung." },
+    { frage: "Der Gleichordnungskonzern unterscheidet sich vom Unterordnungskonzern durch:", optionen: ["Höhere Beteiligungsquoten", "Keine Abhängigkeit zwischen den UN", "Pflicht zum Konzernabschluss", "IFRS-Pflicht"], richtig: 1, erklaerung: "Gleichordnungskonzern: einheitliche Leitung OHNE Abhängigkeit der UN untereinander (§ 18 Abs. 2 AktG)." },
+    { frage: "Operative Holding bedeutet:", optionen: ["Holding verwaltet nur Beteiligungen", "Holding ist selbst operativ am Markt tätig (Stammhauskonzern)", "Holding steuert nur Strategie", "Holding hat keine TU"], richtig: 1, erklaerung: "Operative Holding = Stammhauskonzern: Die Holdinggesellschaft ist selbst operativ am Markt tätig – das ist der Klassiker." },
+    { frage: "Was ist IFRS 10?", optionen: ["Regelung für Einzelabschlüsse", "Standard für Consolidated Financial Statements (Konsolidierungspflicht)", "Standard für Jahresabschlüsse", "EU-Richtlinie für HGB"], richtig: 1, erklaerung: "IFRS 10: Consolidated Financial Statements – definiert wann Konzernabschluss aufgestellt werden muss (Kontrollkonzept)." },
+    { frage: "Innerhalb welcher Frist muss der Konzernabschluss nach HGB aufgestellt werden?", optionen: ["3 Monate", "5 Monate", "6 Monate", "12 Monate"], richtig: 1, erklaerung: "§ 290 Abs. 1 HGB: Konzernabschluss muss in den ersten 5 Monaten des Konzerngeschäftsjahres aufgestellt werden." },
+    { frage: "Potenzielle Stimmrechte nach IFRS 10:", optionen: ["Werden ignoriert", "Müssen berücksichtigt werden wenn sie aktuell ausgeübt werden können", "Verdoppeln die Stimmrechte", "Sind nie relevant"], richtig: 1, erklaerung: "IFRS 10: Potenzielle Stimmrechte (z.B. Optionsrechte) müssen berücksichtigt werden, wenn sie aktuell ausgeübt werden können." },
+    { frage: "BilMoG 2009 hatte folgende Auswirkung:", optionen: ["Abschaffung des IFRS", "Stärkere Ausdifferenzierung zwischen kapitalmarktorientiert und nicht-kapitalmarktorientiert", "Einführung der Gewerbesteuer", "Abschaffung des HGB"], richtig: 1, erklaerung: "BilMoG (Bilanzrechtsmodernisierungsgesetz) 2009: Stärkere Ausdifferenzierung zwischen kapitalmarktorientierten und nicht-kapitalmarktorientierten UN, IFRS-Elemente fließen ins HGB." }
+  ],
+  lueckentext: [
+    { text: "Nach § ___ AktG bilden ein herrschendes und abhängige UN unter ___ Leitung einen Konzern.", luecken: ["18", "einheitlicher"], erklaerung: "§ 18 AktG: Konzernbegriff = einheitliche Leitung." },
+    { text: "Der Konzern hat keine ___, kann keine Organe oder Anteilseigner haben und ist kein ___.", luecken: ["Rechtspersönlichkeit", "Steuersubjekt"], erklaerung: "Konzern = fiktives Gebilde: keine eigene Rechtspersönlichkeit, kein Steuersubjekt." },
+    { text: "Nach IFRS 10 liegt Kontrolle vor, wenn Macht, ___ und Fähigkeit zur ___ kumulativ erfüllt sind.", luecken: ["Risiken/Chancen", "Ertragssteuerung"], erklaerung: "IFRS 10: 3 Kontrollelemente: Macht + Risiken/Chancen + Einfluss auf Erträge." },
+    { text: "Kapitalmarktorientierte Konzerne sind zur Aufstellung des Konzernabschlusses nach ___ verpflichtet.", luecken: ["IFRS"], erklaerung: "Seit 2005: Kapitalmarktorientierte Konzerne = IFRS-Pflicht für den Konzernabschluss." },
+    { text: "Der Eingliederungskonzern erfordert eine Kapitalbeteiligung von mindestens ___% und einen HV-Beschluss mit ___% Mehrheit.", luecken: ["95", "75"], erklaerung: "Eingliederungskonzern: 95% Kapital + 75% HV-Beschluss." },
+    { text: "Ein ___ Konzern umfasst UN aus gleicher Branche/Stufe, ein ___ Konzern UN aus vor- und nachgelagerten Stufen.", luecken: ["horizontaler", "vertikaler"], erklaerung: "Horizontal = gleiche Stufe. Vertikal = vor- und nachgelagerte Stufen." },
+    { text: "Aufstellungspflicht nach § 290 HGB setzt voraus: MU = ___ mit Sitz im ___ und Ausübung ___ Einfluss.", luecken: ["Kapitalgesellschaft", "Inland", "beherrschenden"], erklaerung: "§ 290 Abs. 1 HGB: KapG + Inland + beherrschender Einfluss." },
+    { text: "Das Tannenbaumprinzip besagt: Jede Konzernstufe, die selbst ___ ist, muss einen ___ aufstellen.", luecken: ["MU", "(Teil-)Konzernabschluss"], erklaerung: "Tannenbaumprinzip: So viele (Teil-)Konzernabschlüsse wie Konzernstufen." },
+    { text: "Befreiung von der Aufstellungspflicht bei Unterschreiten von ___ nach § ___ HGB (2 von 3 Kriterien an 2 Stichtagen).", luecken: ["Größenkriterien", "293"], erklaerung: "§ 293 HGB: Befreiung bei Unterschreiten von Größenkriterien." },
+    { text: "Die ___ Holding ist selbst operativ am Markt tätig (= Stammhauskonzern), die ___ Holding verwaltet nur Beteiligungen.", luecken: ["operative", "Finanz-"], erklaerung: "Operative Holding = selbst operativ. Finanzholding = nur Beteiligungsverwaltung." }
+  ],
+  zuordnung: [
+    { titel: "Konzernart zuordnen", paare: [
+      { links: "Einheitliche Leitung ohne Abhängigkeit", rechts: "Gleichordnungskonzern" },
+      { links: "Herrschendes MU über abhängige TU", rechts: "Unterordnungskonzern" },
+      { links: "UN gleicher Branche/Stufe", rechts: "Horizontaler Konzern" },
+      { links: "Vor- und nachgelagerte Stufen", rechts: "Vertikaler Konzern" }
+    ]},
+    { titel: "Rechtsgrundlage zuordnen", paare: [
+      { links: "Konzernbegriff, verbundene UN", rechts: "AktG §§ 15–18" },
+      { links: "Konzernabschlusspflicht (HGB)", rechts: "§ 290 HGB" },
+      { links: "Konzernabschluss nach IFRS", rechts: "IFRS 10" },
+      { links: "Befreiung bei Größenkriterien", rechts: "§ 293 HGB" }
+    ]},
+    { titel: "Holding-Typ zuordnen", paare: [
+      { links: "Nur Beteiligungsverwaltung", rechts: "Finanzholding" },
+      { links: "Steuert Strategie der TU", rechts: "Management-Holding" },
+      { links: "Selbst operativ tätig", rechts: "Operative Holding (Stammhauskonzern)" },
+      { links: "Interne Strukturierung", rechts: "Organisatorische Holding" }
+    ]}
+  ]
+};
+
+// ============================================================
+// RECHNUNGSLEGUNG – Kapitel 2: Konsolidierung
+// ============================================================
+FAECHER["rechnungslegung"].themen["konsolidierung"] = {
+  name: "2. Konsolidierung im Konzernabschluss",
+  zusammenfassung: `<h4>2. Konsolidierung im Konzernabschluss – Vollständige Zusammenfassung</h4>
+
+<h5>📌 Überblick: Konsolidierungsarten</h5>
+<table class="erk-table">
+  <tr><th>Art</th><th>Zweck</th><th>Rechtsgrundlage</th></tr>
+  <tr><td><strong>Kapitalkonsolidierung</strong></td><td>Eliminierung des Beteiligungsbuchwerts gegen das EK des TU</td><td>§ 301 HGB / IFRS 3</td></tr>
+  <tr><td><strong>Schuldenkonsolidierung</strong></td><td>Eliminierung konzerninterner Forderungen/Verbindlichkeiten</td><td>§ 303 HGB</td></tr>
+  <tr><td><strong>Aufwands-/Ertragskonsolidierung</strong></td><td>Eliminierung konzerninterner Umsätze und Leistungen</td><td>§ 305 HGB</td></tr>
+  <tr><td><strong>Zwischenergebniseliminierung</strong></td><td>Eliminierung unrealisierter Gewinne aus konzerninternen Lieferungen</td><td>§ 304 HGB</td></tr>
+  <tr><td><strong>Quotenkonsolidierung</strong></td><td>Anteilige Einbeziehung bei Gemeinschaftsunternehmen</td><td>§ 310 HGB</td></tr>
+  <tr><td><strong>At-Equity-Konsolidierung</strong></td><td>Beteiligungsfortschreibung bei assoziierten UN (20–50%)</td><td>§§ 311–312 HGB</td></tr>
+</table>
+
+<h5>📌 Kapitalkonsolidierung (§ 301 HGB) – Neubewertungsmethode</h5>
+<p><strong>Ziel:</strong> Beteiligungsbuchwert des MU (Aktiva) gegen das EK des TU (Passiva) verrechnen → Konzernsicht als ein Unternehmen.</p>
+<p><strong>Erstkonsolidierung:</strong></p>
+<table class="erk-table">
+  <tr><th>Schritt</th><th>Vorgehen</th></tr>
+  <tr><td>1.</td><td>Bilanzen von MU und TU addieren (Summenabschluss)</td></tr>
+  <tr><td>2.</td><td>Stille Reserven/Lasten im TU aufdecken → Vermögen neu bewerten</td></tr>
+  <tr><td>3.</td><td>Beteiligungsbuchwert (MU) gegen Neu-EK (TU) verrechnen</td></tr>
+  <tr><td>4.</td><td>Verbleibender Unterschiedsbetrag = <strong>Goodwill</strong> (aktiv) oder negativer Goodwill (passiv)</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Goodwill (Geschäfts- oder Firmenwert)</div>
+Goodwill = Kaufpreis − anteiliges neu bewertetes EK des TU.<br>
+Entsteht, wenn mehr bezahlt wird als das bilanzielle Eigenkapital. Wird planmäßig abgeschrieben (HGB: max. 10 Jahre; IFRS: Impairment-Only-Ansatz).
+</div>
+
+<h5>📌 Schuldenkonsolidierung (§ 303 HGB)</h5>
+<p>Konzerninterne Forderungen und Verbindlichkeiten werden gegeneinander aufgerechnet (Bilanzverkürzung). Der Konzern kann keine Schulden bei sich selbst haben (Einheitsgrundsatz).</p>
+<p><strong>Aufrechnungsdifferenzen</strong> entstehen, wenn Ansprüche und Verpflichtungen in unterschiedlicher Höhe gegenüberstehen → Behandlung als ergebniswirksamer Unterschiedsbetrag.</p>
+
+<h5>📌 At-Equity-Konsolidierung (§§ 311–312 HGB)</h5>
+<p><strong>Anwendung:</strong> Assoziierte Unternehmen mit <strong>maßgeblichem Einfluss</strong> (20–50% Anteile). Kein beherrschender Einfluss (→ keine Vollkonsolidierung).</p>
+<p><strong>Vorgehen (Buchwertmethode):</strong> Beteiligungsbuchwert wird um anteilige EK-Veränderungen des assoziierten UN fortgeschrieben:</p>
+<p>Beteiligungsbuchwert(neu) = Beteiligungsbuchwert(alt) + anteiliger Jahresüberschuss − Dividende − Abschreibungen stille Reserven + realisierte stille Lasten − Abschreibungen Goodwill</p>`,
+
+  erklaerungen: [
+    {
+      titel: "🏦 Kapitalkonsolidierung – Neubewertungsmethode",
+      inhalt: `<div class="def-box"><div class="def-label">Ziel der Kapitalkonsolidierung</div>
+Eliminierung des <strong>Beteiligungsbuchwerts</strong> beim MU (Aktivseite) gegen das anteilige <strong>Eigenkapital</strong> des TU (Passivseite) → Konzernsicht als ein einziges Unternehmen.
+</div>
+<p><strong>Neubewertungsmethode (§ 301 HGB):</strong></p>
+<table class="erk-table">
+  <tr><th>Schritt</th><th>Beschreibung</th></tr>
+  <tr><td>1. Summenabschluss</td><td>Bilanzen von MU und TU werden addiert</td></tr>
+  <tr><td>2. Neubewertung TU</td><td>Stille Reserven (+) und stille Lasten (−) werden aufgedeckt → Zeitwerte ansetzen</td></tr>
+  <tr><td>3. Verrechnung</td><td>Beteiligungsbuchwert (MU) gegen neu bewertetes EK (TU) aufrechnen</td></tr>
+  <tr><td>4. Unterschiedsbetrag</td><td>Verbleibt ein Rest → <strong>aktiver Unterschiedsbetrag (Goodwill)</strong> oder passiver Unterschiedsbetrag</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Beispiel: M-AG erwirbt 100% der T-GmbH</div>
+Beteiligungsbuchwert M-AG: <strong>500 GE</strong><br>
+EK T-GmbH (Buchwert): 400 GE<br>
+Stille Reserven: +60 GE · Stille Lasten: +20 GE<br>
+Neu bewertetes EK T-GmbH: 400 + 60 − 20 = <strong>440 GE</strong><br>
+<strong>Goodwill = 500 − 440 = 60 GE</strong>
+</div>
+<p><strong>Goodwill-Behandlung:</strong></p>
+<p>HGB: Planmäßige Abschreibung über die <strong>Nutzungsdauer</strong> (max. 10 Jahre, Mindestdauer 5 Jahre nach HGB-Reform).<br>
+IFRS: <strong>Impairment Only</strong> – kein planmäßiges Abschreiben, aber jährlicher Werthaltigkeitstest (Impairment Test).</p>`,
+      merke: "Goodwill = Kaufpreis − anteiliges neubewertetes EK. HGB: planm. Abschreibung. IFRS: Impairment Only.",
+      flipcards: [
+        { vorne: "Was wird bei der Kapitalkonsolidierung eliminiert?", hinten: "Beteiligungsbuchwert (MU, Aktiva) gegen anteiliges EK (TU, Passiva) → <strong>Doppelzählung</strong> vermeiden" },
+        { vorne: "Goodwill = ?", hinten: "Kaufpreis − anteiliges <strong>neubewertetes EK</strong> des TU. Entsteht, wenn mehr gezahlt wurde als der Substanzwert." },
+        { vorne: "Stille Reserven", hinten: "Zeitwert eines Vermögensgegenstands liegt <strong>über dem Buchwert</strong> → Aufdeckung erhöht das neu bewertete EK" },
+        { vorne: "Stille Lasten", hinten: "Zeitwert einer Schuld liegt <strong>über dem Buchwert</strong> → Aufdeckung verringert das neu bewertete EK" },
+        { vorne: "Neubewertungsmethode vs. Buchwertmethode", hinten: "<strong>Neubewertungsmethode:</strong> Stille Reserven/Lasten des TU vollständig aufdecken (auch Minderheitsanteil)<br><strong>Buchwertmethode (at-equity):</strong> Nur anteiliger Bereich wird neu bewertet" }
+      ],
+      interaktion: [
+        { frage: "Was wird bei der Kapitalkonsolidierung aufgerechnet?", optionen: ["Umsätze und Kosten", "Beteiligungsbuchwert (MU) gegen EK (TU)", "Forderungen und Verbindlichkeiten", "Gewinne und Verluste"], richtig: 1, erklaerung: "Kapitalkonsolidierung: Beteiligungsbuchwert beim MU (Aktiva) wird gegen das anteilige EK des TU (Passiva) aufgerechnet." },
+        { frage: "Wie wird Goodwill nach HGB behandelt?", optionen: ["Impairment Only (kein planmäßiges Abschreiben)", "Sofortiger Aufwand", "Planmäßige Abschreibung über die Nutzungsdauer", "Kein Ansatz in der Bilanz"], richtig: 2, erklaerung: "HGB: Goodwill wird planmäßig über die Nutzungsdauer abgeschrieben. IFRS: Impairment-Only-Ansatz." },
+        { frage: "Goodwill entsteht, wenn...", optionen: ["Der Kaufpreis unter dem EK liegt", "Der Kaufpreis über dem neubewerteten EK liegt", "Keine stillen Reserven vorhanden sind", "Das TU einen Verlust hatte"], richtig: 1, erklaerung: "Goodwill = Kaufpreis − neubewertetes EK des TU. Ist der Kaufpreis höher, entsteht ein positiver Goodwill (Geschäfts- oder Firmenwert)." },
+        { frage: "Stille Reserven im TU erhöhen bei Aufdeckung das...", optionen: ["Fremdkapital des TU", "neubewertete Eigenkapital des TU", "Goodwill des MU", "Beteiligungsbuchwert des MU"], richtig: 1, erklaerung: "Stille Reserven: Zeitwert > Buchwert → Differenz erhöht das neu bewertete EK des TU → verringert c.p. den Goodwill." }
+      ]
+    },
+    {
+      titel: "💳 Schuldenkonsolidierung (§ 303 HGB)",
+      inhalt: `<div class="def-box"><div class="def-label">Aufgabe der Schuldenkonsolidierung</div>
+Konzerninterne Schuldverhältnisse (Forderungen ↔ Verbindlichkeiten, Rückstellungen, Rechnungsabgrenzungsposten) werden <strong>eliminiert</strong>. Der Konzern kann keine Forderungen und Verbindlichkeiten gegen sich selbst haben (Einheitsgrundsatz § 297 Abs. 3 HGB).
+</div>
+<table class="erk-table">
+  <tr><th>Schuldverhältnis</th><th>Konsolidierungspflicht?</th></tr>
+  <tr><td><strong>Innerkonzernlich</strong> (MU ↔ TU oder TU ↔ TU)</td><td>✅ Ja – Pflicht zur Schuldenkonsolidierung</td></tr>
+  <tr><td><strong>Drittschuldverhältnis</strong> (Konzern ↔ konzernfremdes UN)</td><td>❌ Nein</td></tr>
+</table>
+<p><strong>Aufrechnungsdifferenzen:</strong> Entstehen, wenn Ansprüche und Verpflichtungen in unterschiedlicher Höhe gegenüberstehen. Behandlung je nach Ursache ergebniswirksam oder erfolgsneutral.</p>
+<div class="def-box"><div class="def-label">Beispiel ohne Differenz</div>
+MU gewährt TU einen Kredit von 1.000 €.<br>
+MU: Forderung 1.000 (Aktiva) · TU: Verbindlichkeit 1.000 (Passiva)<br>
+→ Konzernbilanz: beide Positionen entfallen → <strong>Bilanzverkürzung</strong>
+</div>
+<p><strong>Ausnahme (§ 303 Abs. 2 HGB):</strong> Auf Schuldenkonsolidierung kann verzichtet werden, wenn die wegzulassenden Beträge für die Vermittlung eines den tatsächlichen Verhältnissen entsprechenden Bildes von <strong>untergeordneter Bedeutung</strong> sind.</p>`,
+      merke: "Schuldenkonsolidierung = Eliminierung konzerninterner Forderungen/Verbindlichkeiten. Drittschuldverhältnisse bleiben. Ausnahme: untergeordnete Bedeutung.",
+      flipcards: [
+        { vorne: "Welcher Grundsatz begründet die Schuldenkonsolidierung?", hinten: "Einheitsgrundsatz (§ 297 Abs. 3 HGB): Konzern = ein Unternehmen → kein UN hat Forderungen/Verbindlichkeiten gegen sich selbst" },
+        { vorne: "Was sind Aufrechnungsdifferenzen?", hinten: "Entstehen, wenn Forderung (Aktiva) und Verbindlichkeit (Passiva) <strong>nicht gleich hoch</strong> sind (z.B. durch Wechselkurse, Abschreibungen, zeitliche Unterschiede)" },
+        { vorne: "§ 303 Abs. 2 HGB – Ausnahme", hinten: "Schuldenkonsolidierung kann entfallen, wenn die Beträge für ein den tatsächlichen Verhältnissen entsprechendes Bild <strong>von untergeordneter Bedeutung</strong> sind" }
+      ],
+      interaktion: [
+        { frage: "Was wird bei der Schuldenkonsolidierung eliminiert?", optionen: ["Gewinne aus Warenlieferungen", "Konzerninterne Forderungen und Verbindlichkeiten", "Beteiligungsbuchwerte", "Dividendenzahlungen"], richtig: 1, erklaerung: "Schuldenkonsolidierung (§ 303 HGB): Gegenseitige Forderungen und Verbindlichkeiten zwischen Konzernunternehmen werden aufgerechnet." },
+        { frage: "Muss ein Drittschuldverhältnis (Konzern ↔ konzernfremdes UN) konsolidiert werden?", optionen: ["Ja, immer", "Nur wenn >50.000 €", "Nein", "Ja, aber nur bei MU"], richtig: 2, erklaerung: "Drittschuldverhältnisse (zwischen Konzern und konzernfremdem UN) unterliegen NICHT der Schuldenkonsolidierung." }
+      ]
+    },
+    {
+      titel: "📈 At-Equity-Konsolidierung (§§ 311–312 HGB)",
+      inhalt: `<div class="def-box"><div class="def-label">Wann gilt die Equity-Methode?</div>
+Anwendung bei <strong>assoziierten Unternehmen</strong>: Beteiligung zwischen <strong>20% und 50%</strong> (= maßgeblicher Einfluss, aber kein beherrschender). Keine Vollkonsolidierung möglich.<br>
+<strong>Assoziierungsvermutung:</strong> ab 20% der Anteile. Unter 20%: maßgeblicher Einfluss muss nachgewiesen werden.
+</div>
+<p><strong>Ziel:</strong> Anteiliges EK des Konzerns am assoziierten UN widerspiegeln (nicht die volle Bilanz einbeziehen).</p>
+<p><strong>Erstbewertung (Buchwertmethode, § 312 Abs. 3 HGB):</strong></p>
+<table class="erk-table">
+  <tr><th>Berechnung</th><th>Betrag</th></tr>
+  <tr><td>Anschaffungskosten der Beteiligung</td><td>= Kaufpreis</td></tr>
+  <tr><td>− Anteil am EK (Beteiligungsquote × EK)</td><td></td></tr>
+  <tr><td>= <strong>Unterschiedsbetrag</strong></td><td></td></tr>
+  <tr><td>− anteilige stille Reserven</td><td></td></tr>
+  <tr><td>+ anteilige stille Lasten</td><td></td></tr>
+  <tr><td>= <strong>Geschäfts- oder Firmenwert (Goodwill)</strong></td><td></td></tr>
+</table>
+<p><strong>Folgebewertung (§ 312 Abs. 4 HGB):</strong><br>
+Beteiligungsbuchwert(neu) = Buchwert(alt) + anteiliger JÜ − Dividende − Abschr. stille Reserven + realisierte stille Lasten − Abschr. Goodwill</p>
+<div class="def-box"><div class="def-label">Zahlenbeispiel (Erstbewertung)</div>
+Schnitzel AG erwirbt 40% der Paniermehl GmbH für 500 T€<br>
+EK Paniermehl: 700 T€ · Stille Reserven: 120 T€ · Stille Lasten: 20 T€<br>
+<strong>Unterschiedsbetrag:</strong> 500 − (0,40 × 700) = 500 − 280 = 220 T€<br>
+<strong>Goodwill:</strong> 220 − (0,40 × 120) + (0,40 × 20) = 220 − 48 + 8 = <strong>180 T€</strong>
+</div>`,
+      merke: "At-Equity = 20–50% Beteiligung (maßgeblicher Einfluss). Buchwertmethode: Beteiligungswert fortschreiben. Goodwill = AK − anteiliges neu bew. EK.",
+      flipcards: [
+        { vorne: "Wann gilt die Assoziierungsvermutung?", hinten: "Ab <strong>20% der Anteile</strong>. Unter 20%: maßgeblicher Einfluss muss nachgewiesen werden." },
+        { vorne: "Unterschied Vollkonsolidierung vs. At-Equity", hinten: "<strong>Vollkonsolidierung:</strong> Alle Bilanz- und GuV-Positionen werden einbezogen (>50%)<br><strong>At-Equity:</strong> Nur ein Bilanzposten (Beteiligungsbuchwert) wird fortgeschrieben (20–50%)" },
+        { vorne: "Formel: Beteiligungsbuchwert Folgebewertung", hinten: "BW(neu) = BW(alt)<br>+ anteiliger JÜ<br>− Dividende<br>− Abschr. stille Reserven<br>+ realisierte stille Lasten<br>− Abschr. Goodwill" },
+        { vorne: "Was passiert bei der At-Equity mit der GuV?", hinten: "Keine Einbeziehung der GuV-Positionen des assoziierten UN. Nur der <strong>anteilige Jahresüberschuss/−fehlbetrag</strong> beeinflusst den Beteiligungsbuchwert." }
+      ],
+      interaktion: [
+        { frage: "Ab welcher Beteiligungsquote gilt die Assoziierungsvermutung?", optionen: ["10%", "20%", "50%", "75%"], richtig: 1, erklaerung: "§ 311 Abs. 1 HGB: Ab 20% Anteile wird maßgeblicher Einfluss vermutet → Assoziierungsvermutung. Unter 20%: muss nachgewiesen werden." },
+        { frage: "Was wird bei At-Equity in der Konzernbilanz gezeigt?", optionen: ["Alle Aktiva und Passiva des assoz. UN", "Nur der (fortgeschriebene) Beteiligungsbuchwert", "Nur die Umsätze des assoz. UN", "Der Goodwill als separate Position"], richtig: 1, erklaerung: "At-Equity-Methode: Kein Einbeziehen aller Bilanzpositionen, sondern nur Fortschreibung des Beteiligungsbuchwerts um anteilige EK-Veränderungen." },
+        { frage: "Welches Ziel verfolgt die At-Equity-Konsolidierung?", optionen: ["Doppelzählung von EK eliminieren", "Anteiliges EK des Konzerns am assoz. UN widerspiegeln", "Schulden verrechnen", "Goodwill abschreiben"], richtig: 1, erklaerung: "At-Equity: Das anteilige EK des Konzerns am assoziierten Unternehmen soll in der Konzernbilanz widergespiegelt werden." },
+        { frage: "Eine Dividende vom assoziierten UN...", optionen: ["erhöht den Beteiligungsbuchwert", "hat keine Auswirkung", "verringert den Beteiligungsbuchwert", "wird als Umsatz gebucht"], richtig: 2, erklaerung: "Dividende verringert den Beteiligungsbuchwert (da sie bereits im EK des assoz. UN berücksichtigt war und jetzt ausgeschüttet wird)." }
+      ]
+    }
+  ],
+  quiz: [
+    { frage: "Was wird bei der Kapitalkonsolidierung aufgerechnet?", optionen: ["Umsätze und Kosten", "Beteiligungsbuchwert (MU) gegen EK (TU)", "Forderungen und Verbindlichkeiten", "Gewinne und Verluste"], richtig: 1, erklaerung: "Kapitalkonsolidierung: Beteiligungsbuchwert beim MU (Aktiva) wird gegen das anteilige EK des TU (Passiva) aufgerechnet." },
+    { frage: "Goodwill entsteht, wenn:", optionen: ["Kaufpreis < neubewertetes EK", "Kaufpreis > neubewertetes EK des TU", "Keine stillen Reserven vorhanden", "TU Verluste hat"], richtig: 1, erklaerung: "Goodwill = Kaufpreis − neubewertetes EK des TU. Entsteht, wenn mehr bezahlt wird als der Substanzwert." },
+    { frage: "Wie wird Goodwill nach HGB behandelt?", optionen: ["Impairment Only – kein Abschreiben", "Sofortiger Aufwand", "Planmäßige Abschreibung über Nutzungsdauer", "Kein Ansatz in der Bilanz"], richtig: 2, erklaerung: "HGB: Goodwill planmäßig abschreiben. IFRS: Impairment-Only-Ansatz." },
+    { frage: "Stille Reserven erhöhen bei Aufdeckung das:", optionen: ["Fremdkapital des TU", "Neubewertete EK des TU", "Goodwill des MU", "Beteiligungsbuchwert des MU"], richtig: 1, erklaerung: "Stille Reserven: Zeitwert > Buchwert → Aufdeckung erhöht das neubewertete EK des TU." },
+    { frage: "Stille Lasten verringern bei Aufdeckung das:", optionen: ["Goodwill", "Neubewertete EK des TU", "Kaufpreis", "Beteiligungsbuchwert"], richtig: 1, erklaerung: "Stille Lasten: Zeitwert der Schuld > Buchwert → Aufdeckung verringert das neubewertete EK des TU." },
+    { frage: "Was ist der Einheitsgrundsatz (§ 297 Abs. 3 HGB)?", optionen: ["Konzernunternehmen haben denselben Steuerberater", "Konzern wird so dargestellt als wäre er ein Unternehmen", "Alle TU haben denselben Geschäftsführer", "MU trägt alle Schulden"], richtig: 1, erklaerung: "Einheitsgrundsatz: Konzern wird so dargestellt, als wäre er ein einziges Unternehmen → begründet die Schuldenkonsolidierung." },
+    { frage: "Was eliminiert die Schuldenkonsolidierung?", optionen: ["Gewinne aus konzerninternen Lieferungen", "Konzerninterne Forderungen und Verbindlichkeiten", "Beteiligungsbuchwerte", "Dividenden"], richtig: 1, erklaerung: "Schuldenkonsolidierung (§ 303 HGB): Gegenseitige Forderungen und Verbindlichkeiten zwischen Konzernunternehmen werden aufgerechnet." },
+    { frage: "Müssen Drittschuldverhältnisse konsolidiert werden?", optionen: ["Ja, immer", "Nur wenn >50.000 €", "Nein", "Ja, aber nur bei MU"], richtig: 2, erklaerung: "Drittschuldverhältnisse (zwischen Konzern und konzernfremdem UN) unterliegen nicht der Schuldenkonsolidierung." },
+    { frage: "Ab welcher Beteiligungsquote gilt At-Equity-Konsolidierung (Assoziierungsvermutung)?", optionen: ["10%", "20%", "50%", "75%"], richtig: 1, erklaerung: "§ 311 HGB: Ab 20% Anteile wird maßgeblicher Einfluss vermutet → Assoziierungsvermutung → At-Equity-Konsolidierung." },
+    { frage: "Was wird bei At-Equity in der Konzernbilanz gezeigt?", optionen: ["Alle Aktiva und Passiva des assoz. UN", "Nur der fortgeschriebene Beteiligungsbuchwert", "Nur die Umsätze des assoz. UN", "Goodwill als separate Position"], richtig: 1, erklaerung: "At-Equity: Kein Einbeziehen aller Bilanzpositionen. Nur Fortschreibung des Beteiligungsbuchwerts." },
+    { frage: "Welche Konsolidierungsart gilt für Gemeinschaftsunternehmen?", optionen: ["Vollkonsolidierung", "Schuldenkonsolidierung", "Quotenkonsolidierung (§ 310 HGB)", "At-Equity"], richtig: 2, erklaerung: "Quotenkonsolidierung (§ 310 HGB): anteilige Einbeziehung bei Gemeinschaftsunternehmen." },
+    { frage: "Schritt 1 der Kapitalkonsolidierung (Neubewertungsmethode)?", optionen: ["Goodwill berechnen", "Summenabschluss: Bilanzen addieren", "Forderungen eliminieren", "TU auflösen"], richtig: 1, erklaerung: "Schritt 1: Summenabschluss – Bilanzen von MU und TU werden addiert." },
+    { frage: "Was sind Aufrechnungsdifferenzen bei der Schuldenkonsolidierung?", optionen: ["Fehler im Jahresabschluss", "Entstehen wenn Forderung und Verbindlichkeit nicht gleich hoch sind", "Steuerliche Differenzen", "Unterschied zwischen HGB und IFRS"], richtig: 1, erklaerung: "Aufrechnungsdifferenzen: wenn Forderung (Aktiva) und Verbindlichkeit (Passiva) in unterschiedlicher Höhe gegenüberstehen." },
+    { frage: "Rechtsgrundlage der Kapitalkonsolidierung nach HGB:", optionen: ["§ 290 HGB", "§ 297 HGB", "§ 301 HGB", "§ 311 HGB"], richtig: 2, erklaerung: "§ 301 HGB regelt die Kapitalkonsolidierung (Aufstellung des Konzernabschlusses)." },
+    { frage: "Rechtsgrundlage der At-Equity-Konsolidierung nach HGB:", optionen: ["§ 290 HGB", "§ 301 HGB", "§ 303 HGB", "§§ 311–312 HGB"], richtig: 3, erklaerung: "§§ 311–312 HGB: maßgeblicher Einfluss (§ 311) und Buchwertmethode (§ 312)." },
+    { frage: "Was ist das Ziel der At-Equity-Konsolidierung?", optionen: ["EK-Doppelzählung eliminieren", "Schulden verrechnen", "Anteiliges EK des Konzerns am assoz. UN widerspiegeln", "Goodwill berechnen"], richtig: 2, erklaerung: "At-Equity: Das anteilige EK des Konzerns am assoziierten Unternehmen soll in der Konzernbilanz widergespiegelt werden." },
+    { frage: "Folgebewertung At-Equity: Was erhöht den Beteiligungsbuchwert?", optionen: ["Dividendenzahlung vom assoz. UN", "Jahresfehlbetrag des assoz. UN", "Anteiliger Jahresüberschuss des assoz. UN", "Abschreibung des Goodwill"], richtig: 2, erklaerung: "Anteiliger Jahresüberschuss des assoz. UN erhöht den Beteiligungsbuchwert. Dividenden verringern ihn." },
+    { frage: "Was passiert bei Kapitalkonsolidierung mit dem negativen Unterschiedsbetrag?", optionen: ["Wird ignoriert", "Ist ein passiver Unterschiedsbetrag / negativer Goodwill", "Wird sofort als Ertrag gebucht", "Erhöht das EK des MU"], richtig: 1, erklaerung: "Wenn Kaufpreis < neubewertetes EK des TU → passiver Unterschiedsbetrag (negativer Goodwill)." },
+    { frage: "Warum kann ein Konzern keine Schulden bei sich selbst haben?", optionen: ["Wegen IFRS 10", "Wegen des Einheitsgrundsatzes § 297 HGB", "Wegen des Tannenbaumprinzips", "Wegen § 290 HGB"], richtig: 1, erklaerung: "Einheitsgrundsatz § 297 HGB: Konzern = ein Unternehmen → kann keine Schulden gegen sich selbst haben." },
+    { frage: "Was bedeutet Impairment Only (IFRS) beim Goodwill?", optionen: ["Jährliche planmäßige Abschreibung", "Kein planmäßiges Abschreiben, nur jährlicher Werthaltigkeitstest", "Sofortige Abschreibung", "Keine Bewertung nötig"], richtig: 1, erklaerung: "IFRS: Goodwill wird nicht planmäßig abgeschrieben, aber jährlich auf Werthaltigkeit geprüft (Impairment Test)." }
+  ],
+  lueckentext: [
+    { text: "Bei der Kapitalkonsolidierung wird der ___ des MU gegen das anteilige ___ des TU aufgerechnet.", luecken: ["Beteiligungsbuchwert", "Eigenkapital"], erklaerung: "Kapitalkonsolidierung: Beteiligungsbuchwert (MU) ↔ EK (TU)." },
+    { text: "Goodwill = ___ minus anteiliges ___ des TU. Er entsteht wenn mehr gezahlt wird als der ___.", luecken: ["Kaufpreis", "neubewertetes EK", "Substanzwert"], erklaerung: "Goodwill = Mehrpreis über den Substanzwert hinaus." },
+    { text: "Nach HGB wird Goodwill ___ abgeschrieben, nach IFRS gilt der ___ Ansatz (jährlicher Werthaltigkeitstest).", luecken: ["planmäßig", "Impairment-Only"], erklaerung: "HGB = planmäßige AfA. IFRS = Impairment Only." },
+    { text: "Stille ___ liegen vor wenn der Zeitwert über dem Buchwert liegt und erhöhen das neubewertete EK.", luecken: ["Reserven"], erklaerung: "Stille Reserven: Zeitwert > Buchwert → erhöhen neubewertetes EK." },
+    { text: "Die Schuldenkonsolidierung eliminiert ___ Forderungen und Verbindlichkeiten zwischen Konzernunternehmen.", luecken: ["konzerninterne (innerbetriebliche)"], erklaerung: "§ 303 HGB: Konzerninterne Schuldbeziehungen werden eliminiert." },
+    { text: "Bei ___ Schuldverhältnissen (Konzern ↔ konzernfremdes UN) besteht keine Konsolidierungspflicht.", luecken: ["Dritt-"], erklaerung: "Drittschuldverhältnisse müssen nicht konsolidiert werden." },
+    { text: "At-Equity-Konsolidierung gilt bei ___ UN mit ___ Einfluss (zwischen ___ % und ___ %).", luecken: ["assoziierten", "maßgeblichem", "20", "50"], erklaerung: "At-Equity: 20–50%, maßgeblicher (aber nicht beherrschender) Einfluss." },
+    { text: "Bei At-Equity wird der ___ um anteilige EK-Veränderungen des assoz. UN ___ (Buchwertmethode).", luecken: ["Beteiligungsbuchwert", "fortgeschrieben"], erklaerung: "Buchwertmethode: Beteiligungswert wird laufend fortgeschrieben, nicht alle Bilanzpositionen einbezogen." },
+    { text: "Eine erhaltene ___ vom assoz. UN ___ den Beteiligungsbuchwert bei At-Equity.", luecken: ["Dividende", "verringert"], erklaerung: "Dividende war schon im EK des assoz. UN → Ausschüttung verringert den Beteiligungsbuchwert." },
+    { text: "Die ___ eliminiert konzerninterne Umsätze und Leistungen nach § ___ HGB.", luecken: ["Aufwands- und Ertragskonsolidierung", "305"], erklaerung: "§ 305 HGB: Konzerninterne Umsätze werden eliminiert." }
+  ],
+  zuordnung: [
+    { titel: "Konsolidierungsart → Rechtsgrundlage", paare: [
+      { links: "Kapitalkonsolidierung", rechts: "§ 301 HGB" },
+      { links: "Schuldenkonsolidierung", rechts: "§ 303 HGB" },
+      { links: "At-Equity-Konsolidierung", rechts: "§§ 311–312 HGB" },
+      { links: "Quotenkonsolidierung", rechts: "§ 310 HGB" }
+    ]},
+    { titel: "Konsolidierungsart → Anwendungsfall", paare: [
+      { links: "Beteiligungsbuchwert vs. EK eliminieren", rechts: "Kapitalkonsolidierung" },
+      { links: "Interne Forderungen/Verbindlichkeiten eliminieren", rechts: "Schuldenkonsolidierung" },
+      { links: "20–50% Beteiligung, maßgeblicher Einfluss", rechts: "At-Equity" },
+      { links: "Interne Umsätze eliminieren", rechts: "Aufwands-/Ertragskonsolidierung" }
+    ]},
+    { titel: "Goodwill-Behandlung", paare: [
+      { links: "Planmäßige Abschreibung über Nutzungsdauer", rechts: "HGB" },
+      { links: "Impairment Only – jährlicher Werthaltigkeitstest", rechts: "IFRS" },
+      { links: "Kaufpreis > neubewertetes EK", rechts: "Aktiver Goodwill (Geschäfts-/Firmenwert)" },
+      { links: "Kaufpreis < neubewertetes EK", rechts: "Passiver Unterschiedsbetrag" }
+    ]}
+  ]
+};
+
+// ============================================================
+// WINF-SEIDLMEIER – Kapitel 4: Datenbanksysteme
+// ============================================================
+FAECHER["winf-seidlmeier"].themen["datenbanksysteme"] = {
+  name: "4. Datenbanksysteme",
+  zusammenfassung: `<h4>4. Datenbanksysteme – Vollständige Zusammenfassung</h4>
+
+<h5>📌 4.1 Grundstrukturen von Datenbanksystemen</h5>
+<div class="def-box"><div class="def-label">Datenbanksystem (DBS)</div>
+Ein DBS besteht aus einer <strong>Datenbank</strong> (strukturiert gespeicherte Daten) und einem <strong>Datenbank-Management-System (DBMS)</strong>. Das DBMS verwaltet den Zugriff, die Konsistenz und die Sicherheit der Daten.
+</div>
+<p><strong>Vorteile einer zentralen Datenbank</strong> gegenüber Insellösungen: Keine Redundanz · Konsistenz · gleichzeitiger Mehrbenutzerzugriff · zentrale Sicherung</p>
+<p><strong>ANSI-SPARC-Dreischichtenmodell:</strong></p>
+<table class="erk-table">
+  <tr><th>Ebene</th><th>Bezeichnung</th><th>Inhalt</th></tr>
+  <tr><td>Extern</td><td>Benutzersicht / View</td><td>Spezifische Sicht einzelner Nutzer/Anwendungen auf die Daten</td></tr>
+  <tr><td>Konzeptuell</td><td>Logische Gesamtsicht</td><td>Gesamte Datenstruktur, unabhängig von Speicherung (z.B. ERM)</td></tr>
+  <tr><td>Intern</td><td>Physische Speicherung</td><td>Wie Daten tatsächlich auf dem Speichermedium abgelegt sind</td></tr>
+</table>
+
+<h5>📌 4.2 Entity-Relationship-Modell (ERM)</h5>
+<p>Das ERM ist ein <strong>konzeptuelles Datenmodell</strong> – es beschreibt, welche Dinge (Entitäten) existieren und wie sie miteinander in Beziehung stehen.</p>
+<table class="erk-table">
+  <tr><th>Element</th><th>Darstellung</th><th>Bedeutung</th></tr>
+  <tr><td><strong>Entitätstyp</strong></td><td>Rechteck</td><td>Objektklasse (z.B. Mitarbeiter, Abteilung)</td></tr>
+  <tr><td><strong>Attribut</strong></td><td>Ellipse</td><td>Eigenschaft eines Entitätstyps (z.B. Name, PLZ)</td></tr>
+  <tr><td><strong>Schlüsselattribut</strong></td><td>Unterstrichene Ellipse</td><td>Eindeutige Identifikation (z.B. Personalnummer)</td></tr>
+  <tr><td><strong>Beziehungstyp</strong></td><td>Raute</td><td>Verbindung zwischen Entitätstypen (z.B. „arbeitet in")</td></tr>
+  <tr><td><strong>Kardinalität</strong></td><td>1:1, 1:n, m:n</td><td>Wie viele Instanzen beziehen sich aufeinander?</td></tr>
+</table>
+<p><strong>Vollständige Partizipation</strong> (Doppelstrich): Alle Instanzen eines Entitätstyps müssen an der Beziehung teilnehmen (z.B. jeder Mitarbeiter gehört zu einer Abteilung).</p>
+
+<h5>📌 4.3 Relationales Datenbankmodell</h5>
+<p>Das ERM wird in <strong>Tabellen (Relationen)</strong> überführt. Jede Entität wird zu einer Tabelle, jede Zeile ist eine Instanz (Tupel), jede Spalte ein Attribut.</p>
+<div class="def-box"><div class="def-label">Primärschlüssel (Primary Key)</div>
+Attribut oder Attributkombination, das/die eine Zeile in einer Tabelle <strong>eindeutig identifiziert</strong>.
+</div>
+<div class="def-box"><div class="def-label">Fremdschlüssel (Foreign Key)</div>
+Attribut in einer Tabelle, das auf den <strong>Primärschlüssel einer anderen Tabelle</strong> verweist und so die Beziehung zwischen den Tabellen herstellt.
+</div>
+<p><strong>m:n-Beziehungen</strong> werden durch eine <strong>Zwischentabelle</strong> (Verbindungstabelle) aufgelöst, die die Primärschlüssel beider beteiligten Tabellen enthält.</p>
+
+<h5>📌 4.4 Beispiel: Buchentleihprozess (TH Rosenheim)</h5>
+<p>Neue datenbankgestützte Bibliothekssoftware: Entitätstypen → Student (Matrikelnummer, Name, Vorname), Buch (Buchnummer, Autor, Titel), Ausleihung (Rückgabedatum), Fakultät (Name, Standort). Die Ausleihung ist eine m:n-Beziehung zwischen Student und Buch.</p>`,
+
+  erklaerungen: [
+    {
+      titel: "🗄️ Grundstrukturen & ANSI-SPARC-Dreischichtenmodell",
+      inhalt: `<div class="def-box"><div class="def-label">Datenbanksystem (DBS)</div>
+<strong>DBS</strong> = Datenbank (DB) + Datenbank-Management-System (DBMS)<br>
+<strong>DB:</strong> Persistente, strukturierte Sammlung zusammengehöriger Daten<br>
+<strong>DBMS:</strong> Software zur Verwaltung, Abfrage, Sicherung und Zugriffssteuerung (z.B. Oracle, MySQL, PostgreSQL)
+</div>
+<p><strong>Probleme ohne zentrale DB (Insellösungen):</strong></p>
+<p>• <strong>Redundanz:</strong> Gleiche Daten mehrfach gespeichert (z.B. Kundendaten in Vertrieb UND Buchhaltung)<br>
+• <strong>Inkonsistenz:</strong> Verschiedene Versionen der gleichen Daten<br>
+• <strong>Kein Mehrbenutzerzugriff:</strong> Gleichzeitiger Zugriff führt zu Konflikten</p>
+<table class="erk-table">
+  <tr><th>Schicht</th><th>Name</th><th>Inhalt</th><th>Beispiel</th></tr>
+  <tr><td>Extern</td><td>Benutzersicht</td><td>Individuelle Sicht je Nutzer/Anwendung</td><td>Verkäufer sieht nur Preis + Bestand</td></tr>
+  <tr><td>Konzeptuell</td><td>Logische Gesamtsicht</td><td>Gesamte Datenstruktur (ERM)</td><td>Alle Tabellen und Beziehungen</td></tr>
+  <tr><td>Intern</td><td>Physische Ebene</td><td>Tatsächliche Speicherung auf Festplatte</td><td>B-Bäume, Indizes, Speicherblöcke</td></tr>
+</table>
+<p><strong>Vorteil der Dreischichtigkeit:</strong> <strong>Datenunabhängigkeit</strong> – Änderungen auf einer Schicht beeinflussen andere Schichten nicht (z.B. physische Speicheränderung ohne Auswirkung auf Anwendungen).</p>`,
+      merke: "DBS = DB + DBMS. ANSI-SPARC: extern (Benutzer) · konzeptuell (ERM/Logik) · intern (physisch). Dreischichtigkeit → Datenunabhängigkeit.",
+      flipcards: [
+        { vorne: "Was ist ein DBMS?", hinten: "Datenbank-<strong>Management</strong>-System: Software zur Verwaltung, Abfrage, Sicherung und Zugriffssteuerung der DB (z.B. MySQL, Oracle, MS SQL Server)" },
+        { vorne: "Externe Schicht (ANSI-SPARC)", hinten: "<strong>Benutzersicht / View:</strong> Spezifische Sicht einzelner Nutzer oder Anwendungen – nur ein Ausschnitt der Gesamtdaten" },
+        { vorne: "Konzeptuelle Schicht (ANSI-SPARC)", hinten: "<strong>Logische Gesamtsicht:</strong> Vollständige Datenstruktur unabhängig von Speicherung (z.B. ERM, alle Tabellen und Beziehungen)" },
+        { vorne: "Interne Schicht (ANSI-SPARC)", hinten: "<strong>Physische Speicherung:</strong> Wie Daten tatsächlich auf dem Speichermedium liegen (Indizes, Speicherblöcke, Dateiformate)" },
+        { vorne: "Was bedeutet Datenunabhängigkeit?", hinten: "Änderungen in einer Schicht wirken sich nicht auf andere Schichten aus. Anwendungen bleiben unberührt, wenn die physische Speicherung geändert wird." }
+      ],
+      interaktion: [
+        { frage: "Woraus besteht ein Datenbanksystem (DBS)?", optionen: ["Nur aus Tabellen", "Datenbank + DBMS", "Anwendungsprogramm + Betriebssystem", "Hardware + Netzwerk"], richtig: 1, erklaerung: "DBS = Datenbank (strukturierte Datenmenge) + DBMS (Software zur Verwaltung und Abfrage)." },
+        { frage: "Welche Schicht im ANSI-SPARC-Modell beschreibt die logische Gesamtsicht?", optionen: ["Externe Schicht", "Konzeptuelle Schicht", "Interne Schicht", "Physische Schicht"], richtig: 1, erklaerung: "Die konzeptuelle Schicht beschreibt die vollständige logische Datenstruktur (z.B. ERM), unabhängig von der physischen Speicherung." },
+        { frage: "Was ist der Vorteil der Dreischichtigkeit im ANSI-SPARC-Modell?", optionen: ["Mehr Speicherplatz", "Schnellere Abfragen", "Datenunabhängigkeit: Schichten können unabhängig voneinander geändert werden", "Automatische Datensicherung"], richtig: 2, erklaerung: "Datenunabhängigkeit: Änderungen auf einer Schicht (z.B. physisch) beeinflussen andere Schichten (z.B. Anwendungen) nicht." }
+      ]
+    },
+    {
+      titel: "🔗 Entity-Relationship-Modell (ERM)",
+      inhalt: `<p>Das ERM dient als <strong>Entwurfswerkzeug</strong> für die konzeptuelle Datenbankebene. Es zeigt, welche Dinge (Entitäten) existieren und wie sie miteinander zusammenhängen.</p>
+<table class="erk-table">
+  <tr><th>Element</th><th>Bedeutung</th><th>Darstellung</th></tr>
+  <tr><td><strong>Entitätstyp</strong></td><td>Klasse gleichartiger Dinge (z.B. alle Mitarbeiter)</td><td>Rechteck</td></tr>
+  <tr><td><strong>Entität</strong></td><td>Konkrete Ausprägung (z.B. Mitarbeiter Max Müller)</td><td>Instanz</td></tr>
+  <tr><td><strong>Attribut</strong></td><td>Eigenschaft (z.B. Vorname, Geburtsdatum)</td><td>Ellipse</td></tr>
+  <tr><td><strong>Schlüsselattribut</strong></td><td>Eindeutige Identifikation (Primärschlüssel)</td><td>Unterstrichene Ellipse</td></tr>
+  <tr><td><strong>Beziehungstyp</strong></td><td>Verbindung zwischen Entitätstypen (z.B. „arbeitet in")</td><td>Raute</td></tr>
+</table>
+<p><strong>Kardinalitäten:</strong></p>
+<table class="erk-table">
+  <tr><th>Typ</th><th>Bedeutung</th><th>Beispiel</th></tr>
+  <tr><td><strong>1:1</strong></td><td>Eine Entität ist mit genau einer anderen verknüpft</td><td>Person ↔ Personalausweis</td></tr>
+  <tr><td><strong>1:n</strong></td><td>Eine Entität ist mit mehreren verknüpft</td><td>Abteilung ↔ Mitarbeiter (eine Abt., viele MA)</td></tr>
+  <tr><td><strong>m:n</strong></td><td>Viele Entitäten sind mit vielen verknüpft</td><td>Student ↔ Buch (viele Stud., viele Bücher)</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Vollständige Partizipation (Doppelstrich)</div>
+Alle Instanzen eines Entitätstyps müssen an der Beziehung teilnehmen.<br>
+Beispiel: Jeder <strong>Mitarbeiter</strong> muss einer Abteilung zugeordnet sein (Doppelstrich bei Mitarbeiter).
+</div>`,
+      merke: "ERM: Entitätstyp (Rechteck) · Attribut (Ellipse) · Schlüssel (unterstrichen) · Beziehung (Raute). Kardinalitäten: 1:1, 1:n, m:n. Doppelstrich = vollständige Partizipation.",
+      flipcards: [
+        { vorne: "Entitätstyp vs. Entität", hinten: "<strong>Entitätstyp:</strong> Klasse (z.B. Mitarbeiter) → Rechteck im ERM<br><strong>Entität:</strong> Konkrete Ausprägung (z.B. Max Müller, Pers.-Nr. 1234)" },
+        { vorne: "Schlüsselattribut", hinten: "Attribut, das eine Entität <strong>eindeutig identifiziert</strong>. Darstellung: <u>unterstrichen</u>. Entspricht dem Primärschlüssel in der relationalen DB." },
+        { vorne: "1:n-Beziehung – Beispiel", hinten: "Eine <strong>Abteilung</strong> hat viele <strong>Mitarbeiter</strong>. Umgekehrt gehört ein Mitarbeiter zu genau einer Abteilung. → 1:n" },
+        { vorne: "m:n-Beziehung – Problem", hinten: "m:n-Beziehungen können nicht direkt in relationale Tabellen überführt werden → Auflösung durch <strong>Zwischentabelle</strong> mit den Primärschlüsseln beider Seiten" },
+        { vorne: "Was bedeutet Doppelstrich im ERM?", hinten: "<strong>Vollständige Partizipation:</strong> Alle Instanzen des betreffenden Entitätstyps müssen an der Beziehung teilnehmen (z.B. jeder MA muss einer Abteilung angehören)" }
+      ],
+      interaktion: [
+        { frage: "Womit wird ein Entitätstyp im ERM dargestellt?", optionen: ["Ellipse", "Raute", "Rechteck", "Pfeil"], richtig: 2, erklaerung: "Entitätstypen werden als Rechtecke dargestellt. Attribute = Ellipsen, Beziehungen = Rauten." },
+        { frage: "Was bedeutet eine 1:n-Beziehung?", optionen: ["Beide Seiten haben genau eine Entität", "Eine Entität der einen Seite ist mit mehreren der anderen verknüpft", "Alle Entitäten haben keine Verbindung", "Nur m:n ist möglich"], richtig: 1, erklaerung: "1:n: Eine Entität (z.B. Abteilung) ist mit mehreren Entitäten der anderen Seite (z.B. Mitarbeitern) verknüpft." },
+        { frage: "Wie wird eine m:n-Beziehung im relationalen Modell umgesetzt?", optionen: ["Durch eine Ellipse", "Durch eine Zwischentabelle", "Durch doppelte Primärschlüssel", "Gar nicht – m:n ist verboten"], richtig: 1, erklaerung: "m:n-Beziehungen werden durch eine Zwischentabelle (Verbindungstabelle) mit den Primärschlüsseln beider Entitätstypen aufgelöst." },
+        { frage: "Was bedeutet der Doppelstrich im ERM?", optionen: ["Zwei Beziehungen", "Vollständige Partizipation: alle Instanzen müssen teilnehmen", "Optionale Teilnahme", "Fremdschlüssel"], richtig: 1, erklaerung: "Doppelstrich = vollständige Partizipation: Jede Instanz des Entitätstyps muss an der Beziehung teilnehmen." }
+      ]
+    },
+    {
+      titel: "📊 Relationales Datenbankmodell",
+      inhalt: `<p>Das relationale Datenbankmodell überführt das ERM in <strong>Tabellen (Relationen)</strong>. Es ist das heute am weitesten verbreitete Modell (relationale DBMS wie MySQL, Oracle, MS SQL Server).</p>
+<div class="def-box"><div class="def-label">Relation (Tabelle)</div>
+Eine Relation ist eine <strong>zweidimensionale Tabelle</strong>:<br>
+• <strong>Zeile (Tupel):</strong> Eine konkrete Instanz (z.B. ein Mitarbeiter)<br>
+• <strong>Spalte (Attribut):</strong> Eine Eigenschaft (z.B. Name, PLZ)<br>
+• <strong>Primärschlüssel:</strong> Attribut oder Kombination zur eindeutigen Identifikation einer Zeile
+</div>
+<div class="def-box"><div class="def-label">Beispiel: Relation PERSON</div>
+PERSON (<u>Personennummer</u>, Name, PLZ, Ort, Land)<br>
+→ Personennummer = Primärschlüssel (unterstrichen)
+</div>
+<p><strong>Fremdschlüssel (Foreign Key):</strong> Ein Attribut einer Tabelle, das auf den Primärschlüssel einer <em>anderen</em> Tabelle verweist → stellt die Verbindung zwischen Tabellen her (referentielle Integrität).</p>
+<p><strong>Normalisierung:</strong> Überführung in eine redundanzarme Form durch Normalformen (1NF, 2NF, 3NF) → Datenanomalien vermeiden.</p>
+<p><strong>SQL (Structured Query Language):</strong> Standardsprache zur Abfrage und Manipulation relationaler DBs.<br>
+Wichtige Befehle: <code>SELECT ... FROM ... WHERE</code> · <code>JOIN</code> (Verknüpfung von Tabellen) · <code>INSERT / UPDATE / DELETE</code></p>`,
+      merke: "Relation = Tabelle. Tupel = Zeile. Attribut = Spalte. Primärschlüssel = eindeutige ID. Fremdschlüssel = Verweis auf anderen PK. SQL = Abfragesprache.",
+      flipcards: [
+        { vorne: "Primärschlüssel (Primary Key)", hinten: "Attribut (oder Kombination), das eine Zeile in einer Tabelle <strong>eindeutig identifiziert</strong>. Darf nicht NULL sein und muss einzigartig sein." },
+        { vorne: "Fremdschlüssel (Foreign Key)", hinten: "Attribut in Tabelle A, das auf den <strong>Primärschlüssel von Tabelle B</strong> verweist → stellt Beziehung zwischen Tabellen her." },
+        { vorne: "Was ist referentielle Integrität?", hinten: "Ein Fremdschlüsselwert muss immer als Primärschlüssel in der referenzierten Tabelle <strong>existieren</strong> (oder NULL sein). Verhindert verwaiste Datensätze." },
+        { vorne: "Wie wird m:n im relationalen Modell aufgelöst?", hinten: "Durch eine <strong>Zwischentabelle</strong> (Verbindungstabelle), die die Primärschlüssel beider beteiligten Tabellen als Fremdschlüssel enthält." },
+        { vorne: "Normalisierung", hinten: "Überführung in Normalformen (1NF, 2NF, 3NF) zur <strong>Vermeidung von Redundanzen und Anomalien</strong> bei Einfügen, Ändern, Löschen." }
+      ],
+      interaktion: [
+        { frage: "Was ist eine Relation im relationalen Datenbankmodell?", optionen: ["Eine Beziehung im ERM", "Eine zweidimensionale Tabelle", "Ein Programmcode", "Ein Schlüsselattribut"], richtig: 1, erklaerung: "Im relationalen Modell = Relation = Tabelle mit Zeilen (Tupeln/Instanzen) und Spalten (Attributen)." },
+        { frage: "Was ist ein Primärschlüssel?", optionen: ["Der erste Eintrag einer Tabelle", "Ein Attribut zur eindeutigen Identifikation einer Zeile", "Der Name der Tabelle", "Ein Fremdschlüssel"], richtig: 1, erklaerung: "Primärschlüssel: Attribut oder Kombination, das jede Zeile eindeutig identifiziert – darf nicht NULL sein und muss einzigartig sein." },
+        { frage: "Wozu dient ein Fremdschlüssel?", optionen: ["Zur Verschlüsselung der Daten", "Zum Verknüpfen von Tabellen durch Verweis auf anderen Primärschlüssel", "Zur Nummerierung der Zeilen", "Zur Sortierung"], richtig: 1, erklaerung: "Fremdschlüssel verweist auf den Primärschlüssel einer anderen Tabelle und stellt so die Beziehung zwischen den Tabellen her." },
+        { frage: "Wofür steht SQL?", optionen: ["System Query Language", "Structured Query Language", "Simple Query Layer", "Server Query Logic"], richtig: 1, erklaerung: "SQL = Structured Query Language: Standardsprache für relationale Datenbanken (Abfragen, Einfügen, Ändern, Löschen)." }
+      ]
+    }
+  ],
+  quiz: [
+    { frage: "Woraus besteht ein Datenbanksystem (DBS)?", optionen: ["Nur Tabellen", "Datenbank + DBMS", "Anwendungsprogramm + Betriebssystem", "Hardware + Netzwerk"], richtig: 1, erklaerung: "DBS = Datenbank (strukturierte Datenmenge) + DBMS (Software zur Verwaltung und Abfrage)." },
+    { frage: "Was ist ein DBMS?", optionen: ["Datenbankstruktur", "Software zur Verwaltung, Abfrage und Zugriffssteuerung der DB", "Eine Tabelle", "Eine SQL-Abfrage"], richtig: 1, erklaerung: "DBMS = Datenbank-Management-System: Software (z.B. MySQL, Oracle, PostgreSQL) zur Verwaltung der DB." },
+    { frage: "Welche Schicht im ANSI-SPARC-Modell beschreibt die logische Gesamtsicht?", optionen: ["Externe Schicht", "Konzeptuelle Schicht", "Interne Schicht", "Physische Schicht"], richtig: 1, erklaerung: "Konzeptuelle Schicht: vollständige logische Datenstruktur (z.B. ERM), unabhängig von physischer Speicherung." },
+    { frage: "Was beschreibt die externe Schicht im ANSI-SPARC-Modell?", optionen: ["Physische Speicherung", "Gesamte logische Datenstruktur", "Individuelle Benutzersicht / View", "SQL-Abfragen"], richtig: 2, erklaerung: "Externe Schicht = Benutzersicht: spezifische Sicht einzelner Nutzer oder Anwendungen – nur ein Ausschnitt der Gesamtdaten." },
+    { frage: "Was bedeutet Datenunabhängigkeit?", optionen: ["Daten sind unabhängig vom Nutzer", "Änderungen in einer Schicht beeinflussen andere Schichten nicht", "Daten werden nie gelöscht", "Jeder Nutzer hat eigene Daten"], richtig: 1, erklaerung: "Datenunabhängigkeit: Vorteil der Dreischichtigkeit – z.B. physische Speicheränderung ohne Auswirkung auf Anwendungen." },
+    { frage: "Wie wird ein Entitätstyp im ERM dargestellt?", optionen: ["Ellipse", "Raute", "Rechteck", "Pfeil"], richtig: 2, erklaerung: "Entitätstypen werden als Rechtecke dargestellt. Attribute = Ellipsen, Beziehungen = Rauten." },
+    { frage: "Wie werden Attribute im ERM dargestellt?", optionen: ["Rechteck", "Raute", "Ellipse", "Linie"], richtig: 2, erklaerung: "Attribute = Ellipsen im ERM." },
+    { frage: "Wie werden Beziehungstypen im ERM dargestellt?", optionen: ["Rechteck", "Ellipse", "Dreieck", "Raute"], richtig: 3, erklaerung: "Beziehungstypen = Rauten im ERM." },
+    { frage: "Was bedeutet eine 1:n-Beziehung?", optionen: ["Beide Seiten genau eine Entität", "Eine Entität ist mit mehreren der anderen Seite verknüpft", "Alle Entitäten ohne Verbindung", "n wird nicht definiert"], richtig: 1, erklaerung: "1:n: Eine Entität (z.B. Abteilung) ist mit mehreren Entitäten der anderen Seite (z.B. Mitarbeitern) verknüpft." },
+    { frage: "Was bedeutet der Doppelstrich im ERM?", optionen: ["Zwei Beziehungen", "Optionale Teilnahme", "Vollständige Partizipation: alle Instanzen müssen teilnehmen", "Fremdschlüssel"], richtig: 2, erklaerung: "Doppelstrich = vollständige Partizipation: jede Instanz des Entitätstyps muss an der Beziehung teilnehmen." },
+    { frage: "Was ist ein Schlüsselattribut?", optionen: ["Jedes Attribut eines Entitätstyps", "Ein Attribut zur eindeutigen Identifikation (unterstrichen dargestellt)", "Ein Fremdschlüssel", "Eine Beziehung"], richtig: 1, erklaerung: "Schlüsselattribut: identifiziert eine Entität eindeutig → im ERM unterstrichen dargestellt." },
+    { frage: "Wie wird eine m:n-Beziehung im relationalen Modell umgesetzt?", optionen: ["Durch eine Ellipse", "Durch eine Zwischentabelle", "Durch doppelte Primärschlüssel", "Ist nicht möglich"], richtig: 1, erklaerung: "m:n-Beziehungen werden durch eine Zwischentabelle mit den Primärschlüsseln beider beteiligten Tabellen aufgelöst." },
+    { frage: "Was ist ein Primärschlüssel?", optionen: ["Der erste Eintrag einer Tabelle", "Attribut zur eindeutigen Identifikation einer Zeile", "Name der Tabelle", "Fremdschlüssel"], richtig: 1, erklaerung: "Primärschlüssel: Attribut (oder Kombination), das jede Zeile eindeutig identifiziert – darf nicht NULL sein." },
+    { frage: "Was ist ein Fremdschlüssel?", optionen: ["Verschlüsselung der Daten", "Attribut das auf Primärschlüssel einer anderen Tabelle verweist", "Zweiter Primärschlüssel", "Erste Spalte der Tabelle"], richtig: 1, erklaerung: "Fremdschlüssel verweist auf den Primärschlüssel einer anderen Tabelle → stellt Beziehung zwischen Tabellen her." },
+    { frage: "Was ist referentielle Integrität?", optionen: ["Alle Daten sind korrekt", "Fremdschlüsselwert muss als PK in referenzierter Tabelle existieren", "Tabellen dürfen nicht gelöscht werden", "Primärschlüssel nie ändern"], richtig: 1, erklaerung: "Referentielle Integrität: Ein FK-Wert muss immer als PK in der referenzierten Tabelle existieren – verhindert verwaiste Datensätze." },
+    { frage: "Was ist das Ziel der Normalisierung?", optionen: ["Tabellen vergrößern", "Redundanzen und Anomalien vermeiden", "Daten verschlüsseln", "Abfragen beschleunigen"], richtig: 1, erklaerung: "Normalisierung: Überführung in Normalformen (1NF, 2NF, 3NF) zur Vermeidung von Redundanzen und Anomalien." },
+    { frage: "Was ist eine Relation im relationalen Datenbankmodell?", optionen: ["Beziehung im ERM", "Zweidimensionale Tabelle", "Programmcode", "Schlüsselattribut"], richtig: 1, erklaerung: "Relation = Tabelle mit Zeilen (Tupeln/Instanzen) und Spalten (Attributen)." },
+    { frage: "Was sind typische Probleme ohne zentrale Datenbank?", optionen: ["Zu schnelle Abfragen", "Redundanz, Inkonsistenz, kein Mehrbenutzerzugriff", "Zu viele Tabellen", "Keine Normalisierung"], richtig: 1, erklaerung: "Insellösungen: Redundanz (mehrfache Datenspeicherung), Inkonsistenz (verschiedene Versionen), kein gleichzeitiger Zugriff." },
+    { frage: "Was ist eine Entität?", optionen: ["Klasse gleichartiger Objekte (Entitätstyp)", "Konkrete Ausprägung eines Entitätstyps", "Eine Tabelle im DB-Modell", "Ein Primärschlüssel"], richtig: 1, erklaerung: "Entität = konkrete Ausprägung (Instanz) eines Entitätstyps (z.B. Mitarbeiter Max Müller ist eine Entität des Typs Mitarbeiter)." },
+    { frage: "Welcher SQL-Befehl dient zur Abfrage?", optionen: ["INSERT", "DELETE", "SELECT ... FROM ... WHERE", "UPDATE"], richtig: 2, erklaerung: "SELECT ... FROM ... WHERE: Standard-SQL-Abfragebefehl zum Abrufen von Daten aus Tabellen." }
+  ],
+  lueckentext: [
+    { text: "Ein Datenbanksystem (DBS) besteht aus der ___ (Datenmenge) und dem ___ (Software zur Verwaltung).", luecken: ["Datenbank", "DBMS"], erklaerung: "DBS = Datenbank + DBMS." },
+    { text: "Das ANSI-SPARC-Modell hat 3 Schichten: ___ (Benutzersicht), ___ (logische Gesamtsicht) und ___ (physische Speicherung).", luecken: ["extern", "konzeptuell", "intern"], erklaerung: "3 Schichten: extern, konzeptuell, intern." },
+    { text: "Der Vorteil der Dreischichtigkeit ist die ___, d.h. Änderungen in einer Schicht beeinflussen andere ___ nicht.", luecken: ["Datenunabhängigkeit", "Schichten"], erklaerung: "Datenunabhängigkeit = Kernvorteil des ANSI-SPARC-Modells." },
+    { text: "Im ERM werden Entitätstypen als ___, Attribute als ___ und Beziehungstypen als ___ dargestellt.", luecken: ["Rechtecke", "Ellipsen", "Rauten"], erklaerung: "ERM-Notation: Rechteck (Entität), Ellipse (Attribut), Raute (Beziehung)." },
+    { text: "Ein ___ identifiziert eine Entität eindeutig und wird im ERM ___ dargestellt.", luecken: ["Schlüsselattribut", "unterstrichen"], erklaerung: "Schlüsselattribut = eindeutige Identifikation, im ERM unterstrichen dargestellt." },
+    { text: "Eine ___ Beziehung kann nicht direkt in Tabellen übertragen werden und wird durch eine ___ aufgelöst.", luecken: ["m:n-", "Zwischentabelle"], erklaerung: "m:n wird durch Verbindungstabelle mit den PKs beider Seiten aufgelöst." },
+    { text: "Ein ___ identifiziert eine Zeile eindeutig. Ein ___ verweist auf den PK einer anderen Tabelle.", luecken: ["Primärschlüssel", "Fremdschlüssel"], erklaerung: "PK = eindeutige ID einer Zeile. FK = Verweis auf anderen PK." },
+    { text: "___ Partizipation (___) bedeutet, dass alle Instanzen eines Entitätstyps an der Beziehung teilnehmen müssen.", luecken: ["Vollständige", "Doppelstrich"], erklaerung: "Vollständige Partizipation = Doppelstrich im ERM." }
+  ],
+  zuordnung: [
+    { titel: "ERM-Element → Darstellung", paare: [
+      { links: "Entitätstyp", rechts: "Rechteck" },
+      { links: "Attribut", rechts: "Ellipse" },
+      { links: "Beziehungstyp", rechts: "Raute" },
+      { links: "Schlüsselattribut", rechts: "Unterstrichene Ellipse" }
+    ]},
+    { titel: "ANSI-SPARC Schicht → Beschreibung", paare: [
+      { links: "Externe Schicht", rechts: "Individuelle Benutzersicht / View" },
+      { links: "Konzeptuelle Schicht", rechts: "Logische Gesamtsicht (ERM)" },
+      { links: "Interne Schicht", rechts: "Physische Speicherung (Festplatte)" },
+      { links: "Datenunabhängigkeit", rechts: "Schichten änderbar ohne gegenseitige Auswirkung" }
+    ]},
+    { titel: "Datenbankbegriff zuordnen", paare: [
+      { links: "Tabelle im relat. Modell", rechts: "Relation" },
+      { links: "Zeile einer Tabelle", rechts: "Tupel / Instanz" },
+      { links: "Eindeutige Zeilen-ID", rechts: "Primärschlüssel" },
+      { links: "Verweis auf anderen PK", rechts: "Fremdschlüssel" }
+    ]}
+  ]
+};
+
 // Neuigkeiten – hier neue Einträge oben hinzufügen
 const NEUIGKEITEN = [
   {
     datum: "2026-03-26",
-    typ: "feature",   // "feature", "inhalt", "fix"
-    titel: "Problemzonen-Fix",
-    text: "Richtig beantwortete Fragen verschwinden jetzt aus den Problemzonen."
+    typ: "inhalt",
+    titel: "Rechnungslegung – Kap. 1 & 2 neu!",
+    text: "Konzernrechnungslegung Grundlagen + alle Konsolidierungsarten (Kapital-, Schulden-, At-Equity) hinzugefügt."
   },
   {
     datum: "2026-03-26",
     typ: "inhalt",
-    titel: "WInf Kühn – neue Themen",
-    text: "Neue Lerninhalte zu Modellmerkmalen und Systemklassen hinzugefügt."
+    titel: "WInf Seidlmeier – Kap. 4 neu!",
+    text: "Neues Thema: Datenbanksysteme (ERM, relationales Modell, ANSI-SPARC, Buchentleihprozess)."
+  },
+  {
+    datum: "2026-03-26",
+    typ: "inhalt",
+    titel: "WInf Seidlmeier – Kap. 3 neu!",
+    text: "Neues Thema: Modellierung von Organisationen und IS (Prozesstypen, EPK, ARIS, KDIS-Beispiel)."
+  },
+  {
+    datum: "2026-03-26",
+    typ: "inhalt",
+    titel: "WInf Seidlmeier – Devisenkurs-Beispiel",
+    text: "Das Devisenkurs-Beispiel aus Folie 2-7 wurde zur Wissenstreppe (Kap. 2) hinzugefügt."
+  },
+  {
+    datum: "2026-03-26",
+    typ: "feature",
+    titel: "Problemzonen-Fix",
+    text: "Richtig beantwortete Fragen verschwinden jetzt aus den Problemzonen."
   }
 ];
