@@ -4262,6 +4262,93 @@ EK Paniermehl: 700 T€ · Stille Reserven: 120 T€ · Stille Lasten: 20 T€<b
         { frage: "Eine Dividende vom assoziierten UN...", optionen: ["erhöht den Beteiligungsbuchwert", "hat keine Auswirkung", "verringert den Beteiligungsbuchwert", "wird als Umsatz gebucht"], richtig: 2, erklaerung: "Dividende verringert den Beteiligungsbuchwert (da sie bereits im EK des assoz. UN berücksichtigt war und jetzt ausgeschüttet wird)." }
       ]
     }
+    ,
+    {
+      titel: "\uD83D\uDCCB Konsolidierungsvorbereitung: HB\u00a0I \u2192 HB\u00a0II \u2192 Konzernabschluss",
+      inhalt: `<div class="def-box"><div class="def-label">Die 3 Ebenen der Konsolidierungsvorbereitung</div>
+<strong>HB\u00a0I</strong> = Jahresabschluss der rechtlich selbst\u00e4ndigen Konzerneinheit (nach nationalen Vorschriften)<br>
+<strong>HB\u00a0II</strong> = Vereinheitlichter HB\u00a0I (gleicher Stichtag, gleiche Bilanzierungsmethoden, gleiche Bewertungsregeln)<br>
+<strong>Summenabschluss</strong> = Addition gleichartiger Posten aller HB\u00a0II<br>
+<strong>Konzernabschluss</strong> = Summenabschluss abz\u00fcglich Konsolidierungsma\u00dfnahmen
+</div>
+<table class="erk-table">
+  <tr><th>Vereinheitlichung</th><th>Inhalt</th><th>HGB-Grundlage</th></tr>
+  <tr><td><strong>Stichtag</strong></td><td>Alle TU m\u00fcssen denselben Abschlussstichtag wie das MU verwenden; bei Abweichung &gt;\u00a03 Monate: Zwischenbericht</td><td>\u00a7\u00a0299 HGB</td></tr>
+  <tr><td><strong>Bewertung</strong></td><td>Einheitliche Bewertungsmethoden konzernweit (Methode des MU gilt f\u00fcr alle TU)</td><td>\u00a7\u00a0308 HGB</td></tr>
+  <tr><td><strong>Ansatz</strong></td><td>Einheitliche Ansatzvorschriften; Wahlrechte m\u00fcssen f\u00fcr gleiche Sachverhalte einheitlich aus\u00fcbt werden</td><td>\u00a7\u00a7\u00a0300, 308 HGB</td></tr>
+  <tr><td><strong>W\u00e4hrung</strong></td><td>Umrechnung ausl\u00e4ndischer Abschl\u00fcsse in Konzernw\u00e4hrung (modifizierte Stichtags- oder Zeitbezugsmethode)</td><td>\u00a7\u00a0308a HGB</td></tr>
+  <tr><td><strong>Gliederung</strong></td><td>Einheitliche Bilanz- und GuV-Gliederung nach HGB-Vorschriften</td><td>\u00a7\u00a0290 HGB</td></tr>
+</table>
+<div class="def-box"><div class="def-label">W\u00e4hrungsumrechnung: 2 Methoden</div>
+<strong>Modifizierte Stichtagsmethode (\u00a7\u00a7\u00a0256a, 308a HGB / IAS\u00a021):</strong> Alle Aktiv- und Passivposten zum Stichtagskurs, Eigenkapital zum historischen Kurs \u2192 Umrechnungsdifferenz erscheint als Sonderposten im EK.<br><br>
+<strong>Zeitbezugsmethode (IAS\u00a021 / US-GAAP):</strong> Historische Werte (z.\u00a0B. AHK) werden mit historischem Kurs, Gegenwartswerte (Markt-/B\u00f6rsenpreise) mit Stichtagskurs umgerechnet \u2192 Differenzen gehen in die GuV.
+</div>`,
+      merke: "HB\u00a0I \u2192 Vereinheitlichung \u2192 HB\u00a0II \u2192 Addition \u2192 Summenabschluss \u2192 Konsolidierung \u2192 Konzernabschluss.",
+      interaktion: [
+        { frage: "Was ist der Unterschied zwischen HB\u00a0I und HB\u00a0II?", optionen: ["HB\u00a0I ist der Konzernabschluss, HB\u00a0II der Einzelabschluss", "HB\u00a0I ist der Einzelabschluss nach nationalem Recht, HB\u00a0II der vereinheitlichte Abschluss", "HB\u00a0I und HB\u00a0II sind identisch", "HB\u00a0II gilt nur f\u00fcr das Mutterunternehmen"], richtig: 1, erklaerung: "HB\u00a0I = nationaler Einzelabschluss. HB\u00a0II = an Konzernstandards angepasster Abschluss (gleicher Stichtag, Methoden, Bewertung)." },
+        { frage: "Ab welcher Stichtagsabweichung muss ein Zwischenbericht f\u00fcr die Konsolidierung erstellt werden (HGB)?", optionen: ["1 Monat", "3 Monate", "6 Monate", "12 Monate"], richtig: 1, erklaerung: "\u00a7\u00a0299 HGB: Weicht der Abschlussstichtag eines TU mehr als 3 Monate vom Konzernstichtag ab, ist ein Zwischenabschluss zu erstellen." },
+        { frage: "Welche Bewertungsvorschriften gelten f\u00fcr alle Konzernunternehmen bei der HGB-Konsolidierung?", optionen: ["Jedes TU w\u00e4hlt selbst", "Die Vorschriften des Mutterunternehmens gelten konzernweit", "Die strengsten nationalen Regeln aller TU", "IAS\u00a08 gilt immer"], richtig: 1, erklaerung: "\u00a7\u00a0308 HGB: Die Bewertungsvorschriften des MU gelten einheitlich f\u00fcr den gesamten Konzern. Abweichende TU-Methoden m\u00fcssen angepasst werden." }
+      ]
+    },
+    {
+      titel: "\u2696\uFE0F Unterschiedsbetr\u00e4ge: Goodwill und Badwill",
+      inhalt: `<div class="def-box"><div class="def-label">Aktiver Unterschiedsbetrag = Goodwill (GoF)</div>
+Entsteht wenn: <strong>Beteiligungsbuchwert &gt; anteiliges neubewertetes EK des TU</strong><br>
+\u00a7\u00a0301 Abs.\u00a03 HGB: Ausweis als <strong>Gesch\u00e4fts- oder Firmenwert (GoF)</strong> auf der Aktivseite.<br>
+\u00a7\u00a0253 Abs.\u00a03 HGB: Planm\u00e4\u00dfige Abschreibung \u00fcber die Nutzungsdauer (Annahme 5 Jahre wenn keine bessere Sch\u00e4tzung).
+</div>
+<div class="def-box"><div class="def-label">Passiver Unterschiedsbetrag = Negativer Goodwill</div>
+Entsteht wenn: <strong>Beteiligungsbuchwert &lt; anteiliges neubewertetes EK des TU</strong><br>
+\u00a7\u00a0301 Abs.\u00a03 HGB: Ausweis unter dem EK als \u201eUnterschiedsbetrag aus der Kapitalkonsolidierung\u201c.<br>
+Aufl\u00f6sung nur ergebniswirksam m\u00f6glich nach \u00a7\u00a0309 Abs.\u00a02 HGB \u2013 zwei F\u00e4lle:
+</div>
+<table class="erk-table">
+  <tr><th>Ursache</th><th>Bezeichnung</th><th>Aufl\u00f6sung</th></tr>
+  <tr><td>Niedriger Kaufpreis wegen erwarteter Verluste / schlechter Ertragslage</td><td><strong>Badwill</strong></td><td>Ergebniswirksam, wenn die negative Entwicklung eintritt (\u00a7\u00a0309 Abs.\u00a02 Nr.\u00a01 HGB)</td></tr>
+  <tr><td>G\u00fcnstiger Kauf bei positiver Marktlage</td><td><strong>Lucky Buy</strong></td><td>Ergebniswirksam nach Realisationsprinzip bei nachhaltiger guter Ertragslage (\u00a7\u00a0309 Abs.\u00a02 Nr.\u00a02 HGB)</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Zahlenbeispiel (aus Vorlesung): Erstkonsolidierung 100%</div>
+Beteiligungsbuchwert MU-AG: <strong>1.300 TEUR</strong><br>
+Neu bewertetes EK TU-AG: EK (1.000) + Neubewertungsr\u00fcckl. (110) = <strong>1.110 TEUR</strong><br>
+(+50 stille Res. Grundst\u00fccke + 100 stille Res. Maschinen \u2212 40 stille Lasten = 110)<br>
+<strong>Aktiver Unterschiedsbetrag (GoF) = 1.300 \u2212 1.110 = 190 TEUR</strong><br>
+Abschreibung GoF: 190 / 5 Jahre = <strong>38 TEUR/Jahr</strong>
+</div>`,
+      merke: "Goodwill = Buchwert > EK \u2192 aktiv, Abschreibung. Badwill = Buchwert < EK \u2192 passiv, Aufl\u00f6sung nur bei Verlust oder Lucky Buy.",
+      interaktion: [
+        { frage: "Wann entsteht ein aktiver Unterschiedsbetrag (Goodwill)?", optionen: ["Wenn Beteiligungsbuchwert < neubewertetes EK", "Wenn Beteiligungsbuchwert > neubewertetes EK", "Wenn keine stillen Reserven vorliegen", "Wenn das TU einen Verlust erwirtschaftet"], richtig: 1, erklaerung: "Aktiver Unterschiedsbetrag (GoF) = Beteiligungsbuchwert MINUS neubewertetes EK des TU ist positiv. MU hat also mehr bezahlt als der Substanzwert." },
+        { frage: "Unter welchen Umst\u00e4nden darf ein passiver Unterschiedsbetrag aufgel\u00f6st werden?", optionen: ["Jederzeit nach Ermessen", "Nur wenn das TU aufgel\u00f6st wird", "Wenn die erwartete negative Ertragslage eintritt oder ein realisierter Gewinn feststeht", "Nach 10 Jahren automatisch"], richtig: 2, erklaerung: "\u00a7\u00a0309 Abs.\u00a02 HGB: Aufl\u00f6sung nur wenn (1) erwartete negative Entwicklung eingetreten ist (Badwill) oder (2) realisierter Gewinn feststeht (Lucky Buy)." },
+        { frage: "MU zahlt 800 TEUR f\u00fcr 100% einer TU. Das neubewertete EK des TU betr\u00e4gt 900 TEUR. Was entsteht?", optionen: ["Aktiver Unterschiedsbetrag (GoF) von 100 TEUR", "Passiver Unterschiedsbetrag von 100 TEUR", "Kein Unterschiedsbetrag", "Goodwill von 900 TEUR"], richtig: 1, erklaerung: "Beteiligungsbuchwert (800) < neubewertetes EK (900) \u2192 passiver Unterschiedsbetrag von 100 TEUR (negativer Goodwill / Lucky Buy oder Badwill)." }
+      ]
+    },
+    {
+      titel: "\uD83D\uDC65 Kapitalkonsolidierung bei Minderheitsgesellschaftern (&lt;\u00a0100%)",
+      inhalt: `<div class="def-box"><div class="def-label">Vollkonsolidierung trotz Minderheitsanteil</div>
+Auch wenn das MU weniger als 100% h\u00e4lt, werden <strong>alle Verm\u00f6genswerte und Schulden vollst\u00e4ndig</strong> (100%) einbezogen. Der nicht dem MU geh\u00f6rende Anteil am EK des TU wird als <strong>Ausgleichsposten f\u00fcr Anteile anderer Gesellschafter</strong> ausgewiesen (nach dem EK, \u00a7\u00a0307 HGB).
+</div>
+<p><strong>Vorgehen Erstkonsolidierung (Neubewertungsverfahren) bei z.\u00a0B. 80% Anteil:</strong></p>
+<table class="erk-table">
+  <tr><th>Schritt</th><th>Beschreibung</th></tr>
+  <tr><td>1.\u00a0Summenabschluss</td><td>HB\u00a0II von MU und TU addieren</td></tr>
+  <tr><td>2.\u00a0Neubewertung TU</td><td>Stille Reserven / Lasten vollst\u00e4ndig aufdecken (100%, nicht nur 80%)</td></tr>
+  <tr><td>3.\u00a0Verrechnung 80%</td><td>80% des neubewerteten EK gegen Beteiligungsbuchwert MU aufrechnen \u2192 GoF</td></tr>
+  <tr><td>4.\u00a0Minderheiten\u00a020%</td><td>20% des neubewerteten EK als Ausgleichsposten f\u00fcr fremde Gesellschafter</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Zahlenbeispiel (aus Vorlesung): 80% Anteilsbesitz</div>
+Beteiligungsbuchwert MU (f\u00fcr 80%): <strong>1.300 TEUR</strong><br>
+Neubewertetes EK TU: 1.000 + 150 (stille Reserven) = <strong>1.150 TEUR</strong><br>
+80% davon: 0,80 \u00d7 1.150 = <strong>920 TEUR</strong><br>
+<strong>GoF = 1.300 \u2212 920 = 380 TEUR</strong><br><br>
+Ausgleichsposten Minderheiten = 20% \u00d7 1.150 = <strong>230 TEUR</strong><br>
+(= 20% Gez.\u00a0Kapital\u00a0100 + 20% R\u00fccklagen\u00a040 + 20% JÜ\u00a060 + 20% Neubew.R\u00fcckl.\u00a030)
+</div>`,
+      merke: "Vollkonsolidierung = 100% der Verm\u00f6genswerte, aber nur Anteil des MU gegen Beteiligungsbuchwert verrechnen. Rest = Ausgleichsposten Minderheiten.",
+      interaktion: [
+        { frage: "Wie werden Verm\u00f6genswerte einer 80%-Tochter in den Konzernabschluss einbezogen?", optionen: ["Nur zu 80% (anteilig)", "Zu 100% (vollst\u00e4ndig)", "Gar nicht, nur als Beteiligung", "Zu 50%"], richtig: 1, erklaerung: "Vollkonsolidierung: Alle Aktiva und Passiva des TU gehen vollst\u00e4ndig (100%) in den Konzernabschluss ein, unabh\u00e4ngig vom Beteiligungsanteil." },
+        { frage: "Was repr\u00e4sentiert der 'Ausgleichsposten f\u00fcr Anteile anderer Gesellschafter'?", optionen: ["Den Goodwill aus der Kapitalkonsolidierung", "Das anteilige EK des TU, das nicht dem MU geh\u00f6rt", "Die Schulden der Minderheitsgesellschafter", "Stille Reserven der Minderheiten"], richtig: 1, erklaerung: "Ausgleichsposten = anteiliges neubewertetes EK des TU, das auf Minderheitsgesellschafter entf\u00e4llt. Ausweis nach dem Konzerneigenkapital." },
+        { frage: "MU h\u00e4lt 75% an TU. Neubewertetes EK des TU = 1.000 TEUR. Beteiligungsbuchwert = 850 TEUR. Wie hoch ist der Ausgleichsposten?", optionen: ["750 TEUR", "250 TEUR", "1.000 TEUR", "100 TEUR"], richtig: 1, erklaerung: "Ausgleichsposten = 25% \u00d7 1.000 = 250 TEUR. Dieser repr\u00e4sentiert das anteilige EK der Minderheitsgesellschafter." }
+      ]
+    }
   ],
   quiz: [
     { frage: "Was wird bei der Kapitalkonsolidierung aufgerechnet?", optionen: ["Umsätze und Kosten", "Beteiligungsbuchwert (MU) gegen EK (TU)", "Forderungen und Verbindlichkeiten", "Gewinne und Verluste"], richtig: 1, erklaerung: "Kapitalkonsolidierung: Beteiligungsbuchwert beim MU (Aktiva) wird gegen das anteilige EK des TU (Passiva) aufgerechnet." },
