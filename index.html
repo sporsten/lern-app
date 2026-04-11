@@ -7,7 +7,18 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <title>Lern-App</title>
-  <script src="data/data.js?v=1"></script>
+  <script>
+  // Auto-Update: alte Caches loeschen und Service Worker neu laden
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function(regs) {
+      regs.forEach(function(r) { r.unregister(); });
+    });
+    caches.keys().then(function(names) {
+      names.forEach(function(n) { caches.delete(n); });
+    });
+  }
+  </script>
+  <script src="data/data.js?v=20260411"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -1239,29 +1250,6 @@
     });
     html += `</div>`;
 
-    // Neuigkeiten
-    if (typeof NEUIGKEITEN !== 'undefined' && NEUIGKEITEN.length > 0) {
-      const typLabel = { feature: '✨ Neu', inhalt: '📚 Inhalt', fix: '🔧 Fix' };
-      const typColor = { feature: '#8B5CF6', inhalt: '#10B981', fix: '#F59E0B' };
-      const recent = NEUIGKEITEN.slice(0, 4);
-      html += `<div class="news-card fade-in">
-        <div class="news-header"><span class="news-title-icon">🆕</span><h3>Was ist neu?</h3></div>
-        <div class="news-list">
-          ${recent.map(n => {
-            const d = new Date(n.datum);
-            const dateStr = d.toLocaleDateString('de-DE', { day:'numeric', month:'short' });
-            const col = typColor[n.typ] || '#6B7280';
-            const lbl = typLabel[n.typ] || n.typ;
-            return `<div class="news-item">
-              <span class="news-badge" style="background:${col}">${lbl}</span>
-              <div class="news-content"><strong>${n.titel}</strong><span>${n.text}</span></div>
-              <span class="news-date">${dateStr}</span>
-            </div>`;
-          }).join('')}
-        </div>
-      </div>`;
-    }
-
     // Spaced Repetition Review
     const due = getSRDue();
     if (due.length > 0) {
@@ -2358,10 +2346,6 @@
 
   showHome();
 
-  // Service Worker registrieren – immer neueste Version laden
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').catch(function() {});
-  }
 </script>
 
 </body>

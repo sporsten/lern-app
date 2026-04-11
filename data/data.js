@@ -1,4 +1,4 @@
-// Lern-App Datenbank
+﻿// Lern-App Datenbank
 
 const FAECHER = {
   "steuerrecht": {
@@ -4348,6 +4348,45 @@ Ausgleichsposten Minderheiten = 20% \u00d7 1.150 = <strong>230 TEUR</strong><br>
         { frage: "Was repr\u00e4sentiert der 'Ausgleichsposten f\u00fcr Anteile anderer Gesellschafter'?", optionen: ["Den Goodwill aus der Kapitalkonsolidierung", "Das anteilige EK des TU, das nicht dem MU geh\u00f6rt", "Die Schulden der Minderheitsgesellschafter", "Stille Reserven der Minderheiten"], richtig: 1, erklaerung: "Ausgleichsposten = anteiliges neubewertetes EK des TU, das auf Minderheitsgesellschafter entf\u00e4llt. Ausweis nach dem Konzerneigenkapital." },
         { frage: "MU h\u00e4lt 75% an TU. Neubewertetes EK des TU = 1.000 TEUR. Beteiligungsbuchwert = 850 TEUR. Wie hoch ist der Ausgleichsposten?", optionen: ["750 TEUR", "250 TEUR", "1.000 TEUR", "100 TEUR"], richtig: 1, erklaerung: "Ausgleichsposten = 25% \u00d7 1.000 = 250 TEUR. Dieser repr\u00e4sentiert das anteilige EK der Minderheitsgesellschafter." }
       ]
+    },
+    {
+      titel: "\uD83D\uDD04 Folge- und Endkonsolidierung",
+      inhalt: `<div class="def-box"><div class="def-label">Folgekonsolidierung</div>
+Die <strong>Folgekonsolidierung</strong> findet in jedem Gesch\u00e4ftsjahr nach der Erstkonsolidierung statt. Die Buchungen der Erstkonsolidierung werden <strong>wiederholt und fortgeschrieben</strong>. Im Gegensatz zur erfolgsneutralen Erstkonsolidierung ist die Folgekonsolidierung <strong>erfolgswirksam</strong>.
+</div>
+<p><strong>Wesentliche Schritte der Folgekonsolidierung:</strong></p>
+<table class="erk-table">
+  <tr><th>Schritt</th><th>Beschreibung</th><th>Erfolgswirkung</th></tr>
+  <tr><td>1. HB\u00a0III erstellen</td><td>Stille Reserven/Lasten erneut aufdecken + planm\u00e4\u00dfige Abschreibung der aufgedeckten stillen Reserven</td><td>Erfolgswirksam (z.\u00a0B. Abschreibung Maschine)</td></tr>
+  <tr><td>2. Verrechnung</td><td>Beteiligungsbuchwert (MU) gegen EK des TU auf Basis der <strong>Werte aus der Erstkonsolidierung</strong></td><td>Erfolgsneutral (Wiederholung)</td></tr>
+  <tr><td>3. GoF-Abschreibung</td><td>Planm\u00e4\u00dfige Abschreibung des Goodwill \u00fcber die Nutzungsdauer (z.\u00a0B. 5 Jahre)</td><td>Erfolgswirksam (\u2193 Jahres\u00fcberschuss)</td></tr>
+  <tr><td>4. Stille Lasten</td><td>Aufl\u00f6sung stiller Lasten bei R\u00fcckzahlung/Tilgung</td><td>Erfolgswirksam (\u2191 Jahres\u00fcberschuss)</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Zahlenbeispiel Folgekonsolidierung (100%, aus Vorlesung)</div>
+GoF aus Erstkonsolidierung: <strong>190 TEUR</strong> (Nutzungsdauer 5 Jahre)<br>
+Abschreibung GoF: 190 / 5 = <strong>38 TEUR/Jahr</strong><br>
+Abschreibung stille Reserven Maschine: 100 / 5 = <strong>20 TEUR/Jahr</strong><br>
+Aufl\u00f6sung stille Lasten: <strong>+40 TEUR</strong> (einmalig bei R\u00fcckzahlung)<br>
+<strong>\u2192 Konzern-J\u00dc = J\u00dc MU (300) + J\u00dc TU (200) + Aufl\u00f6sung (40) \u2212 Abschr. Maschine (20) \u2212 Abschr. GoF (38) = 482 TEUR</strong>
+</div>
+<div class="def-box"><div class="def-label">Endkonsolidierung</div>
+Die <strong>Endkonsolidierung</strong> erfolgt beim Ausscheiden eines TU aus dem Konsolidierungskreis (z.\u00a0B. Verkauf). Gem\u00e4\u00df Erwerbsfiktion scheiden nicht die Anteile aus, sondern die <strong>Verm\u00f6gensgegenst\u00e4nde und Schulden</strong> einschlie\u00dflich eines vorhandenen GoF.
+</div>
+<table class="erk-table">
+  <tr><th>Position</th><th>Berechnung</th></tr>
+  <tr><td>Ver\u00e4u\u00dferungserl\u00f6s</td><td>Kaufpreis f\u00fcr die Anteile</td></tr>
+  <tr><td>\u2212 anteilige Verm\u00f6genswerte TU</td><td>z.\u00a0B. 80% der Aktiva</td></tr>
+  <tr><td>+ anteilige Schulden TU</td><td>z.\u00a0B. 80% der Passiva</td></tr>
+  <tr><td>\u2212 Restbuchwert GoF</td><td>Noch nicht abgeschriebener GoF</td></tr>
+  <tr><td>= <strong>Endkonsolidierungserfolg</strong></td><td>Gewinn oder Verlust aus Ver\u00e4u\u00dferung</td></tr>
+</table>
+<p><strong>Bei Minderheitsgesellschaftern:</strong> Der auf Fremdgesellschafter entfallende Abgangswert wird gegen den Ausgleichsposten aufgerechnet \u2192 <strong>erfolgsneutral</strong>.</p>`,
+      merke: "Erstkonsolidierung = erfolgsneutral. Folgekonsolidierung = erfolgswirksam (GoF-Abschreibung, Abschreibung stiller Reserven). Endkonsolidierung = Ver\u00e4u\u00dferungserl\u00f6s minus Substanz.",
+      interaktion: [
+        { frage: "Was ist der zentrale Unterschied zwischen Erst- und Folgekonsolidierung?", optionen: ["Erstkonsolidierung ist erfolgswirksam, Folgekonsolidierung erfolgsneutral", "Erstkonsolidierung ist erfolgsneutral, Folgekonsolidierung ist erfolgswirksam", "Beide sind erfolgsneutral", "Beide sind erfolgswirksam"], richtig: 1, erklaerung: "Die Erstkonsolidierung ist erfolgsneutral (reine Verrechnung). Die Folgekonsolidierung ist erfolgswirksam durch planm\u00e4\u00dfige Abschreibung des GoF und der stillen Reserven." },
+        { frage: "GoF = 190 TEUR, Nutzungsdauer 5 Jahre. Wie hoch ist die j\u00e4hrliche Abschreibung in der Folgekonsolidierung?", optionen: ["19 TEUR", "38 TEUR", "95 TEUR", "190 TEUR"], richtig: 1, erklaerung: "190 TEUR / 5 Jahre = 38 TEUR j\u00e4hrliche Abschreibung des Goodwill." },
+        { frage: "Was geschieht bei der Endkonsolidierung eines TU?", optionen: ["Nur der Beteiligungsbuchwert wird ausgebucht", "Verm\u00f6gensgegenst\u00e4nde und Schulden des TU werden entfernt, GoF ausgebucht", "Nur der GoF wird abgeschrieben", "Das EK des MU wird angepasst"], richtig: 1, erklaerung: "Gem\u00e4\u00df Erwerbsfiktion: Alle Verm\u00f6gensgegenst\u00e4nde und Schulden des TU einschlie\u00dflich verbleibendem GoF werden ausgebucht. Die Differenz zum Ver\u00e4u\u00dferungserl\u00f6s ergibt den Endkonsolidierungserfolg." }
+      ]
     }
   ],
   quiz: [
@@ -4608,45 +4647,6 @@ Wichtige Befehle: <code>SELECT ... FROM ... WHERE</code> · <code>JOIN</code> (V
   ]
 };
 
-// Neuigkeiten – hier neue Einträge oben hinzufügen
-const NEUIGKEITEN = [
-  {
-    datum: "2026-03-26",
-    typ: "inhalt",
-    titel: "Rechnungslegung – Kap. 1 & 2 neu!",
-    text: "Konzernrechnungslegung Grundlagen + alle Konsolidierungsarten (Kapital-, Schulden-, At-Equity) hinzugefügt."
-  },
-  {
-    datum: "2026-03-26",
-    typ: "inhalt",
-    titel: "WInf Seidlmeier – Kap. 4 neu!",
-    text: "Neues Thema: Datenbanksysteme (ERM, relationales Modell, ANSI-SPARC, Buchentleihprozess)."
-  },
-  {
-    datum: "2026-03-26",
-    typ: "inhalt",
-    titel: "WInf Seidlmeier – Kap. 3 neu!",
-    text: "Neues Thema: Modellierung von Organisationen und IS (Prozesstypen, EPK, ARIS, KDIS-Beispiel)."
-  },
-  {
-    datum: "2026-03-26",
-    typ: "inhalt",
-    titel: "WInf Seidlmeier – Devisenkurs-Beispiel",
-    text: "Das Devisenkurs-Beispiel aus Folie 2-7 wurde zur Wissenstreppe (Kap. 2) hinzugefügt."
-  },
-  {
-    datum: "2026-03-26",
-    typ: "feature",
-    titel: "Problemzonen-Fix",
-    text: "Richtig beantwortete Fragen verschwinden jetzt aus den Problemzonen."
-  },
-  {
-    datum: "2026-03-27",
-    typ: "inhalt",
-    titel: "Großes Quiz-Update 🎯",
-    text: "Alle Themen haben jetzt 15–20 Fragen im Pool. Je Quiz werden 10 zufällig gewählt – immer neue Runden!"
-  }
-];
 
 // ============================================================
 // QUIZ-FRAGEN-POOLS (je 15-20 Fragen pro Thema)
@@ -5152,3 +5152,182 @@ Anrechnung ESt: 4 × 812 € = 3.248 €, aber max. 2.436 € (tatsächliche Gew
     { frage: "Was gilt bei der Zerlegung (§§ 28 ff. GewStG)?", optionen: ["Aufteilung des Gewinns nach Umsatz", "Aufteilung des Steuermessbetrags nach dem Verhältnis der Arbeitslöhne bei mehreren Betriebsstätten", "Nur für Kapitalgesellschaften", "Aufteilung des Gewinns nach Eigenkapitalanteilen"], richtig: 1, erklaerung: "Bei mehreren Betriebsstätten in verschiedenen Gemeinden wird der Steuermessbetrag nach Arbeitslöhnen auf die Gemeinden aufgeteilt." }
   ]
 };
+
+
+// STEUERRECHT - Kapitel 4: Körperschaftsteuer
+FAECHER["steuerrecht"].themen["koerperschaftsteuer"] = {
+  name: "4. K\u00f6rperschaftsteuer",
+  zusammenfassung: "Die K\u00f6rperschaftsteuer (KSt) ist die Ertragsteuer juristischer Personen (GmbH, AG). Steuersatz 15 % auf das zu versteuernde Einkommen. Dazu kommt der Solidarit\u00e4tszuschlag (5,5 % der KSt).",
+  erklaerungen: [
+    {
+      titel: "\u2696\ufe0f K\u00f6rperschaftsteuer \u2013 \u00dcberblick & Steuerpflicht",
+      inhalt: `<div class="def-box"><div class="def-label">K\u00f6rperschaftsteuer (KSt)</div>
+<p>Die KSt besteuert das <strong>Einkommen juristischer Personen</strong> (z.\u00a0B. GmbH, AG, eG, e.V.).</p>
+<ul>
+  <li><strong>Personensteuer</strong>: Steuerliche Leistungsf\u00e4higkeit einer <em>juristischen</em> Person (\u00a7\u00a71\u00a0Abs.\u00a01, \u00a72 KStG)</li>
+  <li><strong>Ertragsteuer</strong>: Bemessungsgrundlage = zu versteuerndes Einkommen (\u00a7\u00a77 KStG)</li>
+  <li><strong>Gemeinschaftsteuer</strong>: Aufkommen geht je zur H\u00e4lfte an Bund und L\u00e4nder</li>
+  <li><strong>Jahressteuer</strong>: mit vierteltj\u00e4hrlichen Vorauszahlungen</li>
+</ul></div>
+<table class="erk-table">
+  <tr><th>Steuerpflicht</th><th>Wer?</th><th>Prinzip</th></tr>
+  <tr><td><strong>Unbeschr\u00e4nkt</strong> (\u00a7\u00a71 Abs.\u00a01 KStG)</td><td>Gesch\u00e4ftsleitung <strong>oder</strong> Sitz im Inland</td><td>Welteinkommensprinzip</td></tr>
+  <tr><td><strong>Beschr\u00e4nkt</strong> (\u00a7\u00a72 KStG)</td><td>Weder Gesch\u00e4ftsleitung noch Sitz im Inland</td><td>Inlandsprinzip</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Besonderheit: Keine Privatsph\u00e4re</div>
+Alle Eink\u00fcnfte einer K\u00f6rperschaft sind <strong>Eink\u00fcnfte aus Gewerbebetrieb</strong> (\u00a7\u00a78 Abs.\u00a02 KStG) \u2013 es gibt keine private Sph\u00e4re wie bei nat\u00fcrlichen Personen.
+</div>`,
+      merke: "KSt = Personensteuer juristischer Personen. Steuersatz 15% zzgl. SolZ 5,5%. Unbeschr\u00e4nkte Pflicht: Sitz/Gesch\u00e4ftsleitung in Deutschland \u2192 Welteinkommensprinzip.",
+      interaktion: [
+        { frage: "Was ist die Bemessungsgrundlage der K\u00f6rperschaftsteuer?", optionen: ["Der Jahres\u00fcberschuss nach Handelsbilanz", "Das zu versteuernde Einkommen (\u00a7 7 KStG)", "Der Gewerbeertrag", "Der Umsatz der K\u00f6rperschaft"], richtig: 1, erklaerung: "\u00a7 7 KStG: BMG der KSt ist das zu versteuernde Einkommen \u2013 ermittelt nach einem mehrstufigen Schema aus Handelsbilanz, au\u00dferbilanzielle Korrekturen und Verlustabzug." },
+        { frage: "Welches Prinzip gilt f\u00fcr eine GmbH mit Sitz in Deutschland?", optionen: ["Inlandsprinzip (nur inl\u00e4ndische Eink\u00fcnfte)", "Quellenlandprinzip", "Welteinkommensprinzip (alle weltweiten Eink\u00fcnfte)", "Territorialprinzip"], richtig: 2, erklaerung: "Unbeschr\u00e4nkte K\u00f6rperschaftsteuerpflicht (\u00a7 1 Abs. 1 KStG) + Welteinkommensprinzip (\u00a7 1 Abs. 2 KStG): alle in- und ausl\u00e4ndischen Eink\u00fcnfte werden besteuert." },
+        { frage: "Was gilt f\u00fcr Eink\u00fcnfte einer GmbH aus Verm\u00f6gensverwaltung?", optionen: ["Sie sind grunds\u00e4tzlich steuerfrei", "Sie sind Eink\u00fcnfte aus Kapitalverm\u00f6gen", "Sie sind stets Eink\u00fcnfte aus Gewerbebetrieb (\u00a7 8 Abs. 2 KStG)", "Sie unterliegen nur der Gewerbesteuer"], richtig: 2, erklaerung: "\u00a7 8 Abs. 2 KStG: Alle Eink\u00fcnfte einer K\u00f6rperschaft gelten als Eink\u00fcnfte aus Gewerbebetrieb \u2013 es gibt keine Privatsph\u00e4re." }
+      ]
+    },
+    {
+      titel: "\u{1F4CA} KSt-Einkommensermittlung \u2013 Die drei Schemata",
+      inhalt: `<div class="def-box"><div class="def-label">Schema I \u2013 Von der Handelsbilanz zur Summe der Eink\u00fcnfte</div>
+<table class="erk-table">
+  <tr><td>Jahres\u00fcberschuss / -fehlbetrag nach Handelsbilanz</td><td></td></tr>
+  <tr><td>+/\u2212 Korrekturen durch steuerl. Bilanzierungs- & Bewertungsvorschriften</td><td></td></tr>
+  <tr><td><strong>= Verlust / Gewinn lt. Steuerbilanz</strong></td><td></td></tr>
+  <tr><td>+ au\u00dferbilanzielle Hinzurechnungen</td><td></td></tr>
+  <tr><td>\u2212 au\u00dferbilanzielle Abrechnungen</td><td></td></tr>
+  <tr><td>+ Hinzurechnungen der \u00fcber GuV gebuchten Zuwendungen (\u00a7 9 KStG)</td><td></td></tr>
+  <tr><td><strong>= Summe der Eink\u00fcnfte</strong></td><td>(\u00a7 9 Abs. 2 KStG)</td></tr>
+</table></div>
+<div class="def-box"><div class="def-label">Schema II \u2013 Zum zu versteuernden Einkommen</div>
+<table class="erk-table">
+  <tr><td>= Summe der Eink\u00fcnfte</td><td></td></tr>
+  <tr><td>\u2212 Abziehbare Zuwendungen (\u00a7 9 Abs. 1 Nr. 2 KStG)</td><td>Spenden, max. 20% od. 4\u2030</td></tr>
+  <tr><td>= Gesamtbetrag der Eink\u00fcnfte</td><td></td></tr>
+  <tr><td>\u2212 Verlustabzug (\u00a7 10d EStG)</td><td></td></tr>
+  <tr><td><strong>= zu versteuerndes Einkommen</strong></td><td></td></tr>
+  <tr><td>\u00d7 K\u00f6rperschaftsteuertarif 15%</td><td></td></tr>
+  <tr><td>= tarifliche K\u00f6rperschaftsteuer</td><td></td></tr>
+  <tr><td>\u2212 Steuererm\u00e4\u00dfigungen ausl\u00e4ndische Eink\u00fcnfte</td><td></td></tr>
+  <tr><td><strong>= festzusetzende K\u00f6rperschaftsteuer</strong></td><td></td></tr>
+</table></div>
+<div class="def-box"><div class="def-label">Schema III \u2013 Zur Nachzahlung/Erstattung</div>
+<table class="erk-table">
+  <tr><td>= festzusetzende K\u00f6rperschaftsteuer</td><td></td></tr>
+  <tr><td>\u2212 K\u00f6rperschaftsteuer-Vorauszahlungen</td><td>Vierteltj\u00e4hrlich</td></tr>
+  <tr><td>\u2212 anrechenbare Kapitalertragsteuer</td><td>25% KapESt als Quellensteuer</td></tr>
+  <tr><td><strong>= KSt-Nachzahlung bzw. -Erstattung</strong></td><td>\u21d2 R\u00fcckstellung bzw. Forderung</td></tr>
+</table></div>`,
+      merke: "3 Schemata: I) HB \u2192 Steuerbilanz \u2192 Summe der Eink\u00fcnfte. II) Abziehbare Zuwendungen, Verlustabzug \u2192 zvE \u00d7 15%. III) \u2212 Vorauszahlungen \u2212 KapESt = Nachzahlung/Erstattung.",
+      interaktion: [
+        { frage: "Wie hoch ist der K\u00f6rperschaftsteuersatz?", optionen: ["25%", "30%", "15%", "19%"], richtig: 2, erklaerung: "\u00a7 23 Abs. 1 KStG: Der KSt-Tarif betr\u00e4gt einheitlich 15% des zu versteuernden Einkommens (zzgl. 5,5% SolZ darauf)." },
+        { frage: "Wie hoch d\u00fcrfen abziehbare Spenden maximal sein?", optionen: ["5% der Summe der Eink\u00fcnfte", "10% des Gewinns", "20% der Summe der Eink\u00fcnfte oder 4 Promille der Umsatz+L\u00f6hne", "Unbegrenzt"], richtig: 2, erklaerung: "\u00a7 9 Abs. 1 Nr. 2 KStG: Maximal 20% der Summe der Eink\u00fcnfte ODER 4\u2030 der Summe aus Gesamtumsatz + Arbeitsentgelte (der h\u00f6here Wert gilt)." },
+        { frage: "Was ist die anrechenbare Kapitalertragsteuer?", optionen: ["Eine Zusatzsteuer auf Dividenden", "Eine Quellensteuer (25%), die als Vorauszahlung auf die KSt gilt", "Eine Steuerbefreiung f\u00fcr Kapitalgewinne", "Die GewSt auf Kapitalertr\u00e4ge"], richtig: 1, erklaerung: "Die KapESt (25%) wird von der Bank auf Kapitalertr\u00e4ge einbehalten und ans FA abgef\u00fchrt \u2013 f\u00fcr K\u00f6rperschaften ist sie eine Art Vorauszahlung, die auf die KSt angerechnet wird." }
+      ]
+    },
+    {
+      titel: "\u{1F504} Au\u00dferbilanzielle Korrekturen \u2013 Hinzurechnungen & Abrechnungen",
+      inhalt: `<div class="def-box"><div class="def-label">Au\u00dferbilanzielle Hinzurechnungen (kein Betriebsausgabenabzug)</div>
+<table class="erk-table">
+  <tr><th>Rechtsgrundlage</th><th>Inhalt</th></tr>
+  <tr><td>\u00a7 4 Abs. 5 EStG i.V.m. \u00a7 8 Abs. 1 KStG</td><td>Nicht abzugsf\u00e4hige BA (Geschenke &gt;35\u00a0€, Bewirtung 30%, etc.)</td></tr>
+  <tr><td>\u00a7 4 Abs. 5b EStG</td><td>Gewerbesteuer + Nebenleistungen (keine BA)</td></tr>
+  <tr><td>\u00a7 4 Abs. 6 EStG</td><td>Parteispenden</td></tr>
+  <tr><td>\u00a7 10 KStG</td><td>Bestimmte Aufwendungen (z.\u00a0B. KSt selbst, SolZ)</td></tr>
+  <tr><td><strong>\u00a7 8 Abs. 3 S. 2 KStG</strong></td><td><strong>Verdeckte Gewinnaussch\u00fcttung (vGA)</strong></td></tr>
+</table></div>
+<div class="def-box"><div class="def-label">Verdeckte Gewinnaussch\u00fcttung (vGA) \u2013 \u00a7 8 Abs. 3 S. 2 KStG</div>
+Eine vGA liegt vor, wenn die KapGes einem Gesellschafter au\u00dferhalb der f\u00f6rmlichen Gewinnverteilung einen Vorteil gew\u00e4hrt (<em>Verm\u00f6gensminderung oder verhinderte Verm\u00f6gensmehrung</em>), die durch das Gesellschaftsverh\u00e4ltnis veranlasst ist und die Gewinn beeinflusst.<br>
+\u21d2 Korrektur: Hinzurechnung au\u00dferbilanzielle</div>
+<div class="def-box"><div class="def-label">Au\u00dferbilanzielle Abrechnungen (steuerfreie Ertr\u00e4ge)</div>
+<table class="erk-table">
+  <tr><th>Regelung</th><th>Inhalt</th><th>Besonderheit</th></tr>
+  <tr><td>\u00a7 8b Abs. 1 KStG</td><td>Erhaltene Gewinnaussch\u00fcttungen von KapGes</td><td>Steuerbefreit, aber 5% gelten als nicht abzugsf\u00e4hige BA (\u00a7 8b Abs. 5) \u2192 Netto: 95% steuerfrei</td></tr>
+  <tr><td>\u00a7 8b Abs. 2 KStG</td><td>Ver\u00e4u\u00dferungsgewinne aus Anteilen an KapGes</td><td>Steuerbefreit, analog 5% als nicht abzugsf\u00e4hige BA (\u00a7 8b Abs. 3)</td></tr>
+  <tr><td>\u00a7 8 Abs. 3 S. 3 KStG</td><td>Verdeckte Einlagen</td><td>Gesellschafter gew\u00e4hrt K\u00f6rperschaft Vorteil au\u00dferhalb offener Einlage</td></tr>
+</table></div>`,
+      merke: "vGA (Hinzurechnung): Vorteil f\u00fcr Gesellschafter au\u00dferhalb f\u00f6rmlicher Gewinnverteilung. \u00a7 8b: Beteiligungsertr\u00e4ge & Ver\u00e4u\u00dferungsgewinne grunds\u00e4tzlich steuerfrei, aber 5% gelten als nicht abzugsf\u00e4hige BA \u2192 effektiv 95% steuerfrei\!",
+      interaktion: [
+        { frage: "Eine GmbH zahlt ihrem Gesellschafter-Gesch\u00e4ftsf\u00fchrer ein \u00fcberdurchschnittlich hohes Gehalt ohne \u00e4quivalente Gegenleistung. Was liegt vor?", optionen: ["Normale Betriebsausgabe", "Verdeckte Einlage", "Verdeckte Gewinnaussch\u00fcttung (vGA)", "Steuerbefreiung nach \u00a7 8b KStG"], richtig: 2, erklaerung: "VGA (\u00a7 8 Abs. 3 S. 2 KStG): \u00dcberzahltes Gehalt ist durch Gesellschaftsverh\u00e4ltnis veranlasst \u2192 Verm\u00f6gensminderung der GmbH. Der \u00fcbersteigende Betrag wird au\u00dferbilanzielle hinzugerechnet." },
+        { frage: "Eine GmbH erh\u00e4lt von ihrer Tochter-GmbH eine Dividende von 100.000 \u20ac. Wie viel ist tats\u00e4chlich steuerpflichtig?", optionen: ["100.000 \u20ac (voll steuerpflichtig)", "0 \u20ac (komplett steuerfrei)", "5.000 \u20ac (5% gelten als nicht abzugsf\u00e4hige BA)", "50.000 \u20ac (h\u00e4lftig steuerfrei)"], richtig: 2, erklaerung: "\u00a7 8b Abs. 1 KStG: Dividende steuerfrei. Aber \u00a7 8b Abs. 5: 5% der Dividende = 5.000 \u20ac gelten als nicht abzugsf\u00e4hige BA (Hinzurechnung). Effektiv: 95% steuerfrei." },
+        { frage: "Welche Aussage zu \u00a7 8b Abs. 2 KStG ist richtig?", optionen: ["Ver\u00e4u\u00dferungsgewinne aus Anteilen an KapGes sind voll steuerpflichtig", "Ver\u00e4u\u00dferungsverluste sind voll abzugsf\u00e4hig", "Ver\u00e4u\u00dferungsgewinne sind steuerfrei, aber 5% als nicht abzugsf\u00e4hige BA (Hinzurechnung)", "Ver\u00e4u\u00dferungsgewinne gelten als vGA"], richtig: 2, erklaerung: "\u00a7 8b Abs. 2 KStG: Ver\u00e4u\u00dferungsgewinn steuerfrei. Aber \u00a7 8b Abs. 3: 5% des Gewinns = nicht abzugsf\u00e4hige BA. Ver\u00e4u\u00dferungsverluste werden analog nicht ber\u00fccksichtigt." }
+      ]
+    },
+    {
+      titel: "\u{1F4C9} Verlustabzug & Solidarit\u00e4tszuschlag",
+      inhalt: `<div class="def-box"><div class="def-label">Verlustabzug bei der K\u00f6rperschaftsteuer (\u00a7 10d EStG i.V.m. \u00a7 8 Abs. 1 KStG)</div>
+<p>Da alle Eink\u00fcnfte = Eink\u00fcnfte aus Gewerbebetrieb, ist ein <strong>Verlustausgleich im Verlustentstehungsjahr nicht m\u00f6glich</strong>. Stattdessen:</p></div>
+<table class="erk-table">
+  <tr><th>Methode</th><th>Regelung</th><th>Betrag</th><th>Zeitraum</th></tr>
+  <tr><td><strong>Verlustr\u00fccktrag</strong></td><td>\u00a7 10d Abs. 1 EStG</td><td>bis 1 Mio. \u20ac</td><td>2 Vorjahre</td></tr>
+  <tr><td><strong>Verlustvortrag</strong> 1. Stufe</td><td>\u00a7 10d Abs. 2 EStG</td><td>unbegrenzt bis 1 Mio. \u20ac</td><td>Folgejahre</td></tr>
+  <tr><td><strong>Verlustvortrag</strong> 2. Stufe</td><td>\u00a7 10d Abs. 2 EStG</td><td>max. 70% des 1\u00a0Mio.\u00a0\u20ac \u00fcbersteigenden Betrags</td><td>Folgejahre</td></tr>
+</table>
+<div class="def-box"><div class="def-label">Mindestbesteuerung (2. Stufe Verlustvortrag)</div>
+Der Anteil &gt; 1 Mio. \u20ac kann nur zu 70% verrechnet werden \u2192 30% des \u00fcbersteigenden GdE bleiben stets steuerpflichtig (Mindestbesteuerung).
+<br><strong>Fallbeispiel \u201eRosenheimer Craft Beer GmbH\u201c:</strong><br>
+Jahr 10: GdE 500.000 \u20ac; Jahr 11: Verlust \u22122.000.000 \u20ac; Jahr 12: GdE 1.500.000 \u20ac<br>
+Jahr 10 (R\u00fccktrag): max. 500.000 \u20ac zur\u00fcck<br>
+Verbleibender Vortrag: 2.000.000 \u2212 500.000 = 1.500.000 \u20ac<br>
+Jahr 12: 1. Stufe 1.000.000 \u20ac, 2. Stufe: 70% \u00d7 500.000 = 350.000 \u20ac \u2192 gesamt 1.350.000 \u20ac verrechenbar
+</div>
+<div class="def-box"><div class="def-label">Solidarit\u00e4tszuschlag (\u00a7 1, 4 SolZG) \u2013 Annexsteuer</div>
+5,5% der <strong>festgesetzten K\u00f6rperschaftsteuer</strong> (betrifft auch die Kapitalertragsteuer).
+</div>`,
+      merke: "Verlustr\u00fccktrag: max. 1 Mio. \u20ac, 2 Vorjahre (auf Antrag verzichtbar). Verlustvortrag: 1 Mio. \u20ac unbegrenzt, dar\u00fcber nur 70% (Mindestbesteuerung). SolZ = 5,5% der KSt.",
+      interaktion: [
+        { frage: "Wie hoch ist der maximale Betrag beim Verlustr\u00fccktrag bei der KSt?", optionen: ["500.000 \u20ac", "2 Mio. \u20ac", "1 Mio. \u20ac", "Unbegrenzt"], richtig: 2, erklaerung: "\u00a7 10d Abs. 1 EStG: R\u00fccktrag max. 1 Mio. \u20ac in die 2 vorangehenden Veranlagungszeitr\u00e4ume. Auf Antrag kann der R\u00fccktrag unterlassen werden (\u00a7 10d Abs. 1 S. 6 EStG)." },
+        { frage: "Was versteht man unter der Mindestbesteuerung beim Verlustvortrag?", optionen: ["Jede K\u00f6rperschaft zahlt mindestens 15% KSt", "Der 1 Mio. \u20ac \u00fcbersteigende Betrag kann maximal zu 70% mit Verlusten verrechnet werden", "Verluste k\u00f6nnen nur im Entstehungsjahr verrechnet werden", "Der Verlust darf h\u00f6chstens 1 Mio. \u20ac betragen"], richtig: 1, erklaerung: "Mindestbesteuerung (\u00a7 10d Abs. 2 EStG): 1. Stufe unbegrenzt bis 1 Mio. \u20ac, 2. Stufe: vom dar\u00fcber liegenden GdE nur 70% verrechenbar \u2192 30% bleiben stets steuerpflichtig." },
+        { frage: "Wie hoch ist der Solidarit\u00e4tszuschlag auf die K\u00f6rperschaftsteuer?", optionen: ["3,5%", "5,5%", "7%", "10%"], richtig: 1, erklaerung: "\u00a7 4 SolZG i.V.m. \u00a7 3 Abs. 1 SolZG: Der SolZ betr\u00e4gt 5,5% der festgesetzten K\u00f6rperschaftsteuer. Er gilt auch f\u00fcr die Kapitalertragsteuer." }
+      ]
+    }
+  ],
+  quiz: [
+    { frage: "Was ist die Bemessungsgrundlage der K\u00f6rperschaftsteuer?", optionen: ["Jahres\u00fcberschuss nach Handelsbilanz", "Zu versteuerndes Einkommen (\u00a7 7 KStG)", "Gewerbeertrag", "Umsatz der K\u00f6rperschaft"], richtig: 1, erklaerung: "\u00a7 7 KStG: BMG der KSt ist das zu versteuernde Einkommen \u2013 ermittelt nach mehrstufigem Schema aus Handelsbilanz, au\u00dferbilanzielle Korrekturen und Verlustabzug." },
+    { frage: "Welche juristischen Personen unterliegen der K\u00f6rperschaftsteuer?", optionen: ["Nur Einzelunternehmen", "GmbH, AG, eG, e.V.", "Nur Personengesellschaften", "Nur b\u00f6rsennotierte Unternehmen"], richtig: 1, erklaerung: "\u00a7 1 Abs. 1 KStG: Unbeschr\u00e4nkt k\u00f6rperschaftsteuerpflichtig sind u.a. GmbH, AG, eG und e.V. \u2013 also juristische Personen." },
+    { frage: "Wie hoch ist der K\u00f6rperschaftsteuersatz?", optionen: ["25%", "30%", "15%", "19%"], richtig: 2, erklaerung: "\u00a7 23 Abs. 1 KStG: Der KSt-Tarif betr\u00e4gt einheitlich 15% des zu versteuernden Einkommens (zzgl. 5,5% SolZ darauf)." },
+    { frage: "Was gilt f\u00fcr alle Eink\u00fcnfte einer GmbH laut \u00a7 8 Abs. 2 KStG?", optionen: ["Sie sind Eink\u00fcnfte aus Kapitalverm\u00f6gen", "Sie sind Eink\u00fcnfte aus Gewerbebetrieb", "Sie sind steuerfrei", "Sie sind Eink\u00fcnfte aus V&V"], richtig: 1, erklaerung: "\u00a7 8 Abs. 2 KStG: Alle Eink\u00fcnfte einer K\u00f6rperschaft gelten als Eink\u00fcnfte aus Gewerbebetrieb \u2013 es gibt keine private Sph\u00e4re wie bei nat\u00fcrlichen Personen." },
+    { frage: "Was ist eine verdeckte Gewinnaussch\u00fcttung (vGA)?", optionen: ["Eine offene Dividendenzahlung", "Ein Vorteil f\u00fcr den Gesellschafter au\u00dferhalb der f\u00f6rmlichen Gewinnverteilung", "Eine steuerfreie Einlage", "Ein Verlustausgleich"], richtig: 1, erklaerung: "\u00a7 8 Abs. 3 S. 2 KStG: vGA = Verm\u00f6gensminderung/-verhinderte Mehrung durch das Gesellschaftsverh\u00e4ltnis veranlasst \u2192 au\u00dferbilanzielle Hinzurechnung." },
+    { frage: "Wie werden Dividenden von Tochtergesellschaften bei der empfangenden GmbH behandelt (\u00a7 8b KStG)?", optionen: ["Voll steuerpflichtig", "Zur H\u00e4lfte steuerfrei", "Grunds\u00e4tzlich steuerfrei, aber 5% als nicht abzugsf\u00e4hige BA", "Steuerfrei ohne Einschr\u00e4nkung"], richtig: 2, erklaerung: "\u00a7 8b Abs. 1 + 5 KStG: Beteiligungsertr\u00e4ge sind steuerfrei, aber 5% gelten als nicht abzugsf\u00e4hige BA \u2192 effektiv 95% steuerfrei." },
+    { frage: "Wie hoch ist der maximale Verlustr\u00fccktrag bei der KSt?", optionen: ["500.000 \u20ac", "2 Mio. \u20ac", "1 Mio. \u20ac", "Unbegrenzt"], richtig: 2, erklaerung: "\u00a7 10d Abs. 1 EStG i.V.m. \u00a7 8 Abs. 1 KStG: R\u00fccktrag max. 1 Mio. \u20ac in die 2 vorangehenden Veranlagungszeitr\u00e4ume." },
+    { frage: "Was bedeutet Mindestbesteuerung beim Verlustvortrag?", optionen: ["Jede K\u00f6rperschaft zahlt mindestens 15% KSt", "Der 1 Mio. \u20ac \u00fcbersteigende GdE-Anteil ist nur zu 70% verrechenbar", "Verluste verfallen nach 5 Jahren", "Verluste d\u00fcrfen 1 Mio. \u20ac nicht \u00fcberschreiten"], richtig: 1, erklaerung: "\u00a7 10d Abs. 2 EStG: 1. Stufe bis 1 Mio. \u20ac unbegrenzt, 2. Stufe: max. 70% des \u00fcbersteigenden Betrags \u2192 30% bleiben stets steuerpflichtig." },
+    { frage: "Wie hoch ist der Solidarit\u00e4tszuschlag auf die K\u00f6rperschaftsteuer?", optionen: ["3,5%", "5,5%", "7%", "10%"], richtig: 1, erklaerung: "\u00a7 4 SolZG: Der SolZ betr\u00e4gt 5,5% der festgesetzten K\u00f6rperschaftsteuer. Er gilt auch f\u00fcr die Kapitalertragsteuer." },
+    { frage: "Was gilt f\u00fcr Ver\u00e4u\u00dferungsgewinne aus Anteilen an Kapitalgesellschaften (\u00a7 8b Abs. 2 KStG)?", optionen: ["Voll steuerpflichtig", "Steuerfrei, aber 5% als nicht abzugsf\u00e4hige BA", "H\u00e4lfte steuerpflichtig", "Steuerfrei ohne Einschr\u00e4nkung"], richtig: 1, erklaerung: "\u00a7 8b Abs. 2 + 3 KStG: Ver\u00e4u\u00dferungsgewinne aus KapGes-Anteilen steuerfrei, aber 5% des Gewinns gelten als nicht abzugsf\u00e4hige BA (Hinzurechnung)." },
+    { frage: "Welches Prinzip gilt f\u00fcr eine GmbH mit Sitz in Deutschland?", optionen: ["Inlandsprinzip", "Quellenlandprinzip", "Welteinkommensprinzip", "Territorialprinzip"], richtig: 2, erklaerung: "\u00a7 1 Abs. 1 + 2 KStG: Unbeschr\u00e4nkte Steuerpflicht + Welteinkommensprinzip \u2192 alle in- und ausl\u00e4ndischen Eink\u00fcnfte werden besteuert." },
+    { frage: "Wie werden abziehbare Spenden bei der KSt begrenzt?", optionen: ["5% der Summe der Eink\u00fcnfte", "10% des Gewinns", "20% der Summe der Eink\u00fcnfte oder 4\u2030 der Umsatz+L\u00f6hne", "Unbegrenzt"], richtig: 2, erklaerung: "\u00a7 9 Abs. 1 Nr. 2 KStG: Max. 20% der Summe der Eink\u00fcnfte ODER 4\u2030 der Summe aus Gesamtumsatz + Arbeitsentgelte (h\u00f6herer Wert gilt)." }
+  ],
+  lueckentext: [
+    { text: "Die K\u00f6rperschaftsteuer besteuert das Einkommen ___ Personen. Der Steuersatz betr\u00e4gt ___ % (\u00a7 23 KStG).", luecken: ["juristischer", "15"], erklaerung: "KSt = Personensteuer juristischer Personen. Steuersatz 15%." },
+    { text: "Alle Eink\u00fcnfte einer GmbH sind nach \u00a7 8 Abs. 2 KStG Eink\u00fcnfte aus ___, da es bei K\u00f6rperschaften keine ___ gibt.", luecken: ["Gewerbebetrieb", "Privatsph\u00e4re"], erklaerung: "\u00a7 8 Abs. 2 KStG: Alles Gewerbebetrieb \u2013 keine private Sph\u00e4re." },
+    { text: "Eine GmbH ist unbeschr\u00e4nkt k\u00f6rperschaftsteuerpflichtig, wenn sie ___ oder ___ im Inland hat. Dann gilt das ___.", luecken: ["Gesch\u00e4ftsleitung", "Sitz", "Welteinkommensprinzip"], erklaerung: "\u00a7 1 Abs. 1 KStG: Sitz ODER Gesch\u00e4ftsleitung im Inland \u2192 unbeschr\u00e4nkte Pflicht + Welteinkommensprinzip." },
+    { text: "Eine ___ (vGA) liegt vor, wenn die KapGes einem Gesellschafter au\u00dferhalb der ___ einen Vorteil gew\u00e4hrt. Sie wird ___ hinzugerechnet.", luecken: ["verdeckte Gewinnaussch\u00fcttung", "f\u00f6rmlichen Gewinnverteilung", "au\u00dferbilanzielle"], erklaerung: "\u00a7 8 Abs. 3 S. 2 KStG: vGA = Vorteil durch Gesellschaftsverh\u00e4ltnis \u2192 au\u00dferbilanzielle Hinzurechnung." },
+    { text: "Nach \u00a7 8b Abs. 1 KStG sind Beteiligungsertr\u00e4ge grunds\u00e4tzlich ___. Aber ___ % gelten als nicht abzugsf\u00e4hige BA \u2192 effektiv ___ % steuerfrei.", luecken: ["steuerfrei", "5", "95"], erklaerung: "\u00a7 8b Abs. 1 + 5 KStG: Steuerfreiheit minus 5% nicht abzugsf\u00e4hige BA = 95% effektiv steuerfrei." },
+    { text: "Der Verlustr\u00fccktrag ist auf max. ___ \u20ac begrenzt und kann in ___ vorangehende Jahre zur\u00fcckgetragen werden.", luecken: ["1 Mio.", "2"], erklaerung: "\u00a7 10d Abs. 1 EStG: R\u00fccktrag max. 1 Mio. \u20ac in 2 Vorjahre." },
+    { text: "Beim Verlustvortrag gilt: Bis 1 Mio. \u20ac ist die Verrechnung ___, dar\u00fcber hinaus nur ___ % des \u00fcbersteigenden Betrags (Mindestbesteuerung).", luecken: ["unbegrenzt", "70"], erklaerung: "\u00a7 10d Abs. 2 EStG: 1. Stufe unbegrenzt bis 1 Mio. \u20ac, 2. Stufe max. 70%." },
+    { text: "Der Solidarit\u00e4tszuschlag betr\u00e4gt ___ % der festgesetzten ___ und ist eine sogenannte ___.", luecken: ["5,5", "K\u00f6rperschaftsteuer", "Annexsteuer"], erklaerung: "\u00a7 4 SolZG: SolZ = 5,5% der KSt \u2013 Annexsteuer zur KSt." }
+  ],
+  zuordnung: [
+    { titel: "KSt-Schema zuordnen", paare: [
+      { links: "Jahres\u00fcberschuss lt. Handelsbilanz", rechts: "Ausgangspunkt Schema I" },
+      { links: "Abziehbare Zuwendungen \u00a7 9 KStG", rechts: "Abzug in Schema II" },
+      { links: "\u00d7 15% K\u00f6rperschaftsteuertarif", rechts: "Tarifliche KSt in Schema II" },
+      { links: "\u2212 Vorauszahlungen \u2212 KapESt", rechts: "Berechnung in Schema III" }
+    ]},
+    { titel: "Au\u00dferbilanzielle Korrekturen zuordnen", paare: [
+      { links: "Vorteil f\u00fcr Gesellschafter au\u00dferhalb Gewinnverteilung", rechts: "Verdeckte Gewinnaussch\u00fcttung (vGA)" },
+      { links: "Gewerbesteuer als Aufwand gebucht", rechts: "Au\u00dferbilanzielle Hinzurechnung \u00a7 4 Abs. 5b EStG" },
+      { links: "Dividende von Tochter-GmbH (\u00a7 8b Abs. 1 KStG)", rechts: "Au\u00dferbilanzielle Abrechnung (95% steuerfrei)" },
+      { links: "Gesellschafter gew\u00e4hrt K\u00f6rperschaft Vorteil", rechts: "Verdeckte Einlage \u00a7 8 Abs. 3 S. 3 KStG" }
+    ]},
+    { titel: "Verlustabzug zuordnen", paare: [
+      { links: "Max. 1 Mio. \u20ac, 2 Vorjahre", rechts: "Verlustr\u00fccktrag \u00a7 10d Abs. 1 EStG" },
+      { links: "Unbegrenzt bis 1 Mio. \u20ac in Folgejahre", rechts: "Verlustvortrag 1. Stufe" },
+      { links: "Max. 70% des \u00fcbersteigenden Betrags", rechts: "Verlustvortrag 2. Stufe (Mindestbesteuerung)" },
+      { links: "5,5% der festgesetzten KSt", rechts: "Solidarit\u00e4tszuschlag" }
+    ]},
+    { titel: "Steuerpflicht zuordnen", paare: [
+      { links: "Sitz ODER Gesch\u00e4ftsleitung in Deutschland", rechts: "Unbeschr\u00e4nkte Steuerpflicht (\u00a7 1 KStG)" },
+      { links: "Weltweite Eink\u00fcnfte werden besteuert", rechts: "Welteinkommensprinzip" },
+      { links: "Weder Sitz noch Gesch\u00e4ftsleitung in Deutschland", rechts: "Beschr\u00e4nkte Steuerpflicht (\u00a7 2 KStG)" },
+      { links: "Alle Eink\u00fcnfte = Eink\u00fcnfte aus Gewerbebetrieb", rechts: "\u00a7 8 Abs. 2 KStG \u2013 keine Privatsph\u00e4re" }
+    ]}
+  ]
+};
+
